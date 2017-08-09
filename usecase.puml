@@ -10,7 +10,7 @@ actorAnonym --> ucBrowseCD
 actorAnonym ---> ucBrowseBook
 actorAnonym --> ucBrowseDVD
 
-newpage
+
 
 actor :Customer: as actorCustomer
 
@@ -26,7 +26,7 @@ actorCustomer ----> ucProfile
 actorCustomer ---> ucAddCart
 actorCustomer --> ucBrowseCart
 
-newpage
+
 
 actor :Administrator: as actorAdmin
 
