@@ -1,0 +1,47 @@
+@startuml
+
+actor :Anonymous: as actorAnonym
+
+usecase (Browse CD catalog) as ucBrowseCD
+usecase (Browse Book catalog) as ucBrowseBook
+usecase (Browse DVD catalog) as ucBrowseDVD
+
+actorAnonym --> ucBrowseCD
+actorAnonym ---> ucBrowseBook
+actorAnonym --> ucBrowseDVD
+
+newpage
+
+actor :Customer: as actorCustomer
+
+usecase (Login) as ucLogin
+usecase (Logout) as ucLogout
+usecase (Browse and update profile) as ucProfile
+usecase (Add item to shopping cart) as ucAddCart
+usecase (Browse shopping cart content) as ucBrowseCart
+
+actorCustomer --> ucLogin
+actorCustomer ---> ucLogout
+actorCustomer ----> ucProfile
+actorCustomer ---> ucAddCart
+actorCustomer --> ucBrowseCart
+
+newpage
+
+actor :Administrator: as actorAdmin
+
+usecase (CRUD CD catalog) as ucCRUDCD
+usecase (CRUD Book catalog) as ucCRUDBook
+usecase (CRUD DVD catalog) as ucCRUDDVD
+
+usecase (Generate ISBN, UPC, \n EAN and GS1 numbers) as ucGenerate
+
+actorAdmin --> ucCRUDCD
+actorAdmin --> ucCRUDBook
+actorAdmin --> ucCRUDDVD
+
+ucCRUDCD ..> ucGenerate
+ucCRUDBook ..> ucGenerate
+ucCRUDDVD ..> ucGenerate
+
+@enduml
