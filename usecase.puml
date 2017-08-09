@@ -17,14 +17,19 @@ actor :Customer: as actorCustomer
 usecase (Login) as ucLogin
 usecase (Logout) as ucLogout
 usecase (Browse and update profile) as ucProfile
-usecase (Add item to shopping cart) as ucAddCart
-usecase (Browse shopping cart content) as ucBrowseCart
+usecase (Add item \n to shopping cart) as ucAddCart
+usecase (Browse shopping \n cart content) as ucBrowseCart
+usecase (Checkout) as ucCheckout
+usecase (Update inventory) as ucInventory
 
 actorCustomer --> ucLogin
-actorCustomer ---> ucLogout
-actorCustomer ----> ucProfile
-actorCustomer ---> ucAddCart
+actorCustomer --> ucLogout
+actorCustomer ---> ucProfile
+actorCustomer --> ucAddCart
 actorCustomer --> ucBrowseCart
+actorCustomer -> ucCheckout
+
+ucCheckout .> ucInventory
 
 newpage
 
@@ -33,15 +38,21 @@ actor :Administrator: as actorAdmin
 usecase (CRUD CD catalog) as ucCRUDCD
 usecase (CRUD Book catalog) as ucCRUDBook
 usecase (CRUD DVD catalog) as ucCRUDDVD
-
 usecase (Generate ISBN, UPC, \n EAN and GS1 numbers) as ucGenerate
+usecase (Update inventory) as ucInventory
+usecase (Browse inventory) as ucBrowseInventory
 
 actorAdmin --> ucCRUDCD
 actorAdmin --> ucCRUDBook
 actorAdmin --> ucCRUDDVD
+actorAdmin --> ucBrowseInventory
 
 ucCRUDCD ..> ucGenerate
 ucCRUDBook ..> ucGenerate
 ucCRUDDVD ..> ucGenerate
+
+ucCRUDCD ...> ucInventory
+ucCRUDBook ...> ucInventory
+ucCRUDDVD ...> ucInventory
 
 @enduml

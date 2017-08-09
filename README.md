@@ -6,13 +6,27 @@ The idea of the talk and the code, is to slowly build an entire microservice arc
 
 Its genesis comes from the [Tomitribe](http://www.tomitribe.com/) talk: [Microprofile JCache](https://github.com/tomitribe/microprofile-jcache)
 
+## Use cases
+
+### Anonymous user
+
+Anybody can browse the catalog of CDs, Books and DVDs.
+
+![Anonymous user use-case](usecase-anonym.png)
+
+### Customers
+
+Once logged-in, an anonymous user becomes a customer. A customer can add, remove, browse and check-out the items of his/her shopping cart. The customer can also change his/her profile. Each time items are sold, the inventory is updated.
+
+![Customer use-case](usecase-customer.png)
+
+### Administrators
+
+Administrators can create, update, delete items (CDs, DVDs, Books). A new item needs a number (ISBN, UPC, EAN or GS1). Each time an items is created of deleted, the inventory is updated.
+
+![Administrator use-case](usecase-admin.png)
+
 ## Architecture 
-
-### Use cases
-
-![Anonymous user use-case](usecase-admin.png)
-![Customer use-case](usecase-anonym.png)
-![Administrator use-case](usecase-customer.png)
 
 ### Technology used
 
