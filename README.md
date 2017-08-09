@@ -4,11 +4,19 @@ This is the code of the demos for the "Baking a Microservice Pie" talk given by 
 
 The idea of the talk and the code, is to slowly build an entire microservice architecture (and deploy it on a cluster of Raspberry Pi). It is a DVD/CD/Book store where you can search for items, buy them (using a shopping cart) and see the inventory stock.
 
+Its genesis comes from the [Tomitribe](http://www.tomitribe.com/) talk: [Microprofile JCache](https://github.com/tomitribe/microprofile-jcache)
+
 ## Architecture 
 
 ### Use cases
 
-### Technologie used
+![Anonymous user use-case](http://www.plantuml.com/plantuml/png/TLBBQiCm4BpxA_ROGXBerOU0OvTGA24qfATUL5jrJ6EjqOFGlwyaIxKKgITRCxFl8Qr43cN5aFsCg4G9H00nu0mLXHAq9OB2muxZJN_h1beYoHNxHwDLxOpNJQBS8NvdjOP8rCrxFh76YoBe2DRhRLWrfWBELlalq6Pbz3QHdhhqKDPAI1mfNvRWaM0DhzWFp7Le_oCAbLmu_KZ69Am3DNL4KfWuVWrNwlJ7-RK4L5q7WwGZI0HnmMaQMAytn7q1pTVwbLI8jD0YavJ9-5Och8W6TCkP1xfdF6NcIJXB-kQpaRxHNC6meVjpLDqui458JlGpCAQ1WuFKR-ScTQL1GqzQLSQH1e_zQ9Mf6mriNVCdt5D6kJdaosbtMC7vMA_WWy5pTR1Ntf-UWAdnatBXKlW0xsSpYDk3QpUB1qQ-O-P-N31iDjkmo1ASPyo8CV4B)
+![Customer use-case](http://www.plantuml.com/plantuml/png/TLBBQiCm4BpxA_ROGXBerOU0OvTGA24qfATUL5jrJ6EjqOFGlwyaIxKKgITRCxFl8Qr43cN5aFsCg4G9H00nu0mLXHAq9OB2muxZJN_h1beYoHNxHwDLxOpNJQBS8NvdjOP8rCrxFh76YoBe2DRhRLWrfWBELlalq6Pbz3QHdhhqKDPAI1mfNvRWaM0DhzWFp7Le_oCAbLmu_KZ69Am3DNL4KfWuVWrNwlJ7-RK4L5q7WwGZI0HnmMaQMAytn7q1pTVwbLI8jD0YavJ9-5Och8W6TCkP1xfdF6NcIJXB-kQpaRxHNC6meVjpLDqui458JlGpCAQ1WuFKR-ScTQL1GqzQLSQH1e_zQ9Mf6mriNVCdt5D6kJdaosbtMC7vMA_WWy5pTR1Ntf-UWAdnatBXKlW0xsSpYDk3QpUB1qQ-O-P-N31iDjkmo1ASPyo8CV4B)
+![Administrator use-case](http://www.plantuml.com/plantuml/png/TLBBQiCm4BpxA_ROGXBerOU0OvTGA24qfATUL5jrJ6EjqOFGlwyaIxKKgITRCxFl8Qr43cN5aFsCg4G9H00nu0mLXHAq9OB2muxZJN_h1beYoHNxHwDLxOpNJQBS8NvdjOP8rCrxFh76YoBe2DRhRLWrfWBELlalq6Pbz3QHdhhqKDPAI1mfNvRWaM0DhzWFp7Le_oCAbLmu_KZ69Am3DNL4KfWuVWrNwlJ7-RK4L5q7WwGZI0HnmMaQMAytn7q1pTVwbLI8jD0YavJ9-5Och8W6TCkP1xfdF6NcIJXB-kQpaRxHNC6meVjpLDqui458JlGpCAQ1WuFKR-ScTQL1GqzQLSQH1e_zQ9Mf6mriNVCdt5D6kJdaosbtMC7vMA_WWy5pTR1Ntf-UWAdnatBXKlW0xsSpYDk3QpUB1qQ-O-P-N31iDjkmo1ASPyo8CV4B)
+
+
+Adding PlantUML diagram in readme
+### Technology used
 
 ### Raspberry Pi cluster
 
