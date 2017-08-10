@@ -30,7 +30,7 @@ import java.util.List;
 @Path("dvd")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class DVDRest {
+public class DVDResource {
     @Inject
     private DVDRepository service;
 

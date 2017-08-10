@@ -14,7 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.bakingpie.book.persistence;
+package org.bakingpie.book.repository;
+
+import org.bakingpie.book.domain.Book;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
@@ -28,7 +30,7 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
 @Transactional(SUPPORTS)
-public class BookBean {
+public class BookRepository {
     @PersistenceContext
     private EntityManager entityManager;
 

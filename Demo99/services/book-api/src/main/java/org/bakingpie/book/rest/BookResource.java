@@ -14,21 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.bakingpie.book.resource;
+package org.bakingpie.book.rest;
 
-import org.bakingpie.book.persistence.Book;
-import org.bakingpie.book.persistence.BookBean;
+import org.bakingpie.book.domain.Book;
+import org.bakingpie.book.repository.BookRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URI;
@@ -44,38 +37,38 @@ import static javax.ws.rs.core.Response.status;
 @Produces(MediaType.APPLICATION_JSON)
 public class BookResource {
     @Inject
-    private BookBean bookBean;
+    private BookRepository bookRepository;
 
     @GET
     @Path("{id}")
     public Response findById(@PathParam("id") final Long id) {
-        return Optional.ofNullable(bookBean.findById(id))
-                       .map(Response::ok)
-                       .orElse(Math.random() * 100 < 95 ? status(NOT_FOUND) : status(INTERNAL_SERVER_ERROR))
-                       .build();
+        return Optional.ofNullable(bookRepository.findById(id))
+            .map(Response::ok)
+            .orElse(Math.random() * 100 < 95 ? status(NOT_FOUND) : status(INTERNAL_SERVER_ERROR))
+            .build();
     }
 
     @GET
     public Response findAll() {
-        return Response.ok(bookBean.findAll()).build();
+        return Response.ok(bookRepository.findAll()).build();
     }
 
     @POST
     public Response create(final Book movie) {
-        final Book created = bookBean.create(movie);
+        final Book created = bookRepository.create(movie);
         return Response.created(URI.create("movies/" + created.getId())).build();
     }
 
     @PUT
     @Path("{id}")
     public Response update(@PathParam("id") final Long id, final Book movie) {
-        return Response.ok(bookBean.update(movie)).build();
+        return Response.ok(bookRepository.update(movie)).build();
     }
 
     @DELETE
     @Path("{id}")
     public Response delete(@PathParam("id") final Long id) {
-        bookBean.delete(id);
+        bookRepository.delete(id);
         return Response.noContent().build();
     }
 }

@@ -26,7 +26,7 @@ import javax.ws.rs.Path;
 
 @ApplicationScoped
 @Path("load")
-public class LoadRest {
+public class LoadResource {
     @Inject
     private DVDRepository moviesBean;
 
