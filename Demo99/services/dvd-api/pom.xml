@@ -28,7 +28,7 @@
     <artifactId>dvd-api</artifactId>
     <version>99</version>
     <packaging>war</packaging>
-    <name>Backing a Microservice Pie :: DVD API</name>
+    <name>Backing a Microservice Pie :: Services :: DVD API</name>
 
     <dependencyManagement>
         <!-- BOMS -->
