@@ -21,21 +21,18 @@
 
     <parent>
         <groupId>org.bakingpie</groupId>
-        <artifactId>demo</artifactId>
-        <version>99</version>
+        <artifactId>parent-pom</artifactId>
+        <version>00</version>
     </parent>
 
-    <artifactId>services</artifactId>
+    <groupId>org.bakingpie</groupId>
+    <artifactId>demo</artifactId>
     <version>99</version>
     <packaging>pom</packaging>
-    <name>Backing a Microservice Pie :: Services</name>
+    <name>Backing a Microservice Pie :: Demo</name>
 
     <modules>
-        <module>book-api</module>
-        <!--<module>cd-api</module>-->
-        <module>dvd-api</module>
-        <module>inventory-api</module>
-        <!--<module>numbergenerator-api</module>-->
-        <!--<module>shoppingcart-api</module>-->
+        <module>services</module>
+        <module>clients</module>
     </modules>
 </project>
