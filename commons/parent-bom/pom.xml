@@ -31,15 +31,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <version.java>1.8</version.java>
-        <version.tomee>7.0.3</version.tomee>
-
-        <!-- Plugins -->
-        <plugin.version.war>3.1.0</plugin.version.war>
-        <plugin.version.docker>0.4.13</plugin.version.docker>
-
         <!-- Dependencies -->
         <dependency.version.javaee>7.0</dependency.version.javaee>
+        <version.tomee>7.0.3</version.tomee>
         <dependency.version.jcache>1.0.0</dependency.version.jcache>
         <dependency.version.jcache-cdi>0.1-SNAPSHOT</dependency.version.jcache-cdi>
         <dependency.version.hazelcast>3.8.1</dependency.version.hazelcast>
@@ -53,6 +47,12 @@
         <dependencies>
             <dependency>
                 <groupId>org.apache.tomee</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${dependency.version.javaee}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
                 <version>${dependency.version.javaee}</version>
                 <scope>provided</scope>

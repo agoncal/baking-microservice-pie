@@ -27,6 +27,7 @@
     <description>Parent POM only contains Maven plugins and must be herited</description>
 
     <properties>
+        <!-- Core Maven Plugins -->
         <version.antrun.plugin>1.8</version.antrun.plugin>
         <version.archetype.plugin>3.0.1</version.archetype.plugin>
         <version.assembly.plugin>3.0.0</version.assembly.plugin>
@@ -50,20 +51,27 @@
         <version.versions.plugin>2.4</version.versions.plugin>
         <version.war.plugin>3.1.0</version.war.plugin>
 
+        <!-- External Maven Plugins -->
+        <version.wildfly.swarm>2017.8.1</version.wildfly.swarm>
+        <version.tomee>1.7.4</version.tomee>
+
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
         <!-- Java -->
         <version.java>1.8</version.java>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <!-- Javadoc flag -->
+
+        <!-- Plugins flag -->
         <javadoc.disabled>true</javadoc.disabled>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 
     <build>
         <pluginManagement>
-            <!-- All plugins ordered by shortname (antrun, assembly ...) -->
+            <!-- All core Maven plugins ordered by shortname (antrun, assembly ...) -->
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -268,15 +276,6 @@
                     <version>${version.surefire.plugin}</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.tomee.maven</groupId>
-                    <artifactId>tomee-maven-plugin</artifactId>
-                    <version>1.7.4</version>
-                    <configuration>
-                        <tomeeClassifier>webprofile</tomeeClassifier>
-                        <args>-Xmx512m -XX:PermSize=256m -Dhazelcast.network.public-address=127.0.0.1</args>
-                    </configuration>
-                </plugin>
-                <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>${version.versions.plugin}</version>
@@ -301,6 +300,30 @@
                         </archive>
                     </configuration>
                 </plugin>
+
+                <!-- All external Maven plugins ordered by shortname (tomee, swarm ...) -->
+                <plugin>
+                    <groupId>org.apache.tomee.maven</groupId>
+                    <artifactId>tomee-maven-plugin</artifactId>
+                    <version>${version.tomee}</version>
+                    <configuration>
+                        <tomeeClassifier>webprofile</tomeeClassifier>
+                        <args>-Xmx512m -XX:PermSize=256m -Dhazelcast.network.public-address=127.0.0.1</args>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.wildfly.swarm</groupId>
+                    <artifactId>wildfly-swarm-plugin</artifactId>
+                    <version>${version.wildfly.swarm}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>package</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
             </plugins>
         </pluginManagement>
     </build>

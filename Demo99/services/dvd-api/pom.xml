@@ -26,6 +26,7 @@
     </parent>
 
     <artifactId>dvd-api</artifactId>
+    <version>99</version>
     <packaging>war</packaging>
     <name>Backing a Microservice Pie :: DVD API</name>
 
@@ -43,8 +44,6 @@
     </dependencyManagement>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
