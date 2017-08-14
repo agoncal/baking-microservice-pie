@@ -53,7 +53,7 @@
 
         <!-- External Maven Plugins -->
         <version.wildfly.swarm>2017.8.1</version.wildfly.swarm>
-        <version.tomee>1.7.4</version.tomee>
+        <version.tomee>7.0.3</version.tomee>
 
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
