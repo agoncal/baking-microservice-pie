@@ -38,6 +38,7 @@
         <dependency.version.jcache-cdi>0.1-SNAPSHOT</dependency.version.jcache-cdi>
         <dependency.version.hazelcast>3.8.1</dependency.version.hazelcast>
         <dependency.version.mysql>5.1.42</dependency.version.mysql>
+        <dependency.version.faker>0.13</dependency.version.faker>
 
         <!-- Test -->
         <dependency.version.junit>4.12</dependency.version.junit>
@@ -85,6 +86,12 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${dependency.version.mysql}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.javafaker</groupId>
+                <artifactId>javafaker</artifactId>
+                <version>${dependency.version.faker}</version>
             </dependency>
 
             <dependency>

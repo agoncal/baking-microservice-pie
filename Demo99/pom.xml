@@ -33,6 +33,7 @@
 
     <modules>
         <module>services</module>
-        <module>clients</module>
+        <!--<module>clients</module>-->
+        <module>client</module>
     </modules>
 </project>
