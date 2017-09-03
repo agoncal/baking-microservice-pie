@@ -1,0 +1,28 @@
+# Raspberry PI
+
+The Raspberry PI's for these samples are running using Docker Containers.
+
+## Hypriot
+
+[Hypriot](https://blog.hypriot.com) is a very small OS which is a minimal Debian-based OS that is optimized to run 
+Docker. It made it dead easy use Docker on any Raspberry Pi by just downloading and flashing a prepared SD card image 
+with HypriotOS.
+ 
+## Flash Hypriot Docker Images
+ 
+* You can find the utility to Flash the Hypriot Docker Image [here](https://github.com/hypriot/flash).
+
+Use the following commands to flash the SD Cards:
+- flash --hostname pi-client-01 https://github.com/hypriot/image-builder-rpi/releases/download/v1.5.0/hypriotos-rpi-v1.5.0.img.zip
+- flash --hostname pi-client-02 hypriotos-rpi-v1.4.0.img
+- flash --hostname pi-client-03 hypriotos-rpi-v1.4.0.img
+- flash --hostname pi-client-04 hypriotos-rpi-v1.4.0.img
+- flash --hostname pi-grom-server-01 hypriotos-rpi-v1.4.0.img
+- flash --hostname pi-grom-server-02 hypriotos-rpi-v1.4.0.img
+- flash --hostname pi-thrall-server-01 hypriotos-rpi-v1.4.0.img
+- flash --hostname pi-thrall-server-02 hypriotos-rpi-v1.4.0.img
+- flash --hostname pi-thrall-load-balancer hypriotos-rpi-v1.4.0.img
+- flash --hostname pi-grom-load-balancer hypriotos-rpi-v1.4.0.img
+- flash --hostname pi-load-balancer hypriotos-rpi-v1.4.0.img
+- flash --hostname pi-thrall-database hypriotos-rpi-v1.4.0.img
+- flash --hostname pi-grom-database hypriotos-rpi-v1.4.0.img
