@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.bakingpie.inventory.repository;
+package org.bakingpie.dog.repository;
 
-import org.bakingpie.inventory.domain.Item;
+import org.bakingpie.dog.domain.Category;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
@@ -30,32 +30,40 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
 @Transactional(SUPPORTS)
-public class ItemRepository {
+public class CategoryRepository {
+
+    // ======================================
+    // =             Injection              =
+    // ======================================
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    public Item findByNumber(final String number) {
-        return entityManager.find(Item.class, number);
+    // ======================================
+    // =              Methods               =
+    // ======================================
+
+    public Category findById(final Long id) {
+        return entityManager.find(Category.class, id);
     }
 
-    public List<Item> findAll() {
-        return entityManager.createQuery("SELECT i FROM Item i", Item.class).getResultList();
-    }
-
-    @Transactional(REQUIRED)
-    public Item create(final Item item) {
-        entityManager.persist(item);
-        return item;
-    }
-
-    @Transactional(REQUIRED)
-    public Item update(final Item item) {
-        return entityManager.merge(item);
+    public List<Category> findAll() {
+        return entityManager.createNamedQuery(Category.FIND_ALL, Category.class).getResultList();
     }
 
     @Transactional(REQUIRED)
-    public void delete(final String number) {
-        Optional.ofNullable(findByNumber(number)).ifPresent(entityManager::remove);
+    public Category create(final Category vategory) {
+        entityManager.persist(vategory);
+        return vategory;
+    }
+
+    @Transactional(REQUIRED)
+    public Category update(final Category category) {
+        return entityManager.merge(category);
+    }
+
+    @Transactional(REQUIRED)
+    public void deleteById(final Long id) {
+        Optional.ofNullable(findById(id)).ifPresent(entityManager::remove);
     }
 }

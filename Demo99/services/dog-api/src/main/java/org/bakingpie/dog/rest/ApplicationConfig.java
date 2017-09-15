@@ -14,39 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.bakingpie.inventory.domain;
+package org.bakingpie.dog.rest;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
-@Entity
-public class Item {
-
-    @Id
-    private String number;
-    private int quantity;
-
-    public Item() {
-    }
-
-    public Item(final String number, final Integer quantity) {
-        this.number = number;
-        this.quantity = quantity;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+@ApplicationPath("/api")
+public class ApplicationConfig extends Application {
 }

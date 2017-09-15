@@ -13,7 +13,7 @@ here are for the EdgeRouter X.
 
 ### Connect to the Router
 * Plug your computer into eth0 on the router.
-* Configure your computer to have the static IP and route. The Router IP is 192.168.1.1.
+* Configure your computer to have the static IP and route. The Router IP is `192.168.1.1`.
 
 ![Static IP](router-setup-01.png?raw=true)
 
@@ -29,10 +29,10 @@ other networks. The DHCP will assign IP's from 1 to 10.99.99.255.
 
 ![WAN + 2LAN2](router-setup-02.png?raw=true)
 
-* Click `Apply`. The Router should restart with the new settings.
+* Click `Apply` (then `Apply Changes` and `Reboot`). The Router should restart with the new settings.
 * Unplug your computer from the Router and connect your Home Internet in eht0. Plug your computer into any of the other 
 eth ports.
-* Remove the static IP from your computer configuration. The router should now assing you a Dynamic IP in the 
+* Remove the static IP from your computer configuration. The router should now assign you a Dynamic IP in the 
 10.99.99.x range.
 * The Router is now available in `https://10.99.99.1`. You require to change the browser address and relog to the Router
 console.
@@ -41,6 +41,7 @@ console.
 * If you wish, you can assign static IP's to your PI's (not required, but usefull if you want to make sure that you 
 access the same PI with the same IP everytime).
 * Go to Services / LAN / Actions / View Details / Static MAC/IP Mapping.
+* If it does not exist, create a new mapping with your IP address (10.99.99.x) and Mac address (on OSX you get your Mac address from Network preferences)
 
 ![Map Static IP](router-setup-03.png?raw=true)
 
@@ -49,7 +50,7 @@ access the same PI with the same IP everytime).
 ### Hostname into Hosts files
 * The Route has a hosts files to resolve DNS names.
 * To be able to resolve Hostnames from boxes connecting to the Router, we need to activate a configuration. 
-* Go to Config Tree / service / dhcp-server / hostfile-update and set to "enable". (This will register the PI's 
+* Go to Config Tree / service / dhcp-server / hostfile-update, set to "enable", click on preview. (This will register the PI's 
 hostnames in the hosts files and they will be reachable via DNS)
 
 ![Hosts Update](router-setup-04.png?raw=true)

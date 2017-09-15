@@ -33,6 +33,7 @@
     <modules>
         <module>book-api</module>
         <!--<module>cd-api</module>-->
+        <module>dog-api</module>
         <module>dvd-api</module>
         <module>inventory-api</module>
         <!--<module>numbergenerator-api</module>-->

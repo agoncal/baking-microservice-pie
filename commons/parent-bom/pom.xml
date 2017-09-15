@@ -32,37 +32,40 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Dependencies -->
-        <dependency.version.javaee>7.0</dependency.version.javaee>
+        <version.javaee>7.0</version.javaee>
         <version.tomee>7.0.3</version.tomee>
-        <dependency.version.jcache>1.0.0</dependency.version.jcache>
-        <dependency.version.jcache-cdi>0.1-SNAPSHOT</dependency.version.jcache-cdi>
-        <dependency.version.hazelcast>3.8.1</dependency.version.hazelcast>
-        <dependency.version.mysql>5.1.42</dependency.version.mysql>
-        <dependency.version.faker>0.13</dependency.version.faker>
-
+        <version.jcache>1.0.0</version.jcache>
+        <version.jcache-cdi>0.1-SNAPSHOT</version.jcache-cdi>
+        <version.hazelcast>3.8.1</version.hazelcast>
+        <version.mysql>5.1.42</version.mysql>
+        <version.h2>1.4.196</version.h2>
+        <version.faker>0.13</version.faker>
+        <version.arquillian.rest>1.0.0.Alpha4</version.arquillian.rest>
+        <version.resteasy>3.1.4.Final</version.resteasy>
         <!-- Test -->
-        <dependency.version.junit>4.12</dependency.version.junit>
+        <version.junit>4.12</version.junit>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Java EE -->
             <dependency>
                 <groupId>org.apache.tomee</groupId>
                 <artifactId>javaee-api</artifactId>
-                <version>${dependency.version.javaee}</version>
+                <version>${version.javaee}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
-                <version>${dependency.version.javaee}</version>
+                <version>${version.javaee}</version>
                 <scope>provided</scope>
             </dependency>
 
             <dependency>
                 <groupId>javax.cache</groupId>
                 <artifactId>cache-api</artifactId>
-                <version>${dependency.version.jcache}</version>
+                <version>${version.jcache}</version>
             </dependency>
             <dependency>
                 <groupId>org.jsr107.ri</groupId>
@@ -73,31 +76,58 @@
             <dependency>
                 <groupId>com.hazelcast</groupId>
                 <artifactId>hazelcast</artifactId>
-                <version>${dependency.version.hazelcast}</version>
+                <version>${version.hazelcast}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.tomitribe</groupId>
                 <artifactId>jcache-cdi</artifactId>
-                <version>${dependency.version.jcache-cdi}</version>
+                <version>${version.jcache-cdi}</version>
             </dependency>
 
+            <!-- Databases -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>${dependency.version.mysql}</version>
+                <version>${version.mysql}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${version.h2}</version>
             </dependency>
 
+            <!-- Other -->
             <dependency>
                 <groupId>com.github.javafaker</groupId>
                 <artifactId>javafaker</artifactId>
-                <version>${dependency.version.faker}</version>
+                <version>${version.faker}</version>
             </dependency>
 
+            <!-- Test -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>${dependency.version.junit}</version>
+                <version>${version.junit}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.arquillian.extension</groupId>
+                <artifactId>arquillian-rest-client-api</artifactId>
+                <version>${version.arquillian.rest}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.extension</groupId>
+                <artifactId>arquillian-rest-client-impl-3x</artifactId>
+                <version>${version.arquillian.rest}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-jackson2-provider</artifactId>
+                <version>${version.resteasy}</version>
                 <scope>test</scope>
             </dependency>
 
