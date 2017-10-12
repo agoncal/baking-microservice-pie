@@ -1,0 +1,38 @@
+= Distributed Tracing
+
+[%step]
+* We have microservices all over
+* They call each other
+* Calls go throught components (DB)
+* How do I trace the calls?
+
+== Hand coded correlation ID
+
+[source,java]
+----
+include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/rest/ApplicationConfig.java[]
+----
+
+== Distributed Tracing Systems
+
+[%step]
+* xxx
+* xxx
+* xxx
+
+== Several to choose from
+
+[%step]
+* Google Dapper
+* Apache HTrace
+* Twitter Zipkin
+
+== Trace with Zipkin
+
+[source,java]
+----
+include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/rest/ApplicationConfig.java[]
+----
+
+== Demo
+

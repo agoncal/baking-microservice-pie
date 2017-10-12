@@ -1,0 +1,39 @@
+= Handle Load/Rupture
+
+[%step]
+* We have microservices all over
+* They depend on each other
+* Things (can) go wrong
+* How do they handle breaks?
+
+== Hard coded rescue alert
+
+[source,java]
+----
+include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/rest/ApplicationConfig.java[]
+----
+
+== Circuit Breaker
+
+[%step]
+* xxx
+* xxx
+* xxx
+
+== Several to choose from
+
+[%step]
+* xxx
+* xxx
+* Netflix Hystrix
+
+== Break with Hystrix
+
+[source,java]
+----
+include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/rest/ApplicationConfig.java[]
+----
+
+
+== Demo
+

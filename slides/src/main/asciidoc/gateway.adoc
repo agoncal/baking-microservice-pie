@@ -1,0 +1,37 @@
+= Gateway
+
+[%step]
+* xxx
+* xxx
+* xxx
+
+== xx
+
+[source,java]
+----
+include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/rest/ApplicationConfig.java[]
+----
+
+== xxx
+
+[%step]
+* xxx
+* xxx
+* xxx
+
+== Several to choose from
+
+[%step]
+* xxx
+* xxx
+* xxx
+
+== xxx
+
+[source,java]
+----
+include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/rest/ApplicationConfig.java[]
+----
+
+== Demo
+

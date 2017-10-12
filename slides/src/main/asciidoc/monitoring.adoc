@@ -1,0 +1,52 @@
+= Monitoring
+
+[%step]
+* We have several microservices
+* Running on several Pis
+* Scaling up and down
+* How do we monitor them?
+
+== Tail-f on each PI
+
+[source,shell]
+----
+$ tail -f myserver.log
+----
+
+== Central Monitoring
+
+[%step]
+* xxx
+* xxx
+* xxx
+
+== Several to choose from
+
+[%step]
+* xx
+* xx
+* ELK
+
+== Logstash
+
+[source,java]
+----
+include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/rest/ApplicationConfig.java[]
+----
+
+== Elastic Search
+
+[source,java]
+----
+include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/rest/ApplicationConfig.java[]
+----
+
+== Kibana
+
+[source,java]
+----
+include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/rest/ApplicationConfig.java[]
+----
+
+== Demo
+
