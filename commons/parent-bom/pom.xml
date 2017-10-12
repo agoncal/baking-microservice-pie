@@ -40,6 +40,7 @@
         <version.mysql>5.1.42</version.mysql>
         <version.h2>1.4.196</version.h2>
         <version.faker>0.13</version.faker>
+        <version.arquillian>1.1.13.Final</version.arquillian>
         <version.arquillian.rest>1.0.0.Alpha4</version.arquillian.rest>
         <version.resteasy>3.1.4.Final</version.resteasy>
         <!-- Test -->
@@ -118,12 +119,14 @@
                 <version>${version.arquillian.rest}</version>
                 <scope>test</scope>
             </dependency>
+
             <dependency>
                 <groupId>org.jboss.arquillian.extension</groupId>
                 <artifactId>arquillian-rest-client-impl-3x</artifactId>
                 <version>${version.arquillian.rest}</version>
                 <scope>test</scope>
             </dependency>
+
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jackson2-provider</artifactId>
@@ -142,6 +145,29 @@
                         <artifactId>openjpa</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.arquillian.junit</groupId>
+                <artifactId>arquillian-junit-container</artifactId>
+                <version>${version.arquillian}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.tomee</groupId>
+                <artifactId>arquillian-tomee-remote</artifactId>
+                <version>${version.tomee}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.tomee</groupId>
+                <artifactId>apache-tomee</artifactId>
+                <version>${version.tomee}</version>
+                <scope>test</scope>
+                <type>zip</type>
+                <classifier>webprofile</classifier>
             </dependency>
         </dependencies>
     </dependencyManagement>

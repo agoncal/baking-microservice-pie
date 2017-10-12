@@ -21,14 +21,23 @@ import org.bakingpie.book.repository.BookRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URI;
-import java.util.Optional;
 
-import static javax.ws.rs.core.Response.Status.INTERNAL_SERVER_ERROR;
+import static java.util.Optional.ofNullable;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
+import static javax.ws.rs.core.Response.created;
+import static javax.ws.rs.core.Response.noContent;
+import static javax.ws.rs.core.Response.ok;
 import static javax.ws.rs.core.Response.status;
 
 @ApplicationScoped
@@ -42,33 +51,33 @@ public class BookResource {
     @GET
     @Path("{id}")
     public Response findById(@PathParam("id") final Long id) {
-        return Optional.ofNullable(bookRepository.findById(id))
+        return ofNullable(bookRepository.findById(id))
             .map(Response::ok)
-            .orElse(Math.random() * 100 < 95 ? status(NOT_FOUND) : status(INTERNAL_SERVER_ERROR))
+            .orElse(status(NOT_FOUND))
             .build();
     }
 
     @GET
     public Response findAll() {
-        return Response.ok(bookRepository.findAll()).build();
+        return ok(bookRepository.findAll()).build();
     }
 
     @POST
     public Response create(final Book movie) {
         final Book created = bookRepository.create(movie);
-        return Response.created(URI.create("movies/" + created.getId())).build();
+        return created(URI.create("movies/" + created.getId())).build();
     }
 
     @PUT
     @Path("{id}")
     public Response update(@PathParam("id") final Long id, final Book movie) {
-        return Response.ok(bookRepository.update(movie)).build();
+        return ok(bookRepository.update(movie)).build();
     }
 
     @DELETE
     @Path("{id}")
     public Response delete(@PathParam("id") final Long id) {
         bookRepository.delete(id);
-        return Response.noContent().build();
+        return noContent().build();
     }
 }

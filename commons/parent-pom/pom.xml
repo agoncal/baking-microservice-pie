@@ -240,6 +240,7 @@
                             <exclude>**/*.handlebars</exclude>
                             <exclude>src/test/resources/**/*.txt</exclude>
                             <exclude>**/src/main/resources/archetype-resources/**/*</exclude>
+                            <exclude>**/*.sql</exclude>
                         </excludes>
                     </configuration>
                     <executions>
