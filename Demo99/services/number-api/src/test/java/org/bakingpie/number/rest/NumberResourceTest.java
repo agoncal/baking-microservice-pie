@@ -16,13 +16,8 @@
  */
 package org.bakingpie.number.rest;
 
-import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.arquillian.test.api.ArquillianResource;
-import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,40 +27,32 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
-import java.net.URI;
-import java.net.URL;
 
 import static javax.ws.rs.core.Response.Status.OK;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(Arquillian.class)
-@DefaultDeployment(type = DefaultDeployment.Type.JAR)
-// @RunAsClient()
-// @DefaultDeployment()
+@RunAsClient()
+@DefaultDeployment()
 public class NumberResourceTest {
 
-    // @Deployment(testable = false)
-    // public static Archive<?> createDeploymentPackage() {
-    //
-    //     return ShrinkWrap.create(WebArchive.class)
-    //         .addPackages(true, "org.bakingpie.number")
-    //         .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
-    // }
-
-    @ArquillianResource
-    private URL base;
+    // @ArquillianResource
+    // private URL base;
 
     private WebTarget webTarget;
 
     @Before
     public void setUp() throws Exception {
         final Client client = ClientBuilder.newClient();
-        webTarget = client.target(URI.create(new URL(base, "api/numbers").toExternalForm()));
+        // webTarget = client.target(URI.create(new URL(base, "api/numbers").toExternalForm()));
+        webTarget = client.target("http://localhost:8080").path("api").path("numbers");
     }
 
     @Test
     public void generateBookNumber() throws Exception {
         final Response response = webTarget.path("book").request().get();
         assertEquals(OK.getStatusCode(), response.getStatus());
+        assertTrue(response.readEntity(String.class).startsWith("BK"));
     }
 }

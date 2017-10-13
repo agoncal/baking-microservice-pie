@@ -40,8 +40,7 @@
         <version.mysql>5.1.42</version.mysql>
         <version.h2>1.4.196</version.h2>
         <version.faker>0.13</version.faker>
-        <version.arquillian>1.1.13.Final</version.arquillian>
-        <version.arquillian.rest>1.0.0.Alpha4</version.arquillian.rest>
+        <version.arquillian>1.1.10.Final</version.arquillian>
         <version.resteasy>3.1.4.Final</version.resteasy>
         <!-- Test -->
         <version.junit>4.12</version.junit>
@@ -112,18 +111,10 @@
                 <version>${version.junit}</version>
                 <scope>test</scope>
             </dependency>
-
             <dependency>
-                <groupId>org.jboss.arquillian.extension</groupId>
-                <artifactId>arquillian-rest-client-api</artifactId>
-                <version>${version.arquillian.rest}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jboss.arquillian.extension</groupId>
-                <artifactId>arquillian-rest-client-impl-3x</artifactId>
-                <version>${version.arquillian.rest}</version>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-client</artifactId>
+                <version>${version.resteasy}</version>
                 <scope>test</scope>
             </dependency>
 
