@@ -58,8 +58,7 @@ This talk has several demos. Each one builds on top of the other. For example, `
 |   +-- cd-api
 |   +-- dvd-api
 |   +-- shoppingcart-api
-|   +-- inventory-api
-|   +-- numbergenerator-api
+|   +-- number-api
 |   +-- monitoring
 |   +-- registry
 |   +-- tracing
