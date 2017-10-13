@@ -43,14 +43,14 @@ public class BookRepository {
     }
 
     @Transactional(REQUIRED)
-    public Book create(final Book movie) {
-        entityManager.persist(movie);
-        return movie;
+    public Book create(final Book book) {
+        entityManager.persist(book);
+        return book;
     }
 
     @Transactional(REQUIRED)
-    public Book update(final Book movie) {
-        return entityManager.merge(movie);
+    public Book update(final Book book) {
+        return entityManager.merge(book);
     }
 
     @Transactional(REQUIRED)

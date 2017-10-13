@@ -63,15 +63,15 @@ public class BookResource {
     }
 
     @POST
-    public Response create(final Book movie) {
-        final Book created = bookRepository.create(movie);
-        return created(URI.create("movies/" + created.getId())).build();
+    public Response create(final Book book) {
+        final Book created = bookRepository.create(book);
+        return created(URI.create("books/" + created.getId())).build();
     }
 
     @PUT
     @Path("{id}")
-    public Response update(@PathParam("id") final Long id, final Book movie) {
-        return ok(bookRepository.update(movie)).build();
+    public Response update(@PathParam("id") final Long id, final Book book) {
+        return ok(bookRepository.update(book)).build();
     }
 
     @DELETE
