@@ -309,8 +309,22 @@
                     <artifactId>tomee-maven-plugin</artifactId>
                     <version>${version.tomee}</version>
                     <configuration>
-                        <tomeeClassifier>webprofile</tomeeClassifier>
-                        <args>-Xmx512m -XX:PermSize=256m -Dhazelcast.network.public-address=127.0.0.1</args>
+                        <libs>
+                            <lib>remove:openjpa-</lib>
+                            <lib>org.hibernate:hibernate-core:5.2.0.Final</lib>
+                            <lib>org.hibernate.common:hibernate-commons-annotations:5.0.1.Final</lib>
+                            <lib>org.jboss.logging:jboss-logging:3.3.0.Final</lib>
+                            <lib>dom4j:dom4j:1.6.1</lib>
+                            <lib>org.javassist:javassist:3.18.1-GA</lib>
+                            <lib>com.fasterxml:classmate:1.1.0</lib>
+                            <lib>antlr:antlr:2.7.7</lib>
+                        </libs>
+                        <systemVariables>
+                            <javax.persistence.provider>
+                                org.hibernate.jpa.HibernatePersistenceProvider
+                            </javax.persistence.provider>
+                            <tomee.jpa.factory.lazy>true</tomee.jpa.factory.lazy>
+                        </systemVariables>
                     </configuration>
                 </plugin>
                 <plugin>
