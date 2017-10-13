@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.bakingpie.book.repository;
+package org.bakingpie.cd.repository;
 
-import org.bakingpie.book.domain.Book;
+import org.bakingpie.cd.domain.Item;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
@@ -30,40 +30,32 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
 @Transactional(SUPPORTS)
-public class BookRepository {
-
-    // ======================================
-    // =             Injection              =
-    // ======================================
+public class ItemRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    // ======================================
-    // =              Methods               =
-    // ======================================
-
-    public Book findById(final Long id) {
-        return entityManager.find(Book.class, id);
+    public Item findByNumber(final String number) {
+        return entityManager.find(Item.class, number);
     }
 
-    public List<Book> findAll() {
-        return entityManager.createQuery("SELECT m FROM Book m", Book.class).getResultList();
+    public List<Item> findAll() {
+        return entityManager.createQuery("SELECT i FROM Item i", Item.class).getResultList();
     }
 
     @Transactional(REQUIRED)
-    public Book create(final Book book) {
-        entityManager.persist(book);
-        return book;
+    public Item create(final Item item) {
+        entityManager.persist(item);
+        return item;
     }
 
     @Transactional(REQUIRED)
-    public Book update(final Book book) {
-        return entityManager.merge(book);
+    public Item update(final Item item) {
+        return entityManager.merge(item);
     }
 
     @Transactional(REQUIRED)
-    public void deleteById(final Long id) {
-        Optional.ofNullable(findById(id)).ifPresent(entityManager::remove);
+    public void delete(final String number) {
+        Optional.ofNullable(findByNumber(number)).ifPresent(entityManager::remove);
     }
 }

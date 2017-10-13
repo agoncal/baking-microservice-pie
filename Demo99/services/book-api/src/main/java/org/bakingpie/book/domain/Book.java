@@ -26,6 +26,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @XmlRootElement(name = "book")
 public class Book {
+
+    // ======================================
+    // =             Attributes             =
+    // ======================================
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
     @SequenceGenerator(name = "id", sequenceName = "id")
@@ -35,6 +40,10 @@ public class Book {
     private int year;
     private String genre;
     private String isbn;
+
+    // ======================================
+    // =            Constructors            =
+    // ======================================
 
     public Book() {
     }
@@ -46,6 +55,10 @@ public class Book {
         this.genre = genre;
         this.isbn = isbn;
     }
+
+    // ======================================
+    // =         Getters & setters          =
+    // ======================================
 
     public long getId() {
         return id;
@@ -94,4 +107,9 @@ public class Book {
     public void setIsbn(final String isbn) {
         this.isbn = isbn;
     }
+
+    // ======================================
+    // =   Methods hash, equals, toString   =
+    // ======================================
+
 }

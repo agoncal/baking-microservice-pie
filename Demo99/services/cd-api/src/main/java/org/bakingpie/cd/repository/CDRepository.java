@@ -14,13 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.bakingpie.book.repository;
+package org.bakingpie.cd.repository;
 
-import org.bakingpie.book.domain.Book;
+import org.bakingpie.cd.domain.CD;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -30,7 +31,7 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 @ApplicationScoped
 @Transactional(SUPPORTS)
-public class BookRepository {
+public class CDRepository {
 
     // ======================================
     // =             Injection              =
@@ -43,23 +44,29 @@ public class BookRepository {
     // =              Methods               =
     // ======================================
 
-    public Book findById(final Long id) {
-        return entityManager.find(Book.class, id);
+    public CD findById(final Long id) {
+        return entityManager.find(CD.class, id);
     }
 
-    public List<Book> findAll() {
-        return entityManager.createQuery("SELECT m FROM Book m", Book.class).getResultList();
+    public List<CD> findAll() {
+        return entityManager.createNamedQuery(CD.FIND_ALL, CD.class).getResultList();
+    }
+
+    public List<CD> searchByKeyword(final String keyword) {
+        TypedQuery<CD> query = entityManager.createNamedQuery(CD.SEARCH, CD.class);
+        query.setParameter("keyword", keyword);
+        return query.getResultList();
     }
 
     @Transactional(REQUIRED)
-    public Book create(final Book book) {
-        entityManager.persist(book);
-        return book;
+    public CD create(final CD dog) {
+        entityManager.persist(dog);
+        return dog;
     }
 
     @Transactional(REQUIRED)
-    public Book update(final Book book) {
-        return entityManager.merge(book);
+    public CD update(final CD dog) {
+        return entityManager.merge(dog);
     }
 
     @Transactional(REQUIRED)

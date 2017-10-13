@@ -14,44 +14,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.bakingpie.book.rest;
+package org.bakingpie.cd.rest;
 
-import org.bakingpie.book.domain.Book;
-import org.bakingpie.book.repository.BookRepository;
+import org.bakingpie.cd.domain.CD;
+import org.bakingpie.cd.repository.CDRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.net.URI;
+import javax.ws.rs.core.UriBuilder;
+import java.util.Optional;
 
-import static java.util.Optional.ofNullable;
+import static javax.ws.rs.core.Response.Status.INTERNAL_SERVER_ERROR;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
-import static javax.ws.rs.core.Response.created;
-import static javax.ws.rs.core.Response.noContent;
-import static javax.ws.rs.core.Response.ok;
 import static javax.ws.rs.core.Response.status;
 
 @ApplicationScoped
-@Path("books")
+@Path("cds")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class BookResource {
+public class CDResource {
 
     // ======================================
     // =             Injection              =
     // ======================================
 
     @Inject
-    private BookRepository bookRepository;
+    private CDRepository cdRepository;
 
     // ======================================
     // =              Methods               =
@@ -60,33 +51,32 @@ public class BookResource {
     @GET
     @Path("{id}")
     public Response findById(@PathParam("id") final Long id) {
-        return ofNullable(bookRepository.findById(id))
+        return Optional.ofNullable(cdRepository.findById(id))
             .map(Response::ok)
-            .orElse(status(NOT_FOUND))
+            .orElse(Math.random() * 100 < 95 ? status(NOT_FOUND) : status(INTERNAL_SERVER_ERROR))
             .build();
     }
 
     @GET
     public Response findAll() {
-        return ok(bookRepository.findAll()).build();
+        return Response.ok(cdRepository.findAll()).build();
     }
 
     @POST
-    public Response create(final Book book) {
-        final Book created = bookRepository.create(book);
-        return created(URI.create("books/" + created.getId())).build();
+    public Response create(final CD cd) {
+        final CD created = cdRepository.create(cd);
+        return Response.created(UriBuilder.fromResource(CDResource.class).path(String.valueOf(created.getId())).build()).build();
     }
 
     @PUT
-    @Path("{id}")
-    public Response update(@PathParam("id") final Long id, final Book book) {
-        return ok(bookRepository.update(book)).build();
+    public Response update(final CD cd) {
+        return Response.ok(cdRepository.update(cd)).build();
     }
 
     @DELETE
     @Path("{id}")
     public Response delete(@PathParam("id") final Long id) {
-        bookRepository.deleteById(id);
-        return noContent().build();
+        cdRepository.deleteById(id);
+        return Response.noContent().build();
     }
 }
