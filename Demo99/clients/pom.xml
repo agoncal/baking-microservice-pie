@@ -34,5 +34,6 @@
         <!--<module>anonymous</module>-->
         <!--<module>customer</module>-->
         <!--<module>administrator</module>-->
+        <!--<module>angular</module>-->
     </modules>
 </project>

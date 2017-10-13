@@ -17,7 +17,6 @@
 package org.bakingpie.number.rest;
 
 import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.Archive;
@@ -27,6 +26,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.wildfly.swarm.arquillian.DefaultDeployment;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -39,17 +39,18 @@ import static javax.ws.rs.core.Response.Status.OK;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Arquillian.class)
-@RunAsClient()
+@DefaultDeployment(type = DefaultDeployment.Type.JAR)
+// @RunAsClient()
 // @DefaultDeployment()
 public class NumberResourceTest {
 
-    @Deployment(testable = false)
-    public static Archive<?> createDeploymentPackage() {
-
-        return ShrinkWrap.create(WebArchive.class)
-            .addPackages(true, "org.bakingpie.number")
-            .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
-    }
+    // @Deployment(testable = false)
+    // public static Archive<?> createDeploymentPackage() {
+    //
+    //     return ShrinkWrap.create(WebArchive.class)
+    //         .addPackages(true, "org.bakingpie.number")
+    //         .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+    // }
 
     @ArquillianResource
     private URL base;
