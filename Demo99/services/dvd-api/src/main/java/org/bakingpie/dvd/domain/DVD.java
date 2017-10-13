@@ -20,16 +20,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 @Entity
-@XmlRootElement(name = "movie")
-public class DVD implements Serializable {
+@XmlRootElement(name = "dvd")
+public class DVD {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
+    @SequenceGenerator(name = "id", sequenceName = "id")
     private long id;
-
     private String director;
     private String title;
     private int year;
@@ -39,18 +39,12 @@ public class DVD implements Serializable {
     public DVD() {
     }
 
-    public DVD(String title, String director, String genre, int rating, int year) {
+    public DVD(final String director, final String title, final int year, final String genre, final int rating) {
         this.director = director;
         this.title = title;
         this.year = year;
         this.genre = genre;
         this.rating = rating;
-    }
-
-    public DVD(String director, String title, int year) {
-        this.director = director;
-        this.title = title;
-        this.year = year;
     }
 
     public long getId() {

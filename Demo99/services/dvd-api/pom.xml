@@ -89,31 +89,27 @@
             <groupId>org.apache.tomee</groupId>
             <artifactId>javaee-api</artifactId>
         </dependency>
-        <dependency>
-            <groupId>javax.cache</groupId>
-            <artifactId>cache-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jsr107.ri</groupId>
-            <artifactId>cache-annotations-ri-cdi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.hazelcast</groupId>
-            <artifactId>hazelcast</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
 
-        <!-- Tests -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.tomee</groupId>
-            <artifactId>arquillian-tomee-embedded</artifactId>
+            <artifactId>arquillian-tomee-remote</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomee</groupId>
+            <artifactId>apache-tomee</artifactId>
+            <type>zip</type>
+            <classifier>webprofile</classifier>
         </dependency>
     </dependencies>
 </project>

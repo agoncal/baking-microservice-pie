@@ -21,65 +21,63 @@ import org.bakingpie.dvd.repository.DVDRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.Collection;
-import java.util.List;
+import javax.ws.rs.core.Response;
+import java.net.URI;
+
+import static java.util.Optional.ofNullable;
+import static javax.ws.rs.core.Response.Status.NOT_FOUND;
+import static javax.ws.rs.core.Response.created;
+import static javax.ws.rs.core.Response.noContent;
+import static javax.ws.rs.core.Response.ok;
+import static javax.ws.rs.core.Response.status;
 
 @ApplicationScoped
-@Path("dvd")
+@Path("dvds")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class DVDResource {
     @Inject
-    private DVDRepository service;
+    private DVDRepository dvdRepository;
 
     @GET
     @Path("{id}")
-    public DVD find(@PathParam("id") final Long id) {
-        return service.find(id);
+    public Response findById(@PathParam("id") final Long id) {
+        return ofNullable(dvdRepository.findById(id))
+            .map(Response::ok)
+            .orElse(status(NOT_FOUND))
+            .build();
     }
 
     @GET
-    public List<DVD> getMovies(@QueryParam("first") final Integer first,
-                               @DefaultValue("20")
-                               @QueryParam("max") final Integer max,
-                               @QueryParam("field") final String field,
-                               @QueryParam("searchTerm") final String searchTerm) {
-        return service.getMovies(first, max, field, searchTerm);
-    }
-
-    @GET
-    @Path("genres")
-    public Collection<String> getGenres() {
-        return service.getGenres();
+    public Response findAll() {
+        return ok(dvdRepository.findAll()).build();
     }
 
     @POST
-    @Consumes("application/json")
-    public DVD addMovie(final DVD movie) {
-        service.addMovie(movie);
-        return movie;
+    public Response create(final DVD dvd) {
+        final DVD created = dvdRepository.create(dvd);
+        return created(URI.create("dvds/" + created.getId())).build();
     }
 
     @PUT
     @Path("{id}")
-    @Consumes("application/json")
-    public DVD editMovie(final DVD movie) {
-        service.editMovie(movie);
-        return movie;
+    public Response update(@PathParam("id") final Long id, final DVD dvd) {
+        return ok(dvdRepository.update(dvd)).build();
     }
 
     @DELETE
     @Path("{id}")
-    public void deleteMovie(@PathParam("id") final long id) {
-        service.deleteMovie(id);
-    }
-
-    @GET
-    @Path("count")
-    @Produces(MediaType.TEXT_PLAIN)
-    public int count(@QueryParam("field") final String field, @QueryParam("searchTerm") final String searchTerm) {
-        return service.count(field, searchTerm);
+    public Response delete(@PathParam("id") final Long id) {
+        dvdRepository.delete(id);
+        return noContent().build();
     }
 }
