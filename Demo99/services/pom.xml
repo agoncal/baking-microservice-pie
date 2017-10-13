@@ -28,15 +28,14 @@
     <artifactId>services</artifactId>
     <version>99</version>
     <packaging>pom</packaging>
-    <name>Backing a Microservice Pie :: Services</name>
+    <name>Baking a Microservice Pie :: Services</name>
 
     <modules>
         <module>book-api</module>
-        <!--<module>cd-api</module>-->
-        <module>dog-api</module>
+        <module>cd-api</module>
         <module>dvd-api</module>
         <module>inventory-api</module>
-        <!--<module>numbergenerator-api</module>-->
+        <module>number-api</module>
         <!--<module>shoppingcart-api</module>-->
     </modules>
 </project>

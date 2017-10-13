@@ -23,7 +23,7 @@
     <artifactId>parent-pom</artifactId>
     <version>00</version>
     <packaging>pom</packaging>
-    <name>Backing a Microservice Pie :: Parent POM</name>
+    <name>Baking a Microservice Pie :: Parent POM</name>
     <description>Parent POM only contains Maven plugins and must be herited</description>
 
     <properties>

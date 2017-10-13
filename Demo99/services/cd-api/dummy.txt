@@ -1,9 +1,9 @@
 [INFO] Scanning for projects...
-[INFO] 
+[INFO]
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Backing a Microservice Pie :: Services :: Dog API 99
+[INFO] Building Baking a Microservice Pie :: Services :: Dog API 99
 [INFO] ------------------------------------------------------------------------
-[INFO] 
+[INFO]
 [INFO] --- maven-dependency-plugin:3.0.1:tree (default-cli) @ dog-api ---
 [INFO] org.bakingpie:dog-api:war:99
 [INFO] +- javax:javaee-api:jar:7.0:provided

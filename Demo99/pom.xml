@@ -29,7 +29,7 @@
     <artifactId>demo</artifactId>
     <version>99</version>
     <packaging>pom</packaging>
-    <name>Backing a Microservice Pie :: Demo</name>
+    <name>Baking a Microservice Pie :: Demo</name>
 
     <modules>
         <module>services</module>

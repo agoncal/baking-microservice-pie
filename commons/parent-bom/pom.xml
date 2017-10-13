@@ -23,7 +23,7 @@
     <artifactId>parent-bom</artifactId>
     <version>00</version>
     <packaging>pom</packaging>
-    <name>Backing a Microservice Pie :: Parent BOM</name>
+    <name>Baking a Microservice Pie :: Parent BOM</name>
     <description>Parent BOM contains all dependencies and must be imported</description>
 
     <properties>

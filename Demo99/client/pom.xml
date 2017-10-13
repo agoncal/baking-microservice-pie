@@ -28,7 +28,7 @@
 
     <artifactId>client</artifactId>
     <packaging>war</packaging>
-    <name>Backing a Microservice Pie :: Client</name>
+    <name>Baking a Microservice Pie :: Client</name>
 
     <dependencyManagement>
         <!-- BOMS -->

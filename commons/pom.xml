@@ -23,7 +23,7 @@
     <artifactId>commons</artifactId>
     <version>00</version>
     <packaging>pom</packaging>
-    <name>Backing a Microservice Pie :: Parent</name>
+    <name>Baking a Microservice Pie :: Parent</name>
 
     <modules>
         <module>parent-bom</module>
