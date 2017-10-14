@@ -4,6 +4,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CustomerModule } from './customer/customer.module';
+import { AdministratorModule } from './administrator/administrator.module';
+import { AnonymousModule } from './anonymous/anonymous.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +15,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    CustomerModule,
+    AdministratorModule,
+    AnonymousModule
   ],
   providers: [],
   bootstrap: [AppComponent]

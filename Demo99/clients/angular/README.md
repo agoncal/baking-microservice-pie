@@ -10,21 +10,39 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 $ ng new store --directory angular --prefix store --routing true --skip-tests true 
 ```
 
-## Twitter Bootstrap
+### Twitter Bootstrap
 
 * Install Bootstrap dependency `yarn add bootstrap@4.0.0-beta`, `yarn add jquery@3.2.1`, `yarn add @ng-bootstrap/ng-bootstrap`
 * In `angular-cli.json` file add :
 ```
 "styles": [
-"../node_modules/bootstrap/dist/css/bootstrap.css",
-"styles.css"
+  "../node_modules/bootstrap/dist/css/bootstrap.css",
+  "jumbotron.css",
+  "styles.css"
 ],
 "scripts": [
-"../node_modules/jquery/dist/jquery.slim.js",
-"../node_modules/tether/dist/js/tether.js",
-"../node_modules/bootstrap/dist/js/bootstrap.js"
+  "../node_modules/jquery/dist/jquery.slim.js",
+  "../node_modules/bootstrap/dist/js/bootstrap.js"
 ],
 ```
+* In `app.module.ts`
+```
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+  imports: [
+    NgbModule.forRoot()
+  ],
+```
+
+### Admin, anonymous and customer modules
+
+```
+ng generate module administrator --spec false --routing true --module app
+ng generate module anonymous --spec false --routing true --module app
+ng generate module customer --spec false --routing true --module app
+
+```
+
+
 
 ## Angular CLI documentation
 
