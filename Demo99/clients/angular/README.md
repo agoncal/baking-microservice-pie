@@ -12,7 +12,7 @@ $ ng new store --directory angular --prefix store --routing true --skip-tests tr
 
 ### Twitter Bootstrap
 
-* Install Bootstrap dependency `yarn add bootstrap@4.0.0-beta`, `yarn add jquery@3.2.1`, `yarn add @ng-bootstrap/ng-bootstrap`
+* Install Bootstrap dependency `yarn add bootstrap@4.0.0-beta`, `yarn add jquery@3.2.1`, `yarn add popper.js`, `yarn add @ng-bootstrap/ng-bootstrap`
 * In `angular-cli.json` file add :
 ```
 "styles": [
@@ -22,6 +22,7 @@ $ ng new store --directory angular --prefix store --routing true --skip-tests tr
 ],
 "scripts": [
   "../node_modules/jquery/dist/jquery.slim.js",
+  "../node_modules/popper.js/dist/popper.js",
   "../node_modules/bootstrap/dist/js/bootstrap.js"
 ],
 ```
@@ -42,7 +43,11 @@ ng generate module customer --spec false --routing true --module app
 
 ```
 
+### Admin components
 
+```
+ng generate component administrator/number --spec false --module administrator --export true --inline-style true
+```
 
 ## Angular CLI documentation
 
