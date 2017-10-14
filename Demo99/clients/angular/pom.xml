@@ -21,19 +21,11 @@
 
     <parent>
         <groupId>org.bakingpie</groupId>
-        <artifactId>demo</artifactId>
+        <artifactId>clients</artifactId>
         <version>99</version>
     </parent>
 
-    <artifactId>clients</artifactId>
-    <version>99</version>
+    <artifactId>angular</artifactId>
     <packaging>pom</packaging>
-    <name>Baking a Microservice Pie :: Clients</name>
-
-    <modules>
-        <module>administrator</module>
-        <module>angular</module>
-        <module>anonymous</module>
-        <module>customer</module>
-    </modules>
+    <name>Baking a Microservice Pie :: Clients :: Angular</name>
 </project>
