@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Angular CLI commands
 
 ```
-$ ng new store
+$ ng new store --directory angular --prefix store --routing true --skip-tests true 
 ```
 
 ## Angular CLI documentation
