@@ -68,6 +68,11 @@
                 <artifactId>swagger-jaxrs</artifactId>
                 <version>${version.swagger}</version>
             </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${version.swagger}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.github.javafaker</groupId>

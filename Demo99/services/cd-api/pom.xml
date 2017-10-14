@@ -53,6 +53,28 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>com.github.kongchen</groupId>
+                <artifactId>swagger-maven-plugin</artifactId>
+                <configuration>
+                    <apiSources>
+                        <apiSource>
+                            <springmvc>false</springmvc>
+                            <locations>org.bakingpie.cd</locations>
+                            <schemes>http,https</schemes>
+                            <host>localhost:8080</host>
+                            <basePath>/api</basePath>
+                            <info>
+                                <title>CD</title>
+                                <version>1.0.0</version>
+                                <description>Gives all the details of the CDs</description>
+                            </info>
+                            <swaggerDirectory>${basedir}/src/main/webapp</swaggerDirectory>
+                            <outputFormats>json</outputFormats>
+                        </apiSource>
+                    </apiSources>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.wildfly.swarm</groupId>
                 <artifactId>wildfly-swarm-plugin</artifactId>
             </plugin>
@@ -64,6 +86,10 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
         </dependency>
         <!-- WildFly Swarm Fractions -->
         <!--<dependency>-->
@@ -81,6 +107,10 @@
         <!--<dependency>-->
             <!--<groupId>org.wildfly.swarm</groupId>-->
             <!--<artifactId>jpa</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.wildfly.swarm</groupId>-->
+            <!--<artifactId>swagger</artifactId>-->
         <!--</dependency>-->
         <dependency>
             <groupId>com.h2database</groupId>

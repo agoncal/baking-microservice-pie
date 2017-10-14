@@ -53,6 +53,7 @@
 
         <!-- External Maven Plugins -->
         <version.wildfly.swarm>2017.10.0</version.wildfly.swarm>
+        <version.swagger.plugin>3.1.4</version.swagger.plugin>
         <version.arquillian>1.1.12.Final</version.arquillian>
         <version.tomee>7.0.3</version.tomee>
 
@@ -326,6 +327,19 @@
                             <tomee.jpa.factory.lazy>true</tomee.jpa.factory.lazy>
                         </systemVariables>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.kongchen</groupId>
+                    <artifactId>swagger-maven-plugin</artifactId>
+                    <version>${version.swagger.plugin}</version>
+                    <executions>
+                        <execution>
+                            <phase>compile</phase>
+                            <goals>
+                                <goal>generate</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.wildfly.swarm</groupId>

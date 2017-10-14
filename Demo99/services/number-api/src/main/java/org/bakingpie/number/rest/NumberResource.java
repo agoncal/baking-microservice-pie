@@ -16,6 +16,9 @@
  */
 package org.bakingpie.number.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -23,6 +26,7 @@ import javax.ws.rs.core.Response;
 
 @ApplicationScoped
 @Path("numbers")
+@Api(value = "numbers", description = "Generating all sorts of numbers.")
 public class NumberResource {
 
     // ======================================
@@ -31,18 +35,21 @@ public class NumberResource {
 
     @GET
     @Path("book")
+    @ApiOperation(value = "Generates a book number.", response = String.class)
     public Response generateBookNumber() {
         return Response.ok("BK-" + Math.random()).build();
     }
 
     @GET
     @Path("cd")
+    @ApiOperation(value = "Generates a CD number.", response = String.class)
     public Response generateCDNumber() {
         return Response.ok("CD-" + Math.random()).build();
     }
 
     @GET
     @Path("dvd")
+    @ApiOperation(value = "Generates a DVD number.", response = String.class)
     public Response generateDVDNumber() {
         return Response.ok("DVD-" + Math.random()).build();
     }

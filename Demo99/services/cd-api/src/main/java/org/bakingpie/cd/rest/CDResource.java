@@ -16,6 +16,10 @@
  */
 package org.bakingpie.cd.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.bakingpie.cd.domain.CD;
 import org.bakingpie.cd.repository.CDRepository;
 
@@ -27,7 +31,6 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.util.Optional;
 
-import static javax.ws.rs.core.Response.Status.INTERNAL_SERVER_ERROR;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.status;
 
@@ -35,6 +38,7 @@ import static javax.ws.rs.core.Response.status;
 @Path("cds")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@Api(value = "cds", description = "Operations for Books.")
 public class CDResource {
 
     // ======================================
@@ -50,31 +54,37 @@ public class CDResource {
 
     @GET
     @Path("{id}")
+    @ApiOperation(value = "Find a CD by the Id.", response = CD.class)
+    @ApiResponses(@ApiResponse(code = 404, message = "Not Found"))
     public Response findById(@PathParam("id") final Long id) {
         return Optional.ofNullable(cdRepository.findById(id))
             .map(Response::ok)
-            .orElse(Math.random() * 100 < 95 ? status(NOT_FOUND) : status(INTERNAL_SERVER_ERROR))
+            .orElse(status(NOT_FOUND))
             .build();
     }
 
     @GET
+    @ApiOperation(value = "Find all CDs", response = CD.class, responseContainer = "List")
     public Response findAll() {
         return Response.ok(cdRepository.findAll()).build();
     }
 
     @POST
+    @ApiOperation(value = "Create a CD", response = CD.class, code = 201)
     public Response create(final CD cd) {
         final CD created = cdRepository.create(cd);
         return Response.created(UriBuilder.fromResource(CDResource.class).path(String.valueOf(created.getId())).build()).build();
     }
 
     @PUT
+    @ApiOperation(value = "Update a CD", response = CD.class)
     public Response update(final CD cd) {
         return Response.ok(cdRepository.update(cd)).build();
     }
 
     @DELETE
     @Path("{id}")
+    @ApiOperation(value = "Delete a CD", response = CD.class, code = 204)
     public Response delete(@PathParam("id") final Long id) {
         cdRepository.deleteById(id);
         return Response.noContent().build();
