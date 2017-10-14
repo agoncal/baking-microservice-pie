@@ -21,7 +21,10 @@
     "@angular/platform-browser": "^4.4.5",
     "@angular/platform-browser-dynamic": "^4.4.5",
     "@angular/router": "^4.4.5",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
+    "bootstrap": "4.0.0-beta",
     "core-js": "^2.4.1",
+    "jquery": "3.2.1",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

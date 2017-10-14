@@ -4,8 +4,26 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Angular CLI commands
 
+### Initiliaze
+
 ```
 $ ng new store --directory angular --prefix store --routing true --skip-tests true 
+```
+
+## Twitter Bootstrap
+
+* Install Bootstrap dependency `yarn add bootstrap@4.0.0-beta`, `yarn add jquery@3.2.1`, `yarn add @ng-bootstrap/ng-bootstrap`
+* In `angular-cli.json` file add :
+```
+"styles": [
+"../node_modules/bootstrap/dist/css/bootstrap.css",
+"styles.css"
+],
+"scripts": [
+"../node_modules/jquery/dist/jquery.slim.js",
+"../node_modules/tether/dist/js/tether.js",
+"../node_modules/bootstrap/dist/js/bootstrap.js"
+],
 ```
 
 ## Angular CLI documentation
