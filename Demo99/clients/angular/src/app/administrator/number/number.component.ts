@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NumbersApi } from '../../service/api/NumbersApi';
 
 @Component({
   selector: 'store-number',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NumberComponent implements OnInit {
 
-  constructor() { }
+  private bookNumber: string;
+
+  constructor(private numberApi: NumbersApi) { }
 
   ngOnInit() {
+  }
+
+  generateBookNumber() {
+    this.numberApi.generateBookNumber().subscribe(bookNumber => this.bookNumber = bookNumber);
   }
 
 }

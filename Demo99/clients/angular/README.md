@@ -49,6 +49,13 @@ ng generate module customer --spec false --routing true --module app
 ng generate component administrator/number --spec false --module administrator --export true --inline-style true
 ```
 
+### Swagger Codegen
+
+```
+swagger-codegen generate -i ../../services/number-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/service
+swagger-codegen generate -i ../../services/cd-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/service
+```
+
 ## Angular CLI documentation
 
 ### Development server
