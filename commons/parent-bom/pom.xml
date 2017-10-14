@@ -34,13 +34,10 @@
         <!-- Dependencies -->
         <version.javaee>7.0</version.javaee>
         <version.tomee>7.0.3</version.tomee>
-        <version.jcache>1.0.0</version.jcache>
-        <version.jcache-cdi>0.1-SNAPSHOT</version.jcache-cdi>
-        <version.hazelcast>3.8.1</version.hazelcast>
-        <version.mysql>5.1.42</version.mysql>
-        <version.h2>1.4.196</version.h2>
+        <version.swagger>1.5.16</version.swagger>
         <version.faker>0.13</version.faker>
         <version.arquillian>1.1.10.Final</version.arquillian>
+        <version.shrinkwrap>2.2.6</version.shrinkwrap>
         <version.resteasy>3.1.4.Final</version.resteasy>
         <!-- Test -->
         <version.junit>4.12</version.junit>
@@ -55,6 +52,7 @@
                 <version>${version.javaee}</version>
                 <scope>provided</scope>
             </dependency>
+
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
@@ -62,42 +60,13 @@
                 <scope>provided</scope>
             </dependency>
 
-            <dependency>
-                <groupId>javax.cache</groupId>
-                <artifactId>cache-api</artifactId>
-                <version>${version.jcache}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jsr107.ri</groupId>
-                <artifactId>cache-annotations-ri-cdi</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.hazelcast</groupId>
-                <artifactId>hazelcast</artifactId>
-                <version>${version.hazelcast}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.tomitribe</groupId>
-                <artifactId>jcache-cdi</artifactId>
-                <version>${version.jcache-cdi}</version>
-            </dependency>
-
-            <!-- Databases -->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${version.mysql}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.h2database</groupId>
-                <artifactId>h2</artifactId>
-                <version>${version.h2}</version>
-            </dependency>
-
             <!-- Other -->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-jaxrs</artifactId>
+                <version>${version.swagger}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.github.javafaker</groupId>
                 <artifactId>javafaker</artifactId>
@@ -149,6 +118,20 @@
                 <groupId>org.apache.tomee</groupId>
                 <artifactId>arquillian-tomee-remote</artifactId>
                 <version>${version.tomee}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.shrinkwrap.resolver</groupId>
+                <artifactId>shrinkwrap-resolver-api-maven</artifactId>
+                <version>${version.shrinkwrap}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.shrinkwrap.resolver</groupId>
+                <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
+                <version>${version.shrinkwrap}</version>
                 <scope>test</scope>
             </dependency>
 
