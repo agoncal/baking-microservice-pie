@@ -39,6 +39,8 @@
         <version.arquillian>1.1.10.Final</version.arquillian>
         <version.shrinkwrap>2.2.6</version.shrinkwrap>
         <version.resteasy>3.1.4.Final</version.resteasy>
+        <!-- Databases -->
+        <version.h2>1.4.196</version.h2>
         <!-- Test -->
         <version.junit>4.12</version.junit>
     </properties>
@@ -71,6 +73,13 @@
                 <groupId>com.github.javafaker</groupId>
                 <artifactId>javafaker</artifactId>
                 <version>${version.faker}</version>
+            </dependency>
+
+            <!-- Databases -->
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${version.h2}</version>
             </dependency>
 
             <!-- Test -->
