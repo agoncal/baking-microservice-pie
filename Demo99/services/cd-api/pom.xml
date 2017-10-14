@@ -47,22 +47,15 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
-            <dependency>
-                <groupId>org.jboss.arquillian</groupId>
-                <artifactId>arquillian-bom</artifactId>
-                <version>${version.arquillian}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
         <plugins>
-            <!--<plugin>-->
-                <!--<groupId>org.wildfly.swarm</groupId>-->
-                <!--<artifactId>wildfly-swarm-plugin</artifactId>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.wildfly.swarm</groupId>
+                <artifactId>wildfly-swarm-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
 
@@ -75,7 +68,11 @@
         <!-- WildFly Swarm Fractions -->
         <!--<dependency>-->
             <!--<groupId>org.wildfly.swarm</groupId>-->
-            <!--<artifactId>transactions</artifactId>-->
+            <!--<artifactId>microprofile</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.wildfly.swarm</groupId>-->
+            <!--<artifactId>bean-validation</artifactId>-->
         <!--</dependency>-->
         <!--<dependency>-->
             <!--<groupId>org.wildfly.swarm</groupId>-->
@@ -85,21 +82,22 @@
             <!--<groupId>org.wildfly.swarm</groupId>-->
             <!--<artifactId>jpa</artifactId>-->
         <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.h2database</groupId>-->
-            <!--<artifactId>h2</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <!-- Test -->
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>arquillian</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.arquillian.extension</groupId>
-            <artifactId>arquillian-rest-client-api</artifactId>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jboss.arquillian.extension</groupId>
-            <artifactId>arquillian-rest-client-impl-3x</artifactId>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>

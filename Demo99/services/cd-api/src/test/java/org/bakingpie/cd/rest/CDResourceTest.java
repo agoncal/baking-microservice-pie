@@ -21,8 +21,6 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
-import org.jboss.arquillian.test.api.ArquillianResource;
-import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
@@ -34,12 +32,11 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
-import java.net.URI;
-import java.net.URL;
 
 import static javax.ws.rs.client.Entity.entity;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
-import static javax.ws.rs.core.Response.Status.*;
+import static javax.ws.rs.core.Response.Status.CREATED;
+import static javax.ws.rs.core.Response.Status.OK;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Arquillian.class)
@@ -47,71 +44,66 @@ import static org.junit.Assert.assertEquals;
 // @DefaultDeployment()
 public class CDResourceTest {
 
-    @Deployment(testable = false)
-    public static Archive<?> createDeploymentPackage() {
-
+    @Deployment
+    public static WebArchive webApp() {
         return ShrinkWrap.create(WebArchive.class)
             .addPackages(true, "org.bakingpie.cd")
+            .addAsResource("META-INF/persistence-test.xml", "META-INF/persistence.xml")
             .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
-            .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml");
+            ;
     }
-
-    @ArquillianResource
-    private URL base;
 
     private WebTarget webTarget;
 
     @Before
     public void setUp() throws Exception {
         final Client client = ClientBuilder.newClient();
-        webTarget = client.target(URI.create(new URL(base, "api/cds").toExternalForm()));
+        webTarget = client.target("http://localhost:8080").path("api").path("cds");
     }
 
     @Test
     @InSequence(1)
-    public void findById() throws Exception {
-        final Response response = webTarget.path("{id}").resolveTemplate("id", 0).request().get();
-
+    public void findEmpty() throws Exception {
+        final Response response = webTarget.request().get();
         assertEquals(OK.getStatusCode(), response.getStatus());
     }
 
     @Test
     @InSequence(2)
+    public void create() throws Exception {
+        final CD cd = new CD("BK-1234-456", "Animal", 12.5F, "Tech", "Best Pink Floyd album");
+        final Response response = webTarget.request(APPLICATION_JSON_TYPE).post(entity(cd, APPLICATION_JSON_TYPE));
+        assertEquals(CREATED.getStatusCode(), response.getStatus());
+    }
+
+    @Test
+    @InSequence(3)
     public void findAll() throws Exception {
         final Response response = webTarget.request().get();
 
         assertEquals(OK.getStatusCode(), response.getStatus());
     }
 
-    @Test
-    @InSequence(3)
-    public void create() throws Exception {
-        final CD cd = new CD("Animal", 12.5F, "Tech", "Best Pink Floyd album");
-        final Response response = webTarget.request().post(entity(cd, APPLICATION_JSON_TYPE));
+    // @Test
+    // @InSequence(4)
+    // public void update() throws Exception {
+    //     final CD cd = new CD("Animal", 12.5F, "Tech", "Best Pink Floyd album");
+    //     final Response response = webTarget.path("{id}")
+    //         .resolveTemplate("id", 1)
+    //         .request()
+    //         .put(entity(cd, APPLICATION_JSON_TYPE));
+    //
+    //     assertEquals(OK.getStatusCode(), response.getStatus());
+    // }
 
-        assertEquals(CREATED.getStatusCode(), response.getStatus());
-    }
-
-    @Test
-    @InSequence(4)
-    public void update() throws Exception {
-        final CD cd = new CD("Animal", 12.5F, "Tech", "Best Pink Floyd album");
-        final Response response = webTarget.path("{id}")
-                                           .resolveTemplate("id", 1)
-                                           .request()
-                                           .put(entity(cd, APPLICATION_JSON_TYPE));
-
-        assertEquals(OK.getStatusCode(), response.getStatus());
-    }
-
-    @Test
-    @InSequence(5)
-    public void delete() throws Exception {
-        final Response response = webTarget.path("{id}")
-                                           .resolveTemplate("id", 1)
-                                           .request()
-                                           .delete();
-
-        assertEquals(NO_CONTENT.getStatusCode(), response.getStatus());
-    }
+    // @Test
+    // @InSequence(5)
+    // public void delete() throws Exception {
+    //     final Response response = webTarget.path("{id}")
+    //         .resolveTemplate("id", 1)
+    //         .request()
+    //         .delete();
+    //
+    //     assertEquals(NO_CONTENT.getStatusCode(), response.getStatus());
+    // }
 }

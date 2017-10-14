@@ -37,15 +37,11 @@ import static org.junit.Assert.assertTrue;
 @DefaultDeployment()
 public class NumberResourceTest {
 
-    // @ArquillianResource
-    // private URL base;
-
     private WebTarget webTarget;
 
     @Before
     public void setUp() throws Exception {
         final Client client = ClientBuilder.newClient();
-        // webTarget = client.target(URI.create(new URL(base, "api/numbers").toExternalForm()));
         webTarget = client.target("http://localhost:8080").path("api").path("numbers");
     }
 
@@ -53,6 +49,20 @@ public class NumberResourceTest {
     public void generateBookNumber() throws Exception {
         final Response response = webTarget.path("book").request().get();
         assertEquals(OK.getStatusCode(), response.getStatus());
-        assertTrue(response.readEntity(String.class).startsWith("BK"));
+        assertTrue(response.readEntity(String.class).startsWith("BK-"));
+    }
+
+    @Test
+    public void generateCDNumber() throws Exception {
+        final Response response = webTarget.path("cd").request().get();
+        assertEquals(OK.getStatusCode(), response.getStatus());
+        assertTrue(response.readEntity(String.class).startsWith("CD-"));
+    }
+
+    @Test
+    public void generateDVDNumber() throws Exception {
+        final Response response = webTarget.path("dvd").request().get();
+        assertEquals(OK.getStatusCode(), response.getStatus());
+        assertTrue(response.readEntity(String.class).startsWith("DVD-"));
     }
 }

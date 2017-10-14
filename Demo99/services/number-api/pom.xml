@@ -47,13 +47,6 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
-            <!--<dependency>-->
-            <!--<groupId>org.jboss.arquillian</groupId>-->
-            <!--<artifactId>arquillian-bom</artifactId>-->
-            <!--<version>${version.arquillian}</version>-->
-            <!--<type>pom</type>-->
-            <!--<scope>import</scope>-->
-            <!--</dependency>-->
         </dependencies>
     </dependencyManagement>
 
@@ -93,6 +86,5 @@
             <artifactId>resteasy-client</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 </project>

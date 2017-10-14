@@ -23,7 +23,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
 @Entity
-@XmlRootElement(name = "cd")
 @NamedQueries({
     @NamedQuery(name = CD.SEARCH, query = "SELECT c FROM CD c WHERE UPPER(c.name) LIKE :keyword ORDER BY c.name"),
     @NamedQuery(name = CD.FIND_ALL, query = "SELECT c FROM CD c")
@@ -74,7 +73,8 @@ public class CD {
     public CD() {
     }
 
-    public CD(String name, Float unitCost, String imagePath, String description) {
+    public CD(String identification, String name, Float unitCost, String imagePath, String description) {
+        this.identification = identification;
         this.name = name;
         this.unitCost = unitCost;
         this.imagePath = imagePath;
