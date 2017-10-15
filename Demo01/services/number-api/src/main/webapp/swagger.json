@@ -5,7 +5,7 @@
     "version" : "1.0.0",
     "title" : "Numbers"
   },
-  "host" : "localhost:8080",
+  "host" : "localhost:8084",
   "basePath" : "/api",
   "tags" : [ {
     "name" : "numbers",
@@ -19,38 +19,6 @@
         "summary" : "Generates a book number.",
         "description" : "",
         "operationId" : "generateBookNumber",
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/numbers/cd" : {
-      "get" : {
-        "tags" : [ "numbers" ],
-        "summary" : "Generates a CD number.",
-        "description" : "",
-        "operationId" : "generateCDNumber",
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/numbers/dvd" : {
-      "get" : {
-        "tags" : [ "numbers" ],
-        "summary" : "Generates a DVD number.",
-        "description" : "",
-        "operationId" : "generateDVDNumber",
         "responses" : {
           "200" : {
             "description" : "successful operation",

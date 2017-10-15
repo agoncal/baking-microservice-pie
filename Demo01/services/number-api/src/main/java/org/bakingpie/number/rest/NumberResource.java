@@ -39,18 +39,4 @@ public class NumberResource {
     public Response generateBookNumber() {
         return Response.ok("BK-" + Math.random()).build();
     }
-
-    @GET
-    @Path("cd")
-    @ApiOperation(value = "Generates a CD number.", response = String.class)
-    public Response generateCDNumber() {
-        return Response.ok("CD-" + Math.random()).build();
-    }
-
-    @GET
-    @Path("dvd")
-    @ApiOperation(value = "Generates a DVD number.", response = String.class)
-    public Response generateDVDNumber() {
-        return Response.ok("DVD-" + Math.random()).build();
-    }
 }

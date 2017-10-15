@@ -14,10 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.bakingpie.cd.rest;
+package org.bakingpie.shopping.rest;
 
-import org.bakingpie.cd.domain.Item;
-import org.bakingpie.cd.repository.ItemRepository;
+import org.bakingpie.shopping.domain.Item;
+import org.bakingpie.shopping.repository.ItemRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

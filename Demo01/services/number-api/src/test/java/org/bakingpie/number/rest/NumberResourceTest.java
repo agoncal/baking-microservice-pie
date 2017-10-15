@@ -51,18 +51,4 @@ public class NumberResourceTest {
         assertEquals(OK.getStatusCode(), response.getStatus());
         assertTrue(response.readEntity(String.class).startsWith("BK-"));
     }
-
-    @Test
-    public void generateCDNumber() throws Exception {
-        final Response response = webTarget.path("cd").request().get();
-        assertEquals(OK.getStatusCode(), response.getStatus());
-        assertTrue(response.readEntity(String.class).startsWith("CD-"));
-    }
-
-    @Test
-    public void generateDVDNumber() throws Exception {
-        final Response response = webTarget.path("dvd").request().get();
-        assertEquals(OK.getStatusCode(), response.getStatus());
-        assertTrue(response.readEntity(String.class).startsWith("DVD-"));
-    }
 }
