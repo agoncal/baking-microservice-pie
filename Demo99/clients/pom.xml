@@ -28,7 +28,7 @@
     <artifactId>clients</artifactId>
     <version>99</version>
     <packaging>pom</packaging>
-    <name>Baking a Microservice Pie :: Clients</name>
+    <name>Baking a Microservice Pie :: Demo 99 :: Clients</name>
 
     <modules>
         <module>administrator</module>

@@ -27,7 +27,7 @@
 
     <artifactId>book-api</artifactId>
     <packaging>war</packaging>
-    <name>Baking a Microservice Pie :: Services :: Book API</name>
+    <name>Baking a Microservice Pie :: Demo 99 :: Services :: Book API</name>
 
     <dependencyManagement>
         <!-- BOMS -->

@@ -27,5 +27,5 @@
 
     <artifactId>angular</artifactId>
     <packaging>pom</packaging>
-    <name>Baking a Microservice Pie :: Clients :: Angular</name>
+    <name>Baking a Microservice Pie :: Demo 99 :: Clients :: Angular</name>
 </project>

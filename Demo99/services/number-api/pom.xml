@@ -28,7 +28,7 @@
     <artifactId>number-api</artifactId>
     <version>99</version>
     <packaging>war</packaging>
-    <name>Baking a Microservice Pie :: Services :: Number API</name>
+    <name>Baking a Microservice Pie :: Demo 99 :: Services :: Number API</name>
 
     <dependencyManagement>
         <!-- BOMS -->

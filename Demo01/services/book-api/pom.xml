@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!--
   ~ Licensed to the Apache Software Foundation (ASF) under one or more
   ~ contributor license agreements.  See the NOTICE file distributed with
@@ -7,7 +7,7 @@
   ~ (the "License"); you may not use this file except in compliance with
   ~ the License.  You may obtain a copy of the License at
   ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~     http://www.apache.org/licenses/LICENSE-2.0
   ~
   ~ Unless required by applicable law or agreed to in writing, software
   ~ distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,12 +22,12 @@
     <parent>
         <groupId>org.bakingpie</groupId>
         <artifactId>services</artifactId>
-        <version>99</version>
+        <version>01</version>
     </parent>
 
-    <artifactId>dvd-api</artifactId>
+    <artifactId>book-api</artifactId>
     <packaging>war</packaging>
-    <name>Baking a Microservice Pie :: Demo 99 :: Services :: DVD API</name>
+    <name>Baking a Microservice Pie :: Demo 01 :: Services :: Book API</name>
 
     <dependencyManagement>
         <!-- BOMS -->

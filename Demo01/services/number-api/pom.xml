@@ -22,13 +22,13 @@
     <parent>
         <groupId>org.bakingpie</groupId>
         <artifactId>services</artifactId>
-        <version>99</version>
+        <version>01</version>
     </parent>
 
-    <artifactId>cd-api</artifactId>
-    <version>99</version>
+    <artifactId>number-api</artifactId>
+    <version>01</version>
     <packaging>war</packaging>
-    <name>Baking a Microservice Pie :: Demo 99 :: Services :: CD API</name>
+    <name>Baking a Microservice Pie :: Demo 01 :: Services :: Number API</name>
 
     <dependencyManagement>
         <!-- BOMS -->
@@ -59,14 +59,14 @@
                     <apiSources>
                         <apiSource>
                             <springmvc>false</springmvc>
-                            <locations>org.bakingpie.cd</locations>
+                            <locations>org.bakingpie.number</locations>
                             <schemes>http,https</schemes>
                             <host>localhost:8080</host>
                             <basePath>/api</basePath>
                             <info>
-                                <title>CD</title>
+                                <title>Numbers</title>
                                 <version>1.0.0</version>
-                                <description>Gives all the details of the CDs</description>
+                                <description>Generates all sorts of numbers</description>
                             </info>
                             <swaggerDirectory>${basedir}/src/main/webapp</swaggerDirectory>
                             <outputFormats>json</outputFormats>
@@ -92,29 +92,9 @@
             <artifactId>swagger-annotations</artifactId>
         </dependency>
         <!-- WildFly Swarm Fractions -->
-        <!--<dependency>-->
-            <!--<groupId>org.wildfly.swarm</groupId>-->
-            <!--<artifactId>microprofile</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.wildfly.swarm</groupId>-->
-            <!--<artifactId>bean-validation</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.wildfly.swarm</groupId>-->
-            <!--<artifactId>jaxrs-jsonp</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.wildfly.swarm</groupId>-->
-            <!--<artifactId>jpa</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.wildfly.swarm</groupId>-->
-            <!--<artifactId>swagger</artifactId>-->
-        <!--</dependency>-->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>jaxrs</artifactId>
         </dependency>
         <!-- Test -->
         <dependency>
@@ -128,10 +108,6 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jackson2-provider</artifactId>
         </dependency>
     </dependencies>
 </project>

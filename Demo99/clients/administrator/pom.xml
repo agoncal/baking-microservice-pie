@@ -27,5 +27,5 @@
 
     <artifactId>administrator</artifactId>
     <packaging>jar</packaging>
-    <name>Baking a Microservice Pie :: Clients :: Administrator</name>
+    <name>Baking a Microservice Pie :: Demo 99 :: Clients :: Administrator</name>
 </project>
