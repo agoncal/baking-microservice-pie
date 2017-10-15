@@ -61,25 +61,35 @@
             <plugin>
                 <groupId>org.apache.tomee.maven</groupId>
                 <artifactId>tomee-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>executable-jar</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>install</phase>
+                        <configuration>
+                            <execFile>${project.build.directory}/${project.artifactId}.jar</execFile>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
-            <!-- TODO - radcortez - Change configuration plugin -->
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
-                    <imageName>docker-repo:5000/tomitribe/pi-demo/server</imageName>
-                    <baseImage>radcortez/rpi-tomee:8-jre-7.0.3-metrics</baseImage>
-                    <exposes>
-                        <expose>5701</expose>
-                    </exposes>
+                    <imageName>docker-repo:5000/baking/book-api</imageName>
+                    <baseImage>openjdk:8-jre</baseImage>
+                    <exposes>8080</exposes>
+                    <workdir>/usr/local/tomee/</workdir>
                     <resources>
                         <resource>
-                            <targetPath>/usr/local/tomee/webapps</targetPath>
+                            <targetPath>/usr/local/tomee/</targetPath>
                             <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.war</include>
+                            <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
-                    <cmd>["catalina.sh", "run"]</cmd>
+                    <cmd>java -jar ${project.build.finalName}.jar</cmd>
                 </configuration>
             </plugin>
         </plugins>
