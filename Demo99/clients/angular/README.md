@@ -7,12 +7,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Initiliaze
 
 ```
-$ ng new store --directory angular --prefix store --routing true --skip-tests true 
+$ ng new store --directory angular --prefix store --routing true --skip-tests true --inline-style true
 ```
 
 ### Twitter Bootstrap
 
-* Install Bootstrap dependency `yarn add bootstrap@4.0.0-beta`, `yarn add jquery@3.2.1`, `yarn add popper.js`, `yarn add @ng-bootstrap/ng-bootstrap`
+* Install Bootstrap dependency `yarn add bootstrap@4.0.0-beta`, `yarn add jquery@3.2.1`, `yarn add popper@1.11.0`, `yarn add @ng-bootstrap/ng-bootstrap`
 * In `angular-cli.json` file add :
 ```
 "styles": [
