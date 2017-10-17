@@ -50,6 +50,7 @@
         <version.surefire.plugin>2.20</version.surefire.plugin>
         <version.versions.plugin>2.4</version.versions.plugin>
         <version.war.plugin>3.1.0</version.war.plugin>
+        <version.docker.plugin>0.22.1</version.docker.plugin>
 
         <!-- External Maven Plugins -->
         <version.wildfly.swarm>2017.10.0</version.wildfly.swarm>
@@ -148,9 +149,9 @@
                     </executions>
                 </plugin>
                 <plugin>
-                    <groupId>com.spotify</groupId>
+                    <groupId>io.fabric8</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
-                    <version>1.0.0</version>
+                    <version>${version.docker.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -242,6 +243,7 @@
                             <exclude>src/test/resources/**/*.txt</exclude>
                             <exclude>**/src/main/resources/archetype-resources/**/*</exclude>
                             <exclude>**/*.sql</exclude>
+                            <exclude>**/Dockerfile</exclude>
                         </excludes>
                     </configuration>
                     <executions>
