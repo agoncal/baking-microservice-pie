@@ -74,7 +74,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -82,7 +81,7 @@
                     <verbose>true</verbose>
                     <images>
                         <image>
-                            <name>docker-repo:5000/baking/book-api</name>
+                            <name>docker-repo:5000/baking/${artifactId}</name>
                             <build>
                                 <tags>
                                     <tag>rpi</tag>
@@ -107,7 +106,7 @@
                             </build>
                         </image>
                         <image>
-                            <name>docker-repo:5000/baking/book-api</name>
+                            <name>docker-repo:5000/baking/${artifactId}</name>
                             <build>
                                 <tags>
                                     <tag>default</tag>
@@ -135,56 +134,6 @@
                     </images>
                 </configuration>
             </plugin>
-            <!--
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                        <phase>install</phase>
-                        <configuration>
-                            <imageName>docker-repo:5000/baking/book-api</imageName>
-                            <baseImage>openjdk:8-jre</baseImage>
-                            <exposes>8080</exposes>
-                            <workdir>/usr/local/tomee/</workdir>
-                            <resources>
-                                <resource>
-                                    <targetPath>/usr/local/tomee/</targetPath>
-                                    <directory>${project.build.directory}</directory>
-                                    <include>${project.build.finalName}.jar</include>
-                                </resource>
-                            </resources>
-                            <cmd>java -jar ${project.build.finalName}.jar</cmd>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>rpi</id>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                        <phase>install</phase>
-                        <configuration>
-                            <imageName>docker-repo:5000/baking/book-api:rpi</imageName>
-                            <baseImage>hypriot/rpi-java</baseImage>
-                            <exposes>8080</exposes>
-                            <workdir>/usr/local/tomee/</workdir>
-                            <resources>
-                                <resource>
-                                    <targetPath>/usr/local/tomee/</targetPath>
-                                    <directory>${project.build.directory}</directory>
-                                    <include>${project.build.finalName}.jar</include>
-                                </resource>
-                            </resources>
-                            <cmd>java -jar ${project.build.finalName}.jar</cmd>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            -->
         </plugins>
     </build>
 

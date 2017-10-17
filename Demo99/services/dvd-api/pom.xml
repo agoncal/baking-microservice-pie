@@ -74,56 +74,66 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--
             <plugin>
-                <groupId>com.spotify</groupId>
+                <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                        <phase>install</phase>
-                        <configuration>
-                            <imageName>docker-repo:5000/baking/book-api</imageName>
-                            <baseImage>openjdk:8-jre</baseImage>
-                            <exposes>8080</exposes>
-                            <workdir>/usr/local/tomee/</workdir>
-                            <resources>
-                                <resource>
-                                    <targetPath>/usr/local/tomee/</targetPath>
-                                    <directory>${project.build.directory}</directory>
-                                    <include>${project.build.finalName}.jar</include>
-                                </resource>
-                            </resources>
-                            <cmd>java -jar ${project.build.finalName}.jar</cmd>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>rpi</id>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                        <phase>install</phase>
-                        <configuration>
-                            <imageName>docker-repo:5000/baking/book-api:rpi</imageName>
-                            <baseImage>hypriot/rpi-java</baseImage>
-                            <exposes>8080</exposes>
-                            <workdir>/usr/local/tomee/</workdir>
-                            <resources>
-                                <resource>
-                                    <targetPath>/usr/local/tomee/</targetPath>
-                                    <directory>${project.build.directory}</directory>
-                                    <include>${project.build.finalName}.jar</include>
-                                </resource>
-                            </resources>
-                            <cmd>java -jar ${project.build.finalName}.jar</cmd>
-                        </configuration>
-                    </execution>
-                </executions>
+                <configuration>
+                    <verbose>true</verbose>
+                    <images>
+                        <image>
+                            <name>docker-repo:5000/baking/${artifactId}</name>
+                            <build>
+                                <tags>
+                                    <tag>rpi</tag>
+                                </tags>
+                                <cleanup>none</cleanup>
+                                <from>hypriot/rpi-java</from>
+                                <ports>
+                                    <port>8080</port>
+                                </ports>
+                                <workdir>/usr/local/tomee</workdir>
+                                <assembly>
+                                    <name>usr/local/tomee</name>
+                                    <inline>
+                                        <files>
+                                            <file>
+                                                <source>${project.build.directory}/${project.artifactId}.jar</source>
+                                            </file>
+                                        </files>
+                                    </inline>
+                                </assembly>
+                                <cmd>java -jar ${project.artifactId}.jar</cmd>
+                            </build>
+                        </image>
+                        <image>
+                            <name>docker-repo:5000/baking/${artifactId}</name>
+                            <build>
+                                <tags>
+                                    <tag>default</tag>
+                                    <tag>latest</tag>
+                                </tags>
+                                <cleanup>none</cleanup>
+                                <from>openjdk:8-jre</from>
+                                <ports>
+                                    <port>8080</port>
+                                </ports>
+                                <workdir>/usr/local/tomee</workdir>
+                                <assembly>
+                                    <name>usr/local/tomee</name>
+                                    <inline>
+                                        <files>
+                                            <file>
+                                                <source>${project.build.directory}/${project.artifactId}.jar</source>
+                                            </file>
+                                        </files>
+                                    </inline>
+                                </assembly>
+                                <cmd>java -jar ${project.artifactId}.jar</cmd>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
             </plugin>
-            -->
         </plugins>
     </build>
 
