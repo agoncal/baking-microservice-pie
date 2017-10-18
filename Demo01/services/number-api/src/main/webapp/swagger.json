@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Generates all sorts of numbers",
-    "version" : "1.0.0",
+    "version" : "01",
     "title" : "Numbers"
   },
   "host" : "localhost:8084",

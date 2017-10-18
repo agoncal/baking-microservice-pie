@@ -50,7 +50,8 @@
         <version.surefire.plugin>2.20</version.surefire.plugin>
         <version.versions.plugin>2.4</version.versions.plugin>
         <version.war.plugin>3.1.0</version.war.plugin>
-        <version.docker.plugin>0.22.1</version.docker.plugin>
+        <version.docker-fabric8.plugin>0.22.1</version.docker-fabric8.plugin>
+        <version.docker-spotify.plugin>1.0.0</version.docker-spotify.plugin>
 
         <!-- External Maven Plugins -->
         <version.wildfly.swarm>2017.10.0</version.wildfly.swarm>
@@ -151,7 +152,7 @@
                 <plugin>
                     <groupId>io.fabric8</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
-                    <version>${version.docker.plugin}</version>
+                    <version>${version.docker-fabric8.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -307,6 +308,11 @@
                 </plugin>
 
                 <!-- All external Maven plugins ordered by shortname (tomee, swarm ...) -->
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${version.docker-spotify.plugin}</version>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.tomee.maven</groupId>
                     <artifactId>tomee-maven-plugin</artifactId>
