@@ -327,6 +327,7 @@
                                 org.hibernate.jpa.HibernatePersistenceProvider
                             </javax.persistence.provider>
                             <tomee.jpa.factory.lazy>true</tomee.jpa.factory.lazy>
+                            <openejb.jaxrs.providers.auto>true</openejb.jaxrs.providers.auto>
                         </systemVariables>
                     </configuration>
                 </plugin>
