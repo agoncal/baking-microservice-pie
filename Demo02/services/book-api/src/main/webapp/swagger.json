@@ -23,13 +23,16 @@
         "produces" : [ "application/json" ],
         "responses" : {
           "200" : {
-            "description" : "successful operation",
+            "description" : "All books found",
             "schema" : {
               "type" : "array",
               "items" : {
                 "$ref" : "#/definitions/Book"
               }
             }
+          },
+          "404" : {
+            "description" : "Books not found"
           }
         }
       },
@@ -42,10 +45,10 @@
         "produces" : [ "application/json" ],
         "responses" : {
           "201" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/Book"
-            }
+            "description" : "The book is created"
+          },
+          "400" : {
+            "description" : "Invalid input"
           }
         }
       }
@@ -67,13 +70,16 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "successful operation",
+            "description" : "Book found",
             "schema" : {
               "$ref" : "#/definitions/Book"
             }
           },
+          "400" : {
+            "description" : "Invalid input"
+          },
           "404" : {
-            "description" : "Not Found"
+            "description" : "Book not found"
           }
         }
       },
@@ -84,19 +90,15 @@
         "operationId" : "update",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int64"
-        } ],
         "responses" : {
           "200" : {
-            "description" : "successful operation",
+            "description" : "The book is updated",
             "schema" : {
               "$ref" : "#/definitions/Book"
             }
+          },
+          "400" : {
+            "description" : "Invalid input"
           }
         }
       },
@@ -116,10 +118,10 @@
         } ],
         "responses" : {
           "204" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/Book"
-            }
+            "description" : "Book has been deleted"
+          },
+          "400" : {
+            "description" : "Invalid input"
           }
         }
       }
