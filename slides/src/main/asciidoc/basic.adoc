@@ -6,6 +6,10 @@
 * We use 2 Pis
 * How do we deploy and make this run?
 
+== Architecture
+
+image::basic-architecture.png[]
+
 == Number API
 
 [source,java]
@@ -41,12 +45,16 @@ $ swagger-codegen generate -i swagger.json -l typescript-angular2 -o src/app/sha
 include::{demo01angulardir}/src/app/shared/api/NumbersApi.ts[tags=adocSnippet;!adocSkip]
 ----
 
-== Architecture
+== CORS
 
-image::basic-architecture.png[]
+[source,java]
+----
+include::{commonscorsdir}/src/main/java/org/bakingpie/commons/rest/CORSFilter.java[tags=adocSnippet]
+----
 
 == Ansible
 
-
 == Demo
+
+image::basic-architecture.png[]
 

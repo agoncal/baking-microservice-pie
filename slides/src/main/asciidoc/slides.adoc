@@ -13,7 +13,7 @@ ifndef::imagesdir[:imagesdir: images]
 // Introduction
 include::introduction.adoc[leveloffset=+1]
 
-// Basic
+// Basic (with one Microservice)
 include::basic.adoc[leveloffset=+1]
 
 // Registry

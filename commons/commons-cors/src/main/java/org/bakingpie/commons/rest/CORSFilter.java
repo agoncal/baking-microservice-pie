@@ -11,12 +11,9 @@ import java.io.IOException;
  *         http://www.antoniogoncalves.org
  *         --
  */
+// tag::adocSnippet[]
 @Provider
 public class CORSFilter implements ContainerResponseFilter {
-
-    // ======================================
-    // =          Business methods          =
-    // ======================================
 
     @Override
     public void filter(ContainerRequestContext request, ContainerResponseContext response) throws IOException {
@@ -29,3 +26,4 @@ public class CORSFilter implements ContainerResponseFilter {
         response.getHeaders().add("Access-Control-Expose-Headers", "origin, content-type, accept, authorization, ETag, if-none-match");
     }
 }
+// end::adocSnippet[]
