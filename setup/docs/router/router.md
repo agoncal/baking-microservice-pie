@@ -57,8 +57,8 @@ hostnames in the hosts files and they will be reachable via DNS)
 
 ### Adding Manual entries to Hosts file
 * This operation can only be done in the CLI console.
-* Useful to register multiple hostnames to the same IP. For instance a `docker-repo` host running in your computer to 
-provision the docker images to run in the PI's.
+* Useful to register multiple hostnames to the same IP. For instance a `docker-registry` host running in your local box 
+to provision the Docker Images to run in the PI's.
 
 ```
 ssh ubnt@10.99.99.1
@@ -75,7 +75,7 @@ Welcome to EdgeOS
 Last login: Sun Sep  3 21:09:22 2017 from radcortez
 ubnt@ubnt:~$ configure
 [edit]
-ubnt@ubnt# set system static-host-mapping host-name docker-repo inet 10.99.99.11
+ubnt@ubnt# set system static-host-mapping host-name docker-registry inet 10.99.99.11
 [edit]
 ubnt@ubnt# commit
 [edit]
