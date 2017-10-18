@@ -1,3 +1,3 @@
-export * from './NumbersApi';
-import { NumbersApi } from './NumbersApi';
-export const APIS = [NumbersApi];
+export * from './BooksApi';
+import { BooksApi } from './BooksApi';
+export const APIS = [BooksApi];

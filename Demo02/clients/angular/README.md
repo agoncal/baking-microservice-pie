@@ -54,7 +54,7 @@ $ ng generate component administrator/book-form --spec false --module administra
 
 ```
 $ swagger-codegen generate -i ../../services/number-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/shared
-$ swagger-codegen generate -i ../../services/cd-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/shared
+$ swagger-codegen generate -i ../../services/book-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/shared
 ```
 
 ## Angular CLI documentation

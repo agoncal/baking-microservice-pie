@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from '../../shared/model/Book';
+import { BooksApi } from '../../shared/api/BooksApi';
 
 @Component({
   selector: 'store-book-list',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookListComponent implements OnInit {
 
-  constructor() { }
+  books: Book[];
+
+  constructor(private booksApi: BooksApi) { }
 
   ngOnInit() {
+    this.booksApi.findAll().subscribe(books => this.books = books);
   }
-
 }

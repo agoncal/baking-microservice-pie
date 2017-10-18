@@ -96,7 +96,7 @@
                         </goals>
                         <phase>package</phase>
                         <configuration>
-                            <tomeeHttpPort>8081</tomeeHttpPort>
+                            <tomeeHttpPort>${listening.port}</tomeeHttpPort>
                             <execFile>${project.build.directory}/${project.artifactId}-${project.version}.jar</execFile>
                         </configuration>
                     </execution>

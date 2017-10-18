@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdministratorRoutingModule } from './administrator-routing.module';
@@ -8,6 +8,7 @@ import { NumbersApi } from '../shared/api/NumbersApi';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookFormComponent } from './book-form/book-form.component';
+import { BooksApi } from '../shared/api/BooksApi';
 
 @NgModule({
   imports: [
@@ -28,8 +29,10 @@ import { BookFormComponent } from './book-form/book-form.component';
     BookFormComponent
   ],
   providers: [
-    NumbersApi
+    NumbersApi,
+    BooksApi
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AdministratorModule {
 }

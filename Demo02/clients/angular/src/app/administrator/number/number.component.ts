@@ -16,7 +16,6 @@ export class NumberComponent implements OnInit {
   }
 
   generateBookNumber() {
-    // this.bookNumber = "toto";
       this.numberApi.generateBookNumber().subscribe(bookNumber => this.bookNumber = bookNumber);
   }
 
