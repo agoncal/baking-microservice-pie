@@ -1,0 +1,19 @@
+= Invoking Micro-Services
+
+[%step]
+* We have one Number API Micro Service
+* We have one Book Micro Service
+* Book API invokes Number API
+* We have one Angular client
+* We use 3 Pis
+* How do we deploy and make this run?
+
+== Architecture
+
+image::invoking-architecture.png[]
+
+
+== Demo
+
+image::invoking-architecture.png[]
+

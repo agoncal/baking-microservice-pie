@@ -16,6 +16,9 @@ include::introduction.adoc[leveloffset=+1]
 // Basic (with one Microservice)
 include::basic.adoc[leveloffset=+1]
 
+// One Microservice invoking another one
+include::invoking.adoc[leveloffset=+1]
+
 // Registry
 include::registry.adoc[leveloffset=+1]
 
