@@ -9,6 +9,7 @@ import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookFormComponent } from './book-form/book-form.component';
 import { BooksApi } from '../shared/api/BooksApi';
+import { BookDeleteComponent } from './book-delete/book-delete.component';
 
 @NgModule({
   imports: [
@@ -20,13 +21,15 @@ import { BooksApi } from '../shared/api/BooksApi';
     NumberComponent,
     BookListComponent,
     BookDetailComponent,
-    BookFormComponent
+    BookFormComponent,
+    BookDeleteComponent
   ],
   exports: [
     NumberComponent,
     BookListComponent,
     BookDetailComponent,
-    BookFormComponent
+    BookFormComponent,
+    BookDeleteComponent
   ],
   providers: [
     NumbersApi,

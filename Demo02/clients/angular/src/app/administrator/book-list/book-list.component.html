@@ -1,14 +1,11 @@
 <div>
   <h2>
     <span>Books</span>
-    <button class="btn btn-primary float-right jh-create-entity create-book" [routerLink]="['/', { outlets: { popup: ['book-new'] } }]">
+    <button class="btn btn-primary float-right create-book" [routerLink]="['/', { outlets: { popup: ['book-form'] } }]">
       <span class="fa fa-plus"></span>
-      <span >
-            Create new Book
-            </span>
+      <span>Create new Book</span>
     </button>
   </h2>
-  <jhi-alert></jhi-alert>
   <div class="row">
   </div>
   <br/>
@@ -27,7 +24,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let book of books ;trackBy: trackId">
-        <td><a [routerLink]="['../book', book.id ]">{{book.id}}</a></td>
+        <td>{{book.id}}</td>
         <td>{{book.title}}</td>
         <td>{{book.author}}</td>
         <td>{{book.year}}</td>
@@ -35,16 +32,11 @@
         <td>{{book.isbn}}</td>
         <td class="text-right">
           <div class="btn-group flex-btn-group-container">
-            <button type="submit"
-                    [routerLink]="['../book', book.id ]"
-                    class="btn btn-info btn-sm">
+            <button type="submit" [routerLink]="['book-detail', book.id ]" class="btn btn-info btn-sm">
               <span class="fa fa-eye"></span>
               <span class="d-none d-md-inline">View</span>
             </button>
-            <button type="submit"
-                    [routerLink]="['/', { outlets: { popup: 'book/'+ book.id + '/edit'} }]"
-                    replaceUrl="true"
-                    class="btn btn-primary btn-sm">
+            <button type="submit" [routerLink]="['/', { outlets: { popup: 'book-form/'+ book.id + '/edit'} }]" replaceUrl="true" class="btn btn-primary btn-sm">
               <span class="fa fa-pencil"></span>
               <span class="d-none d-md-inline">Edit</span>
             </button>

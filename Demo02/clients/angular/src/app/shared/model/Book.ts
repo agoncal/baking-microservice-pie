@@ -10,17 +10,41 @@
  * Do not edit the class manually.
  */
 
-export interface Book {
-    id?: number;
+export const enum Genre {
+  'JAZZ',
+  'ROCK',
+  'FOLK',
+  'POP',
+  'BLUES',
+  'HIP_HOP',
+  'RAPPING',
+  'COUNTRY',
+  'PUNK_ROCK',
+  'RHYTHM_AND_BLUES',
+  'ELECTRONIC_DANCE',
+  'SINGING',
+  'REGGAE',
+  'POPULAR',
+  'DISCO',
+  'FUNK',
+  'SOUL',
+  'TECHNO',
+  'CLASSICAL_PERIOD',
+  'ALTERNATIVE_ROCK',
+  'CLASSICAL',
+  'INSTRUMENTAL',
+  'HOUSE',
+  'DUBSTEP'
+}
 
-    author?: string;
-
-    title?: string;
-
-    year?: number;
-
-    genre?: string;
-
-    isbn?: string;
-
+export class Book {
+  constructor(
+    public id?: number,
+    public title?: string,
+    public author?: string,
+    public year?: number,
+    public genre?: Genre,
+    public isbn?: string,
+  ) {
+  }
 }

@@ -48,6 +48,7 @@ $ ng generate component administrator/number --spec false --module administrator
 $ ng generate component administrator/book-list --spec false --module administrator --export true --inline-style true
 $ ng generate component administrator/book-detail --spec false --module administrator --export true --inline-style true
 $ ng generate component administrator/book-form --spec false --module administrator --export true --inline-style true
+$ ng generate component administrator/book-delete --spec false --module administrator --export true --inline-style true
 ```
 
 ### Swagger Codegen
