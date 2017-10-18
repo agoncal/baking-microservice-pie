@@ -9,18 +9,52 @@
     <description>An example project that demonstrates how to integrate convert Asciidoc to a reveal.js presentation with the Asciidoctor Maven plugin.</description>
 
     <properties>
-        <project.slides.directory>${project.build.directory}/generated-slides</project.slides.directory>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- PlantUML -->
+        <version.plantuml.maven.plugin>1.2</version.plantuml.maven.plugin>
+        <version.plantuml>8059</version.plantuml>
+        <!-- Asciidoctor -->
         <asciidoctor.maven.plugin.version>1.5.5</asciidoctor.maven.plugin.version>
         <asciidoctorj.version>1.5.6</asciidoctorj.version>
         <jruby.version>1.7.26</jruby.version>
+        <!-- Revealjs -->
         <revealjs.version>3.5.0</revealjs.version>
         <asciidoctor-revealjs.version>master</asciidoctor-revealjs.version>
+        <project.slides.directory>${project.build.directory}/generated-slides</project.slides.directory>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <build>
         <defaultGoal>process-resources</defaultGoal>
         <plugins>
+            <plugin>
+                <groupId>com.github.jeluard</groupId>
+                <artifactId>plantuml-maven-plugin</artifactId>
+                <version>${version.plantuml.maven.plugin}</version>
+                <configuration>
+                    <outputDirectory>${basedir}/src/main/asciidoc/images</outputDirectory>
+                    <sourceFiles>
+                        <directory>${basedir}/src/main/plantuml</directory>
+                        <includes>
+                            <include>**/*.puml</include>
+                        </includes>
+                    </sourceFiles>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.sourceforge.plantuml</groupId>
+                        <artifactId>plantuml</artifactId>
+                        <version>${version.plantuml}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>com.googlecode.maven-download-plugin</groupId>
                 <artifactId>download-maven-plugin</artifactId>
@@ -93,7 +127,7 @@
                                 <!-- put here the reveal.js specific attributes -->
                                 <sourcedir>${basedir}/..</sourcedir>
                                 <revealjs_theme>beige</revealjs_theme>
-                                <revealjs_transition>linear</revealjs_transition>
+                                <revealjs_transition>slide</revealjs_transition>
                                 <project-version>${project.version}</project-version>
                             </attributes>
                         </configuration>

@@ -8,7 +8,6 @@ ifndef::imagesdir[:imagesdir: images]
 // User defined directory
 :commonscorsdir: ../../../../commons/commons-cors
 :demo01angulardir: ../../../../Demo01/clients/angular
-:demo01bookapidir: ../../../../Demo01/services/book-api
 :demo01numberapidir: ../../../../Demo01/services/number-api
 
 // Introduction

@@ -1,10 +1,9 @@
 = Let's start simple
 
 [%step]
-* We have one Number API
-* We have one Book API
+* We have one Number API Micro Service
 * We have one Angular client
-* We use 3 Pis
+* We use 2 Pis
 * How do we deploy and make this run?
 
 == Number API
@@ -21,16 +20,30 @@ include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberReso
 include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet]
 ----
 
-== Docker
+== Swagger Contract
 
-[%step]
-* Everything is packaged with Docker
+[source,json]
+----
+include::{demo01numberapidir}/src/main/webapp/swagger.json[]
+----
 
-== HypriotOS
+== Swagger Code Gen
 
-[%step]
-* Minimal Debian-based operating systems
-* Optimized to run Docker on Raspberry PIs
+[source,shell]
+----
+$ swagger-codegen generate -i swagger.json -l typescript-angular2 -o src/app/shared
+----
+
+== The Generated TypeScript Service
+
+[source,js]
+----
+include::{demo01angulardir}/src/app/shared/api/NumbersApi.ts[tags=adocSnippet;!adocSkip]
+----
+
+== Architecture
+
+image::basic-architecture.png[]
 
 == Ansible
 

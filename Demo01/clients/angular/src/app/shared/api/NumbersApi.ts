@@ -23,11 +23,12 @@ import 'rxjs/add/operator/map';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
-
+// tag::adocSnippet[]
 @Injectable()
 export class NumbersApi {
 
     protected basePath = 'http://localhost:8084/api';
+    // tag::adocSkip[]
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 
@@ -44,6 +45,8 @@ export class NumbersApi {
      *
      * @summary Generates a book number.
      */
+    // end::adocSkip[]
+
     public generateBookNumber(extraHttpRequestParams?: any): Observable<string> {
         return this.generateBookNumberWithHttpInfo(extraHttpRequestParams)
             .map((response: Response) => {
@@ -54,7 +57,7 @@ export class NumbersApi {
                 }
             });
     }
-
+// end::adocSnippet[]
 
     /**
      * Generates a book number.

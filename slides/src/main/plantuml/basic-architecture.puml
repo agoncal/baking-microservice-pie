@@ -1,0 +1,12 @@
+@startuml
+
+node "Raspberry PI" as piclient {
+    artifact "Angular APP" as angular
+}
+
+node "Raspberry PI" as piserver {
+    artifact "Number API" as numberapi
+}
+
+angular -> numberapi: "     HTTP      "
+@enduml
