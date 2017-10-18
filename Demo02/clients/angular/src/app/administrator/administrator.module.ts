@@ -5,6 +5,9 @@ import { AdministratorRoutingModule } from './administrator-routing.module';
 import { NumberComponent } from './number/number.component';
 import { HttpModule } from '@angular/http';
 import { NumbersApi } from '../shared/api/NumbersApi';
+import { BookListComponent } from './book-list/book-list.component';
+import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookFormComponent } from './book-form/book-form.component';
 
 @NgModule({
   imports: [
@@ -13,10 +16,16 @@ import { NumbersApi } from '../shared/api/NumbersApi';
     HttpModule
   ],
   declarations: [
-    NumberComponent
+    NumberComponent,
+    BookListComponent,
+    BookDetailComponent,
+    BookFormComponent
   ],
   exports: [
-    NumberComponent
+    NumberComponent,
+    BookListComponent,
+    BookDetailComponent,
+    BookFormComponent
   ],
   providers: [
     NumbersApi

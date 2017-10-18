@@ -45,13 +45,16 @@ $ ng generate module administrator --spec false --routing true --module app
 
 ```
 $ ng generate component administrator/number --spec false --module administrator --export true --inline-style true
+$ ng generate component administrator/book-list --spec false --module administrator --export true --inline-style true
+$ ng generate component administrator/book-detail --spec false --module administrator --export true --inline-style true
+$ ng generate component administrator/book-form --spec false --module administrator --export true --inline-style true
 ```
 
 ### Swagger Codegen
 
 ```
 $ swagger-codegen generate -i ../../services/number-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/shared
-swagger-codegen generate -i ../../services/cd-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/shared
+$ swagger-codegen generate -i ../../services/cd-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/shared
 ```
 
 ## Angular CLI documentation

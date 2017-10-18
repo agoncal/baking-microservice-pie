@@ -63,3 +63,5 @@ hs_err_pid*
 node_tmp/
 node_modules/
 npm-debug.log.*
+
+.distribution

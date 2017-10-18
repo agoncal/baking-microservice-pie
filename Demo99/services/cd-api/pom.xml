@@ -61,7 +61,7 @@
                             <springmvc>false</springmvc>
                             <locations>org.bakingpie.cd</locations>
                             <schemes>http,https</schemes>
-                            <host>localhost:8080</host>
+                            <host>localhost:8082</host>
                             <basePath>/api</basePath>
                             <info>
                                 <title>CD</title>

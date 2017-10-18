@@ -51,7 +51,6 @@ $ ng generate component administrator/number --spec false --module administrator
 
 ```
 $ swagger-codegen generate -i ../../services/number-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/shared
-swagger-codegen generate -i ../../services/cd-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/shared
 ```
 
 ## Angular CLI documentation

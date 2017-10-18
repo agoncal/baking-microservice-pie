@@ -62,6 +62,18 @@
             <plugin>
                 <groupId>org.apache.tomee.maven</groupId>
                 <artifactId>tomee-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>executable-jar</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <execFile>${project.build.directory}/${project.artifactId}-${project.version}.jar</execFile>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <!-- TODO - radcortez - Change configuration plugin -->
             <plugin>
