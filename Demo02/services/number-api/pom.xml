@@ -30,6 +30,10 @@
     <packaging>war</packaging>
     <name>Baking a Microservice Pie :: Demo 02 :: Services :: Number API</name>
 
+    <properties>
+        <listening.port>8084</listening.port>
+    </properties>
+
     <dependencyManagement>
         <!-- BOMS -->
         <dependencies>
@@ -61,11 +65,11 @@
                             <springmvc>false</springmvc>
                             <locations>org.bakingpie.number</locations>
                             <schemes>http,https</schemes>
-                            <host>localhost:8084</host>
+                            <host>localhost:${listening.port}</host>
                             <basePath>/api</basePath>
                             <info>
-                                <title>Numbers</title>
-                                <version>1.0.0</version>
+                                <title>Numbers API</title>
+                                <version>${project.version}</version>
                                 <description>Generates all sorts of numbers</description>
                             </info>
                             <swaggerDirectory>${basedir}/src/main/webapp</swaggerDirectory>
@@ -79,7 +83,7 @@
                 <artifactId>wildfly-swarm-plugin</artifactId>
                 <configuration>
                     <properties>
-                        <swarm.http.port>8084</swarm.http.port>
+                        <swarm.http.port>${listening.port}</swarm.http.port>
                     </properties>
                 </configuration>
             </plugin>
@@ -87,7 +91,7 @@
     </build>
 
     <dependencies>
-        <!-- Java EE 7 dependency -->
+        <!-- Java EE Dependencies -->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
@@ -96,7 +100,7 @@
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
         </dependency>
-        <!-- Our dependency -->
+        <!-- Our Dependencies -->
         <dependency>
             <groupId>org.bakingpie.commons</groupId>
             <artifactId>cors</artifactId>
@@ -107,7 +111,7 @@
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>jaxrs</artifactId>
         </dependency>
-        <!-- Test -->
+        <!-- Test Dependencies -->
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>arquillian</artifactId>

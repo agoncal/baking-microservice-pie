@@ -2,8 +2,8 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Generates all sorts of numbers",
-    "version" : "1.0.0",
-    "title" : "Numbers"
+    "version" : "02",
+    "title" : "Numbers API"
   },
   "host" : "localhost:8084",
   "basePath" : "/api",

@@ -16,30 +16,9 @@
  */
 package org.bakingpie.book.rest;
 
-import io.swagger.jaxrs.config.BeanConfig;
-import io.swagger.jaxrs.listing.ApiListingResource;
-import io.swagger.jaxrs.listing.SwaggerSerializers;
-
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
-import java.util.Set;
-import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toSet;
 
 @ApplicationPath("/api")
 public class ApplicationConfig extends Application {
-    public ApplicationConfig() {
-        BeanConfig beanConfig = new BeanConfig();
-        beanConfig.setVersion("1.0");
-        beanConfig.setSchemes(new String[]{
-            "http",
-            "https"
-        });
-        beanConfig.setTitle("Book API");
-        beanConfig.setBasePath("book-api/api");
-        beanConfig.setResourcePackage("org.bakingpie.book.rest");
-        beanConfig.setScan(true);
-        beanConfig.setPrettyPrint(true);
-    }
 }

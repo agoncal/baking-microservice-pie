@@ -30,6 +30,10 @@
     <packaging>war</packaging>
     <name>Baking a Microservice Pie :: Demo 02 :: Services :: Book API</name>
 
+    <properties>
+        <listening.port>8081</listening.port>
+    </properties>
+
     <dependencyManagement>
         <!-- BOMS -->
         <dependencies>
@@ -47,6 +51,28 @@
         <finalName>${project.artifactId}</finalName>
 
         <plugins>
+            <plugin>
+                <groupId>com.github.kongchen</groupId>
+                <artifactId>swagger-maven-plugin</artifactId>
+                <configuration>
+                    <apiSources>
+                        <apiSource>
+                            <springmvc>false</springmvc>
+                            <locations>org.bakingpie.book</locations>
+                            <schemes>http,https</schemes>
+                            <host>localhost:${listening.port}</host>
+                            <basePath>/api</basePath>
+                            <info>
+                                <title>Book API</title>
+                                <version>${project.version}</version>
+                                <description>Operations for Books.</description>
+                            </info>
+                            <swaggerDirectory>${basedir}/src/main/webapp</swaggerDirectory>
+                            <outputFormats>json</outputFormats>
+                        </apiSource>
+                    </apiSources>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -99,42 +125,42 @@
     </build>
 
     <dependencies>
+        <!-- Java EE Dependencies -->
         <dependency>
             <groupId>org.apache.tomee</groupId>
             <artifactId>javaee-api</artifactId>
         </dependency>
-
         <dependency>
             <groupId>io.swagger</groupId>
-            <artifactId>swagger-jaxrs</artifactId>
+            <artifactId>swagger-annotations</artifactId>
         </dependency>
-
+        <!-- Our Dependencies -->
+        <dependency>
+            <groupId>org.bakingpie.commons</groupId>
+            <artifactId>cors</artifactId>
+            <version>00</version>
+        </dependency>
         <!-- Test Dependencies -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.apache.tomee</groupId>
             <artifactId>arquillian-tomee-remote</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.jboss.shrinkwrap.resolver</groupId>
             <artifactId>shrinkwrap-resolver-api-maven</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.jboss.shrinkwrap.resolver</groupId>
             <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.apache.tomee</groupId>
             <artifactId>apache-tomee</artifactId>
