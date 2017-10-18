@@ -81,7 +81,7 @@
                     <verbose>true</verbose>
                     <images>
                         <image>
-                            <name>docker-repo:5000/baking/${artifactId}</name>
+                            <name>docker-registry:5000/baking/${project.artifactId}</name>
                             <build>
                                 <tags>
                                     <tag>rpi</tag>
@@ -106,7 +106,7 @@
                             </build>
                         </image>
                         <image>
-                            <name>docker-repo:5000/baking/${artifactId}</name>
+                            <name>docker-registry:5000/baking/${project.artifactId}</name>
                             <build>
                                 <tags>
                                     <tag>default</tag>
