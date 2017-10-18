@@ -19,10 +19,15 @@ package org.bakingpie.number;
 import org.wildfly.swarm.Swarm;
 import org.wildfly.swarm.jaxrs.JAXRSFraction;
 
+import java.util.Properties;
+
 public class NumberApiApp {
 
     public static void main(String... args) throws Exception {
-        new Swarm()
+        Properties properties = new Properties();
+        properties.setProperty("swarm.http.port", "8084");
+
+        new Swarm(properties)
             .fraction(new JAXRSFraction())
             .start()
             .deploy();

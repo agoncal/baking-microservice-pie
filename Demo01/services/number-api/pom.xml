@@ -96,6 +96,12 @@
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
         </dependency>
+        <!-- Our dependency -->
+        <dependency>
+            <groupId>org.bakingpie.commons</groupId>
+            <artifactId>cors</artifactId>
+            <version>00</version>
+        </dependency>
         <!-- WildFly Swarm Fractions -->
         <dependency>
             <groupId>org.wildfly.swarm</groupId>

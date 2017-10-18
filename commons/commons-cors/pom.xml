@@ -19,15 +19,29 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.bakingpie</groupId>
-    <artifactId>commons</artifactId>
+    <groupId>org.bakingpie.commons</groupId>
+    <artifactId>cors</artifactId>
     <version>00</version>
-    <packaging>pom</packaging>
-    <name>Baking a Microservice Pie :: Commons</name>
+    <name>Baking a Microservice Pie :: Commons :: CORS</name>
 
-    <modules>
-        <module>commons-cors</module>
-        <module>parent-bom</module>
-        <module>parent-pom</module>
-    </modules>
+    <dependencyManagement>
+        <!-- BOMS -->
+        <dependencies>
+            <dependency>
+                <groupId>org.bakingpie</groupId>
+                <artifactId>parent-bom</artifactId>
+                <version>00</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- Java EE 7 dependency -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+    </dependencies>
 </project>

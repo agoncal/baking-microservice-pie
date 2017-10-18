@@ -19,6 +19,7 @@
         "summary" : "Generates a book number.",
         "description" : "",
         "operationId" : "generateBookNumber",
+        "produces" : [ "text/plain" ],
         "responses" : {
           "200" : {
             "description" : "successful operation",

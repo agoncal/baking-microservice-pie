@@ -22,10 +22,13 @@ import io.swagger.annotations.ApiOperation;
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @ApplicationScoped
 @Path("numbers")
+@Produces(MediaType.TEXT_PLAIN)
 @Api(value = "numbers", description = "Generating all sorts of numbers.")
 public class NumberResource {
 

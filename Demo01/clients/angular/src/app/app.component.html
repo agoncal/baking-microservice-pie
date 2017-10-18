@@ -5,20 +5,25 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <div class="collapse navbar-collapse" id="navbars">
     <ul class="navbar-nav mr-auto">
+
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="dropdown-admin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrator</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown-admin">
-          <a class="dropdown-item">
-            <i class="fa fa-fw fa-refresh" aria-hidden="true"></i>
-            <span>Numbers</span>
-          </a>
-          <a class="dropdown-item">
-            <i class="fa fa-fw fa-book" aria-hidden="true"></i>
-            <span>Books</span>
-          </a>
-        </div>
+        <a class="nav-link dropdown-toggle" id="dropdown-administrator" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrator</a>
+        <ul class="dropdown-menu" aria-labelledby="dropdown-admin">
+          <li>
+            <a class="dropdown-item" [routerLink]="['/numbers']">
+              <i class="fa fa-fw fa-refresh" aria-hidden="true"></i>
+              <span>Numbers</span>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['/book-list']">
+              <i class="fa fa-fw fa-book" aria-hidden="true"></i>
+              <span>Books</span>
+            </a>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
