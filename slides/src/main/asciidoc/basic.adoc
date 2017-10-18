@@ -1,0 +1,39 @@
+= Let's start simple
+
+[%step]
+* We have one Number API
+* We have one Book API
+* We have one Angular client
+* We use 3 Pis
+* How do we deploy and make this run?
+
+== Number API
+
+[source,java]
+----
+include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocSwagger]
+----
+
+== Swagger Contract
+
+[source,java]
+----
+include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet]
+----
+
+== Docker
+
+[%step]
+* Everything is packaged with Docker
+
+== HypriotOS
+
+[%step]
+* Minimal Debian-based operating systems
+* Optimized to run Docker on Raspberry PIs
+
+== Ansible
+
+
+== Demo
+

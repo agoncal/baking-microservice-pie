@@ -5,12 +5,17 @@ Antonio Goncalves <https://twitter.com/agoncal>; Roberto Cortez <https://twitter
 :example-caption!:
 ifndef::imagesdir[:imagesdir: images]
 :icons: font
+// User defined directory
+:commonscorsdir: ../../../../commons/commons-cors
+:demo01angulardir: ../../../../Demo01/clients/angular
+:demo01bookapidir: ../../../../Demo01/services/book-api
+:demo01numberapidir: ../../../../Demo01/services/number-api
 
 // Introduction
 include::introduction.adoc[leveloffset=+1]
 
-// Deploy
-include::deploy.adoc[leveloffset=+1]
+// Basic
+include::basic.adoc[leveloffset=+1]
 
 // Registry
 include::registry.adoc[leveloffset=+1]
@@ -35,6 +40,9 @@ include::load.adoc[leveloffset=+1]
 
 // Tracing
 include::tracing.adoc[leveloffset=+1]
+
+// Deploy
+include::deploy.adoc[leveloffset=+1]
 
 // Conclusion
 include::conclusion.adoc[leveloffset=+1]

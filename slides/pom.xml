@@ -92,7 +92,7 @@
                                 <revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
                                 <!-- put here the reveal.js specific attributes -->
                                 <sourcedir>${basedir}/..</sourcedir>
-                                <revealjs_theme>black</revealjs_theme>
+                                <revealjs_theme>beige</revealjs_theme>
                                 <revealjs_transition>linear</revealjs_transition>
                                 <project-version>${project.version}</project-version>
                             </attributes>

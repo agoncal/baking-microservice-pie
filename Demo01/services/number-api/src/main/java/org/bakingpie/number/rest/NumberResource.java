@@ -27,19 +27,21 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @ApplicationScoped
+// tag::adocSnippet[]
 @Path("numbers")
 @Produces(MediaType.TEXT_PLAIN)
+// tag::adocSwagger[]
 @Api(value = "numbers", description = "Generating all sorts of numbers.")
+// end::adocSwagger[]
 public class NumberResource {
-
-    // ======================================
-    // =              Methods               =
-    // ======================================
 
     @GET
     @Path("book")
+    // tag::adocSwagger[]
     @ApiOperation(value = "Generates a book number.", response = String.class)
+    // end::adocSwagger[]
     public Response generateBookNumber() {
         return Response.ok("BK-" + Math.random()).build();
     }
 }
+// end::adocSnippet[]
