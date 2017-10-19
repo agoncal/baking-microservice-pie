@@ -19,6 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "store",
       "styles": [
+        "../node_modules/swagger-ui/dist/swagger-ui.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "jumbotron.css",
         "styles.css",

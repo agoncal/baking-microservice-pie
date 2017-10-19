@@ -45,6 +45,7 @@ $ ng generate module administrator --spec false --routing true --module app
 
 ```
 $ ng generate component administrator/number --spec false --module administrator --export true --inline-style true
+$ ng generate component administrator/swagger --spec false --module administrator --export true --inline-style true
 ```
 
 ### Swagger Codegen

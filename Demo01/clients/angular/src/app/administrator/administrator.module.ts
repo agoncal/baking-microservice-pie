@@ -5,6 +5,7 @@ import { AdministratorRoutingModule } from './administrator-routing.module';
 import { NumberComponent } from './number/number.component';
 import { HttpModule } from '@angular/http';
 import { NumbersApi } from '../shared/api/NumbersApi';
+import { SwaggerComponent } from './swagger/swagger.component';
 
 @NgModule({
   imports: [
@@ -13,10 +14,12 @@ import { NumbersApi } from '../shared/api/NumbersApi';
     HttpModule
   ],
   declarations: [
-    NumberComponent
+    NumberComponent,
+    SwaggerComponent
   ],
   exports: [
-    NumberComponent
+    NumberComponent,
+    SwaggerComponent
   ],
   providers: [
     NumbersApi

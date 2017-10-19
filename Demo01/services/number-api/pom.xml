@@ -84,6 +84,7 @@
                 <artifactId>wildfly-swarm-plugin</artifactId>
                 <configuration>
                     <properties>
+                        <swarm.context.path>${project.artifactId}</swarm.context.path>
                         <swarm.http.port>${listening.port}</swarm.http.port>
                         <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
                     </properties>
