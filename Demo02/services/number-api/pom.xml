@@ -31,6 +31,7 @@
     <name>Baking a Microservice Pie :: Demo 02 :: Services :: Number API</name>
 
     <properties>
+        <executable.jar>${project.artifactId}-${project.version}-swarm.jar</executable.jar>
         <listening.port>8084</listening.port>
     </properties>
 
@@ -66,7 +67,7 @@
                             <locations>org.bakingpie.number</locations>
                             <schemes>http,https</schemes>
                             <host>localhost:${listening.port}</host>
-                            <basePath>/api</basePath>
+                            <basePath>/${project.artifactId}/api</basePath>
                             <info>
                                 <title>Numbers API</title>
                                 <version>${project.version}</version>
@@ -83,9 +84,15 @@
                 <artifactId>wildfly-swarm-plugin</artifactId>
                 <configuration>
                     <properties>
+                        <swarm.context.path>${project.artifactId}</swarm.context.path>
                         <swarm.http.port>${listening.port}</swarm.http.port>
+                    <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
                     </properties>
                 </configuration>
+            </plugin>
+        <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

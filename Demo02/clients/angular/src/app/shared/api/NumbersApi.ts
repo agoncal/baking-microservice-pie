@@ -27,7 +27,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class NumbersApi {
 
-    protected basePath = 'http://localhost:8084/api';
+    protected basePath = 'http://localhost:8084/number-api/api';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 

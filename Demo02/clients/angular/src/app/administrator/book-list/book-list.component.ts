@@ -14,6 +14,6 @@ export class BookListComponent implements OnInit {
   constructor(private booksApi: BooksApi) { }
 
   ngOnInit() {
-    // this.booksApi.findAll().subscribe(books => this.books = books);
+    this.booksApi.findAll().subscribe(books => this.books = books);
   }
 }

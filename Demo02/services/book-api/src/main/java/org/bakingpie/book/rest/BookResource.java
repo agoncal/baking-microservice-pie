@@ -22,6 +22,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.bakingpie.book.domain.Book;
 import org.bakingpie.book.repository.BookRepository;
+import org.bakingpie.commons.rest.EnableCORS;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -38,6 +39,7 @@ import static javax.ws.rs.core.Response.*;
 @Path("books")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@EnableCORS
 @Api(value = "books", description = "Operations for Books.")
 public class BookResource {
 

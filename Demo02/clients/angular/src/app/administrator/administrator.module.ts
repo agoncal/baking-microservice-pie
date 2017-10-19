@@ -5,6 +5,7 @@ import { AdministratorRoutingModule } from './administrator-routing.module';
 import { NumberComponent } from './number/number.component';
 import { HttpModule } from '@angular/http';
 import { NumbersApi } from '../shared/api/NumbersApi';
+import { SwaggerComponent } from './swagger/swagger.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookFormComponent } from './book-form/book-form.component';
@@ -19,6 +20,7 @@ import { BookDeleteComponent } from './book-delete/book-delete.component';
   ],
   declarations: [
     NumberComponent,
+    SwaggerComponent,
     BookListComponent,
     BookDetailComponent,
     BookFormComponent,
@@ -26,6 +28,7 @@ import { BookDeleteComponent } from './book-delete/book-delete.component';
   ],
   exports: [
     NumberComponent,
+    SwaggerComponent,
     BookListComponent,
     BookDetailComponent,
     BookFormComponent,

@@ -28,7 +28,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class BooksApi {
 
-    protected basePath = 'http://localhost:8081/api';
+    protected basePath = 'http://localhost:8081/book-api/api';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 

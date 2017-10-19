@@ -6,7 +6,7 @@
     "title" : "Numbers API"
   },
   "host" : "localhost:8084",
-  "basePath" : "/api",
+  "basePath" : "/number-api/api",
   "tags" : [ {
     "name" : "numbers",
     "description" : "Generating all sorts of numbers."

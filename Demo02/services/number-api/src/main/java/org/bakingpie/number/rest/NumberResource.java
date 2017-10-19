@@ -18,6 +18,7 @@ package org.bakingpie.number.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.bakingpie.commons.rest.EnableCORS;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;
@@ -27,21 +28,16 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @ApplicationScoped
-// tag::adocSnippet[]
 @Path("numbers")
 @Produces(MediaType.TEXT_PLAIN)
-// tag::adocSwagger[]
+@EnableCORS
 @Api(value = "numbers", description = "Generating all sorts of numbers.")
-// end::adocSwagger[]
 public class NumberResource {
 
     @GET
     @Path("book")
-    // tag::adocSwagger[]
     @ApiOperation(value = "Generates a book number.", response = String.class)
-    // end::adocSwagger[]
     public Response generateBookNumber() {
         return Response.ok("BK-" + Math.random()).build();
     }
 }
-// end::adocSnippet[]

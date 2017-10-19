@@ -67,9 +67,9 @@
                             <locations>org.bakingpie.number</locations>
                             <schemes>http,https</schemes>
                             <host>localhost:${listening.port}</host>
-                            <basePath>/api</basePath>
+                            <basePath>/${project.artifactId}/api</basePath>
                             <info>
-                                <title>Numbers</title>
+                                <title>Numbers API</title>
                                 <version>${project.version}</version>
                                 <description>Generates all sorts of numbers</description>
                             </info>
