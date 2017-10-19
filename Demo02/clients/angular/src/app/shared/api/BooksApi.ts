@@ -60,14 +60,18 @@ export class BooksApi {
     /**
      *
      * @summary Create a Book
+     * @param body Book to be created
      */
-    public create(extraHttpRequestParams?: any): Observable<{}> {
-        return this.createWithHttpInfo(extraHttpRequestParams)
+    public create(body: models.Book, extraHttpRequestParams?: any): Observable<{}> {
+        return this.createWithHttpInfo(body, extraHttpRequestParams)
             .map((response: Response) => {
-                if (response.status === 204) {
-                    return undefined;
-                } else {
-                    return response.json() || {};
+                switch (response.status) {
+                    case 204 :
+                        return undefined;
+                    case 201 :
+                        return response;
+                    default :
+                        return response.json();
                 }
             });
     }
@@ -106,9 +110,10 @@ export class BooksApi {
     /**
      *
      * @summary Update a Book
+     * @param body Book to be created
      */
-    public update(extraHttpRequestParams?: any): Observable<models.Book> {
-        return this.updateWithHttpInfo(extraHttpRequestParams)
+    public update(body: models.Book, extraHttpRequestParams?: any): Observable<models.Book> {
+        return this.updateWithHttpInfo(body, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -136,12 +141,10 @@ export class BooksApi {
         }
         // to determine the Content-Type header
         let consumes: string[] = [
-            'application/json'
         ];
 
         // to determine the Accept header
         let produces: string[] = [
-            'application/json'
         ];
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
@@ -161,12 +164,17 @@ export class BooksApi {
     /**
      * Create a Book
      *
+     * @param body Book to be created
      */
-    public createWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
+    public createWithHttpInfo(body: models.Book, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + '/books';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling create.');
+        }
         // to determine the Content-Type header
         let consumes: string[] = [
             'application/json'
@@ -174,12 +182,14 @@ export class BooksApi {
 
         // to determine the Accept header
         let produces: string[] = [
-            'application/json'
         ];
+
+        headers.set('Content-Type', 'application/json');
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
+            body: body == null ? '' : JSON.stringify(body), // https://github.com/angular/angular/issues/10612
             search: queryParameters,
             withCredentials:this.configuration.withCredentials
         });
@@ -202,7 +212,6 @@ export class BooksApi {
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         // to determine the Content-Type header
         let consumes: string[] = [
-            'application/json'
         ];
 
         // to determine the Accept header
@@ -241,7 +250,6 @@ export class BooksApi {
         }
         // to determine the Content-Type header
         let consumes: string[] = [
-            'application/json'
         ];
 
         // to determine the Accept header
@@ -266,12 +274,17 @@ export class BooksApi {
     /**
      * Update a Book
      *
+     * @param body Book to be created
      */
-    public updateWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/books/${id}';
+    public updateWithHttpInfo(body: models.Book, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/books';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'body' is not null or undefined
+        if (body === null || body === undefined) {
+            throw new Error('Required parameter body was null or undefined when calling update.');
+        }
         // to determine the Content-Type header
         let consumes: string[] = [
             'application/json'
@@ -282,9 +295,12 @@ export class BooksApi {
             'application/json'
         ];
 
+        headers.set('Content-Type', 'application/json');
+
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Put,
             headers: headers,
+            body: body == null ? '' : JSON.stringify(body), // https://github.com/angular/angular/issues/10612
             search: queryParameters,
             withCredentials:this.configuration.withCredentials
         });

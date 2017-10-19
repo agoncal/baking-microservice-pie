@@ -16,10 +16,7 @@
  */
 package org.bakingpie.book.rest;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.bakingpie.book.domain.Book;
 import org.bakingpie.book.repository.BookRepository;
 import org.bakingpie.commons.rest.EnableCORS;
@@ -27,18 +24,18 @@ import org.bakingpie.commons.rest.EnableCORS;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import java.net.URI;
 
 import static java.util.Optional.ofNullable;
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.*;
 
 @ApplicationScoped
 @Path("books")
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
 @EnableCORS
 @Api(value = "books", description = "Operations for Books.")
 public class BookResource {
@@ -55,7 +52,8 @@ public class BookResource {
     // ======================================
 
     @GET
-    @Path("{id}")
+    @Path("/{id : \\d+}")
+    @Produces(APPLICATION_JSON)
     @ApiOperation(value = "Find a Book by the Id.", response = Book.class)
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Book found"),
@@ -70,6 +68,7 @@ public class BookResource {
     }
 
     @GET
+    @Produces(APPLICATION_JSON)
     @ApiOperation(value = "Find all Books", response = Book.class, responseContainer = "List")
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "All books found"),
@@ -80,29 +79,33 @@ public class BookResource {
     }
 
     @POST
+    @Consumes(APPLICATION_JSON)
     @ApiOperation(value = "Create a Book")
     @ApiResponses(value = {
         @ApiResponse(code = 201, message = "The book is created"),
-        @ApiResponse(code = 400, message = "Invalid input")
+        @ApiResponse(code = 400, message = "Invalid input"),
+        @ApiResponse(code = 415, message = "Format is not JSon")
     })
-    public Response create(final Book book) {
+    public Response create(@ApiParam(value = "Book to be created", required = true) Book book, @Context UriInfo uriInfo) {
         final Book created = bookRepository.create(book);
-        return created(URI.create("books/" + created.getId())).build();
+        URI createdURI = uriInfo.getBaseUriBuilder().path(String.valueOf(created.getId())).build();
+        return Response.created(createdURI).build();
     }
 
     @PUT
-    @Path("{id}")
+    @Consumes(APPLICATION_JSON)
+    @Produces(APPLICATION_JSON)
     @ApiOperation(value = "Update a Book", response = Book.class)
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "The book is updated"),
         @ApiResponse(code = 400, message = "Invalid input")
     })
-    public Response update(final Book book) {
+    public Response update(@ApiParam(value = "Book to be created", required = true) Book book) {
         return ok(bookRepository.update(book)).build();
     }
 
     @DELETE
-    @Path("{id}")
+    @Path("/{id : \\d+}")
     @ApiOperation(value = "Delete a Book")
     @ApiResponses(value = {
         @ApiResponse(code = 204, message = "Book has been deleted"),

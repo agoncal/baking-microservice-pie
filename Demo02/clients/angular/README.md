@@ -12,7 +12,7 @@ $ ng new store --directory angular --prefix store --routing true --skip-tests tr
 
 ### Twitter Bootstrap
 
-* Install Bootstrap dependency `yarn add bootstrap@4.0.0-beta`, `yarn add jquery@3.2.1`, `yarn add popper.js@1.11.0`, `yarn add font-awesome@4.7.0`
+* Install Bootstrap dependency `yarn add bootstrap@4.0.0-beta`, `yarn add jquery@3.2.1`, `yarn add popper.js@1.11.0`, `yarn add font-awesome@4.7.0`, `yarn add ng-jhipster`
 * In `angular-cli.json` file add :
 ```
 "styles": [

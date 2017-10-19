@@ -23,6 +23,7 @@
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "jumbotron.css",
         "styles.css",
+        "content/css/global.css",
         "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "scripts": [

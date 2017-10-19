@@ -71,3 +71,10 @@ This talk has several demos. Each one builds on top of the other. For example, `
 |   +-- ansible scripts
 |   +-- docker config
 ```
+
+## Tools
+
+When testing on Chrome, use this plugin to disable CORS (otherwise, it's painful)
+
+https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?utm_source=chrome-app-launcher-info-dialog
+

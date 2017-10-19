@@ -24,8 +24,11 @@
             </a>
           </li>
           <li>
+            <div class="dropdown-divider"></div>
+          </li>
+          <li>
             <a class="dropdown-item" [routerLink]="['/swagger']">
-              <i class="fa fa-fw fa-book" aria-hidden="true"></i>
+              <i class="fa fa-fw fa-cubes" aria-hidden="true"></i>
               <span>Swagger APIs</span>
             </a>
           </li>
@@ -46,6 +49,7 @@
 
   <div class="container">
     <router-outlet></router-outlet>
+    <router-outlet name="popup"></router-outlet>
     <hr>
   </div>
 

@@ -8,15 +8,21 @@ import { NumbersApi } from '../shared/api/NumbersApi';
 import { SwaggerComponent } from './swagger/swagger.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
-import { BookFormComponent } from './book-form/book-form.component';
+import { BookFormComponent, BookFormPopupComponent } from './book-form/book-form.component';
 import { BooksApi } from '../shared/api/BooksApi';
-import { BookDeleteComponent } from './book-delete/book-delete.component';
+import { BookDeleteComponent, BookDeletePopupComponent } from './book-delete/book-delete.component';
+import { FormsModule } from '@angular/forms';
+import { NgbActiveModal, NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BookPopupService } from './book-popup.service';
+import { JhiEventManager } from 'ng-jhipster';
 
 @NgModule({
   imports: [
     CommonModule,
     AdministratorRoutingModule,
-    HttpModule
+    HttpModule,
+    NgbModule.forRoot(),
+    FormsModule,
   ],
   declarations: [
     NumberComponent,
@@ -24,7 +30,15 @@ import { BookDeleteComponent } from './book-delete/book-delete.component';
     BookListComponent,
     BookDetailComponent,
     BookFormComponent,
-    BookDeleteComponent
+    BookFormPopupComponent,
+    BookDeleteComponent,
+    BookDeletePopupComponent
+  ],
+  entryComponents: [
+    BookFormComponent,
+    BookFormPopupComponent,
+    BookDeleteComponent,
+    BookDeletePopupComponent
   ],
   exports: [
     NumberComponent,
@@ -36,7 +50,11 @@ import { BookDeleteComponent } from './book-delete/book-delete.component';
   ],
   providers: [
     NumbersApi,
-    BooksApi
+    BooksApi,
+    BookPopupService,
+    NgbModal,
+    NgbActiveModal,
+    JhiEventManager
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

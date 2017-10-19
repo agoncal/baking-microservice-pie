@@ -16,15 +16,12 @@
  */
 package org.bakingpie.book.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.xml.bind.annotation.XmlRootElement;
+import io.swagger.annotations.ApiModel;
+
+import javax.persistence.*;
 
 @Entity
-@XmlRootElement(name = "book")
+@ApiModel( description = "Book representation" )
 public class Book {
 
     // ======================================
@@ -34,10 +31,10 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
     @SequenceGenerator(name = "id", sequenceName = "id")
-    private long id;
+    private Long id;
     private String author;
     private String title;
-    private int year;
+    private Integer year;
     private String genre;
     private String isbn;
 
@@ -48,7 +45,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(final String author, final String title, final int year, final String genre, final String isbn) {
+    public Book(final String author, final String title, final Integer year, final String genre, final String isbn) {
         this.author = author;
         this.title = title;
         this.year = year;
@@ -60,11 +57,11 @@ public class Book {
     // =         Getters & setters          =
     // ======================================
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(final long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -84,11 +81,11 @@ public class Book {
         this.title = title;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(final int year) {
+    public void setYear(final Integer year) {
         this.year = year;
     }
 

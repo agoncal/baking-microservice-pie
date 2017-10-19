@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from '../../shared/model/Book';
+import { ActivatedRoute } from '@angular/router';
+import { BooksApi } from '../../shared/api/BooksApi';
 
 @Component({
   selector: 'store-book-detail',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookDetailComponent implements OnInit {
 
-  constructor() { }
+  book: Book;
 
-  ngOnInit() {
+  constructor(private booksApi: BooksApi,
+              private route: ActivatedRoute) {
   }
 
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
+      this.load(params['id']);
+    });
+  }
+
+  load(id) {
+    this.booksApi.findById(id).subscribe((book) => {
+      this.book = book;
+    });
+  }
+
+  previousState() {
+    window.history.back();
+  }
 }

@@ -175,6 +175,14 @@
     magic-string "^0.22.3"
     source-map "^0.5.6"
 
+"@ngx-translate/core@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngx-translate/core/-/core-7.0.0.tgz#5b6f63bd4042164d44cd85f68703af96e9392e7d"
+
+"@ngx-translate/http-loader@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ngx-translate/http-loader/-/http-loader-0.1.0.tgz#6029325561d7868fe325a419de2770e98ff1502e"
+
 "@schematics/angular@~0.0.38":
   version "0.0.45"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-0.0.45.tgz#830df863b9677c42d7220cfaf28741c06789f1e0"
@@ -3284,6 +3292,13 @@ negotiator@0.6.1:
 next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
+
+ng-jhipster@^0.2.12:
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/ng-jhipster/-/ng-jhipster-0.2.12.tgz#4c85c01be7367f900696169a59e7276544b057c2"
+  dependencies:
+    "@ngx-translate/core" "7.0.0"
+    "@ngx-translate/http-loader" "0.1.0"
 
 no-case@^2.2.0:
   version "2.3.2"

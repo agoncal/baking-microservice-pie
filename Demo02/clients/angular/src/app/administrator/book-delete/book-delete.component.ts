@@ -4,6 +4,7 @@ import { Book } from '../../shared/model/Book';
 import { BooksApi } from '../../shared/api/BooksApi';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BookPopupService } from '../book-popup.service';
+import { JhiEventManager } from 'ng-jhipster';
 
 @Component({
   selector: 'store-book-delete',
@@ -15,7 +16,8 @@ export class BookDeleteComponent {
   book: Book;
 
   constructor(private booksApi: BooksApi,
-              public activeModal: NgbActiveModal) {
+              public activeModal: NgbActiveModal,
+              private eventManager: JhiEventManager) {
   }
 
   clear() {
@@ -24,6 +26,10 @@ export class BookDeleteComponent {
 
   confirmDelete(id: number) {
     this.booksApi._delete(id).subscribe((response) => {
+      this.eventManager.broadcast({
+        name: 'bookListModification',
+        content: 'Deleted an book'
+      });
       this.activeModal.dismiss(true);
     });
   }

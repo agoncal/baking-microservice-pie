@@ -1,3 +1,40 @@
-<p>
-  book-detail works!
-</p>
+
+<div *ngIf="book">
+  <h2><span>Book</span> {{book.id}}</h2>
+  <hr>
+  <dl class="row-md">
+    <dt><span>Title</span></dt>
+    <dd>
+      <span>{{book.title}}</span>
+    </dd>
+    <dt><span>Author</span></dt>
+    <dd>
+      <span>{{book.author}}</span>
+    </dd>
+    <dt><span>Year</span></dt>
+    <dd>
+      <span>{{book.year}}</span>
+    </dd>
+    <dt><span>Genre</span></dt>
+    <dd>
+      <span>{{book.genre}}</span>
+    </dd>
+    <dt><span>Isbn</span></dt>
+    <dd>
+      <span>{{book.isbn}}</span>
+    </dd>
+  </dl>
+
+  <button type="submit"
+          (click)="previousState()"
+          class="btn btn-info">
+    <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+  </button>
+
+  <button type="button"
+          [routerLink]="['/', { outlets: { popup: 'book/'+ book.id + '/edit'} }]"
+          replaceUrl="true"
+          class="btn btn-primary">
+    <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+  </button>
+</div>

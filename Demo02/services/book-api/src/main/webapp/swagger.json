@@ -19,7 +19,6 @@
         "summary" : "Find all Books",
         "description" : "",
         "operationId" : "findAll",
-        "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "responses" : {
           "200" : {
@@ -42,10 +41,49 @@
         "description" : "",
         "operationId" : "create",
         "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Book to be created",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Book"
+          }
+        } ],
         "responses" : {
           "201" : {
             "description" : "The book is created"
+          },
+          "400" : {
+            "description" : "Invalid input"
+          },
+          "415" : {
+            "description" : "Format is not JSon"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "books" ],
+        "summary" : "Update a Book",
+        "description" : "",
+        "operationId" : "update",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Book to be created",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Book"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "The book is updated",
+            "schema" : {
+              "$ref" : "#/definitions/Book"
+            }
           },
           "400" : {
             "description" : "Invalid input"
@@ -59,13 +97,13 @@
         "summary" : "Find a Book by the Id.",
         "description" : "",
         "operationId" : "findById",
-        "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
           "required" : true,
           "type" : "integer",
+          "pattern" : "\\d+",
           "format" : "int64"
         } ],
         "responses" : {
@@ -83,37 +121,17 @@
           }
         }
       },
-      "put" : {
-        "tags" : [ "books" ],
-        "summary" : "Update a Book",
-        "description" : "",
-        "operationId" : "update",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "responses" : {
-          "200" : {
-            "description" : "The book is updated",
-            "schema" : {
-              "$ref" : "#/definitions/Book"
-            }
-          },
-          "400" : {
-            "description" : "Invalid input"
-          }
-        }
-      },
       "delete" : {
         "tags" : [ "books" ],
         "summary" : "Delete a Book",
         "description" : "",
         "operationId" : "delete",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
           "required" : true,
           "type" : "integer",
+          "pattern" : "\\d+",
           "format" : "int64"
         } ],
         "responses" : {
@@ -152,9 +170,7 @@
           "type" : "string"
         }
       },
-      "xml" : {
-        "name" : "book"
-      }
+      "description" : "Book representation"
     }
   }
 }
