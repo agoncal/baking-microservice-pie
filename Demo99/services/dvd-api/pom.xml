@@ -29,6 +29,10 @@
     <packaging>war</packaging>
     <name>Baking a Microservice Pie :: Demo 99 :: Services :: DVD API</name>
 
+    <properties>
+        <executable.jar>${project.artifactId}.jar</executable.jar>
+    </properties>
+
     <dependencyManagement>
         <!-- BOMS -->
         <dependencies>
@@ -77,62 +81,6 @@
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <configuration>
-                    <verbose>true</verbose>
-                    <images>
-                        <image>
-                            <name>docker-registry:5000/baking/${project.artifactId}</name>
-                            <build>
-                                <tags>
-                                    <tag>rpi</tag>
-                                </tags>
-                                <cleanup>none</cleanup>
-                                <from>hypriot/rpi-java</from>
-                                <ports>
-                                    <port>8080</port>
-                                </ports>
-                                <workdir>/usr/local/tomee</workdir>
-                                <assembly>
-                                    <name>usr/local/tomee</name>
-                                    <inline>
-                                        <files>
-                                            <file>
-                                                <source>${project.build.directory}/${project.artifactId}.jar</source>
-                                            </file>
-                                        </files>
-                                    </inline>
-                                </assembly>
-                                <cmd>java -jar ${project.artifactId}.jar</cmd>
-                            </build>
-                        </image>
-                        <image>
-                            <name>docker-registry:5000/baking/${project.artifactId}</name>
-                            <build>
-                                <tags>
-                                    <tag>default</tag>
-                                    <tag>latest</tag>
-                                </tags>
-                                <cleanup>none</cleanup>
-                                <from>openjdk:8-jre</from>
-                                <ports>
-                                    <port>8080</port>
-                                </ports>
-                                <workdir>/usr/local/tomee</workdir>
-                                <assembly>
-                                    <name>usr/local/tomee</name>
-                                    <inline>
-                                        <files>
-                                            <file>
-                                                <source>${project.build.directory}/${project.artifactId}.jar</source>
-                                            </file>
-                                        </files>
-                                    </inline>
-                                </assembly>
-                                <cmd>java -jar ${project.artifactId}.jar</cmd>
-                            </build>
-                        </image>
-                    </images>
-                </configuration>
             </plugin>
         </plugins>
     </build>
