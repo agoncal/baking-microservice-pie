@@ -50,14 +50,14 @@
         <version.surefire.plugin>2.20</version.surefire.plugin>
         <version.versions.plugin>2.4</version.versions.plugin>
         <version.war.plugin>3.1.0</version.war.plugin>
-        <version.docker-fabric8.plugin>0.22.1</version.docker-fabric8.plugin>
-        <version.docker-spotify.plugin>1.0.0</version.docker-spotify.plugin>
 
         <!-- External Maven Plugins -->
         <version.wildfly.swarm>2017.10.0</version.wildfly.swarm>
         <version.swagger.plugin>3.1.4</version.swagger.plugin>
         <version.arquillian>1.1.12.Final</version.arquillian>
         <version.tomee>7.0.3</version.tomee>
+        <version.docker-fabric8.plugin>0.22.1</version.docker-fabric8.plugin>
+        <version.docker-spotify.plugin>1.0.0</version.docker-spotify.plugin>
 
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -71,6 +71,8 @@
         <!-- Plugins flag -->
         <javadoc.disabled>true</javadoc.disabled>
         <failOnMissingWebXml>false</failOnMissingWebXml>
+
+        <executable.jar/>
     </properties>
 
     <build>
@@ -153,6 +155,72 @@
                     <groupId>io.fabric8</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
                     <version>${version.docker-fabric8.plugin}</version>
+                    <configuration>
+                        <verbose>true</verbose>
+                        <images>
+                            <image>
+                                <name>docker-registry:5000/baking/${project.artifactId}</name>
+                                <build>
+                                    <tags>
+                                        <tag>rpi</tag>
+                                    </tags>
+                                    <cleanup>none</cleanup>
+                                    <from>hypriot/rpi-java</from>
+                                    <ports>
+                                        <port>8080</port>
+                                        <port>8081</port>
+                                        <port>8082</port>
+                                        <port>8083</port>
+                                        <port>8084</port>
+                                    </ports>
+                                    <workdir>/usr/local/apps</workdir>
+                                    <assembly>
+                                        <name>usr/local/apps</name>
+                                        <inline>
+                                            <files>
+                                                <file>
+                                                    <source>${project.build.directory}/${executable.jar}</source>
+                                                    <destName>${project.artifactId}.jar</destName>
+                                                </file>
+                                            </files>
+                                        </inline>
+                                    </assembly>
+                                    <cmd>java -jar ${project.artifactId}.jar</cmd>
+                                </build>
+                            </image>
+                            <image>
+                                <name>docker-registry:5000/baking/${project.artifactId}</name>
+                                <build>
+                                    <tags>
+                                        <tag>default</tag>
+                                        <tag>latest</tag>
+                                    </tags>
+                                    <cleanup>none</cleanup>
+                                    <from>openjdk:8-jre</from>
+                                    <ports>
+                                        <port>8080</port>
+                                        <port>8081</port>
+                                        <port>8082</port>
+                                        <port>8083</port>
+                                        <port>8084</port>
+                                    </ports>
+                                    <workdir>/usr/local/apps</workdir>
+                                    <assembly>
+                                        <name>usr/local/apps</name>
+                                        <inline>
+                                            <files>
+                                                <file>
+                                                    <source>${project.build.directory}/${executable.jar}</source>
+                                                    <destName>${project.artifactId}.jar</destName>
+                                                </file>
+                                            </files>
+                                        </inline>
+                                    </assembly>
+                                    <cmd>java -jar ${project.artifactId}.jar</cmd>
+                                </build>
+                            </image>
+                        </images>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
