@@ -14,14 +14,14 @@ image::basic-architecture.png[]
 
 [source,java]
 ----
-include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocSwagger]
+include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocSwagger;!adocCORS]
 ----
 
 == Swagger Contract
 
 [source,java]
 ----
-include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet]
+include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocCORS]
 ----
 
 == Swagger Contract
@@ -50,6 +50,20 @@ include::{demo01angulardir}/src/app/shared/api/NumbersApi.ts[tags=adocSnippet;!a
 [source,java]
 ----
 include::{commonscorsdir}/src/main/java/org/bakingpie/commons/rest/CORSFilter.java[tags=adocSnippet]
+----
+
+== CORS
+
+[source,java]
+----
+include::{commonscorsdir}/src/main/java/org/bakingpie/commons/rest/EnableCORS.java[tags=adocSnippet]
+----
+
+== CORS
+
+[source,java]
+----
+include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocSwagger]
 ----
 
 == Ansible

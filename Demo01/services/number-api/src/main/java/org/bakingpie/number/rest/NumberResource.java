@@ -18,6 +18,7 @@ package org.bakingpie.number.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.bakingpie.commons.rest.EnableCORS;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;
@@ -30,6 +31,9 @@ import javax.ws.rs.core.Response;
 // tag::adocSnippet[]
 @Path("numbers")
 @Produces(MediaType.TEXT_PLAIN)
+// tag::adocCORS[]
+@EnableCORS
+// end::adocCORS[]
 // tag::adocSwagger[]
 @Api(value = "numbers", description = "Generating all sorts of numbers.")
 // end::adocSwagger[]
@@ -45,3 +49,4 @@ public class NumberResource {
     }
 }
 // end::adocSnippet[]
+

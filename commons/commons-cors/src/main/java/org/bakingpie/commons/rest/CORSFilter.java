@@ -8,10 +8,11 @@ import java.io.IOException;
 
 /**
  * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ * http://www.antoniogoncalves.org
+ * --
  */
 // tag::adocSnippet[]
+@EnableCORS
 @Provider
 public class CORSFilter implements ContainerResponseFilter {
 
