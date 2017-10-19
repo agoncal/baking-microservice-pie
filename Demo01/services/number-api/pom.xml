@@ -31,6 +31,7 @@
     <name>Baking a Microservice Pie :: Demo 01 :: Services :: Number API</name>
 
     <properties>
+        <executable.jar>${project.artifactId}-${project.version}-swarm.jar</executable.jar>
         <listening.port>8084</listening.port>
     </properties>
 
@@ -84,8 +85,13 @@
                 <configuration>
                     <properties>
                         <swarm.http.port>${listening.port}</swarm.http.port>
+                        <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
                     </properties>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
