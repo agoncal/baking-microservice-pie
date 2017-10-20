@@ -50,11 +50,11 @@
               <build>
                 <from>nginx</from>
                 <ports>
-                  <port>8080</port>
+                  <port>80</port>
                 </ports>
                 <workdir>/usr/share/nginx/html</workdir>
                 <assembly>
-                  <name>/usr/share/nginx/html</name>
+                  <name>usr/share/nginx/html</name>
                   <inline>
                     <fileSets>
                       <fileSet>
@@ -67,7 +67,7 @@
                     </fileSets>
                   </inline>
                 </assembly>
-                <cmd>nginx</cmd>
+                <cmd>["nginx", "-g", "daemon off;"]</cmd>
               </build>
               <run>
                 <skip>false</skip>
@@ -78,11 +78,11 @@
               <build>
                 <from>nginx</from>
                 <ports>
-                  <port>8080</port>
+                  <port>80</port>
                 </ports>
                 <workdir>/usr/share/nginx/html</workdir>
                 <assembly>
-                  <name>/usr/share/nginx/html</name>
+                  <name>usr/share/nginx/html</name>
                   <inline>
                     <fileSets>
                       <fileSet>
@@ -95,19 +95,16 @@
                     </fileSets>
                   </inline>
                 </assembly>
-                <cmd>nginx</cmd>
+                <cmd>["nginx", "-g", "daemon off;"]</cmd>
               </build>
               <run>
                 <ports>
-                  <port>8080:8080</port>
+                  <port>8080:80</port>
                 </ports>
               </run>
             </image>
           </images>
         </configuration>
-
-
-
       </plugin>
     </plugins>
   </build>

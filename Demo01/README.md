@@ -33,20 +33,27 @@ The application is available in `http://localhost:8084/number-api/api/`.
 
 ### Docker
 
-To run the application with Docker, first the Docker Image needs to be build. Run the Maven command From the 
+To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command From the 
 Demo 01 root folder:
 
 ```bash
 mvn docker:build
 ```
 
-Then from the service folder, `services/number-api`, run:
+Then to start the services and the clients, then run:
 
 ```bash
-mvn docker:run
+mvn docker:start
 ```
 
-The application is available in `http://localhost:8084/number-api/api/`.
+This will start all the Docker Images for this Demo in background. The application is available in 
+`http://localhost:8080`.
+
+To stop the services and the clients, just run:
+
+```bash
+mvn docker:start
+```
 
 ### Raspberry PI
 
@@ -66,5 +73,4 @@ The Docker Images are then deployed into the PI's with [Ansible](http://ansible.
 ansible-playbook -i hosts deploy.yaml -vvv
 ```
 
-The application is available in `http://pi-grom-server-01:8084/number-api/api/`.
- 
+The application is available in `http://pi-grom-server-01:8080`.

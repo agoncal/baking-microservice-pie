@@ -76,6 +76,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
         <executable.jar/>
+        <listening.port/>
     </properties>
 
     <build>
@@ -170,11 +171,7 @@
                                 <build>
                                     <from>maxleiko/armhf-alpine-java</from>
                                     <ports>
-                                        <port>8080</port>
-                                        <port>8081</port>
-                                        <port>8082</port>
-                                        <port>8083</port>
-                                        <port>8084</port>
+                                        <port>${listening.port}</port>
                                     </ports>
                                     <workdir>/usr/local/apps</workdir>
                                     <assembly>
@@ -199,11 +196,7 @@
                                 <build>
                                     <from>openjdk:8-jre</from>
                                     <ports>
-                                        <port>8080</port>
-                                        <port>8081</port>
-                                        <port>8082</port>
-                                        <port>8083</port>
-                                        <port>8084</port>
+                                        <port>${listening.port}</port>
                                     </ports>
                                     <workdir>/usr/local/apps</workdir>
                                     <assembly>
@@ -221,11 +214,7 @@
                                 </build>
                                 <run>
                                     <ports>
-                                        <port>8080:8080</port>
-                                        <port>8081:8081</port>
-                                        <port>8082:8082</port>
-                                        <port>8083:8083</port>
-                                        <port>8084:8084</port>
+                                        <port>${listening.port}:${listening.port}</port>
                                     </ports>
                                 </run>
                             </image>
