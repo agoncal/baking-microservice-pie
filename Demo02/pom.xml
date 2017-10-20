@@ -23,9 +23,9 @@
         <groupId>org.bakingpie</groupId>
         <artifactId>parent-pom</artifactId>
         <version>00</version>
+        <relativePath>../commons/parent-pom/pom.xml</relativePath>
     </parent>
 
-    <groupId>org.bakingpie</groupId>
     <artifactId>demo</artifactId>
     <version>02</version>
     <packaging>pom</packaging>
