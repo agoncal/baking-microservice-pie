@@ -13,6 +13,27 @@
 image::invoking-architecture.png[]
 
 
+== Number API Swagger Contract
+
+[source,json]
+----
+include::{demo01numberapidir}/src/main/webapp/swagger.json[]
+----
+
+== Swagger Code Gen
+
+[source,shell]
+----
+$ swagger-codegen generate -i swagger.json -l java -o src/app/shared
+----
+
+== The Generated Java Code
+
+[source,js]
+----
+include::{demo01angulardir}/src/app/shared/api/NumbersApi.ts[tags=adocSnippet;!adocSkip]
+----
+
 == Demo
 
 image::invoking-architecture.png[]
