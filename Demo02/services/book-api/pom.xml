@@ -31,6 +31,7 @@
     <name>Baking a Microservice Pie :: Demo 02 :: Services :: Book API</name>
 
     <properties>
+        <executable.jar>${project.artifactId}-${project.version}.jar</executable.jar>
         <listening.port>8081</listening.port>
     </properties>
 
@@ -74,53 +75,15 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.rat</groupId>
-                <artifactId>apache-rat-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.tomee.maven</groupId>
                 <artifactId>tomee-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>executable-jar</id>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <phase>package</phase>
-                        <configuration>
-                            <tomeeHttpPort>${listening.port}</tomeeHttpPort>
-                            <execFile>${project.build.directory}/${project.artifactId}-${project.version}.jar</execFile>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- TODO - radcortez - Change configuration plugin -->
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
-                    <imageName>docker-repo:5000/tomitribe/pi-demo/server</imageName>
-                    <baseImage>radcortez/rpi-tomee:8-jre-7.0.3-metrics</baseImage>
-                    <exposes>
-                        <expose>5701</expose>
-                    </exposes>
-                    <resources>
-                        <resource>
-                            <targetPath>/usr/local/tomee/webapps</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.war</include>
-                        </resource>
-                    </resources>
-                    <cmd>["catalina.sh", "run"]</cmd>
+                    <tomeeHttpPort>${listening.port}</tomeeHttpPort>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

@@ -57,7 +57,6 @@
         <version.arquillian>1.1.12.Final</version.arquillian>
         <version.tomee>7.0.3</version.tomee>
         <version.docker-fabric8.plugin>0.22.1</version.docker-fabric8.plugin>
-        <version.docker-spotify.plugin>1.0.0</version.docker-spotify.plugin>
 
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -165,7 +164,7 @@
                                         <tag>rpi</tag>
                                     </tags>
                                     <cleanup>none</cleanup>
-                                    <from>hypriot/rpi-java</from>
+                                    <from>maxleiko/armhf-alpine-java</from>
                                     <ports>
                                         <port>8080</port>
                                         <port>8081</port>
@@ -377,11 +376,6 @@
 
                 <!-- All external Maven plugins ordered by shortname (tomee, swarm ...) -->
                 <plugin>
-                    <groupId>com.spotify</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>${version.docker-spotify.plugin}</version>
-                </plugin>
-                <plugin>
                     <groupId>org.apache.tomee.maven</groupId>
                     <artifactId>tomee-maven-plugin</artifactId>
                     <version>${version.tomee}</version>
@@ -404,6 +398,18 @@
                             <openejb.jaxrs.providers.auto>true</openejb.jaxrs.providers.auto>
                         </systemVariables>
                     </configuration>
+                    <executions>
+                        <execution>
+                            <id>executable-jar</id>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                            <phase>package</phase>
+                            <configuration>
+                                <execFile>${project.build.directory}/${project.artifactId}-${project.version}.jar</execFile>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>com.github.kongchen</groupId>
