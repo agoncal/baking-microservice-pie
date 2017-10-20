@@ -17,6 +17,8 @@
 package org.bakingpie.book.rest;
 
 import io.swagger.annotations.*;
+import org.bakingpie.book.client.ApiClient;
+import org.bakingpie.book.client.api.NumbersApi;
 import org.bakingpie.book.domain.Book;
 import org.bakingpie.book.repository.BookRepository;
 import org.bakingpie.commons.rest.EnableCORS;
@@ -86,11 +88,16 @@ public class BookResource {
         @ApiResponse(code = 400, message = "Invalid input"),
         @ApiResponse(code = 415, message = "Format is not JSon")
     })
+    // tag::adocSnippet[]
     public Response create(@ApiParam(value = "Book to be created", required = true) Book book, @Context UriInfo uriInfo) {
+        NumbersApi numberApi = new ApiClient().buildClient(NumbersApi.class);
+        String isbn = numberApi.generateBookNumber();
+        book.setIsbn(isbn);
         final Book created = bookRepository.create(book);
         URI createdURI = uriInfo.getBaseUriBuilder().path(String.valueOf(created.getId())).build();
         return Response.created(createdURI).build();
     }
+    // end::adocSnippet[]
 
     @PUT
     @Consumes(APPLICATION_JSON)
