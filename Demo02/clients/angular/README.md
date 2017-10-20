@@ -56,6 +56,7 @@ $ ng generate component administrator/book-delete --spec false --module administ
 ```
 $ swagger-codegen generate -i ../../services/number-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/shared
 $ swagger-codegen generate -i ../../services/book-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/shared
+$ swagger-codegen generate -i number-api/src/main/webapp/swagger.json -l java -o tempfeign --api-package org.bakingpie.book.client.api --model-package org.bakingpie.book.client.model --library feign
 ```
 
 ## Angular CLI documentation

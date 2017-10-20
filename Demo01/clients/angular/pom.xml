@@ -17,15 +17,98 @@
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.bakingpie</groupId>
-        <artifactId>clients</artifactId>
-        <version>01</version>
-    </parent>
+  <parent>
+    <groupId>org.bakingpie</groupId>
+    <artifactId>clients</artifactId>
+    <version>01</version>
+  </parent>
 
-    <artifactId>angular</artifactId>
-    <packaging>pom</packaging>
-    <name>Baking a Microservice Pie :: Demo 01 :: Clients :: Angular</name>
+  <artifactId>angular</artifactId>
+  <name>Baking a Microservice Pie :: Demo 01 :: Clients :: Angular</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>${version.docker-fabric8.plugin}</version>
+        <configuration>
+          <verbose>true</verbose>
+          <skip>false</skip>
+          <registry>docker-registry:5000</registry>
+          <pullRegistry>docker.io</pullRegistry>
+          <images>
+            <image>
+              <name>baking/${project.artifactId}:rpi</name>
+              <alias>rpi</alias>
+              <build>
+                <from>nginx</from>
+                <ports>
+                  <port>8080</port>
+                </ports>
+                <workdir>/usr/share/nginx/html</workdir>
+                <assembly>
+                  <name>/usr/share/nginx/html</name>
+                  <inline>
+                    <fileSets>
+                      <fileSet>
+                        <directory>${project.basedir}/dist</directory>
+                        <outputDirectory>/</outputDirectory>
+                        <includes>
+                          <include>*.*</include>
+                        </includes>
+                      </fileSet>
+                    </fileSets>
+                  </inline>
+                </assembly>
+                <cmd>nginx</cmd>
+              </build>
+              <run>
+                <skip>false</skip>
+              </run>
+            </image>
+            <image>
+              <name>baking/${project.artifactId}:default</name>
+              <build>
+                <from>nginx</from>
+                <ports>
+                  <port>8080</port>
+                </ports>
+                <workdir>/usr/share/nginx/html</workdir>
+                <assembly>
+                  <name>/usr/share/nginx/html</name>
+                  <inline>
+                    <fileSets>
+                      <fileSet>
+                        <directory>${project.basedir}/dist</directory>
+                        <outputDirectory>/</outputDirectory>
+                        <includes>
+                          <include>*.*</include>
+                        </includes>
+                      </fileSet>
+                    </fileSets>
+                  </inline>
+                </assembly>
+                <cmd>nginx</cmd>
+              </build>
+              <run>
+                <ports>
+                  <port>8080:8080</port>
+                </ports>
+              </run>
+            </image>
+          </images>
+        </configuration>
+
+
+
+      </plugin>
+    </plugins>
+  </build>
 </project>

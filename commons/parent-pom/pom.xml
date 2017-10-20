@@ -50,6 +50,9 @@
         <version.surefire.plugin>2.20</version.surefire.plugin>
         <version.versions.plugin>2.4</version.versions.plugin>
         <version.war.plugin>3.1.0</version.war.plugin>
+        <version.nodejs>v8.7.0</version.nodejs>
+        <version.yarn>v1.2.1</version.yarn>
+
 
         <!-- External Maven Plugins -->
         <version.wildfly.swarm>2017.10.0</version.wildfly.swarm>
@@ -57,6 +60,7 @@
         <version.arquillian>1.1.12.Final</version.arquillian>
         <version.tomee>7.0.3</version.tomee>
         <version.docker-fabric8.plugin>0.22.1</version.docker-fabric8.plugin>
+        <version.frontend-maven-plugin>1.6</version.frontend-maven-plugin>
 
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -382,6 +386,42 @@
                 </plugin>
 
                 <!-- All external Maven plugins ordered by shortname (tomee, swarm ...) -->
+                <plugin>
+                    <groupId>com.github.eirslett</groupId>
+                    <artifactId>frontend-maven-plugin</artifactId>
+                    <version>${version.frontend-maven-plugin}</version>
+                    <executions>
+                        <execution>
+                            <id>install node and yarn</id>
+                            <goals>
+                                <goal>install-node-and-yarn</goal>
+                            </goals>
+                            <configuration>
+                                <nodeVersion>${version.nodejs}</nodeVersion>
+                                <yarnVersion>${version.yarn}</yarnVersion>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>yarn install</id>
+                            <goals>
+                                <goal>yarn</goal>
+                            </goals>
+                            <configuration>
+                                <arguments>install</arguments>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>build prod</id>
+                            <goals>
+                                <goal>yarn</goal>
+                            </goals>
+                            <phase>generate-resources</phase>
+                            <configuration>
+                                <arguments>run ng build --prod</arguments>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.tomee.maven</groupId>
                     <artifactId>tomee-maven-plugin</artifactId>

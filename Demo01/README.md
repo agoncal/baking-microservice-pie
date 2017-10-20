@@ -2,7 +2,10 @@
 
 The Demo 01 is just a simple service to retrieve an identification number for a product. It contains:
 
-* number-api
+* Services
+    * number-api
+* Client
+    * Angular app
 
 ## Build
 
@@ -10,6 +13,10 @@ To build the sample just run the Maven command from the Demo 01 root folder:
 
 ```bash
 mvn clean install
+```
+
+```bash
+ng build --prod
 ```
 
 ## Run

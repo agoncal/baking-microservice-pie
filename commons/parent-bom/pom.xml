@@ -39,6 +39,8 @@
         <version.arquillian>1.1.10.Final</version.arquillian>
         <version.shrinkwrap>2.2.6</version.shrinkwrap>
         <version.resteasy>3.1.4.Final</version.resteasy>
+        <version.feign>9.4.0</version.feign>
+        <version.feign-form>2.1.0</version.feign-form>
         <!-- Databases -->
         <version.h2>1.4.196</version.h2>
         <!-- Test -->
@@ -85,6 +87,28 @@
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
                 <version>${version.h2}</version>
+            </dependency>
+
+            <!-- HTTP client: Netflix Feign -->
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-core</artifactId>
+                <version>${version.feign}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-jackson</artifactId>
+                <version>${version.feign}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-slf4j</artifactId>
+                <version>${version.feign}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign.form</groupId>
+                <artifactId>feign-form</artifactId>
+                <version>${version.feign-form}</version>
             </dependency>
 
             <!-- Test -->
