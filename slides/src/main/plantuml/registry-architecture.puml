@@ -12,6 +12,13 @@ node "Raspberry PI" as piserver2 {
     artifact "Book API" as bookapi
 }
 
+node "Raspberry PI" as piregistry {
+    artifact "Eureka" as eureka
+}
+
 angular -> bookapi: "     HTTP      "
 bookapi -> numberapi: "     HTTP      "
+numberapi -up.> eureka: "     Registers      "
+bookapi -up.> eureka: "     Registers/Lookup      "
+angular -up.> eureka: "     Lookup      "
 @enduml

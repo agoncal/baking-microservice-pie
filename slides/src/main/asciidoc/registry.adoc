@@ -6,6 +6,10 @@
 * Deployed on several Pis
 * How do they communicate?
 
+== Architecture
+
+image::registry-architecture.png[]
+
 == Hard coded IP addresses
 
 [source,java]
@@ -42,4 +46,6 @@ include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/r
 ----
 
 == Demo
+
+image::registry-architecture.png[]
 
