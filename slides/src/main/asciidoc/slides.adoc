@@ -9,6 +9,8 @@ ifndef::imagesdir[:imagesdir: images]
 :commonscorsdir: ../../../../commons/commons-cors
 :demo01angulardir: ../../../../Demo01/clients/angular
 :demo01numberapidir: ../../../../Demo01/services/number-api
+:demo02numberapidir: ../../../../Demo02/services/number-api
+:demo02bookapidir: ../../../../Demo02/services/book-api
 
 // Introduction
 include::introduction.adoc[leveloffset=+1]

@@ -31,6 +31,13 @@ include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/r
 * Apache Zookeeper
 * Netflix Eureka
 
+== What is Eureka?
+
+[%step]
+* xxx
+* xxx
+* xxx
+
 == Register with Eureka
 
 [source,java]

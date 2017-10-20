@@ -12,28 +12,56 @@
 
 image::invoking-architecture.png[]
 
+== Hard coded HTTP Client invocation
+
+[source,java]
+----
+Client client....
+----
+
+== Several to choose from
+
+[%step]
+* Apache HTTP Client
+* JAX-RS Client API
+* Netflix Feign
+
+== What is Feign?
+
+[%step]
+* xxx
+* xxx
+* xxx
 
 == Number API Swagger Contract
 
 [source,json]
 ----
-include::{demo01numberapidir}/src/main/webapp/swagger.json[]
+include::{demo02numberapidir}/src/main/webapp/swagger.json[]
 ----
 
-== Swagger Code Gen
+== Swagger Code Gen Client Stub
 
 [source,shell]
 ----
-$ swagger-codegen generate -i swagger.json -l java -o src/app/shared
+$ swagger-codegen generate -i swagger.json -l java --library feign
 ----
 
 == The Generated Java Code
 
 [source,js]
 ----
-include::{demo01angulardir}/src/app/shared/api/NumbersApi.ts[tags=adocSnippet;!adocSkip]
+include::{demo02bookapidir}/src/main/java/org/bakingpie/book/client/api/NumbersApi.java[tags=adocSnippet]
 ----
 
+== Invoking the Number API with Feign
+
+[source,js]
+----
+include::{demo02bookapidir}/src/main/java/org/bakingpie/book/client/api/NumbersApi.java[tags=adocSnippet]
+----
+
+/Users/agoncal/Documents/Code/Agoncal/baking-microservice-pie/Demo02/services/book-api/src/main/java/org/bakingpie/book/rest/BookResource.java
 == Demo
 
 image::invoking-architecture.png[]
