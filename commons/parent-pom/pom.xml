@@ -156,14 +156,13 @@
                     <version>${version.docker-fabric8.plugin}</version>
                     <configuration>
                         <verbose>true</verbose>
+                        <skip>true</skip>
+                        <registry>docker-registry:5000</registry>
                         <images>
                             <image>
-                                <name>docker-registry:5000/baking/${project.artifactId}</name>
+                                <name>baking/${project.artifactId}:rpi</name>
+                                <alias>rpi</alias>
                                 <build>
-                                    <tags>
-                                        <tag>rpi</tag>
-                                    </tags>
-                                    <cleanup>none</cleanup>
                                     <from>maxleiko/armhf-alpine-java</from>
                                     <ports>
                                         <port>8080</port>
@@ -186,15 +185,13 @@
                                     </assembly>
                                     <cmd>java -jar ${project.artifactId}.jar</cmd>
                                 </build>
+                                <run>
+                                    <skip>true</skip>
+                                </run>
                             </image>
                             <image>
-                                <name>docker-registry:5000/baking/${project.artifactId}</name>
+                                <name>baking/${project.artifactId}:default</name>
                                 <build>
-                                    <tags>
-                                        <tag>default</tag>
-                                        <tag>latest</tag>
-                                    </tags>
-                                    <cleanup>none</cleanup>
                                     <from>openjdk:8-jre</from>
                                     <ports>
                                         <port>8080</port>
@@ -217,6 +214,15 @@
                                     </assembly>
                                     <cmd>java -jar ${project.artifactId}.jar</cmd>
                                 </build>
+                                <run>
+                                    <ports>
+                                        <port>8080:8080</port>
+                                        <port>8081:8081</port>
+                                        <port>8082:8082</port>
+                                        <port>8083:8083</port>
+                                        <port>8084:8084</port>
+                                    </ports>
+                                </run>
                             </image>
                         </images>
                     </configuration>
