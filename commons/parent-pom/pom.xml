@@ -158,6 +158,7 @@
                         <verbose>true</verbose>
                         <skip>true</skip>
                         <registry>docker-registry:5000</registry>
+                        <pullRegistry>docker.io</pullRegistry>
                         <images>
                             <image>
                                 <name>baking/${project.artifactId}:rpi</name>
