@@ -1,2 +1,5 @@
+ifndef::imagesdir[:imagesdir: images]
+
 = Break Time
 
+image::breaktime.jpg[]

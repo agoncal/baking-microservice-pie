@@ -1,4 +1,5 @@
-:icons: font
+ifndef::imagesdir[:imagesdir: images]
+
 = Scaling
 
 [%step]
