@@ -15,10 +15,6 @@ To build the sample just run the Maven command from the Demo 01 root folder:
 mvn clean install
 ```
 
-```bash
-ng build --prod
-```
-
 ## Run
 
 ### Locally
@@ -52,7 +48,7 @@ This will start all the Docker Images for this Demo in background. The applicati
 To stop the services and the clients, just run:
 
 ```bash
-mvn docker:start
+mvn docker:stop
 ```
 
 ### Raspberry PI
