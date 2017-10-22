@@ -1,0 +1,34 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Generates all sorts of numbers",
+    "version" : "03",
+    "title" : "Numbers API"
+  },
+  "host" : "localhost:8084",
+  "basePath" : "/number-api/api",
+  "tags" : [ {
+    "name" : "numbers",
+    "description" : "Generating all sorts of numbers."
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/numbers/book" : {
+      "get" : {
+        "tags" : [ "numbers" ],
+        "summary" : "Generates a book number.",
+        "description" : "",
+        "operationId" : "generateBookNumber",
+        "produces" : [ "text/plain" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
