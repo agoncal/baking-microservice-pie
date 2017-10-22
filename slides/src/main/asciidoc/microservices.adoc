@@ -1,0 +1,14 @@
+ifndef::imagesdir[:imagesdir: images]
+
+= Micro Services
+
+[%step]
+* So, what do we mean by micro services ?
+* Have you heard about micro services ?
+* Do you know how big is a "micro" ?
+
+== Promise, we won't talk about Pizzas !
+
+image::pizzas2.jpg[]
+
+== Promise, we won't talk about Pizzas !

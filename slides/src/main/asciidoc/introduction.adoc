@@ -13,6 +13,16 @@ ifndef::imagesdir[:imagesdir: images]
 
 == Demo
 
+image::invoking-architecture.png[]
+
+== Architecture
+
+[%step]
+* Micro services
+* xxx
+* xxx
+* xxx
+
 == Hardware
 
 [%step]
@@ -20,3 +30,16 @@ ifndef::imagesdir[:imagesdir: images]
 * 4 Server (Orange)
 * 2 Databases (Black)
 * 3 Load balancers
+
+== Software
+
+[%step]
+* Java / Angular
+* Micro Profile
+* TomEE
+* Wildfly Swarm
+* Netflix OSS
+
+== Listen to our story
+
+* How we struggled to setup a microservice architecture

@@ -15,6 +15,9 @@ ifndef::imagesdir[:imagesdir: images]
 // Introduction
 include::introduction.adoc[leveloffset=+1]
 
+// Presenting Microservices
+include::microservices.adoc[leveloffset=+1]
+
 // Basic (with one Microservice)
 include::basic.adoc[leveloffset=+1]
 
