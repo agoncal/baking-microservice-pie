@@ -7,6 +7,13 @@ The Demo 01 is just a simple service to retrieve an identification number for a 
 * Client
     * Angular app
 
+To build the Angular App, execute:
+
+```bash
+ng build --prod
+```
+
+
 ## Build
 
 To build the sample just run the Maven command from the Demo 01 root folder:

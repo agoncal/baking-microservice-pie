@@ -86,13 +86,16 @@
                     <properties>
                         <swarm.context.path>${project.artifactId}</swarm.context.path>
                         <swarm.http.port>${listening.port}</swarm.http.port>
-                    <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
+                        <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
                     </properties>
                 </configuration>
             </plugin>
-        <plugin>
+            <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
             </plugin>
         </plugins>
     </build>

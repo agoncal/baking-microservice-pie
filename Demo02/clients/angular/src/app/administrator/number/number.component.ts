@@ -8,7 +8,7 @@ import { NumbersApi } from '../../shared/api/NumbersApi';
 })
 export class NumberComponent implements OnInit {
 
-  private bookNumber: string;
+  bookNumber: string;
 
   constructor(private numberApi: NumbersApi) { }
 
