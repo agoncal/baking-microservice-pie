@@ -48,11 +48,10 @@
               <name>baking/${project.artifactId}:rpi</name>
               <alias>rpi</alias>
               <build>
-                <from>nginx</from>
+                <from>tobi312/rpi-nginx</from>
                 <ports>
                   <port>80</port>
                 </ports>
-                <workdir>/usr/share/nginx/html</workdir>
                 <assembly>
                   <name>usr/share/nginx/html</name>
                   <inline>
@@ -80,7 +79,6 @@
                 <ports>
                   <port>80</port>
                 </ports>
-                <workdir>/usr/share/nginx/html</workdir>
                 <assembly>
                   <name>usr/share/nginx/html</name>
                   <inline>

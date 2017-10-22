@@ -1,5 +1,6 @@
 ---
 - hosts: servers
+  strategy: free
   gather_facts: no
   remote_user: pirate
   become: yes
