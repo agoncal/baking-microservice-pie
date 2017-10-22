@@ -71,7 +71,7 @@
             <image>
               <name>baking/${project.artifactId}:default</name>
               <build>
-                <from>tomcat:9.0.1-jre8</from>
+                <from>tomcat:8.5.23-jre8</from>
                 <ports>
                   <port>8080</port>
                 </ports>

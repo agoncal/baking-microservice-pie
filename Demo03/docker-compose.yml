@@ -12,3 +12,7 @@ services:
         image: baking/number-api:default
         ports:
             - 8084:8084
+    eureka-server:
+        image: baking/eureka-server:default
+        ports:
+            - 9080:9080
