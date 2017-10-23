@@ -10,7 +10,7 @@
   - name: Deploy Number API
     docker_container:
       name: number-api
-      image: docker-repo:5000/baking/number-api:rpi
+      image: docker-registry:5000/baking/number-api:rpi
       state: started
       restart: yes
       pull: true
@@ -21,10 +21,10 @@
   - name: Deploy Book API
     docker_container:
       name: book-api
-      image: docker-repo:5000/baking/book-api:rpi
+      image: docker-registry:5000/baking/book-api:rpi
       state: started
       restart: yes
       pull: true
       ports:
        - "8081:8081"
-    when: inventory_hostname == "pi-grom-server-02"
+    when: inventory_hostname == "pi-grom-server-01"

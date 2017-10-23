@@ -19,7 +19,7 @@
   - name: Deploy Angular Client
     docker_container:
       name: angular
-      image: docker-repo:5000/baking/angular:rpi
+      image: docker-registry:5000/baking/angular:rpi
       state: started
       restart: yes
       pull: true
