@@ -69,7 +69,7 @@
                 <cmd>["nginx", "-g", "daemon off;"]</cmd>
               </build>
               <run>
-                <skip>false</skip>
+                <skip>true</skip>
               </run>
             </image>
             <image>
