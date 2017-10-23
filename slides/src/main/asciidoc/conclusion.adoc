@@ -20,6 +20,23 @@ image::registry-architecture.png[]
 
 == So, what do you think about microservices architecture ?
 
+== Lessons learnt
+
+[%step]
+* Micro Services are hard
+* Micro Services are bloody hard
+* Need to integrate with a lot of infrastucture
+* Run in different environment (local, docker, pi)
+* The more technologies the harder
+* The more languages the harder
+* The more versions the harder
+
+== And...
+
+[%step]
+* We didn't have databases
+* We didn't have a complex business logic
+
 == And remember
 
 image::quote-sm.jpg[]

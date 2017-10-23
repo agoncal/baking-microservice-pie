@@ -145,11 +145,6 @@
             <artifactId>cors</artifactId>
             <version>00</version>
         </dependency>
-        <!-- WildFly Swarm Fractions -->
-        <!--<dependency>-->
-            <!--<groupId>org.wildfly.swarm</groupId>-->
-            <!--<artifactId>jaxrs</artifactId>-->
-        <!--</dependency>-->
         <!-- Test Dependencies -->
         <dependency>
             <groupId>org.wildfly.swarm</groupId>

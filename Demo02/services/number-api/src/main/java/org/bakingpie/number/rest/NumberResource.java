@@ -18,7 +18,6 @@ package org.bakingpie.number.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.bakingpie.commons.rest.EnableCORS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,7 +31,6 @@ import javax.ws.rs.core.Response;
 @ApplicationScoped
 @Path("numbers")
 @Produces(MediaType.TEXT_PLAIN)
-@EnableCORS
 @Api(value = "numbers", description = "Generating all sorts of numbers.")
 public class NumberResource {
 

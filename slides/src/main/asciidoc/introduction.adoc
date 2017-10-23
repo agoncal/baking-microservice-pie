@@ -11,6 +11,8 @@ ifndef::imagesdir[:imagesdir: images]
 
 == Antonio Goncalves
 
+image::antonio.jpg[]
+
 == Demo
 
 image::invoking-architecture.png[]

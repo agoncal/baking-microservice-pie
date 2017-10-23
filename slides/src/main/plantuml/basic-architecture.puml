@@ -1,11 +1,11 @@
 @startuml
 
 node "Raspberry PI" as piclient {
-    artifact "Angular APP" as angular
+    artifact "Angular APP" <<NGINX>> as angular
 }
 
-node "Raspberry PI" as piserver {
-    artifact "Number API" as numberapi
+node "pi-grom-server-01" as piserver {
+    artifact "Number API" <<Wildfly Swarm>> as numberapi
 }
 
 angular -> numberapi: "     HTTP      "

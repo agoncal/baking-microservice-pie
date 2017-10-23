@@ -21,7 +21,6 @@ import org.bakingpie.book.client.ApiClient;
 import org.bakingpie.book.client.api.NumbersApi;
 import org.bakingpie.book.domain.Book;
 import org.bakingpie.book.repository.BookRepository;
-import org.bakingpie.commons.rest.EnableCORS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,7 +39,6 @@ import static javax.ws.rs.core.Response.*;
 
 @ApplicationScoped
 @Path("books")
-@EnableCORS
 @Api(value = "books", description = "Operations for Books.")
 public class BookResource {
 

@@ -7,8 +7,27 @@ ifndef::imagesdir[:imagesdir: images]
 * Have you heard about micro services ?
 * Do you know how big is a "micro" ?
 
+== Let's quote people
+
+[%step]
+* "Small autonomous services working together"
+* "Small enough but not too small"
+* "Can be written in 2 weeks"
+* "Single responsability principle"
+* "Domain-driven design"
+* "Hexagonal architecture"
+* "Blah, blah, blah"
+
 == Promise, we won't talk about Pizzas !
 
 image::pizzas2.jpg[]
 
-== Promise, we won't talk about Pizzas !
+== Why Micro Services ?
+
+[%step]
+* Deliver new features more quickly
+* Smaller, more agile teams
+* Deliver business features as services
+* Scale services independently
+* Address unpredictable loads
+* Cloud

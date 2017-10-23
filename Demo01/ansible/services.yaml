@@ -16,5 +16,4 @@
       pull: true
       ports:
        - "8084:8084"
-
     when: inventory_hostname == "pi-grom-server-01"

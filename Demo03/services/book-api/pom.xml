@@ -62,7 +62,7 @@
                             <locations>org.bakingpie.book</locations>
                             <schemes>http,https</schemes>
                             <host>localhost:${listening.port}</host>
-                            <basePath>/api</basePath>
+                            <basePath>/book-api/api</basePath>
                             <info>
                                 <title>Book API</title>
                                 <version>${project.version}</version>

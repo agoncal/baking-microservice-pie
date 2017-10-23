@@ -16,14 +16,28 @@ image::basic-architecture.png[]
 
 [source,java]
 ----
-include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocSwagger;!adocCORS]
+include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocSwagger]
 ----
 
-== Swagger Contract
+== Swagger
+
+image::swagger.jpg[]
+
+== Swagger
+
+[%step]
+* Open API Specification
+* API documentation
+* What do you call?
+* What are the parameters?
+* What are the status code?
+* Contract written in JSon (or Yaml)
+
+== Swagger Annotations
 
 [source,java]
 ----
-include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocCORS]
+include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet]
 ----
 
 == Swagger Contract
@@ -32,6 +46,10 @@ include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberReso
 ----
 include::{demo01numberapidir}/src/main/webapp/swagger.json[]
 ----
+
+== Swagger Ecosystem
+
+image::swagger-eco.png[]
 
 == Swagger Code Gen
 
@@ -49,23 +67,59 @@ include::{demo01angulardir}/src/app/shared/api/NumbersApi.ts[tags=adocSnippet;!a
 
 == CORS
 
+[%step]
+* Cross-Origin Resource Sharing
+* Specification (https://www.w3.org/TR/cors/)
+* Access across domain-boundaries
+* JAX-RS ContainerResponseFilter
+* Servlet Filter
+
+== CORS JAX-RS ContainerResponseFilter
+
 [source,java]
 ----
 include::{commonscorsdir}/src/main/java/org/bakingpie/commons/rest/CORSFilter.java[tags=adocSnippet]
 ----
 
-== CORS
+== CORS JAX-RS ContainerResponseFilter
 
 [source,java]
 ----
 include::{commonscorsdir}/src/main/java/org/bakingpie/commons/rest/EnableCORS.java[tags=adocSnippet]
 ----
 
-== CORS
+== CORS JAX-RS ContainerResponseFilter
 
 [source,java]
 ----
-include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocSwagger]
+@Path("numbers")
+@Produces(MediaType.TEXT_PLAIN)
+@EnableCORS
+public class NumberResource {
+
+    private final Logger log = LoggerFactory.getLogger(NumberResource.class);
+
+    @GET
+    @Path("book")
+    public Response generateBookNumber() {
+        log.info("Generating a book number");
+        return Response.ok("BK-" + Math.random()).build();
+    }
+}
+----
+
+== CORS Servlet Filter
+
+[source,java]
+----
+include::{commonscorsdir}/src/main/java/org/bakingpie/commons/web/CORSFilter.java[tags=adocSnippet;!adocSkip]
+----
+
+== CORS Servlet Filter
+
+[source,xml,indent=0]
+----
+include::{demo01numberapidir}/src/main/webapp/WEB-INF/web.xml[tags=adocSnippet]
 ----
 
 == Ansible

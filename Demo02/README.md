@@ -1,8 +1,9 @@
-# Demo 01
+# Demo 02
 
-The Demo 01 is just a simple service to retrieve an identification number for a product (`number-api`). It contains:
+The Demo 02 has an extra service to do CRUD operations on Books (`book-api`). It needs the service to retrieve an identification number for a product (`number-api`). It contains:
 
 * Services
+    * book-api
     * number-api
 * Client
     * Angular app
@@ -38,7 +39,13 @@ mvn clean install
 To run the `number-api` locally, you can just run the uber jar sitting in the project target folder with all the dependencies already packed in. The file is generated in the Build step. From the `services/number-api` folder, run:
 
 ```bash
-java -jar target/number-api-01-swarm.jar
+java -jar target/number-api-02-swarm.jar
+```
+
+To run the `book-api` locally, 
+
+```bash
+java -jar target/book-api-02.jar
 ```
 
 The application is available in `http://localhost:8084/number-api/api/`.
