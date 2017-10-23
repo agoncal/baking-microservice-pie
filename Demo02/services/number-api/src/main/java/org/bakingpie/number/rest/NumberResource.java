@@ -19,6 +19,8 @@ package org.bakingpie.number.rest;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.bakingpie.commons.rest.EnableCORS;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;
@@ -34,10 +36,13 @@ import javax.ws.rs.core.Response;
 @Api(value = "numbers", description = "Generating all sorts of numbers.")
 public class NumberResource {
 
+    private final Logger log = LoggerFactory.getLogger(NumberResource.class);
+
     @GET
     @Path("book")
     @ApiOperation(value = "Generates a book number.", response = String.class)
     public Response generateBookNumber() {
+        log.info("Generating a book number");
         return Response.ok("BK-" + Math.random()).build();
     }
 }

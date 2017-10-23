@@ -109,4 +109,15 @@ public class Book {
     // =   Methods hash, equals, toString   =
     // ======================================
 
+    @Override
+    public String toString() {
+        return "Book{" +
+            "id=" + id +
+            ", author='" + author + '\'' +
+            ", title='" + title + '\'' +
+            ", year=" + year +
+            ", genre='" + genre + '\'' +
+            ", isbn='" + isbn + '\'' +
+            '}';
+    }
 }

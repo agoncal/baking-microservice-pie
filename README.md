@@ -78,3 +78,7 @@ When testing on Chrome, use this plugin to disable CORS (otherwise, it's painful
 
 https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?utm_source=chrome-app-launcher-info-dialog
 
+
+## References
+
+* [https://github.com/Bjond/ribbon-resteasy-poc](ribbon-resteasy-poc)

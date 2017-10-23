@@ -33,6 +33,7 @@
 
         <!-- Dependencies -->
         <version.javaee>7.0</version.javaee>
+        <version.slf4j>1.7.25</version.slf4j>
         <version.tomee>7.0.3</version.tomee>
         <version.swagger>1.5.16</version.swagger>
         <version.faker>0.13</version.faker>
@@ -65,6 +66,11 @@
             </dependency>
 
             <!-- Other -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-jdk14</artifactId>
+                <version>${version.slf4j}</version>
+            </dependency>
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-jaxrs</artifactId>

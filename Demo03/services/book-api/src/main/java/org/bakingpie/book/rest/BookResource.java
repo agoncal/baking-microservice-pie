@@ -22,6 +22,8 @@ import org.bakingpie.book.client.api.NumbersApi;
 import org.bakingpie.book.domain.Book;
 import org.bakingpie.book.repository.BookRepository;
 import org.bakingpie.commons.rest.EnableCORS;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -41,6 +43,8 @@ import static javax.ws.rs.core.Response.*;
 @EnableCORS
 @Api(value = "books", description = "Operations for Books.")
 public class BookResource {
+
+    private final Logger log = LoggerFactory.getLogger(BookResource.class);
 
     // ======================================
     // =             Injection              =
@@ -63,6 +67,7 @@ public class BookResource {
         @ApiResponse(code = 404, message = "Book not found")
     })
     public Response findById(@PathParam("id") final Long id) {
+        log.info("Getting the book " + id);
         return ofNullable(bookRepository.findById(id))
             .map(Response::ok)
             .orElse(status(NOT_FOUND))
@@ -77,6 +82,7 @@ public class BookResource {
         @ApiResponse(code = 404, message = "Books not found")}
     )
     public Response findAll() {
+        log.info("Getting all the books");
         return ok(bookRepository.findAll()).build();
     }
 
@@ -90,6 +96,7 @@ public class BookResource {
     })
     // tag::adocSnippet[]
     public Response create(@ApiParam(value = "Book to be created", required = true) Book book, @Context UriInfo uriInfo) {
+        log.info("Creating the book " + book);
         NumbersApi numberApi = new ApiClient().buildClient(NumbersApi.class);
         String isbn = numberApi.generateBookNumber();
         book.setIsbn(isbn);
@@ -108,6 +115,7 @@ public class BookResource {
         @ApiResponse(code = 400, message = "Invalid input")
     })
     public Response update(@ApiParam(value = "Book to be created", required = true) Book book) {
+        log.info("Updating the book " + book);
         return ok(bookRepository.update(book)).build();
     }
 
@@ -119,6 +127,7 @@ public class BookResource {
         @ApiResponse(code = 400, message = "Invalid input")
     })
     public Response delete(@PathParam("id") final Long id) {
+        log.info("Deleting the book " + id);
         bookRepository.deleteById(id);
         return noContent().build();
     }
