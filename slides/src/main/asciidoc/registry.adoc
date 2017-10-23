@@ -29,6 +29,7 @@ include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/r
 == Several to choose from
 
 [%step]
+* JNDI
 * HashiCorp Consul
 * Apache Zookeeper
 * Netflix Eureka

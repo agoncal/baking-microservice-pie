@@ -82,3 +82,4 @@ https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeac
 ## References
 
 * [https://github.com/Bjond/ribbon-resteasy-poc](ribbon-resteasy-poc)
+* [https://github.com/jquatier/eureka-js-client](eureka-js-client)
