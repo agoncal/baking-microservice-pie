@@ -40,6 +40,8 @@
         <version.arquillian>1.1.10.Final</version.arquillian>
         <version.shrinkwrap>2.2.6</version.shrinkwrap>
         <version.resteasy>3.1.4.Final</version.resteasy>
+        <version.eureka>1.8.4</version.eureka>
+        <version.governator>1.17.4</version.governator>
         <version.feign>9.4.0</version.feign>
         <version.feign-form>2.1.0</version.feign-form>
         <!-- Databases -->
@@ -57,7 +59,6 @@
                 <version>${version.javaee}</version>
                 <scope>provided</scope>
             </dependency>
-
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
@@ -81,7 +82,6 @@
                 <artifactId>swagger-annotations</artifactId>
                 <version>${version.swagger}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.github.javafaker</groupId>
                 <artifactId>javafaker</artifactId>
@@ -95,7 +95,17 @@
                 <version>${version.h2}</version>
             </dependency>
 
-            <!-- HTTP client: Netflix Feign -->
+            <!-- NetflixOSS -->
+            <dependency>
+                <groupId>com.netflix.eureka</groupId>
+                <artifactId>eureka-client</artifactId>
+                <version>${version.eureka}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netflix.governator</groupId>
+                <artifactId>governator</artifactId>
+                <version>${version.governator}</version>
+            </dependency>
             <dependency>
                 <groupId>io.github.openfeign</groupId>
                 <artifactId>feign-core</artifactId>
