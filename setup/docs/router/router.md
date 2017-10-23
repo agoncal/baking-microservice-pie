@@ -53,6 +53,42 @@ access the same PI with the same IP everytime).
 * Go to Config Tree / service / dhcp-server / hostfile-update, set to "enable", click on preview. (This will register the PI's 
 hostnames in the hosts files and they will be reachable via DNS)
 
+* Or you can use the following commands if you connect to the router directly:
+```
+ssh ubnt@10.99.99.1
+Welcome to EdgeOS
+
+By logging in, accessing, or using the Ubiquiti product, you
+acknowledge that you have read and understood the Ubiquiti
+License Agreement (available in the Web UI at, by default,
+http://192.168.1.1) and agree to be bound by its terms.
+
+ubnt@10.99.99.1's password:
+Linux ubnt 3.10.14-UBNT #1 SMP Mon Nov 2 16:45:25 PST 2015 mips
+Welcome to EdgeOS
+ubnt@ubnt:~$ configure
+[edit]
+ubnt@ubnt# delete service dhcp-server hostfile-update disable
+[edit]
+ubnt@ubnt# set service dhcp-server hostfile-update enable
+[edit]
+ubnt@ubnt# commit
+[ service dhcp-server ]
+Stopping DHCP server daemon...
+Starting DHCP server daemon...
+
+[edit]
+ubnt@ubnt# save
+Saving configuration to '/config/config.boot'...
+Done
+[edit]
+ubnt@ubnt# exit
+exit
+ubnt@ubnt:~$ exit
+logout
+Connection to 10.99.99.1 closed.
+```
+
 ![Hosts Update](router-setup-04.png?raw=true)
 
 ### Adding Manual entries to Hosts file
