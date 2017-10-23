@@ -5,31 +5,30 @@ Docker Hub. The Docker Images used are not really that big, but they could take 
 
 ## Setup
 
-The Docker documentation already has a comprehensive guide to setup a Local Docker Registry: https://docs.docker.com/registry/deploying/
+The Docker documentation already has a comprehensive guide to setup a Local Docker Registry: 
+* https://docs.docker.com/registry/deploying/
+* https://docs.docker.com/registry/insecure/
 
 ### TL;DR
 
-#### Certificates
-
-The Local Docker Registry requires certificates to allow clients to download Docker Images. Here is how you generate 
-one:
-```bash 
-openssl req -newkey rsa:4096 -nodes -sha256 -keyout docker-registry.key -x509 -days 365 -out docker-registry.crt
-```
-
 #### Run
 The Local Docker Registry runs like any other Docker Image: 
-```bash  
-docker run -d -p 5000:5000 --restart=always --name docker-registry -v `pwd`/certs:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/docker-registry.crt -e REGISTRY_HTTP_TLS_KEY=/certs/docker-registry.key registry:2
+```bash
+docker run -d -p 5000:5000 --restart=always --name docker-registry registry:2
 ```
 
-This can be executed from the folder `setup/ansible/docker-registry`. A certificate is already generated in the folder `setup/ansible/docker-registry/certs`.
+#### Insecure Registry
 
-#### Distribute Certificates
+For the PI's to be able to download Docker Images from the Local Docker Registry, they need to trust him. The easiest 
+way is to add an entry with the Local Docker Registry hostname and port in the file `/etc/docker/daemon.json` The 
+Ansible script `setup/ansible/docker-registry/docker-registry.yaml` will handle that for you. Run it from the `ansible` 
+directory with:
 
-The self signed certificates must be added into the Docker configuration running in the PI's, so the PI's can download
-Docker images from the Local Docker Registry. The Ansible script 
-`setup/ansible/docker-registry/install-registry-cert.yaml` will handle that for you.
+```bash
+ansible-playbook -i hosts docker-registry/docker-registry.yaml
+```
+
+After this, make sure you restart your PI Cluster.
 
 #### Box running Local Docker Registry
 
