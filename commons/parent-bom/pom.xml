@@ -37,10 +37,12 @@
         <version.tomee>7.0.3</version.tomee>
         <version.swagger>1.5.16</version.swagger>
         <version.faker>0.13</version.faker>
+        <version.guice>4.1.0</version.guice>
         <version.arquillian>1.1.10.Final</version.arquillian>
         <version.shrinkwrap>2.2.6</version.shrinkwrap>
         <version.resteasy>3.1.4.Final</version.resteasy>
         <version.eureka>1.8.4</version.eureka>
+        <version.archaius>0.7.5</version.archaius>
         <version.governator>1.17.4</version.governator>
         <version.feign>9.4.0</version.feign>
         <version.feign-form>2.1.0</version.feign-form>
@@ -87,6 +89,11 @@
                 <artifactId>javafaker</artifactId>
                 <version>${version.faker}</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.inject</groupId>
+                <artifactId>guice</artifactId>
+                <version>${version.guice}</version>
+            </dependency>
 
             <!-- Databases -->
             <dependency>
@@ -102,8 +109,23 @@
                 <version>${version.eureka}</version>
             </dependency>
             <dependency>
+                <groupId>com.netflix.eureka</groupId>
+                <artifactId>eureka-client</artifactId>
+                <version>${version.eureka}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netflix.archaius</groupId>
+                <artifactId>archaius-core</artifactId>
+                <version>${version.archaius}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.netflix.governator</groupId>
                 <artifactId>governator</artifactId>
+                <version>${version.governator}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netflix.governator</groupId>
+                <artifactId>governator-core</artifactId>
                 <version>${version.governator}</version>
             </dependency>
             <dependency>
