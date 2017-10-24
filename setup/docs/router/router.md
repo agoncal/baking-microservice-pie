@@ -111,7 +111,7 @@ Welcome to EdgeOS
 Last login: Sun Sep  3 21:09:22 2017 from radcortez
 ubnt@ubnt:~$ configure
 [edit]
-ubnt@ubnt# set system static-host-mapping host-name docker-registry inet 10.99.99.11
+ubnt@ubnt# set system static-host-mapping host-name docker-registry inet 10.99.99.10
 [edit]
 ubnt@ubnt# commit
 [edit]
@@ -125,3 +125,20 @@ ubnt@ubnt:~$ exit
 logout
 Connection to 10.99.99.1 closed.
 ```
+
+#### Add Hosts
+
+The Demos in the project require certain services to run on a dedicated box, for instance the Docker Registry or the 
+ELK stack. The reason for this is that some of the required dependencies do not run in the PI Cluster due to the lack 
+of hardware resources. Your working computer should be OK to run these. 
+
+Some configuration points to a particular hostname where the service should be running. By adding a host in the 
+router you can point to where the service can be found, either your local box or something else.
+
+Required hosts:
+```
+set system static-host-mapping host-name docker-registry inet 10.99.99.10
+set system static-host-mapping host-name elk inet 10.99.99.10
+``` 
+
+Remember to static map your box to the ip `10.99.99.10`.
