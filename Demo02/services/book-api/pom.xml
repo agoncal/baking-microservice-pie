@@ -79,6 +79,8 @@
                 <artifactId>tomee-maven-plugin</artifactId>
                 <configuration>
                     <tomeeHttpPort>${listening.port}</tomeeHttpPort>
+                    <tomeeAjpPort>8109</tomeeAjpPort>
+                    <tomeeShutdownPort>8105</tomeeShutdownPort>
                 </configuration>
             </plugin>
             <plugin>
