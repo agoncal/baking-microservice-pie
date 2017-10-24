@@ -37,6 +37,7 @@ image::registry-architecture.png[]
 * We didn't have databases
 * We didn't have a complex business logic
 * We didn't have a complex network
+* We didn't duplicate and load balance the registry (SPOF)
 
 == And remember
 

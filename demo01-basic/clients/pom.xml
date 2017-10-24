@@ -19,20 +19,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.bakingpie</groupId>
-    <artifactId>bakingpie</artifactId>
+    <parent>
+        <groupId>org.bakingpie</groupId>
+        <artifactId>demo</artifactId>
+        <version>01</version>
+    </parent>
+
+    <artifactId>clients</artifactId>
     <version>01</version>
     <packaging>pom</packaging>
-    <name>Baking a Microservice Pie</name>
+    <name>Baking a Microservice Pie :: Demo 01 Basic :: Clients</name>
 
     <modules>
-        <module>commons</module>
-        <module>demo01-basic</module>
-        <module>demo02-monitoring</module>
-        <module>demo03-configuring</module>
-        <module>demo04-invoking</module>
-        <module>demo05-registry</module>
-        <module>demo99</module>
-        <module>slides</module>
+        <module>angular</module>
     </modules>
 </project>

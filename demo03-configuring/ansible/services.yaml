@@ -1,0 +1,19 @@
+---
+- hosts: servers
+  strategy: free
+  gather_facts: no
+  remote_user: pirate
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: Deploy Number API
+    docker_container:
+      name: number-api
+      image: docker-registry:5000/baking/number-api:rpi
+      state: started
+      restart: yes
+      pull: true
+      ports:
+       - "8084:8084"
+    when: inventory_hostname == "pi-grom-server-01"

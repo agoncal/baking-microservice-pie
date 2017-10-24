@@ -18,13 +18,19 @@ include::introduction.adoc[leveloffset=+1]
 // Presenting Microservices
 include::microservices.adoc[leveloffset=+1]
 
-// Basic (with one Microservice)
+// Basic (demo01-basic)
 include::basic.adoc[leveloffset=+1]
 
-// One Microservice invoking another one
+// Monitoring (demo02-monitoring)
+include::monitoring.adoc[leveloffset=+1]
+
+// Configuring (demo03-configuring)
+include::configuring.adoc[leveloffset=+1]
+
+// One Microservice invoking another one (Demo04-invoking)
 include::invoking.adoc[leveloffset=+1]
 
-// Registry
+// Registry (demo05-registry)
 include::registry.adoc[leveloffset=+1]
 
 // Scale
@@ -32,9 +38,6 @@ include::scale.adoc[leveloffset=+1]
 
 // Break
 include::break.adoc[leveloffset=+1]
-
-// Monitoring
-include::monitoring.adoc[leveloffset=+1]
 
 // Gateway
 include::gateway.adoc[leveloffset=+1]

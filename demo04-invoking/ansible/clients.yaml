@@ -1,0 +1,30 @@
+---
+- hosts: clients
+  gather_facts: no
+  remote_user: pirate
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: Create external directory for Nginx configuration
+    file: path=/usr/local/share/nginx/ state=directory
+    when: inventory_hostname == "pi-client-01"
+
+  - name: Copy Nginx configuration
+    copy:
+      src: nginx/default
+      dest: /usr/local/share/nginx/default
+    when: inventory_hostname == "pi-client-01"
+
+  - name: Deploy Angular Client
+    docker_container:
+      name: angular
+      image: docker-registry:5000/baking/angular:rpi
+      state: started
+      restart: yes
+      pull: true
+      ports:
+       - "8080:80"
+      volumes: /usr/local/share/nginx/default:/etc/nginx/sites-enabled/default:ro
+
+    when: inventory_hostname == "pi-client-01"
