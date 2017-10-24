@@ -8,7 +8,28 @@ services:
         image: baking/book-api:default
         ports:
             - 8081:8081
+        logging:
+          driver: gelf
+          options:
+            gelf-address: udp://localhost:12201
+        depends_on:
+          - elk
     number-api:
         image: baking/number-api:default
         ports:
             - 8084:8084
+        logging:
+          driver: gelf
+          options:
+            gelf-address: udp://localhost:12201
+        depends_on:
+          - elk
+    elk:
+        image: sebp/elk
+        ports:
+            - 5601:5601
+            - 9200:9200
+            - 5044:5044
+            - 12201:12201/udp
+        volumes:
+          - ./elk/:/etc/logstash/conf.d/
