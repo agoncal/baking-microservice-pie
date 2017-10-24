@@ -15,4 +15,4 @@ services:
     eureka-server:
         image: baking/eureka-server:default
         ports:
-            - 9080:9080
+            - 8761:8080

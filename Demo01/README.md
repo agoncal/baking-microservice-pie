@@ -3,9 +3,9 @@
 The Demo 01 is just a simple service to retrieve an identification number for a product (`number-api`). It contains:
 
 * Services
-    * number-api
+    * number-api (Wildfly Swarm on port 8084)
 * Client
-    * Angular app
+    * Angular app (NGinx on port 8080)
 
 To build the Angular App, execute:
 

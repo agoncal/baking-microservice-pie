@@ -36,6 +36,7 @@ image::registry-architecture.png[]
 [%step]
 * We didn't have databases
 * We didn't have a complex business logic
+* We didn't have a complex network
 
 == And remember
 

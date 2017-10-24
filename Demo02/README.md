@@ -3,10 +3,10 @@
 The Demo 02 has an extra service to do CRUD operations on Books (`book-api`). It needs the service to retrieve an identification number for a product (`number-api`). It contains:
 
 * Services
-    * book-api
-    * number-api
+    * book-api (TomEE on port 8081)
+    * number-api (Wildfly Swarm on port 8084)
 * Client
-    * Angular app
+    * Angular app (NGinx on port 8080)
 
 To build the Angular App, execute:
 

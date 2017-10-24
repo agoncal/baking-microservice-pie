@@ -4,12 +4,12 @@ The Demo 03 uses a Registry server (Eureka) so that all services (`book-api` and
 registry. It contains:
 
 * Infrastructure
-    * eureka
+    * eureka (Tomcat on port 8761)
 * Services
-    * book-api
-    * number-api
+    * book-api (TomEE on port 8081)
+    * number-api (Wildfly Swarm on port 8084)
 * Client
-    * Angular app
+    * Angular app (NGinx on port 8080)
 
 To build the Angular App, execute:
 

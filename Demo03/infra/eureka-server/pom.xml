@@ -127,7 +127,7 @@
           <pullRegistry>docker.io</pullRegistry>
           <images>
             <image>
-              <name>baking/${project.artifactId}:rpi</name>
+              <name>baking/${project.build.finalName}:rpi</name>
               <alias>rpi</alias>
               <build>
                 <from>dordoka/rpi-tomcat</from>
@@ -155,7 +155,7 @@
               </run>
             </image>
             <image>
-              <name>baking/${project.artifactId}:default</name>
+              <name>baking/${project.build.finalName}:default</name>
               <build>
                 <from>tomcat:8.5.23-jre8</from>
                 <ports>
@@ -179,7 +179,7 @@
               </build>
               <run>
                 <ports>
-                  <port>9080:8080</port>
+                  <port>8761:8080</port>
                 </ports>
               </run>
             </image>

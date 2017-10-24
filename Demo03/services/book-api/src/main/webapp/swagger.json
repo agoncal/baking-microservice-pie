@@ -6,7 +6,7 @@
     "title" : "Book API"
   },
   "host" : "localhost:8081",
-  "basePath" : "/api",
+  "basePath" : "/book-api/api",
   "tags" : [ {
     "name" : "books",
     "description" : "Operations for Books."
