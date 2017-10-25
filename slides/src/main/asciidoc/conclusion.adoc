@@ -47,6 +47,10 @@ image::quote-sm.jpg[]
 
 image::thankyou.jpg[]
 
+== Thanks for the Pis !
+
+image::tomitribe.png[]
+
 == Q & A
 
 image::question.jpg[]
