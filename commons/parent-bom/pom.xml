@@ -38,6 +38,7 @@
         <version.swagger>1.5.16</version.swagger>
         <version.faker>0.13</version.faker>
         <version.guice>4.1.0</version.guice>
+        <version.consultant>1.7.3</version.consultant>
         <version.arquillian>1.1.10.Final</version.arquillian>
         <version.shrinkwrap>2.2.6</version.shrinkwrap>
         <version.resteasy>3.1.4.Final</version.resteasy>
@@ -93,6 +94,11 @@
                 <groupId>com.google.inject</groupId>
                 <artifactId>guice</artifactId>
                 <version>${version.guice}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.magnet</groupId>
+                <artifactId>consultant</artifactId>
+                <version>${version.consultant}</version>
             </dependency>
 
             <!-- Databases -->

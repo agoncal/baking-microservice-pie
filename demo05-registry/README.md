@@ -5,6 +5,7 @@ registry. It contains:
 
 * Infrastructure
     * eureka (Tomcat on port 8761)
+    * consul (port 8500 with `consul agent -dev -advertise 127.0.0.1`)
 * Services
     * book-api (TomEE on port 8081)
     * number-api (Wildfly Swarm on port 8084)
