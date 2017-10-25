@@ -1,0 +1,30 @@
+---
+- hosts: servers
+  strategy: free
+  gather_facts: no
+  remote_user: pirate
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: Deploy Number API
+    docker_container:
+      name: number-api
+      image: docker-registry:5000/baking/number-api:rpi
+      state: started
+      restart: yes
+      pull: true
+      ports:
+       - "8084:8084"
+    when: inventory_hostname == "pi-grom-server-01"
+
+  - name: Deploy Book API
+    docker_container:
+      name: book-api
+      image: docker-registry:5000/baking/book-api:rpi
+      state: started
+      restart: yes
+      pull: true
+      ports:
+       - "8081:8081"
+    when: inventory_hostname == "pi-grom-server-02"

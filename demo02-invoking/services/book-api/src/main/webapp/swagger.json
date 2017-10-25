@@ -1,0 +1,176 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Operations for Books.",
+    "version" : "02",
+    "title" : "Book API"
+  },
+  "host" : "localhost:8081",
+  "basePath" : "/book-api/api",
+  "tags" : [ {
+    "name" : "books",
+    "description" : "Operations for Books."
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/books" : {
+      "get" : {
+        "tags" : [ "books" ],
+        "summary" : "Find all Books",
+        "description" : "",
+        "operationId" : "findAll",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "All books found",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Book"
+              }
+            }
+          },
+          "404" : {
+            "description" : "Books not found"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "books" ],
+        "summary" : "Create a Book",
+        "description" : "",
+        "operationId" : "create",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Book to be created",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Book"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "The book is created"
+          },
+          "400" : {
+            "description" : "Invalid input"
+          },
+          "415" : {
+            "description" : "Format is not JSon"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "books" ],
+        "summary" : "Update a Book",
+        "description" : "",
+        "operationId" : "update",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Book to be created",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Book"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "The book is updated",
+            "schema" : {
+              "$ref" : "#/definitions/Book"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input"
+          }
+        }
+      }
+    },
+    "/books/{id}" : {
+      "get" : {
+        "tags" : [ "books" ],
+        "summary" : "Find a Book by the Id.",
+        "description" : "",
+        "operationId" : "findById",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "pattern" : "\\d+",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Book found",
+            "schema" : {
+              "$ref" : "#/definitions/Book"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input"
+          },
+          "404" : {
+            "description" : "Book not found"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "books" ],
+        "summary" : "Delete a Book",
+        "description" : "",
+        "operationId" : "delete",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "pattern" : "\\d+",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "Book has been deleted"
+          },
+          "400" : {
+            "description" : "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Book" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "author" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "year" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "genre" : {
+          "type" : "string"
+        },
+        "isbn" : {
+          "type" : "string"
+        }
+      },
+      "description" : "Book representation"
+    }
+  }
+}

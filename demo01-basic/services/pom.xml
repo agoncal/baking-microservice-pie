@@ -26,7 +26,6 @@
     </parent>
 
     <artifactId>services</artifactId>
-    <version>01</version>
     <packaging>pom</packaging>
     <name>Baking a Microservice Pie :: Demo 01 Basic :: Services</name>
 

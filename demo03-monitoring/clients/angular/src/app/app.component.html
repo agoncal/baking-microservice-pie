@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">Store (Demo 03)</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbars">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="dropdown-administrator" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrator</a>
+        <ul class="dropdown-menu" aria-labelledby="dropdown-admin">
+          <li>
+            <a class="dropdown-item" [routerLink]="['/numbers']">
+              <i class="fa fa-fw fa-refresh" aria-hidden="true"></i>
+              <span>Numbers</span>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['/book-list']">
+              <i class="fa fa-fw fa-book" aria-hidden="true"></i>
+              <span>Books</span>
+            </a>
+          </li>
+          <li>
+            <div class="dropdown-divider"></div>
+          </li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['/swagger']">
+              <i class="fa fa-fw fa-cubes" aria-hidden="true"></i>
+              <span>Swagger APIs</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main role="main">
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Welcome to our store!</h1>
+      <p>You can buy CDs, Books and DVDs for a cheap price. Browse our catalog and do not hesitate to register, create an account and shop online.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+    <router-outlet name="popup"></router-outlet>
+    <hr>
+  </div>
+
+</main>
+
+<footer class="container">
+  <p>&copy; Store is a @radcortez and @agoncal company</p>
+</footer>
+

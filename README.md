@@ -55,14 +55,10 @@ This talk has several demos. Each one builds on top of the other. For example, `
 |   |     +-- src
 |   |       +-- main
 |   |       +-- test
-|   +-- cd-api
-|   +-- dvd-api
-|   +-- shoppingcart-api
 |   +-- number-api
-|   +-- monitoring
-|   +-- registry
-|   +-- tracing
-|   +-- health
+|   |     +-- src
+|   |       +-- main
+|   |       +-- test
 +-- clients
 |   +-- angular application
 |   +-- jax rs client to test services
@@ -70,6 +66,9 @@ This talk has several demos. Each one builds on top of the other. For example, `
 +-- deployment
 |   +-- ansible scripts
 |   +-- docker config
++-- infra
+|   +-- consul
+|   +-- elk
 ```
 
 ## Tools
@@ -81,5 +80,6 @@ https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeac
 
 ## References
 
+* [https://github.com/OrbitzWorldwide/consul-client](consul-client)
 * [https://github.com/Bjond/ribbon-resteasy-poc](ribbon-resteasy-poc)
 * [https://github.com/jquatier/eureka-js-client](eureka-js-client)

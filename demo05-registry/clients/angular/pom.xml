@@ -37,7 +37,6 @@
       <plugin>
         <groupId>io.fabric8</groupId>
         <artifactId>docker-maven-plugin</artifactId>
-        <version>${version.docker-fabric8.plugin}</version>
         <configuration>
           <verbose>true</verbose>
           <skip>false</skip>
@@ -69,7 +68,7 @@
                 <cmd>["nginx", "-g", "daemon off;"]</cmd>
               </build>
               <run>
-                <skip>false</skip>
+                <skip>true</skip>
               </run>
             </image>
             <image>

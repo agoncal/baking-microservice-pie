@@ -28,9 +28,9 @@
     <modules>
         <module>commons</module>
         <module>demo01-basic</module>
-        <module>demo02-monitoring</module>
-        <module>demo03-configuring</module>
-        <module>demo04-invoking</module>
+        <module>demo02-invoking</module>
+        <module>demo03-monitoring</module>
+        <module>demo04-configuring</module>
         <module>demo05-registry</module>
         <module>demo99</module>
         <module>slides</module>

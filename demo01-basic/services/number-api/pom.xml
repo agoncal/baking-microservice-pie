@@ -26,7 +26,6 @@
     </parent>
 
     <artifactId>number-api</artifactId>
-    <version>01</version>
     <packaging>war</packaging>
     <name>Baking a Microservice Pie :: Demo 01 Basic :: Services :: Number API</name>
 
@@ -106,7 +105,6 @@
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
         </dependency>
-
 <!-- Other Dependencies -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -121,11 +119,6 @@
             <groupId>org.bakingpie.commons</groupId>
             <artifactId>cors</artifactId>
             <version>00</version>
-        </dependency>
-        <!-- WildFly Swarm Fractions -->
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>jaxrs</artifactId>
         </dependency>
         <!-- Test Dependencies -->
         <dependency>
