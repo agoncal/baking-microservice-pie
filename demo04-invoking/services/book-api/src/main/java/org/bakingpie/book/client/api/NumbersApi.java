@@ -10,7 +10,7 @@ import javax.annotation.Generated;
 @Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public interface NumbersApi extends ApiClient.Api {
 
-    @RequestLine("GET http://localhost:8084/number-api/api/numbers/book")
+    @RequestLine("GET /numbers/book")
     @Headers({"Content-Type: text/plain", "Accept: text/plain"})
     String generateBookNumber();
 }

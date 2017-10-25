@@ -94,10 +94,16 @@ public class BookResource {
     })
     // tag::adocSnippet[]
     public Response create(@ApiParam(value = "Book to be created", required = true) Book book, @Context UriInfo uriInfo) {
+        // tag::adocSkip[]
         log.info("Creating the book " + book);
-        NumbersApi numberApi = new ApiClient().buildClient(NumbersApi.class);
+
+        log.info("Invoking the number-api");
+        // end::adocSkip[]
+
+        NumbersApi numberApi = new ApiClient().buildNumberApiClient();
         String isbn = numberApi.generateBookNumber();
         book.setIsbn(isbn);
+
         final Book created = bookRepository.create(book);
         URI createdURI = uriInfo.getBaseUriBuilder().path(String.valueOf(created.getId())).build();
         return Response.created(createdURI).build();
