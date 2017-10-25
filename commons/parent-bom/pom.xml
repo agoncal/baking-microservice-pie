@@ -96,9 +96,9 @@
                 <version>${version.guice}</version>
             </dependency>
             <dependency>
-                <groupId>me.magnet</groupId>
-                <artifactId>consultant</artifactId>
-                <version>${version.consultant}</version>
+                <groupId>com.orbitz.consul</groupId>
+                <artifactId>consul-client</artifactId>
+                <version>0.16.5</version>
             </dependency>
 
             <!-- Databases -->

@@ -43,4 +43,12 @@ public class NumberResource {
         log.info("Generating a book number");
         return Response.ok("BK-" + Math.random()).build();
     }
+
+    @GET
+    @Path("health")
+    @ApiOperation(value = "Checks the health of this REST endpoint", response = String.class)
+    public Response health() {
+        log.info("Alive and Kicking !!!");
+        return Response.ok().build();
+    }
 }

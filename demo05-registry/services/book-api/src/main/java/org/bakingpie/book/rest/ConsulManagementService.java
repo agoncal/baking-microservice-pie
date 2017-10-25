@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.bakingpie.number.rest;
+package org.bakingpie.book.rest;
 
 
 import com.orbitz.consul.AgentClient;
@@ -35,8 +35,8 @@ public class ConsulManagementService {
 
     private final Logger log = LoggerFactory.getLogger(ConsulManagementService.class);
 
-    public static final String SERVICE_NAME = "CONSUL_NUMBER_API";
-    public static final Integer SERVICE_PORT = 8084;
+    public static final String SERVICE_NAME = "CONSUL_BOOK_API";
+    public static final Integer SERVICE_PORT = 8081;
 
     Consul consul = Consul.builder().build(); // connect to Consul on localhost
     AgentClient agentClient = consul.agentClient();
@@ -44,7 +44,7 @@ public class ConsulManagementService {
     @PostConstruct
     protected void registerService() {
 
-        Registration.RegCheck check = Registration.RegCheck.http("http://localhost:" + SERVICE_PORT + "/number-api/api/numbers/health", 10);
+        Registration.RegCheck check = Registration.RegCheck.http("http://localhost:" + SERVICE_PORT + "/book-api/api/books/health", 10);
         agentClient.register(SERVICE_PORT, check, SERVICE_NAME, "1");
 
         log.info(SERVICE_NAME + " is registered in consul on port " + SERVICE_PORT);
