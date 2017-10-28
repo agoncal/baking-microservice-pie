@@ -22,12 +22,13 @@ image::antonio.jpg[]
 * Going from problem, to solution...
 * ...to problem, to solution...
 * ...to problem
-* And end-up building a (basic) e-commerce web site
+* And end-up building a (_basic_) e-commerce web site
 
 == Demo
 
 == Architecture
 
+// TODO Final architecture
 image::invoking-architecture.png[]
 
 == Architecture
@@ -53,9 +54,22 @@ image::invoking-architecture.png[]
 == Software
 
 [%step]
-* Java / Angular
+* Java / Angular (TypeScript)
 * Micro Profile
-* TomEE
-* Wildfly Swarm
+* TomEE / Wildfly Swarm
+* NGinx
 * Netflix OSS
 * Consul
+
+== Infrastructure
+
+[%step]
+* Ansible
+* Docker
+* Docker compose
+
+== Database
+
+[%step]
+* Well...
+* ...H2 in-memory

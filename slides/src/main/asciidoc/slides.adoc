@@ -21,7 +21,10 @@ include::microservices.adoc[leveloffset=+1]
 // Basic (demo01-basic)
 include::basic.adoc[leveloffset=+1]
 
-// One Microservice invoking another one (Demo04-invoking)
+// Deploy
+include::deploy.adoc[leveloffset=+1]
+
+// One Microservice invoking another one
 include::invoking.adoc[leveloffset=+1]
 
 // Monitoring (demo02-monitoring)
@@ -50,9 +53,6 @@ include::load.adoc[leveloffset=+1]
 
 // Tracing
 include::tracing.adoc[leveloffset=+1]
-
-// Deploy
-include::deploy.adoc[leveloffset=+1]
 
 // Conclusion
 include::conclusion.adoc[leveloffset=+1]

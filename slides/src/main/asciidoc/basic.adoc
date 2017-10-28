@@ -14,10 +14,30 @@ image::basic-architecture.png[]
 
 == Number API
 
+[%step]
+* JAX-RS Endpoint
+* Generates random numbers
+* Just an HTTP GET on:
+* `/numbers/book`
+* Port 8084
+* Exposes a Swagger contract
+
+== Number API
+
 [source,java]
 ----
-include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocSwagger]
+include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocSkip;!adocSwagger]
 ----
+
+== Angular app
+
+[%step]
+* Angular
+* Bootstrap
+* (_because we are bad web designers_)
+* Port 8080
+* Invokes the `number-api` through HTTP
+* Thanks to the Swagger contract
 
 == Swagger
 
@@ -37,7 +57,7 @@ image::swagger.jpg[]
 
 [source,java]
 ----
-include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet]
+include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocSkip]
 ----
 
 == Swagger Contract
@@ -53,10 +73,12 @@ image::swagger-eco.png[]
 
 == Swagger Code Gen
 
-[source,shell]
-----
-$ swagger-codegen generate -i swagger.json -l typescript-angular2 -o src/app/shared
-----
+[%step]
+* Generates code from a Swagger contract
+* Client stubs
+* Several languages
+* Including TypeScript for Angular
+* `$ swagger-codegen generate -i swagger.json -l typescript-angular2 -o src/app/shared`
 
 == The Generated TypeScript Service
 
@@ -71,6 +93,12 @@ include::{demo01angulardir}/src/app/shared/api/NumbersApi.ts[tags=adocSnippet;!a
 * Cross-Origin Resource Sharing
 * Specification (https://www.w3.org/TR/cors/)
 * Access across domain-boundaries
+* Number API and Angular app on different machines
+
+== Solving CORS
+
+[%step]
+* Network configuration
 * JAX-RS ContainerResponseFilter
 * Servlet Filter
 
@@ -122,9 +150,7 @@ include::{commonscorsdir}/src/main/java/org/bakingpie/commons/web/CORSFilter.jav
 include::{demo01numberapidir}/src/main/webapp/WEB-INF/web.xml[tags=adocSnippet]
 ----
 
-== Ansible
-
 == Demo
 
-image::basic-architecture.png[]
+image::basic-architecture-local.png[]
 

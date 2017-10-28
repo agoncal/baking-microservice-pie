@@ -40,7 +40,6 @@ public class NumberResource {
     // tag::adocSkip[]
     private final Logger log = LoggerFactory.getLogger(NumberResource.class);
     // end::adocSkip[]
-
     @GET
     @Path("book")
     // tag::adocSwagger[]
