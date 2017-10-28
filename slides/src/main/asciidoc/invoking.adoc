@@ -4,7 +4,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 [%step]
 * We have one Number API Micro Service
-* We have one Book Micro Service
+* We need one Book Micro Service
 * Book API invokes Number API
 * We have one Angular client
 * We use 3 Pis
@@ -14,14 +14,24 @@ ifndef::imagesdir[:imagesdir: images]
 
 image::invoking-architecture.png[]
 
-== Hard coded HTTP Client invocation
+== Book API
+
+[%step]
+* JAX-RS Endpoint
+* CRUD operations on Book
+* Book JPA entity
+* HTTP GET/POST/PUT/DELETE on:
+* `/books`
+* Port 8081
+
+== Book API
 
 [source,java]
 ----
-Client client....
+include::{demo02bookapidir}/src/main/java/org/bakingpie/book/rest/BookResource.java[tags=adocSnippet;!adocSkip;!adocCall]
 ----
 
-== Several to choose from
+== Invoking Number API
 
 [%step]
 * Apache HTTP Client
@@ -42,7 +52,7 @@ Client client....
 include::{demo02numberapidir}/src/main/webapp/swagger.json[]
 ----
 
-== Swagger Code Gen Client Stub
+== Swagger Code Gen Feign Client Stub
 
 [source,shell]
 ----

@@ -38,25 +38,21 @@ import static javax.ws.rs.core.Response.Status.NOT_FOUND;
 import static javax.ws.rs.core.Response.*;
 
 @ApplicationScoped
+// tag::adocSnippet[]
 @Path("books")
 @Api(value = "books", description = "Operations for Books.")
 public class BookResource {
 
+    // tag::adocSkip[]
     private final Logger log = LoggerFactory.getLogger(BookResource.class);
 
-    // ======================================
-    // =             Injection              =
-    // ======================================
-
+    // end::adocSkip[]
     @Inject
     private BookRepository bookRepository;
 
-    // ======================================
-    // =              Methods               =
-    // ======================================
-
     @GET
     @Path("/{id : \\d+}")
+    // tag::adocSkip[]
     @Produces(APPLICATION_JSON)
     @ApiOperation(value = "Find a Book by the Id.", response = Book.class)
     @ApiResponses(value = {
@@ -64,6 +60,7 @@ public class BookResource {
         @ApiResponse(code = 400, message = "Invalid input"),
         @ApiResponse(code = 404, message = "Book not found")
     })
+    // end::adocSkip[]
     public Response findById(@PathParam("id") final Long id) {
         log.info("Getting the book " + id);
         return ofNullable(bookRepository.findById(id))
@@ -74,11 +71,13 @@ public class BookResource {
 
     @GET
     @Produces(APPLICATION_JSON)
+    // tag::adocSkip[]
     @ApiOperation(value = "Find all Books", response = Book.class, responseContainer = "List")
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "All books found"),
         @ApiResponse(code = 404, message = "Books not found")}
     )
+    // end::adocSkip[]
     public Response findAll() {
         log.info("Getting all the books");
         return ok(bookRepository.findAll()).build();
@@ -86,12 +85,14 @@ public class BookResource {
 
     @POST
     @Consumes(APPLICATION_JSON)
+    // tag::adocSkip[]
     @ApiOperation(value = "Create a Book")
     @ApiResponses(value = {
         @ApiResponse(code = 201, message = "The book is created"),
         @ApiResponse(code = 400, message = "Invalid input"),
         @ApiResponse(code = 415, message = "Format is not JSon")
     })
+    // end::adocSkip[]
     // tag::adocSnippet[]
     public Response create(@ApiParam(value = "Book to be created", required = true) Book book, @Context UriInfo uriInfo) {
         // tag::adocSkip[]
@@ -100,10 +101,11 @@ public class BookResource {
         log.info("Invoking the number-api");
         // end::adocSkip[]
 
+        // tag::adocCall[]
         NumbersApi numberApi = new ApiClient().buildNumberApiClient();
         String isbn = numberApi.generateBookNumber();
         book.setIsbn(isbn);
-
+        // end::adocCall[]
         final Book created = bookRepository.create(book);
         URI createdURI = uriInfo.getBaseUriBuilder().path(String.valueOf(created.getId())).build();
         return Response.created(createdURI).build();
@@ -113,11 +115,13 @@ public class BookResource {
     @PUT
     @Consumes(APPLICATION_JSON)
     @Produces(APPLICATION_JSON)
+    // tag::adocSkip[]
     @ApiOperation(value = "Update a Book", response = Book.class)
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "The book is updated"),
         @ApiResponse(code = 400, message = "Invalid input")
     })
+    // end::adocSkip[]
     public Response update(@ApiParam(value = "Book to be created", required = true) Book book) {
         log.info("Updating the book " + book);
         return ok(bookRepository.update(book)).build();
@@ -125,14 +129,17 @@ public class BookResource {
 
     @DELETE
     @Path("/{id : \\d+}")
+    // tag::adocSkip[]
     @ApiOperation(value = "Delete a Book")
     @ApiResponses(value = {
         @ApiResponse(code = 204, message = "Book has been deleted"),
         @ApiResponse(code = 400, message = "Invalid input")
     })
+    // end::adocSkip[]
     public Response delete(@PathParam("id") final Long id) {
         log.info("Deleting the book " + id);
         bookRepository.deleteById(id);
         return noContent().build();
     }
 }
+// end::adocSnippet[]

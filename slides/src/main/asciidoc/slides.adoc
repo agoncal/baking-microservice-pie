@@ -21,16 +21,16 @@ include::microservices.adoc[leveloffset=+1]
 // Basic (demo01-basic)
 include::basic.adoc[leveloffset=+1]
 
-// Deploy
+// Deploy (demo01-basic)
 include::deploy.adoc[leveloffset=+1]
 
-// One Microservice invoking another one
+// Invoking Microservices (demo02-invoking)
 include::invoking.adoc[leveloffset=+1]
 
-// Monitoring (demo02-monitoring)
+// Monitoring (demo03-monitoring)
 include::monitoring.adoc[leveloffset=+1]
 
-// Configuring (demo03-configuring)
+// Configuring (demo04-configuring)
 include::configuring.adoc[leveloffset=+1]
 
 // Registry (demo05-registry)
