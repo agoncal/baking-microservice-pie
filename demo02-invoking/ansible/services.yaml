@@ -16,9 +16,6 @@
       pull: true
       ports:
        - "8084:8084"
-      log_driver: gelf
-      log_options:
-        gelf-address: udp://elk:12201
     when: inventory_hostname == "pi-grom-server-01"
 
   - name: Deploy Book API
@@ -30,7 +27,4 @@
       pull: true
       ports:
        - "8081:8081"
-      log_driver: gelf
-      log_options:
-        gelf-address: udp://elk:12201
     when: inventory_hostname == "pi-grom-server-02"
