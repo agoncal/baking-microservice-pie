@@ -1,5 +1,7 @@
 = Baking a Microservice Pi(e)
 Antonio Goncalves <https://twitter.com/agoncal>; Roberto Cortez <https://twitter.com/radcortez>
+2017-11-07
+:revnumber: {project-version}
 :example-caption!:
 ifndef::imagesdir[:imagesdir: images]
 :icons: font

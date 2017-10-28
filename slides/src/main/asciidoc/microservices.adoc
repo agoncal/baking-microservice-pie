@@ -1,13 +1,16 @@
 ifndef::imagesdir[:imagesdir: images]
 
-= Micro Services
+= Micro services
 
 [%step]
-* So, what do we mean by micro services ?
 * Have you heard about micro services ?
 * Do you know how big is a "micro" ?
+* Who plays with micro services ?
+* Who runs micro services ?
+* Who likes micro services ?
+* Who suffers with micro services ?
 
-== Let's quote people
+== What do people mean by micro services ?
 
 [%step]
 * "Small autonomous services working together"
@@ -22,12 +25,14 @@ ifndef::imagesdir[:imagesdir: images]
 
 image::pizzas2.jpg[]
 
-== Why Micro Services ?
+== So, why micro services ?
 
 [%step]
-* Deliver new features more quickly
+* Deliver new features quicker
 * Smaller, more agile teams
 * Deliver business features as services
 * Scale services independently
 * Address unpredictable loads
 * Cloud
+
+== But this comes at a cost

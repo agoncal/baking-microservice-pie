@@ -3,9 +3,10 @@ ifndef::imagesdir[:imagesdir: images]
 = Introduction
 
 [%step]
-* This is a user manual for an example project.
-* This project does something.
-* We just haven't decided what that is yet.
+* Welcome to Devoxx BE
+* Hope it's not too early...
+* ...and you are ready for a 3h talk
+* Thanks for coming
 
 == Roberto Cortez
 
@@ -13,7 +14,19 @@ ifndef::imagesdir[:imagesdir: images]
 
 image::antonio.jpg[]
 
+== Listen to our story
+
+* This talk is about our journey...
+* ...through microservice architecture
+* We'll progressively build a MS architecture
+* Going from problem, to solution...
+* ...to problem, to solution...
+* ...to problem
+* And end-up building a (basic) e-commerce web site
+
 == Demo
+
+== Architecture
 
 image::invoking-architecture.png[]
 
@@ -21,17 +34,21 @@ image::invoking-architecture.png[]
 
 [%step]
 * Micro services
-* xxx
-* xxx
-* xxx
+* Monitoring
+* Configuration
+* Discovery mechanism
+* Load balancing
 
 == Hardware
 
 [%step]
-* 3 Raspberry PIs acting as clients browsing
-* 4 Server (Orange)
-* 2 Databases (Black)
-* 3 Load balancers
+* Local machine
+* 12 Raspberry PIs
+  * 3 Load balancers
+  * 4 Server (Orange)
+  * 2 Databases (Black)
+  * 3 Load balancers
+* Allows us to plug/unplug
 
 == Software
 
@@ -41,7 +58,4 @@ image::invoking-architecture.png[]
 * TomEE
 * Wildfly Swarm
 * Netflix OSS
-
-== Listen to our story
-
-* How we struggled to setup a microservice architecture
+* Consul
