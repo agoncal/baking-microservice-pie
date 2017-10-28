@@ -9,10 +9,6 @@ ifndef::imagesdir[:imagesdir: images]
 
 == xx
 
-[source,java]
-----
-include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/rest/ApplicationConfig.java[]
-----
 
 == xxx
 
@@ -30,10 +26,6 @@ include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/r
 
 == JWT
 
-[source,java]
-----
-include::{sourcedir}/Demo99/services/book-api/src/main/java/org/bakingpie/book/rest/ApplicationConfig.java[]
-----
 
 == Demo
 

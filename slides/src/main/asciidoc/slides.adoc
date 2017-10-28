@@ -1,16 +1,14 @@
 = Baking a Microservice Pi(e)
 Antonio Goncalves <https://twitter.com/agoncal>; Roberto Cortez <https://twitter.com/radcortez>
-2017-11-07
-:revnumber: {project-version}
 :example-caption!:
 ifndef::imagesdir[:imagesdir: images]
 :icons: font
 // User defined directory
 :commonscorsdir: ../../../../commons/commons-cors
-:demo01angulardir: ../../../../Demo01/clients/angular
-:demo01numberapidir: ../../../../Demo01/services/number-api
-:demo02numberapidir: ../../../../Demo02/services/number-api
-:demo02bookapidir: ../../../../Demo02/services/book-api
+:demo01angulardir: ../../../../demo01-basic/clients/angular
+:demo01numberapidir: ../../../../demo01-basic/services/number-api
+:demo02numberapidir: ../../../../demo02-invoking/services/number-api
+:demo02bookapidir: ../../../../demo02-invoking/services/book-api
 
 // Introduction
 include::introduction.adoc[leveloffset=+1]
@@ -21,14 +19,14 @@ include::microservices.adoc[leveloffset=+1]
 // Basic (demo01-basic)
 include::basic.adoc[leveloffset=+1]
 
+// One Microservice invoking another one (Demo04-invoking)
+include::invoking.adoc[leveloffset=+1]
+
 // Monitoring (demo02-monitoring)
 include::monitoring.adoc[leveloffset=+1]
 
 // Configuring (demo03-configuring)
 include::configuring.adoc[leveloffset=+1]
-
-// One Microservice invoking another one (Demo04-invoking)
-include::invoking.adoc[leveloffset=+1]
 
 // Registry (demo05-registry)
 include::registry.adoc[leveloffset=+1]

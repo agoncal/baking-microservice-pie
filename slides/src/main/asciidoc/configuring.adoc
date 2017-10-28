@@ -1,13 +1,15 @@
 ifndef::imagesdir[:imagesdir: images]
 
-= Gateway
+= Configuring
 
 [%step]
-* xxx
-* xxx
-* xxx
+*
+*
+*
+*
 
-== xx
+== xxx
+
 
 == xxx
 
@@ -16,14 +18,15 @@ ifndef::imagesdir[:imagesdir: images]
 * xxx
 * xxx
 
-== Several to choose from
+== xxx
 
 [%step]
 * xxx
 * xxx
 * xxx
 
-== xxx
+== xxxx
+
 
 == Demo
 
