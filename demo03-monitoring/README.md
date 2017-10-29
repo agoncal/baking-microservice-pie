@@ -1,32 +1,18 @@
 # Demo 03
 
-This demo adds ELK so we can see the logs. It contains:
+This Demo 03 adds ELK so we can see the logs. It contains:
 
 * Infrastructure
-    * ELK
+    * ElasticSearch
+    * Logstash
+    * Kibana
 * Services
     * book-api (TomEE on port 8081)
     * number-api (Wildfly Swarm on port 8084)
 * Client
     * Angular app (NGinx on port 8080)
 
-To build the Angular App, execute:
-
-## Cleaning Docker images
-
-If you need to clean all the Docker images, use the following commands:
-
-* `docker image ls | grep baking`
-* `/bin/bash -c 'docker image rm $(docker image ls -q "baking/*") -f'`
-
-
-## Build Angular
-
-```bash
-ng build --prod
-```
-
-## Build Services
+## Build
 
 To build the sample just run the Maven command from the Demo 01 root folder:
 
@@ -34,25 +20,56 @@ To build the sample just run the Maven command from the Demo 01 root folder:
 mvn clean install
 ```
 
+This should build everything.
+
+### Angular App
+
+If you only need to build the Angular App, from the `clients/angular` folder, execute:
+
+```bash
+ng build --prod
+```
+
+### Cleaning Docker images
+
+If you need to clean all the Docker images, use the following commands:
+
+* `docker image ls | grep baking`
+* `/bin/bash -c 'docker image rm $(docker image ls -q "baking/*") -f'`
+
 ## Run
+
+You can run the Demo either Locally, with Docker, with Docker Compose, or in the PI Cluster.
+
+The services are available at:
+* `http://localhost:8081/book-api/api/`
+* `http://localhost:8084/number-api/api/`
+
+The client is available at:
+* `http://localhost:8080`**
+
+Kibana:
+* `http://localhost:5601/`
 
 ### Locally
 
-To run the `number-api` locally, you can just run the uber jar sitting in the project target folder with all the dependencies already packed in. The file is generated in the Build step. From the `services/number-api` folder, run:
+To run the `number-api` and `book-api` locally, you just need to run the uber jar sitting in the project target folder. 
+These jars already contains all the required dependencies. The files are generated in the Build step. From the each of 
+the root folders of the services run:
+
+To run `number-api` locally.
 
 ```bash
-java -jar target/number-api-03-swarm.jar
+java -jar target/number-api-02-swarm.jar
 ```
 
 To run the `book-api` locally, 
 
 ```bash
-java -jar target/book-api-03.jar
+java -jar target/book-api-02.jar
 ```
 
-The application is available in `http://localhost:8084/number-api/api/`.
-
-For the Angular application, use the developper's model in local and run:
+For the Angular application, use the developer's model in local and run:
 
 ```bash
 ng serve
@@ -60,8 +77,8 @@ ng serve
 
 ### Docker
 
-To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command From the 
-Demo 01 root folder:
+To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command From the Demo 03 root 
+folder:
 
 ```bash
 mvn docker:build
@@ -73,8 +90,7 @@ Then to start the services and the clients, then run:
 mvn docker:start
 ```
 
-This will start all the Docker Images for this Demo in background. The application is available in 
-`http://localhost:8080`.
+This will start all the Docker Images for this Demo in background.
 
 To stop the services and the clients, just run:
 
@@ -84,7 +100,8 @@ mvn docker:stop
 
 ### Docker Compose
 
-On the root folder you will find a `docker-compose.yml` file. This will execute all the needed Docker images
+On the root folder you will find a `docker-compose.yml` file. This will execute all the needed Docker images, including
+the ELK stack.
 
 ### Raspberry PI
 
@@ -104,4 +121,14 @@ The Docker Images are then deployed into the PI's with [Ansible](http://ansible.
 ansible-playbook -i hosts deploy.yaml -vvv
 ```
 
-The application is available in `http://pi-grom-server-01:8080`.
+### ELK
+The ELK stack also runs in a Docker container. Please refer to the [documentation](http://elk-docker.readthedocs.io/) if
+you have any issue running the ELK stack. 
+
+The Raspberry PI's cannot run the ELK stack due to insuficient hardware resources. So for this Demo, you should run the
+Docker Compose file to start up the ELK stack and then run the Raspberry PI's services.
+
+#### Kibana
+You need to setup Kibana for accessing the services logs. Go to `http://localhost:5601/` and you should create an index
+based on timestamp. The option is only available after log is sent to Logstash, so make sure you invoke something on the
+services to generate some log.

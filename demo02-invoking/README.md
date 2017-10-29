@@ -1,6 +1,7 @@
 # Demo 02
 
-This demo has an extra service to do CRUD operations on Books (`book-api`). It needs the service to retrieve an identification number for a product (`number-api`). It contains:
+This Demo 02 has an extra service to do CRUD operations on Books (`book-api`). It needs the service to retrieve an 
+``identification number for a product (`number-api`). It contains:
 
 * Services
     * book-api (TomEE on port 8081)
@@ -8,28 +9,30 @@ This demo has an extra service to do CRUD operations on Books (`book-api`). It n
 * Client
     * Angular app (NGinx on port 8080)
 
-To build the Angular App, execute:
-
-## Cleaning Docker images
-
-If you need to clean all the Docker images, use the following commands:
-
-* `docker image ls | grep baking`
-* `/bin/bash -c 'docker image rm $(docker image ls -q "baking/*") -f'`
-
-## Build Angular
-
-```bash
-ng build --prod
-```
-
-## Build Services
+## Build
 
 To build the sample just run the Maven command from the Demo 01 root folder:
 
 ```bash
 mvn clean install
 ```
+
+This should build everything.
+
+### Angular App
+
+If you only need to build the Angular App, from the `clients/angular` folder, execute:
+
+```bash
+ng build --prod
+```
+
+### Cleaning Docker images
+
+If you need to clean all the Docker images, use the following commands:
+
+* `docker image ls | grep baking`
+* `/bin/bash -c 'docker image rm $(docker image ls -q "baking/*") -f'`
 
 ## Run
 
@@ -40,13 +43,13 @@ The services are available at:
 * `http://localhost:8084/number-api/api/`
 
 The client is available at:
-* `http://localhost:8080`
+* `http://localhost:8080`**
 
 ### Locally
 
-To run the services `number-api` and `book-api` locally, you can just run the uber jars sitting in the projects target 
-folders with all the dependencies already packed in. The files are generated in the Build step. From the each of the 
-root folders of the services run:
+To run the `number-api` and `book-api` locally, you just need to run the uber jar sitting in the project target folder. 
+These jars already contains all the required dependencies. The files are generated in the Build step. From the each of 
+the root folders of the services run:
 
 To run `number-api` locally.
 
@@ -59,7 +62,7 @@ To run the `book-api` locally,
 ```bash
 java -jar target/book-api-02.jar
 ```
-
+``
 For the Angular application, use the developer's model in local and run:
 
 ```bash
@@ -68,8 +71,8 @@ ng serve
 
 ### Docker
 
-To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command From the 
-Demo 02 root folder:
+To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command from the Demo 02 root 
+folder:
 
 ```bash
 mvn docker:build
@@ -111,9 +114,10 @@ The Docker Images are then deployed into the PI's with [Ansible](http://ansible.
 ansible-playbook -i hosts deploy.yaml -vvv
 ```
 
-The services are available at:
+``The services are available at:
 * `http://pi-grom-server-01:8081/book-api/api/`
 * `http://pi-grom-server-01:8084/number-api/api/`
 
 The client is available at:
 * `http://pi-client-01:8080`
+``

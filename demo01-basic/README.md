@@ -7,23 +7,7 @@ The Demo 01 is just a simple service to retrieve an identification number for a 
 * Client
     * Angular app (NGinx on port 8080)
 
-To build the Angular App, execute:
-
-## Cleaning Docker images
-
-If you need to clean all the Docker images, use the following commands:
-
-* `docker image ls | grep baking`
-* `/bin/bash -c 'docker image rm $(docker image ls -q "baking/*") -f'`
-
-
-## Build Angular
-
-```bash
-ng build --prod
-```
-
-## Build Services
+## Build
 
 To build the sample just run the Maven command from the Demo 01 root folder:
 
@@ -31,17 +15,42 @@ To build the sample just run the Maven command from the Demo 01 root folder:
 mvn clean install
 ```
 
+This should build everything.
+
+### Angular App
+
+If you only need to build the Angular App, from the `clients/angular` folder, execute:
+
+```bash
+ng build --prod
+```
+
+### Cleaning Docker images
+
+If you need to clean all the Docker images, use the following commands:
+
+* `docker image ls | grep baking`
+* `/bin/bash -c 'docker image rm $(docker image ls -q "baking/*") -f'`
+
 ## Run
+
+You can run the Demo either Locally, with Docker, with Docker Compose, or in the PI Cluster.
+
+The services are available at:
+* `http://localhost:8084/number-api/api/`
+
+The client is available at:
+* `http://localhost:8080`
 
 ### Locally
 
-To run the `number-api` locally, you can just run the uber jar sitting in the project target folder with all the dependencies already packed in. The file is generated in the Build step. From the `services/number-api` folder, run:
+To run the `number-api` locally, you just need to run the uber jar sitting in the project target folder. This jar 
+already contains all the required dependencies. The file is generated in the Build step. From the `services/number-api` 
+folder, run:    
 
 ```bash
 java -jar target/number-api-01-swarm.jar
 ```
-
-The application is available in `http://localhost:8084/number-api/api/`.
 
 For the Angular application, use the developper's model in local and run:
 
@@ -51,21 +60,20 @@ ng serve
 
 ### Docker
 
-To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command From the 
-Demo 01 root folder:
+To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command from the Demo 01 root 
+folder:
 
 ```bash
 mvn docker:build
 ```
 
-Then to start the services and the clients, then run:
+Then to start the services and the clients, run:
 
 ```bash
 mvn docker:start
 ```
 
-This will start all the Docker Images for this Demo in background. The application is available in 
-`http://localhost:8080`.
+This will start all the Docker Images for this Demo in the background.
 
 To stop the services and the clients, just run:
 
@@ -95,4 +103,8 @@ The Docker Images are then deployed into the PI's with [Ansible](http://ansible.
 ansible-playbook -i hosts deploy.yaml -vvv
 ```
 
-The application is available in `http://pi-grom-server-01:8080`.
+The services are available at:
+* `http://pi-grom-server-01:8084/number-api/api/`
+
+The client is available at:
+* `http://pi-client-01:8080`
