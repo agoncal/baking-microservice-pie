@@ -38,7 +38,8 @@ image::registry-architecture.png[]
 * We didn't have a complex business logic
 * We didn't have a complex network
 * We didn't duplicate and load balance the registry (SPOF)
-* We didn't use events
+* We didn't use asynchronous events
+* We didn't do integration testing
 
 == And remember
 
