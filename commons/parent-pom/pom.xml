@@ -404,7 +404,7 @@
                             <goals>
                                 <goal>yarn</goal>
                             </goals>
-                            <phase>generate-resources</phase>
+                            <phase>install</phase>
                             <configuration>
                                 <arguments>run ng build --prod</arguments>
                             </configuration>
