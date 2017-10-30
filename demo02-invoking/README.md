@@ -1,6 +1,6 @@
 # Demo 02
 
-This Demo 02 has an extra service to do CRUD operations on Books (`book-api`). It needs the service to retrieve an 
+This Demo has an extra service to do CRUD operations on Books (`book-api`). It needs the service to retrieve an 
 ``identification number for a product (`number-api`). It contains:
 
 * Services
@@ -11,7 +11,7 @@ This Demo 02 has an extra service to do CRUD operations on Books (`book-api`). I
 
 ## Build
 
-To build the sample just run the Maven command from the Demo 01 root folder:
+To build the sample just run the Maven command from the Demo root folder:
 
 ```bash
 mvn clean install
@@ -62,7 +62,7 @@ To run the `book-api` locally,
 ```bash
 java -jar target/book-api-02.jar
 ```
-``
+
 For the Angular application, use the developer's model in local and run:
 
 ```bash
@@ -71,8 +71,7 @@ ng serve
 
 ### Docker
 
-To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command from the Demo 02 root 
-folder:
+To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command From the Demo root folder:
 
 ```bash
 mvn docker:build

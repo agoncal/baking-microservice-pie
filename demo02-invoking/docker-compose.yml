@@ -2,6 +2,7 @@ version: '2'
 services:
     angular-app:
         image: baking/angular:default
+        container_name: angular
         ports:
             - 8080:80
         depends_on:
@@ -9,11 +10,13 @@ services:
           - number-api
     book-api:
         image: baking/book-api:default
+        container_name: book-api
         ports:
             - 8081:8081
         depends_on:
           - number-api
     number-api:
         image: baking/number-api:default
+        container_name: number-api
         ports:
             - 8084:8084

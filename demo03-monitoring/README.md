@@ -1,6 +1,6 @@
 # Demo 03
 
-This Demo 03 adds ELK so we can see the logs. It contains:
+This Demo adds ELK so we can see the logs. It contains:
 
 * Infrastructure
     * ElasticSearch
@@ -14,7 +14,7 @@ This Demo 03 adds ELK so we can see the logs. It contains:
 
 ## Build
 
-To build the sample just run the Maven command from the Demo 01 root folder:
+To build the sample just run the Maven command from the Demo root folder:
 
 ```bash
 mvn clean install
@@ -77,8 +77,7 @@ ng serve
 
 ### Docker
 
-To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command From the Demo 03 root 
-folder:
+To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command From the Demo root folder:
 
 ```bash
 mvn docker:build

@@ -1,6 +1,6 @@
 # Demo 04
 
-This Demo 04 adds Configuration (Microprofile Config). It contains:
+This Demo adds Configuration (Microprofile Config). It contains:
 
 * Infrastructure
     * ElasticSearch
@@ -77,8 +77,7 @@ ng serve
 
 ### Docker
 
-To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command From the 
-Demo 01 root folder:
+To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command From the Demo root folder:
 
 ```bash
 mvn docker:build

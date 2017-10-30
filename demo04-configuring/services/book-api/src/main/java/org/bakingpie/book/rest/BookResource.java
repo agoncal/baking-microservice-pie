@@ -100,6 +100,7 @@ public class BookResource {
         String isbn = numberApi.generateBookNumber();
         book.setIsbn(isbn);
 
+        log.info("Creating the book with ISBN " + book);
         final Book created = bookRepository.create(book);
         URI createdURI = uriInfo.getBaseUriBuilder().path(String.valueOf(created.getId())).build();
         return Response.created(createdURI).build();

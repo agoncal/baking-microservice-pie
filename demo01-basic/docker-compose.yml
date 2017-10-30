@@ -2,9 +2,11 @@ version: '2'
 services:
     angular-app:
         image: baking/angular:default
+        container_name: angular
         ports:
             - 8080:80
     number-api:
         image: baking/number-api:default
+        container_name: number-api
         ports:
             - 8084:8084

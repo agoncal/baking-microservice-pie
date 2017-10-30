@@ -16,10 +16,9 @@
  */
 package org.bakingpie.book.rest;
 
-import com.orbitz.consul.Consul;
-import com.orbitz.consul.HealthClient;
-import com.orbitz.consul.model.health.ServiceHealth;
 import io.swagger.annotations.*;
+import org.bakingpie.book.client.ApiClient;
+import org.bakingpie.book.client.api.NumbersApi;
 import org.bakingpie.book.domain.Book;
 import org.bakingpie.book.repository.BookRepository;
 import org.slf4j.Logger;
@@ -32,7 +31,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.net.URI;
-import java.util.List;
 
 import static java.util.Optional.ofNullable;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
@@ -98,19 +96,12 @@ public class BookResource {
     public Response create(@ApiParam(value = "Book to be created", required = true) Book book, @Context UriInfo uriInfo) {
         log.info("Creating the book " + book);
 
-        Consul consul = Consul.builder().build(); // connect to Consul on localhost
-        HealthClient healthClient = consul.healthClient();
+        log.info("Invoking the number-api");
+        NumbersApi numberApi = new ApiClient().buildNumberApiClient();
+        String isbn = numberApi.generateBookNumber();
+        book.setIsbn(isbn);
 
-        List<ServiceHealth> nodes = healthClient.getHealthyServiceInstances("CONSUL_NUMBER_API").getResponse();
-        log.warn("node address" + nodes.iterator().next().getNode().getAddress());
-        log.warn("node node" + nodes.iterator().next().getNode().getNode());
-        log.warn("service address" + nodes.iterator().next().getService().getAddress());
-        log.warn("service port" + nodes.iterator().next().getService().getPort());
-        log.warn("service port" + nodes.iterator().next().getService().getId());
-
-        // NumbersApi numberApi = new ApiClient().buildClient(NumbersApi.class);
-        // String isbn = numberApi.generateBookNumber();
-        // book.setIsbn(isbn);
+        log.info("Creating the book with ISBN " + book);
         final Book created = bookRepository.create(book);
         URI createdURI = uriInfo.getBaseUriBuilder().path(String.valueOf(created.getId())).build();
         return Response.created(createdURI).build();

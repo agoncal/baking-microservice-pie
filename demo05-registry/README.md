@@ -1,6 +1,6 @@
 # Demo 05
 
-The Demo 03 uses a Registry server (Eureka) so that all services (`book-api` and `number-api`) can register and lookup for each other. The Angular application also uses the 
+This Demo uses a Registry server (Consul) so that all services (`book-api` and `number-api`) can register and lookup for each other. The Angular application also uses the 
 registry. It contains:
 
 * Infrastructure

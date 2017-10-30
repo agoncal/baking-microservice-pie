@@ -55,7 +55,7 @@ public class ConsulManagementService {
         config.getOptionalValue("CONSUL_HOST", String.class).ifPresent(host -> consulHost = host);
         config.getOptionalValue("CONSUL_PORT", Integer.class).ifPresent(port -> consulPort = port);
 
-        log.error(" Consul host and port " + consulHost + " " + consulPort);
+        log.info(" Consul host and port " + consulHost + ":" + consulPort);
         Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build(); // connect to Consul on localhost
         agentClient = consul.agentClient();
 

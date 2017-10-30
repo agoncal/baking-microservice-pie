@@ -1,6 +1,6 @@
 # Demo 01
 
-The Demo 01 is just a simple service to retrieve an identification number for a product (`number-api`). It contains:
+The Demo is just a simple service to retrieve an identification number for a product (`number-api`). It contains:
 
 * Services
     * number-api (Wildfly Swarm on port 8084)
@@ -9,7 +9,7 @@ The Demo 01 is just a simple service to retrieve an identification number for a 
 
 ## Build
 
-To build the sample just run the Maven command from the Demo 01 root folder:
+To build the sample just run the Maven command from the Demo root folder:
 
 ```bash
 mvn clean install
@@ -60,20 +60,19 @@ ng serve
 
 ### Docker
 
-To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command from the Demo 01 root 
-folder:
+To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command From the Demo root folder:
 
 ```bash
 mvn docker:build
 ```
 
-Then to start the services and the clients, run:
+Then to start the services and the clients, then run:
 
 ```bash
 mvn docker:start
 ```
 
-This will start all the Docker Images for this Demo in the background.
+This will start all the Docker Images for this Demo in background.
 
 To stop the services and the clients, just run:
 
@@ -83,7 +82,7 @@ mvn docker:stop
 
 ### Docker Compose
 
-On the root folder you will find a `docker-compose.yml` file. This will execute all the needed Docker images
+On the root folder you will find a `docker-compose.yml` file. This will execute all the needed Docker images.
 
 ### Raspberry PI
 
