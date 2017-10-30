@@ -60,13 +60,13 @@ the root folders of the services run:
 To run `number-api` locally.
 
 ```bash
-java -jar target/number-api-02-swarm.jar
+java -jar target/number-api-03-swarm.jar
 ```
 
 To run the `book-api` locally, 
 
 ```bash
-java -jar target/book-api-02.jar
+java -jar target/book-api-03.jar
 ```
 
 For the Angular application, use the developer's model in local and run:

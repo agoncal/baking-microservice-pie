@@ -17,7 +17,7 @@ public class CORSFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse resp = (HttpServletResponse) response;
         resp.addHeader("Access-Control-Allow-Origin", "*");
-        resp.addHeader("Access-Control-Allow-Headers", "origin, content-type, accept, authorization, Etag, if-none-match");
+        resp.addHeader("Access-Control-Allow-Headers", "origin, content-type, accept, authorization, Etag, if-none-match, x-xsrf-token");
         resp.addHeader("Access-Control-Allow-Credentials", "true");
         resp.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
         resp.addHeader("Access-Control-Max-Age", "1209600");
