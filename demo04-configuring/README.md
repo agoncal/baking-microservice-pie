@@ -14,7 +14,7 @@ This Demo 04 adds Configuration (Microprofile Config). It contains:
 
 ## Build
 
-To build the sample just run the Maven command from the Demo 01 root folder:
+To build the sample just run the Maven command from the Demo root folder:
 
 ```bash
 mvn clean install
