@@ -28,8 +28,4 @@
     <artifactId>infra</artifactId>
     <packaging>pom</packaging>
     <name>Baking a Microservice Pie :: Demo 05 Registry :: Infrastructure</name>
-
-    <modules>
-        <module>eureka-server</module>
-    </modules>
 </project>
