@@ -42,5 +42,4 @@ services:
             - 5044:5044
             - 12201:12201/udp
         volumes:
-          - ./elk/:/etc/logstash/conf.d/
-
+          - ./infra/elk/:/etc/logstash/conf.d/
