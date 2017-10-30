@@ -22,6 +22,7 @@ services:
           - number-api
         environment:
           - NUMBER_API_HOST=http://number-api:8084
+          - CONSUL_HOST=http://consul:8500
     number-api:
         image: baking/number-api:default
         container_name: number-api
@@ -43,3 +44,11 @@ services:
             - 12201:12201/udp
         volumes:
           - ./infra/elk/:/etc/logstash/conf.d/
+    consul:
+        image: consul:1.0.0
+        container_name: consul
+        ports:
+            - 8300:8300
+            - 8500:8500
+            - 8600:8600
+        command: consul agent -dev -ui -client 0.0.0.0
