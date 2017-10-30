@@ -29,7 +29,7 @@
     <packaging>pom</packaging>
     <name>Baking a Microservice Pie :: Demo 06 Circuit Breaker :: Clients</name>
 
-    <!--<modules>-->
-        <!--<module>angular</module>-->
-    <!--</modules>-->
+    <modules>
+        <module>angular</module>
+    </modules>
 </project>

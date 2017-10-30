@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Generates all sorts of numbers",
-    "version" : "05",
+    "version" : "06",
     "title" : "Numbers API"
   },
   "host" : "localhost:8084",
@@ -19,6 +19,23 @@
         "summary" : "Generates a book number.",
         "description" : "",
         "operationId" : "generateBookNumber",
+        "produces" : [ "text/plain" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/numbers/health" : {
+      "get" : {
+        "tags" : [ "numbers" ],
+        "summary" : "Checks the health of this REST endpoint",
+        "description" : "",
+        "operationId" : "health",
         "produces" : [ "text/plain" ],
         "responses" : {
           "200" : {

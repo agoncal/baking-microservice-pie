@@ -27,6 +27,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.concurrent.TimeUnit;
 
 @ApplicationScoped
 @Path("numbers")
@@ -39,7 +40,9 @@ public class NumberResource {
     @GET
     @Path("book")
     @ApiOperation(value = "Generates a book number.", response = String.class)
-    public Response generateBookNumber() {
+    public Response generateBookNumber() throws InterruptedException {
+        log.info("Waiting for 1 minute");
+        TimeUnit.MINUTES.sleep(1);
         log.info("Generating a book number");
         return Response.ok("BK-" + Math.random()).build();
     }

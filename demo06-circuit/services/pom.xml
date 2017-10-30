@@ -29,8 +29,8 @@
     <packaging>pom</packaging>
     <name>Baking a Microservice Pie :: Demo 06 Circuit Breaker :: Services</name>
 
-    <!--<modules>-->
-        <!--<module>book-api</module>-->
-        <!--<module>number-api</module>-->
-    <!--</modules>-->
+    <modules>
+        <module>book-api</module>
+        <module>number-api</module>
+    </modules>
 </project>

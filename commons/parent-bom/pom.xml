@@ -47,6 +47,7 @@
         <version.governator>1.17.4</version.governator>
         <version.feign>9.4.0</version.feign>
         <version.feign-form>2.1.0</version.feign-form>
+        <version.hystrix>1.5.12</version.hystrix>
         <!-- Databases -->
         <version.h2>1.4.196</version.h2>
         <!-- Test -->
@@ -158,6 +159,16 @@
                 <groupId>io.github.openfeign.form</groupId>
                 <artifactId>feign-form</artifactId>
                 <version>${version.feign-form}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-hystrix</artifactId>
+                <version>${version.feign}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.netflix.hystrix</groupId>
+                <artifactId>hystrix-core</artifactId>
+                <version>${version.hystrix}</version>
             </dependency>
 
             <!-- Test -->
