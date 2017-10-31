@@ -18,11 +18,14 @@ services:
           options:
             gelf-address: udp://localhost:12201
         depends_on:
+          - consul
           - elk
           - number-api
         environment:
-          - NUMBER_API_HOST=http://number-api:8084
-          - CONSUL_HOST=http://consul:8500
+          - BOOK_API_HOST=http://book-api
+          - BOOK_API_PORT=8081
+          - CONSUL_HOST=http://consul
+          - CONSUL_POST=8500
     number-api:
         image: baking/number-api:default
         container_name: number-api
@@ -33,7 +36,13 @@ services:
           options:
             gelf-address: udp://localhost:12201
         depends_on:
+          - consul
           - elk
+        environment:
+          - NUMBER_API_HOST=http://number-api
+          - NUMBER_API_PORT=8084
+          - CONSUL_HOST=http://consul
+          - CONSUL_POST=8500
     elk:
         image: radcortez/elk
         container_name: elk
@@ -51,4 +60,4 @@ services:
             - 8300:8300
             - 8500:8500
             - 8600:8600
-        command: consul agent -dev -ui -client 0.0.0.0
+        command: consul agent -dev -ui -client 0.0.0.0 -node elk

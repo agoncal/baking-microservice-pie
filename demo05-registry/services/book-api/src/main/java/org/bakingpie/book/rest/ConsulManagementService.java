@@ -20,7 +20,7 @@ package org.bakingpie.book.rest;
 
 import com.orbitz.consul.AgentClient;
 import com.orbitz.consul.Consul;
-import com.orbitz.consul.model.agent.Registration;
+import com.orbitz.consul.model.agent.ImmutableRegistration;
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
 import org.slf4j.Logger;
@@ -30,6 +30,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+
+import static com.orbitz.consul.model.agent.Registration.RegCheck.http;
 
 @Singleton
 @Startup
@@ -59,8 +61,15 @@ public class ConsulManagementService {
         Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build(); // connect to Consul on localhost
         agentClient = consul.agentClient();
 
-        Registration.RegCheck check = Registration.RegCheck.http(bookApiHost + ":" + bookApiPort + "/book-api/api/books/health", 10);
-        agentClient.register(bookApiPort, check, BOOK_API_NAME, "1");
+        final ImmutableRegistration registration =
+            ImmutableRegistration.builder()
+                                 .id("book-api")
+                                 .name(BOOK_API_NAME)
+                                 .address(bookApiHost)
+                                 .port(bookApiPort)
+                                 .check(http(bookApiHost + ":" + bookApiPort + "/number-api/api/numbers/health", 10))
+                                 .build();
+        agentClient.register(registration);
 
         log.info(BOOK_API_NAME + " is registered in consul on " + bookApiHost + ":" + bookApiPort);
     }
