@@ -1,13 +1,13 @@
 # Demo 05
 
-This Demo uses a Registry server (Consul) so that all services (`book-api` and `number-api`) can register and lookup for each other. The Angular application also uses the 
-registry. It contains:
+This Demo uses a Registry server (Consul) so that all services (`book-api` and `number-api`) can register and lookup 
+for each other. The Angular application also uses the registry. It contains:
 
 * Infrastructure
     * ElasticSearch
     * Logstash
-    * Kibana
-    * consul (port 8500 with `consul agent -dev -advertise 127.0.0.1`)
+    * Kibana (port 5601)
+    * Consul (port 8500 with `consul agent -dev -advertise 127.0.0.1`)
 * Services
     * book-api (TomEE on port 8081)
     * number-api (Wildfly Swarm on port 8084)
@@ -48,7 +48,7 @@ The services are available at:
 * `http://localhost:8084/number-api/api/`
 
 The client is available at:
-* `http://localhost:8080`**
+* `http://localhost:8080`
 
 Kibana:
 * `http://localhost:5601/`
@@ -77,10 +77,16 @@ For the Angular application, use the developer's model in local and run:
 ng serve
 ```
 
+You also required `Consul` to run this sample. The easiest way is to run it in a Docker container with:
+
+```
+docker run -d --name=consul consul
+```
+
 ### Docker
 
 To run the Demo with Docker, first the Docker Images need to be built. Run the Maven command From the 
-Demo 01 root folder:
+Demo 05 root folder:
 
 ```bash
 mvn docker:build
@@ -103,7 +109,7 @@ mvn docker:stop
 ### Docker Compose
 
 On the root folder you will find a `docker-compose.yml` file. This will execute all the needed Docker images, including
-the ELK stack.
+the ELK stack and Consul.
 
 ### Raspberry PI
 
