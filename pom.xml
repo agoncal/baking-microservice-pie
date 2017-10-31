@@ -35,6 +35,7 @@
         <module>demo06-circuit</module>
         <module>demo07-scale</module>
         <module>demo08-auth</module>
+        <module>demo09-load</module>
         <module>demo99</module>
         <module>slides</module>
     </modules>

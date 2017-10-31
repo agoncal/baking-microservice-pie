@@ -21,18 +21,16 @@
 
     <parent>
         <groupId>org.bakingpie</groupId>
-        <artifactId>parent-pom</artifactId>
-        <version>00</version>
-        <relativePath>../commons/parent-pom/pom.xml</relativePath>
+        <artifactId>demo</artifactId>
+        <version>09</version>
     </parent>
 
-    <artifactId>demo</artifactId>
-    <version>08</version>
+    <artifactId>services</artifactId>
     <packaging>pom</packaging>
-    <name>Baking a Microservice Pie :: Demo 08 Authentication</name>
+    <name>Baking a Microservice Pie :: Demo 09 Load :: Services</name>
 
-    <modules>
-        <module>services</module>
-        <module>clients</module>
-    </modules>
+    <!--<modules>-->
+        <!--<module>book-api</module>-->
+        <!--<module>number-api</module>-->
+    <!--</modules>-->
 </project>

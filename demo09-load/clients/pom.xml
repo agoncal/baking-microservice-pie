@@ -22,11 +22,14 @@
     <parent>
         <groupId>org.bakingpie</groupId>
         <artifactId>demo</artifactId>
-        <version>08</version>
+        <version>09</version>
     </parent>
 
-    <artifactId>infra</artifactId>
+    <artifactId>clients</artifactId>
     <packaging>pom</packaging>
-    <name>Baking a Microservice Pie :: Demo 08 Authentication :: Infrastructure</name>
+    <name>Baking a Microservice Pie :: Demo 09 Load :: Clients</name>
 
+    <!--<modules>-->
+        <!--<module>angular</module>-->
+    <!--</modules>-->
 </project>

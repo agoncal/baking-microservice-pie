@@ -42,7 +42,6 @@
         <version.arquillian>1.1.10.Final</version.arquillian>
         <version.shrinkwrap>2.2.6</version.shrinkwrap>
         <version.resteasy>3.1.4.Final</version.resteasy>
-        <version.eureka>1.8.4</version.eureka>
         <version.archaius>0.7.5</version.archaius>
         <version.governator>1.17.4</version.governator>
         <version.feign>9.4.0</version.feign>
@@ -115,16 +114,6 @@
             </dependency>
 
             <!-- NetflixOSS -->
-            <dependency>
-                <groupId>com.netflix.eureka</groupId>
-                <artifactId>eureka-client</artifactId>
-                <version>${version.eureka}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.netflix.eureka</groupId>
-                <artifactId>eureka-client</artifactId>
-                <version>${version.eureka}</version>
-            </dependency>
             <dependency>
                 <groupId>com.netflix.archaius</groupId>
                 <artifactId>archaius-core</artifactId>
