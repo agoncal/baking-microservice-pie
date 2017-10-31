@@ -57,7 +57,7 @@ public class ConsulManagementService {
         config.getOptionalValue("CONSUL_HOST", String.class).ifPresent(host -> consulHost = host);
         config.getOptionalValue("CONSUL_PORT", Integer.class).ifPresent(port -> consulPort = port);
 
-        log.info(" Consul host and port " + consulHost + " " + consulPort);
+        log.info("Consul host and port " + consulHost + " " + consulPort);
         Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build(); // connect to Consul on localhost
         agentClient = consul.agentClient();
 
@@ -67,7 +67,7 @@ public class ConsulManagementService {
                                  .name(BOOK_API_NAME)
                                  .address(bookApiHost)
                                  .port(bookApiPort)
-                                 .check(http(bookApiHost + ":" + bookApiPort + "/number-api/api/numbers/health", 10))
+                                 .check(http(bookApiHost + ":" + bookApiPort + "/book-api/api/books/health", 10))
                                  .build();
         agentClient.register(registration);
 

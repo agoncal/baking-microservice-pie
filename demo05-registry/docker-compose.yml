@@ -60,4 +60,4 @@ services:
             - 8300:8300
             - 8500:8500
             - 8600:8600
-        command: consul agent -dev -ui -client 0.0.0.0 -node elk
+        command: consul agent -dev -ui -client 0.0.0.0
