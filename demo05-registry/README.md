@@ -80,7 +80,7 @@ ng serve
 You also required `Consul` to run this sample. The easiest way is to run it in a Docker container with:
 
 ```
-docker run -d --name=consul consul
+docker run -d --name=consul -p 8500:8500 consul
 ```
 
 ### Docker
