@@ -22,6 +22,20 @@ $ ssh
 [%step]
 * Everything is packaged with Docker
 
+== Docker Compose
+
+[%step]
+* All components in one file
+* Easy to run in development
+* But you don't do that in production
+
+== docker-compose.yml
+
+[source,yml]
+----
+include::{demo02dir}/docker-compose.yml[]
+----
+
 == HypriotOS
 
 [%step]

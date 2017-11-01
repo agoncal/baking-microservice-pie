@@ -1,14 +1,15 @@
 = Baking a Microservice Pi(e)
 Antonio Goncalves <https://twitter.com/agoncal>; Roberto Cortez <https://twitter.com/radcortez>
 2017-11-07
-:revnumber: {project-version}
 :example-caption!:
 ifndef::imagesdir[:imagesdir: images]
 :icons: font
 // User defined directory
 :commonscorsdir: ../../../../commons/commons-cors
+:demo01dir: ../../../../demo01-basic
 :demo01angulardir: ../../../../demo01-basic/clients/angular
 :demo01numberapidir: ../../../../demo01-basic/services/number-api
+:demo02dir: ../../../../demo02-invoking
 :demo02numberapidir: ../../../../demo02-invoking/services/number-api
 :demo02bookapidir: ../../../../demo02-invoking/services/book-api
 
@@ -56,6 +57,9 @@ include::load.adoc[leveloffset=+1]
 
 // Tracing
 include::tracing.adoc[leveloffset=+1]
+
+// Recap
+include::recap.adoc[leveloffset=+1]
 
 // Conclusion
 include::conclusion.adoc[leveloffset=+1]

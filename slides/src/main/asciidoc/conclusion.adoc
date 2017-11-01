@@ -2,24 +2,6 @@ ifndef::imagesdir[:imagesdir: images]
 
 = Conclusion
 
-[%step]
-* Let's step back and do a recap
-* The architecture evolved thourgh demos
-
-== One app invokes a remote service
-
-image::basic-architecture.png[]
-
-== One service needs to talk to another one
-
-image::invoking-architecture.png[]
-
-== To avoid hard coded IP addresses, we introduce a registry
-
-image::registry-architecture.png[]
-
-== So, what do you think about microservices architecture ?
-
 == Lessons learnt
 
 [%step]
@@ -82,6 +64,12 @@ image::tomitribe.png[]
 == Q & A
 
 image::question.jpg[]
+
+== Keeping in touch
+
+* Antonio Goncalves https://twitter.com/agoncal[@agoncal]
+* Roberto Cortez https://twitter.com/radcortez[@radcortez]
+* https://github.com/agoncal/baking-microservice-pie
 
 == Bye
 
