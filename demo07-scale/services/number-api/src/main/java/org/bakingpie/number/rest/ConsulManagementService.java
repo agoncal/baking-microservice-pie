@@ -14,14 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.bakingpie.number.rest;
-
 
 import com.orbitz.consul.AgentClient;
 import com.orbitz.consul.Consul;
 import com.orbitz.consul.model.agent.ImmutableRegistration;
-import com.orbitz.consul.model.agent.Registration;
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
 import org.slf4j.Logger;
@@ -31,6 +28,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+import java.util.UUID;
 
 import static com.orbitz.consul.model.agent.Registration.RegCheck.http;
 
@@ -64,7 +62,7 @@ public class ConsulManagementService {
 
         final ImmutableRegistration registration =
             ImmutableRegistration.builder()
-                                 .id("number-api")
+                                 .id(UUID.randomUUID().toString())
                                  .name(NUMBER_API_NAME)
                                  .address(numberApiHost)
                                  .port(numberApiPort)
