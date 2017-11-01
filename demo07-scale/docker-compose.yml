@@ -1,0 +1,36 @@
+version: '2'
+services:
+    book-api:
+        image: baking/book-api:default
+        container_name: book-api
+        ports:
+            - 8081:8081
+        depends_on:
+          - consul
+          - number-api
+        environment:
+          - BOOK_API_HOST=http://book-api
+          - BOOK_API_PORT=8081
+          - CONSUL_HOST=http://consul
+          - CONSUL_POST=8500
+    number-api:
+        image: baking/number-api:default
+        container_name: number-api
+        ports:
+            - 8084:8084
+        depends_on:
+          - consul
+        environment:
+          - NUMBER_API_HOST=http://number-api
+          - NUMBER_API_PORT=8084
+          - CONSUL_HOST=http://consul
+          - CONSUL_POST=8500
+          - NUMBER_API_FAKE_TIMEOUT=0
+    consul:
+        image: consul:1.0.0
+        container_name: consul
+        ports:
+            - 8300:8300
+            - 8500:8500
+            - 8600:8600
+        command: consul agent -dev -ui -client 0.0.0.0

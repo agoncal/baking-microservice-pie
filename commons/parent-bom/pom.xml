@@ -159,6 +159,11 @@
                 <artifactId>hystrix-core</artifactId>
                 <version>${version.hystrix}</version>
             </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-ribbon</artifactId>
+                <version>${version.feign}</version>
+            </dependency>
 
             <!-- Test -->
             <dependency>
