@@ -20,6 +20,7 @@ package org.bakingpie.number.rest;
 
 import com.orbitz.consul.AgentClient;
 import com.orbitz.consul.Consul;
+import com.orbitz.consul.model.agent.ImmutableRegistration;
 import com.orbitz.consul.model.agent.Registration;
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
@@ -30,6 +31,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+
+import static com.orbitz.consul.model.agent.Registration.RegCheck.http;
 
 @Singleton
 @Startup
@@ -55,12 +58,19 @@ public class ConsulManagementService {
         config.getOptionalValue("CONSUL_HOST", String.class).ifPresent(host -> consulHost = host);
         config.getOptionalValue("CONSUL_PORT", Integer.class).ifPresent(port -> consulPort = port);
 
-        log.info(" Consul host and port " + consulHost + ":" + consulPort);
+        log.info("Consul host and port " + consulHost + ":" + consulPort);
         Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build(); // connect to Consul on localhost
         agentClient = consul.agentClient();
 
-        Registration.RegCheck check = Registration.RegCheck.http(numberApiHost + ":" + numberApiPort + "/number-api/api/numbers/health", 10);
-        agentClient.register(numberApiPort, check, NUMBER_API_NAME, "4");
+        final ImmutableRegistration registration =
+            ImmutableRegistration.builder()
+                                 .id("number-api")
+                                 .name(NUMBER_API_NAME)
+                                 .address(numberApiHost)
+                                 .port(numberApiPort)
+                                 .check(http(numberApiHost + ":" + numberApiPort + "/number-api/api/numbers/health", 10))
+                                 .build();
+        agentClient.register(registration);
 
         log.info(NUMBER_API_NAME + " is registered in consul on " + numberApiHost + ":" + numberApiPort);
     }

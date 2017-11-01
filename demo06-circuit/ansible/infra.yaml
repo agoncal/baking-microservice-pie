@@ -1,0 +1,21 @@
+---
+- hosts: databases
+  strategy: free
+  gather_facts: no
+  remote_user: pirate
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: Consul
+    docker_container:
+      name: consul
+      image: radcortez/consul-rpi
+      state: started
+      restart: yes
+      pull: true
+      ports:
+        - 8300:8300
+        - 8500:8500
+        - 8600:8600
+    when: inventory_hostname == "pi-grom-database"

@@ -20,6 +20,7 @@ package org.bakingpie.book.rest;
 
 import com.orbitz.consul.AgentClient;
 import com.orbitz.consul.Consul;
+import com.orbitz.consul.model.agent.ImmutableRegistration;
 import com.orbitz.consul.model.agent.Registration;
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
@@ -30,6 +31,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+
+import static com.orbitz.consul.model.agent.Registration.RegCheck.http;
 
 @Singleton
 @Startup
@@ -55,16 +58,22 @@ public class ConsulManagementService {
         config.getOptionalValue("CONSUL_HOST", String.class).ifPresent(host -> consulHost = host);
         config.getOptionalValue("CONSUL_PORT", Integer.class).ifPresent(port -> consulPort = port);
 
-        log.info(" Consul host and port " + consulHost + " " + consulPort);
+        log.info("Consul host and port " + consulHost + " " + consulPort);
         Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build(); // connect to Consul on localhost
         agentClient = consul.agentClient();
 
-        Registration.RegCheck check = Registration.RegCheck.http(bookApiHost + ":" + bookApiPort + "/book-api/api/books/health", 10);
-        agentClient.register(bookApiPort, check, BOOK_API_NAME, "1");
+        final ImmutableRegistration registration =
+            ImmutableRegistration.builder()
+                                 .id("book-api")
+                                 .name(BOOK_API_NAME)
+                                 .address(bookApiHost)
+                                 .port(bookApiPort)
+                                 .check(http(bookApiHost + ":" + bookApiPort + "/book-api/api/books/health", 10))
+                                 .build();
+        agentClient.register(registration);
 
         log.info(BOOK_API_NAME + " is registered in consul on " + bookApiHost + ":" + bookApiPort);
     }
-
     @PreDestroy
     protected void unregisterService() {
 

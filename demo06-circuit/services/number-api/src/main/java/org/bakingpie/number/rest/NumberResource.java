@@ -18,6 +18,8 @@ package org.bakingpie.number.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.eclipse.microprofile.config.Config;
+import org.eclipse.microprofile.config.ConfigProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,12 +39,16 @@ public class NumberResource {
 
     private final Logger log = LoggerFactory.getLogger(NumberResource.class);
 
+    private int numberApiFakeTimeout = 0;
+
     @GET
     @Path("book")
     @ApiOperation(value = "Generates a book number.", response = String.class)
     public Response generateBookNumber() throws InterruptedException {
-        log.info("Waiting for 1 minute");
-        TimeUnit.MINUTES.sleep(1);
+        final Config config = ConfigProvider.getConfig();
+        config.getOptionalValue("NUMBER_API_FAKE_TIMEOUT", Integer.class).ifPresent(t -> numberApiFakeTimeout = t);
+        log.info("Waiting for " + numberApiFakeTimeout + " seconds");
+        TimeUnit.SECONDS.sleep(numberApiFakeTimeout);
         log.info("Generating a book number");
         return Response.ok("BK-" + Math.random()).build();
     }
