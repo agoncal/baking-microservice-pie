@@ -21,9 +21,9 @@
         NUMBER_API_PORT: 8084
         CONSUL_HOST: http://pi-grom-database
         CONSUL_POST: 8500
-      #log_driver: gelf
-      #log_options:
-        #gelf-address: udp://elk:12201
+      log_driver: gelf
+      log_options:
+        gelf-address: udp://elk:12201
     when: inventory_hostname == "pi-grom-server-01"
 
   - name: Deploy Book API
@@ -40,7 +40,7 @@
         BOOK_API_PORT: 8081
         CONSUL_HOST: http://pi-grom-database
         CONSUL_POST: 8500
-      #log_driver: gelf
-      #log_options:
-        #gelf-address: udp://elk:12201
+      log_driver: gelf
+      log_options:
+        gelf-address: udp://elk:12201
     when: inventory_hostname == "pi-grom-server-02"
