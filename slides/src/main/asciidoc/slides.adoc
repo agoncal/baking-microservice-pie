@@ -12,6 +12,14 @@ ifndef::imagesdir[:imagesdir: images]
 :demo02dir: ../../../../demo02-invoking
 :demo02numberapidir: ../../../../demo02-invoking/services/number-api
 :demo02bookapidir: ../../../../demo02-invoking/services/book-api
+:demo03dir: ../../../../demo03-monitoring
+:demo04dir: ../../../../demo04-configuring
+:demo05dir: ../../../../demo05-registry
+:demo06dir: ../../../../demo06-circuit
+:demo06dir: ../../../../demo06-circuit
+:demo07dir: ../../../../demo07-scale
+:demo08dir: ../../../../demo08-auth
+:demo09dir: ../../../../demo09-load
 
 // Introduction
 include::introduction.adoc[leveloffset=+1]

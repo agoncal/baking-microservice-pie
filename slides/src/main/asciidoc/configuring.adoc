@@ -8,8 +8,9 @@ ifndef::imagesdir[:imagesdir: images]
 *
 *
 
-== xxx
+== Architecture
 
+image::configuring-architecture.png[]
 
 == xxx
 
@@ -30,3 +31,4 @@ ifndef::imagesdir[:imagesdir: images]
 
 == Demo
 
+image::configuring-architecture.png[]

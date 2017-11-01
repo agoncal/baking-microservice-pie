@@ -6,9 +6,20 @@ ifndef::imagesdir[:imagesdir: images]
 * Let's step back and do a recap
 * The architecture evolved thourgh demos
 
-== One app invokes a remote service
+== One Angular app invokes a remote service
 
 image::basic-architecture.png[]
+
+== docker-compose.yml
+
+[source,yml]
+----
+include::{demo01dir}/docker-compose.yml[]
+----
+
+== One service needs to talk to another one
+
+image::invoking-architecture.png[]
 
 == docker-compose.yml
 
@@ -17,11 +28,57 @@ image::basic-architecture.png[]
 include::{demo02dir}/docker-compose.yml[]
 ----
 
-== One service needs to talk to another one
+== We don't see anything so we add monitoring
 
-image::invoking-architecture.png[]
+image::monitoring-architecture.png[]
+
+== docker-compose.yml
+
+[source,yml]
+----
+include::{demo03dir}/docker-compose.yml[]
+----
+
+== We need to configure different environments
+
+image::configuring-architecture.png[]
+
+== docker-compose.yml
+
+[source,yml]
+----
+include::{demo04dir}/docker-compose.yml[]
+----
 
 == To avoid hard coded IP addresses, we introduce a registry
 
 image::registry-architecture.png[]
 
+== docker-compose.yml
+
+[source,yml]
+----
+include::{demo05dir}/docker-compose.yml[]
+----
+
+== To avoid latency, we introduce a circuit breaker
+
+image::registry-architecture.png[]
+
+== docker-compose.yml
+
+[source,yml]
+----
+include::{demo06dir}/docker-compose.yml[]
+----
+
+== To scale we add more instances and need a client load-balancer
+
+image::scale-architecture.png[]
+
+== docker-compose.yml
+
+[source,yml]
+----
+include::{demo07dir}/docker-compose.yml[]
+----

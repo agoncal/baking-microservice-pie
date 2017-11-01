@@ -66,6 +66,7 @@ public class ConsulManagementService {
 
     @PostConstruct
     protected void registerService() {
+
         final Config config = ConfigProvider.getConfig();
         config.getOptionalValue("BOOK_API_HOST", String.class).ifPresent(host -> bookApiHost = host);
         config.getOptionalValue("BOOK_API_PORT", Integer.class).ifPresent(port -> bookApiPort = port);

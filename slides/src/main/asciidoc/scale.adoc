@@ -8,6 +8,10 @@ ifndef::imagesdir[:imagesdir: images]
 * Deployed on several Pis
 * Which instance to choose from?
 
+== Architecture
+
+image::scale-architecture.png[]
+
 == Pick your own
 
 
@@ -30,3 +34,4 @@ ifndef::imagesdir[:imagesdir: images]
 
 == Demo
 
+image::scale-architecture.png[]

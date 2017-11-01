@@ -12,10 +12,6 @@ node "pi-grom-server-02" as piserver2 {
     artifact "Book API" <<TomEE>> as bookapi
 }
 
-node "Raspberry PI" as piregistry {
-    artifact "Eureka" <<Tomcat>> as eureka
-}
-
 node "Mac" as mac {
     artifact "ELK" as elk
 }
@@ -24,7 +20,4 @@ angular -> bookapi: "     HTTP      "
 bookapi -> numberapi: "     HTTP      "
 bookapi -.> elk: "     Logs      "
 numberapi -.> elk: "     Logs      "
-numberapi -up.> eureka: "     Registers      "
-bookapi -up.> eureka: "     Registers/Lookup      "
-angular -up.> eureka: "     Lookup      "
 @enduml

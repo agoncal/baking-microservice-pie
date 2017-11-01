@@ -21,7 +21,6 @@ package org.bakingpie.book.rest;
 import com.orbitz.consul.AgentClient;
 import com.orbitz.consul.Consul;
 import com.orbitz.consul.model.agent.ImmutableRegistration;
-import com.orbitz.consul.model.agent.Registration;
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
 import org.slf4j.Logger;
@@ -59,7 +58,7 @@ public class ConsulManagementService {
         config.getOptionalValue("CONSUL_PORT", Integer.class).ifPresent(port -> consulPort = port);
 
         log.info("Consul host and port " + consulHost + " " + consulPort);
-        Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build(); // connect to Consul on localhost
+        final Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build();
         agentClient = consul.agentClient();
 
         final ImmutableRegistration registration =
@@ -74,6 +73,7 @@ public class ConsulManagementService {
 
         log.info(BOOK_API_NAME + " is registered in consul on " + bookApiHost + ":" + bookApiPort);
     }
+
     @PreDestroy
     protected void unregisterService() {
 

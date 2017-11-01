@@ -46,4 +46,3 @@ image::registry-architecture.png[]
 == Demo
 
 image::registry-architecture.png[]
-

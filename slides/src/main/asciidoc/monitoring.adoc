@@ -8,6 +8,10 @@ ifndef::imagesdir[:imagesdir: images]
 * Scaling up and down
 * How do we monitor them?
 
+== Architecture
+
+image::monitoring-architecture.png[]
+
 == Tail-f on each PI
 
 [source,shell]
@@ -40,3 +44,4 @@ $ tail -f myserver.log
 
 == Demo
 
+image::monitoring-architecture.png[]

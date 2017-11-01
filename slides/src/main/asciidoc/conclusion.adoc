@@ -8,7 +8,7 @@ ifndef::imagesdir[:imagesdir: images]
 * Micro Services are hard
 * Micro Services are bloody hard
 * Need to integrate with a lot of infrastucture
-* Run in different environment (local, docker, pi)
+* Run in different environments (local, docker, pi)
 * The more technologies the harder
 * The more languages the harder
 * The more versions the harder

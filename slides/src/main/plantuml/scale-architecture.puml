@@ -8,6 +8,10 @@ node "pi-grom-server-01" as piserver {
     artifact "Number API" <<Wildfly Swarm>> as numberapi
 }
 
+node "pi-grom-server-03" as piserver3 {
+    artifact "Number API" <<Wildfly Swarm>> as numberapi2
+}
+
 node "pi-grom-server-02" as piserver2 {
     artifact "Book API" <<TomEE>> as bookapi
 }
@@ -22,8 +26,12 @@ node "Mac" as mac {
 
 angular -> bookapi: "     HTTP      "
 bookapi -> numberapi: "     HTTP      "
+bookapi --> numberapi2: "     HTTP      "
+
 bookapi -.> elk: "     Logs      "
 numberapi -.> elk: "     Logs      "
+numberapi2 -.> elk: "     Logs      "
+
 numberapi -up.> eureka: "     Registers      "
 bookapi -up.> eureka: "     Registers/Lookup      "
 angular -up.> eureka: "     Lookup      "
