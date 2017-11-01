@@ -27,7 +27,7 @@
 
     <artifactId>number-api</artifactId>
     <packaging>war</packaging>
-    <name>Baking a Microservice Pie :: Demo 06 Circuit Breaker :: Services :: Number API</name>
+    <name>Baking a Microservice Pie :: Demo 07 Scalability :: Services :: Number API</name>
 
     <properties>
         <executable.jar>${project.artifactId}-${project.version}-swarm.jar</executable.jar>

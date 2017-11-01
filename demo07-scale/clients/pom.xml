@@ -29,7 +29,7 @@
     <packaging>pom</packaging>
     <name>Baking a Microservice Pie :: Demo 07 Scalability :: Clients</name>
 
-    <!--<modules>-->
-        <!--<module>angular</module>-->
-    <!--</modules>-->
+    <modules>
+        <module>angular</module>
+    </modules>
 </project>
