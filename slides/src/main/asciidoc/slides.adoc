@@ -36,6 +36,9 @@ include::configuring.adoc[leveloffset=+1]
 // Registry (demo05-registry)
 include::registry.adoc[leveloffset=+1]
 
+// Circuit Breaker (demo06-circuit)
+include::circuit.adoc[leveloffset=+1]
+
 // Scale
 include::scale.adoc[leveloffset=+1]
 

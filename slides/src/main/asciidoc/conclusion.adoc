@@ -41,9 +41,35 @@ image::registry-architecture.png[]
 * We didn't use asynchronous events
 * We didn't do integration testing
 
-== And remember
+== What do the others think?
 
-image::quote-sm.jpg[]
+== What do the others think?
+
+image::quote-ak.png[]
+
+== What do the others think?
+
+image::quote-cb.png[]
+
+== What do the others think?
+
+image::quote-cb2.png[]
+
+== What do the others think?
+
+image::quote-jb.png[]
+
+== What do the others think?
+
+image::quote-me.png[]
+
+== What do the others think?
+
+image::quote-pb.png[]
+
+== What do the others think?
+
+image::quote-sd.png[]
 
 == Thank you
 
@@ -56,4 +82,8 @@ image::tomitribe.png[]
 == Q & A
 
 image::question.jpg[]
+
+== Bye
+
+image::commitstrip.jpg[]
 
