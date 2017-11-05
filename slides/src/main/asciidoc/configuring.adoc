@@ -11,12 +11,23 @@ ifndef::imagesdir[:imagesdir: images]
 
 image::configuring-architecture.png[]
 
-== xxx
+== How do we configure code ?
 
 [%step]
-* xxx
-* xxx
-* xxx
+* Environment variable
+* Property files
+* XML, JSon, Yaml
+* Database
+* JNDI in Java EE
+* Spring Config
+
+== MicroProfile Configuration
+
+[%step]
+* Config locations are called `ConfigSources`
+* Same property defined in multiple `ConfigSources`
+* Some data sources may change dynamically
+* Without the need for restarting the application
 
 == Book API invoking Number API
 
@@ -26,7 +37,6 @@ include::{demo04bookapidir}/src/main/java/org/bakingpie/book/client/ApiClient.ja
 ----
 
 == Docker-compose
-
 
 [source,yaml]
 ----
@@ -42,7 +52,6 @@ docker_container:
   env:
     NUMBER_API_HOST: http://pi-grom-server-01:8084
 ----
-
 
 == Demo
 
