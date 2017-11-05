@@ -94,9 +94,11 @@ include::{demo02bookapidir}/src/main/java/org/bakingpie/book/rest/BookResource.j
 == Docker Compose
 
 [%step]
+* Now we have
+** 2 micro services
+** 1 Angular app
 * All components in one file
 * Easy to run in development
-* But you don't do that in production
 
 == docker-compose.yml
 
