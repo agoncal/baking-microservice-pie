@@ -14,7 +14,7 @@ ifndef::imagesdir[:imagesdir: images]
 :demo02bookapidir: ../../../../demo02-invoking/services/book-api
 :demo03dir: ../../../../demo03-monitoring
 :demo04dir: ../../../../demo04-configuring
-:demo04bookapidir: ../../../../demo04-invoking/services/book-api
+:demo04bookapidir: ../../../../demo04-configuring/services/book-api
 :demo05dir: ../../../../demo05-registry
 :demo06dir: ../../../../demo06-circuit
 :demo06dir: ../../../../demo06-circuit
