@@ -1,0 +1,45 @@
+---
+- hosts: services
+  strategy: free
+  gather_facts: no
+  remote_user: pirate
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: Deploy Number API
+    docker_container:
+      name: number-api
+      image: docker-registry:5000/baking/number-api:rpi
+      state: started
+      restart: yes
+      pull: true
+      ports:
+       - "8084:8084"
+      env:
+        NUMBER_API_HOST: http://{{inventory_hostname}}
+        NUMBER_API_PORT: 8084
+        CONSUL_HOST: http://pi-grom-database
+        CONSUL_POST: 8500
+      log_driver: gelf
+      log_options:
+        gelf-address: udp://elk:12201
+
+  - name: Deploy Book API
+    docker_container:
+      name: book-api
+      image: docker-registry:5000/baking/book-api:rpi
+      state: started
+      restart: yes
+      pull: true
+      ports:
+       - "8081:8081"
+      env:
+        BOOK_API_HOST: http://pi-grom-load-balancer
+        BOOK_API_PORT: 8081
+        CONSUL_HOST: http://pi-grom-database
+        CONSUL_POST: 8500
+      log_driver: gelf
+      log_options:
+        gelf-address: udp://elk:12201
+    when: inventory_hostname == "pi-grom-load-balancer"

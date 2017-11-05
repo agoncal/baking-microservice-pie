@@ -1,0 +1,35 @@
+---
+- hosts: databases
+  strategy: free
+  gather_facts: no
+  remote_user: pirate
+  become: yes
+  become_method: sudo
+
+  tasks:
+  - name: Consul
+    docker_container:
+      name: consul
+      image: radcortez/consul-rpi
+      state: started
+      restart: yes
+      pull: true
+      ports:
+        - 8300:8300
+        - 8500:8500
+        - 8600:8600
+      log_driver: gelf
+      log_options:
+        gelf-address: udp://elk:12201
+    when: inventory_hostname == "pi-grom-database"
+
+  - name: Tribestream Access Gateway
+    docker_container:
+      name: tag
+      image: docker-registry:5000/tomitribe/tag-dev:rpi
+      state: started
+      restart: yes
+      pull: true
+      ports:
+        - 9000:8080
+    when: inventory_hostname == "pi-thrall-database"
