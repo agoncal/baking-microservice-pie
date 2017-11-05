@@ -54,17 +54,14 @@ include::scale.adoc[leveloffset=+1]
 // Break
 include::break.adoc[leveloffset=+1]
 
-// Gateway
-include::gateway.adoc[leveloffset=+1]
-
 // Security
 include::security.adoc[leveloffset=+1]
 
+// Gateway
+include::gateway.adoc[leveloffset=+1]
+
 // Handle load and ruptures
 include::load.adoc[leveloffset=+1]
-
-// Tracing
-include::tracing.adoc[leveloffset=+1]
 
 // Recap
 include::recap.adoc[leveloffset=+1]

@@ -22,6 +22,8 @@ ifndef::imagesdir[:imagesdir: images]
 * We didn't duplicate and load balance the registry (SPOF)
 * We didn't use asynchronous events
 * We didn't do integration testing
+* We didn't do tracing (Zipkin)
+* We didn't do rate limit on our APIs
 
 == What do the others think?
 

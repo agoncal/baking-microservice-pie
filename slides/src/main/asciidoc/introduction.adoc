@@ -24,6 +24,10 @@ image::antonio.jpg[]
 * ...to problem
 * And end-up building a (_basic_) e-commerce web site
 
+== Ask questions as soon as you have them
+
+image::question.jpg[]
+
 == Demo
 
 == Architecture
