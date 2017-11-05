@@ -55,6 +55,10 @@ include::{demo05numberapidir}/src/main/java/org/bakingpie/number/rest/NumberReso
 include::{demo05bookapidir}/src/main/java/org/bakingpie/book/client/ApiClient.java[tags=adocSnippet;!adocSkip]
 ----
 
+== Consul UI
+
+// TODO add an image of Consul UI
+
 == Demo
 
 image::registry-architecture.png[]
