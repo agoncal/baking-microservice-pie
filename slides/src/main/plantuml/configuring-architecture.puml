@@ -1,19 +1,15 @@
 @startuml
 
-node "Raspberry PI" as piclient {
-    artifact "Angular APP" <<NGINX>> as angular
+node "pi-client-01" as piclient #grey {
+    artifact "Angular APP" <<NGINX>> as angular #white
 }
 
-node "pi-grom-server-01" as piserver {
-    artifact "Number API" <<Wildfly Swarm>> as numberapi
+node "pi-grom-server-01" as piserver #orange {
+    artifact "Number API" <<Wildfly Swarm>> as numberapi #white
 }
 
-node "pi-grom-server-02" as piserver2 {
-    artifact "Book API" <<TomEE>> as bookapi
-}
-
-node "Raspberry PI" as piregistry {
-    artifact "Consul" as registry
+node "pi-grom-load-balancer" as piserver2 #red {
+    artifact "Book API" <<TomEE>> as bookapi #white
 }
 
 node "Mac" as mac {
@@ -24,7 +20,5 @@ angular -> bookapi: "     HTTP      "
 bookapi -> numberapi: "     HTTP      "
 bookapi -.> elk: "     Logs      "
 numberapi -.> elk: "     Logs      "
-numberapi -up.> registry: "     Registers      "
-bookapi -up.> registry: "     Registers/Lookup      "
-angular -up.> registry: "     Lookup      "
+piclient -.> elk: "     Logs      "
 @enduml
