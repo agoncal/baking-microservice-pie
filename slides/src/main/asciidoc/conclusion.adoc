@@ -55,6 +55,20 @@ image::quote-pb.png[]
 
 image::quote-sd.png[]
 
+== Advantages
+
+[%step]
+* Scaling
+* Cloud
+
+== But remember
+
+[%step]
+* Use this type of architecture
+* If you need it
+* Because it brings you advantages
+* Not because the others are doing it
+
 == Thank you
 
 image::thankyou.jpg[]
