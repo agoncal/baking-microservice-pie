@@ -5,7 +5,7 @@ ifndef::imagesdir[:imagesdir: images]
 [%step]
 * We have several microservices
 * Running on several Pis
-* Scaling up and down
+* Something goes wrong
 * How do we monitor them?
 
 == Architecture
@@ -16,31 +16,44 @@ image::monitoring-architecture.png[]
 
 [source,shell]
 ----
+$ ssh pirate@pi-grom-server-01
 $ tail -f myserver.log
 ----
 
 == Central Monitoring
 
 [%step]
-* xxx
-* xxx
-* xxx
-
-== Several to choose from
-
-[%step]
-* xx
-* xx
+* Home made log aggregation
+* Syslog
+* Fluentd
+* Splunk
+* Flume
+* Logmatic.io
 * ELK
 
 == Logstash
 
+[%step]
+* Centralize, Transform & Stash Your Data
+* Data processing pipeline
+* Ingests data from a multitude of sources
+* From Wildfly Swarm and TomEE logs
+* Sends to Elastic Search
 
 == Elastic Search
 
+[%step]
+* Search and analytics engine
+* Centrally stores the data
+* From Logstash
+* So you can search our logs
 
 == Kibana
 
+[%step]
+* Lets you visualize Elasticsearch data
+* Shape your data
+* Interactive visualizations
 
 == Gelf
 
