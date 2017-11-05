@@ -33,9 +33,10 @@ include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberReso
 
 [%step]
 * Comes from Wildfly (RedHat)
+* Open source
+* Modular
 * Small fractions
 * Executable Jar
-* xxx
 
 == Angular app
 
@@ -214,4 +215,4 @@ image::basic-architecture.png[]
 
 [%step]
 * Adding more micro-services
-* Communicating
+* Communicating together
