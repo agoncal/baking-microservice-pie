@@ -1,0 +1,56 @@
+<div>
+  <h2>
+    <span>Books</span>
+    <button class="btn btn-primary float-right create-book" [routerLink]="['/', { outlets: { popup: ['book-form'] } }]">
+      <span class="fa fa-plus"></span>
+      <span>Create new Book</span>
+    </button>
+  </h2>
+  <div class="row">
+  </div>
+  <br/>
+  <div class="table-responsive" *ngIf="books">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><span>ID</span></th>
+        <th><span>Title</span></th>
+        <th><span>Author</span></th>
+        <th><span>Year</span></th>
+        <th><span>Genre</span></th>
+        <th><span>Isbn</span></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let book of books ;trackBy: trackId">
+        <td>{{book.id}}</td>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.year}}</td>
+        <td>{{book.genre}}</td>
+        <td>{{book.isbn}}</td>
+        <td class="text-right">
+          <div class="btn-group flex-btn-group-container">
+            <button type="submit" [routerLink]="['/book-detail', book.id ]" class="btn btn-info btn-sm">
+              <span class="fa fa-eye"></span>
+              <span class="d-none d-md-inline">View</span>
+            </button>
+            <button type="submit" [routerLink]="['/', { outlets: { popup: 'book-form/'+ book.id + '/edit'} }]" replaceUrl="true" class="btn btn-primary btn-sm">
+              <span class="fa fa-pencil"></span>
+              <span class="d-none d-md-inline">Edit</span>
+            </button>
+            <button type="submit"
+                    [routerLink]="['/', { outlets: { popup: 'book-delete/'+ book.id + '/delete'} }]"
+                    replaceUrl="true"
+                    class="btn btn-danger btn-sm">
+              <span class="fa fa-remove"></span>
+              <span class="d-none d-md-inline">Delete</span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

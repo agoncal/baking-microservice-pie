@@ -30,7 +30,7 @@
     <name>Baking a Microservice Pie :: Demo 09 Load :: Clients</name>
 
     <modules>
-        <!--<module>angular</module>-->
+        <module>angular</module>
         <module>simulator</module>
     </modules>
 </project>
