@@ -5,15 +5,12 @@ ifndef::imagesdir[:imagesdir: images]
 [%step]
 * We have two microservices
 * Book and Number Generator
-* Deployed on several Pis
-* How do they communicate?
+* Can be deployed on any PI
+* How do they look for each other?
 
 == Architecture
 
 image::registry-architecture.png[]
-
-== Hard coded IP addresses
-
 
 == Service registration and discovery
 
@@ -26,22 +23,37 @@ image::registry-architecture.png[]
 
 [%step]
 * JNDI
-* HashiCorp Consul
 * Apache Zookeeper
 * Netflix Eureka
+* HashiCorp Consul
 
-== What is Eureka?
+== What is Consul?
 
 [%step]
 * xxx
 * xxx
 * xxx
 
-== Register with Eureka
+== Register with Consul
 
+[source,java,indent=0]
+----
+include::{demo05numberapidir}/src/main/java/org/bakingpie/number/rest/ConsulManagementService.java[tags=adocSnippet]
+----
 
-== Discover with Eureka
+== Health check
 
+[source,java,indent=0]
+----
+include::{demo05numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet]
+----
+
+== Discover with Consul
+
+[source,java,indent=0]
+----
+include::{demo05bookapidir}/src/main/java/org/bakingpie/book/client/ApiClient.java[tags=adocSnippet;!adocSkip]
+----
 
 == Demo
 

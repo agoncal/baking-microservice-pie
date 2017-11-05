@@ -16,6 +16,8 @@ ifndef::imagesdir[:imagesdir: images]
 :demo04dir: ../../../../demo04-configuring
 :demo04bookapidir: ../../../../demo04-configuring/services/book-api
 :demo05dir: ../../../../demo05-registry
+:demo05numberapidir: ../../../../demo05-registry/services/number-api
+:demo05bookapidir: ../../../../demo05-registry/services/book-api
 :demo06dir: ../../../../demo06-circuit
 :demo06dir: ../../../../demo06-circuit
 :demo07dir: ../../../../demo07-scale

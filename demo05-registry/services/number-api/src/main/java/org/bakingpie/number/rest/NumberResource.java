@@ -44,6 +44,7 @@ public class NumberResource {
         return Response.ok("BK-" + Math.random()).build();
     }
 
+    // tag::adocSnippet[]
     @GET
     @Path("health")
     @ApiOperation(value = "Checks the health of this REST endpoint", response = String.class)
@@ -51,4 +52,5 @@ public class NumberResource {
         log.info("Alive and Kicking !!!");
         return Response.ok().build();
     }
+    // end::adocSnippet[]
 }

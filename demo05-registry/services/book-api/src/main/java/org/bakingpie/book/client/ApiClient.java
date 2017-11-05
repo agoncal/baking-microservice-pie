@@ -31,6 +31,7 @@ public class ApiClient {
         config.getOptionalValue("CONSUL_HOST", String.class).ifPresent(host -> consulHost = host);
         config.getOptionalValue("CONSUL_PORT", Integer.class).ifPresent(port -> consulPort = port);
 
+        // tag::adocSnippet[]
         final Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build();
         final HealthClient healthClient = consul.healthClient();
 
@@ -38,10 +39,13 @@ public class ApiClient {
         final Service service = nodes.iterator().next().getService();
         final String baseHost = service.getAddress() + ":" + service.getPort();
 
+        // tag::adocSkip[]
         log.info("Feign builder on " + baseHost + basePath);
+        // end::adocSkip[]
         return Feign.builder()
                     .logger(new Slf4jLogger(NumbersApi.class))
                     .logLevel(Logger.Level.FULL)
                     .target(NumbersApi.class, baseHost + basePath);
+        // end::adocSnippet[]
     }
 }
