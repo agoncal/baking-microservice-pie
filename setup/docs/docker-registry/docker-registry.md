@@ -17,6 +17,8 @@ The Local Docker Registry runs like any other Docker Image:
 docker run -d -p 5000:5000 --restart=always --name docker-registry registry:2
 ```
 
+--insecure-registry
+
 #### Insecure Registry
 
 For the PI's to be able to download Docker Images from the Local Docker Registry, they need to trust him. The easiest 

@@ -131,9 +131,23 @@ image::basic-architecture-local.png[]
 == Deploy
 
 [%step]
-* Package everything with Docker
+* We have Raspberry pis
+* Running HypriotOS
+* We need to package everything with Docker
 * Use Docker registry
 * Push it to the PIs with Ansible
+
+== Raspberry
+
+[%step]
+* Minimal Debian-based operating systems
+* Optimized to run Docker on Raspberry PIs
+
+== HypriotOS
+
+[%step]
+* Minimal Debian-based operating systems
+* Optimized to run Docker on Raspberry PIs
 
 == Docker
 
@@ -154,25 +168,12 @@ image::basic-architecture-local.png[]
 mvn clean install docker:build docker:push
 ----
 
-== Docker Compose
+== Docker registry
 
-[%step]
-* All components in one file
-* Easy to run in development
-* But you don't do that in production
-
-== docker-compose.yml
-
-[source,yml]
+[source,shell]
 ----
-include::{demo02dir}/docker-compose.yml[]
+http://docker-registry:5000/v2/_catalog
 ----
-
-== HypriotOS
-
-[%step]
-* Minimal Debian-based operating systems
-* Optimized to run Docker on Raspberry PIs
 
 == Ansible
 
@@ -203,4 +204,22 @@ image::basic-architecture.png[]
 
 [%step]
 * Adding more micro-services
+
+
+
+
+
+== Docker Compose
+
+[%step]
+* All components in one file
+* Easy to run in development
+* But you don't do that in production
+
+== docker-compose.yml
+
+[source,yml]
+----
+include::{demo02dir}/docker-compose.yml[]
+----
 
