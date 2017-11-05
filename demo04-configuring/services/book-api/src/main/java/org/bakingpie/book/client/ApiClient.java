@@ -10,6 +10,7 @@ import org.eclipse.microprofile.config.ConfigProvider;
 import javax.annotation.Generated;
 
 @Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+// tag::adocSnippet[]
 public class ApiClient {
     public interface Api {
     }
@@ -28,3 +29,4 @@ public class ApiClient {
             .target(NumbersApi.class, baseHost + basePath);
     }
 }
+// end::adocSnippet[]

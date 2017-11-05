@@ -3,10 +3,9 @@ ifndef::imagesdir[:imagesdir: images]
 = Configuring
 
 [%step]
-*
-*
-*
-*
+* Book API has hard coded Number API address
+* We have several environments (local, docker-compose, PIs)
+* We need to configure the IP addresses
 
 == Architecture
 
@@ -19,14 +18,30 @@ image::configuring-architecture.png[]
 * xxx
 * xxx
 
-== xxx
+== Book API invoking Number API
 
-[%step]
-* xxx
-* xxx
-* xxx
+[source,java]
+----
+include::{demo04bookapidir}/src/main/java/org/bakingpie/book/client/ApiClient.java[tags=adocSnippet]
+----
 
-== xxxx
+== Docker-compose
+
+
+[source,yaml]
+----
+- name: Deploy Book API
+docker_container:
+  name: book-api
+  image: docker-registry:5000/baking/book-api:rpi
+  state: started
+  restart: yes
+  pull: true
+  ports:
+   - "8081:8081"
+  env:
+    NUMBER_API_HOST: http://pi-grom-server-01:8084
+----
 
 
 == Demo
