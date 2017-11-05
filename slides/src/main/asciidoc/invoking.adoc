@@ -31,6 +31,12 @@ image::invoking-architecture.png[]
 include::{demo02bookapidir}/src/main/java/org/bakingpie/book/rest/BookResource.java[tags=adocSnippet;!adocSkip;!adocCall]
 ----
 
+== Running on TomEE
+
+[%step]
+* xxx
+* xxx
+
 == Invoking Number API
 
 [%step]

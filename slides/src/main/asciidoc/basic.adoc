@@ -29,6 +29,14 @@ image::basic-architecture.png[]
 include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocSkip;!adocSwagger]
 ----
 
+== Running on Wildfly Swarm
+
+[%step]
+* Comes from Wildfly (RedHat)
+* Small fractions
+* Executable Jar
+* xxx
+
 == Angular app
 
 [%step]
@@ -102,40 +110,6 @@ include::{demo01angulardir}/src/app/shared/api/NumbersApi.ts[tags=adocSnippet;!a
 * JAX-RS ContainerResponseFilter
 * Servlet Filter
 
-== CORS JAX-RS ContainerResponseFilter
-
-[source,java]
-----
-include::{commonscorsdir}/src/main/java/org/bakingpie/commons/rest/CORSFilter.java[tags=adocSnippet]
-----
-
-== CORS JAX-RS ContainerResponseFilter
-
-[source,java]
-----
-include::{commonscorsdir}/src/main/java/org/bakingpie/commons/rest/EnableCORS.java[tags=adocSnippet]
-----
-
-== CORS JAX-RS ContainerResponseFilter
-
-[source,java]
-----
-@Path("numbers")
-@Produces(MediaType.TEXT_PLAIN)
-@EnableCORS
-public class NumberResource {
-
-    private final Logger log = LoggerFactory.getLogger(NumberResource.class);
-
-    @GET
-    @Path("book")
-    public Response generateBookNumber() {
-        log.info("Generating a book number");
-        return Response.ok("BK-" + Math.random()).build();
-    }
-}
-----
-
 == CORS Servlet Filter
 
 [source,java]
@@ -157,24 +131,28 @@ image::basic-architecture-local.png[]
 == Deploy
 
 [%step]
-* We have several microservices
-* We have several databases
-* We have several components
-* We have several Pis
-* How do we deploy?
-
-== Hand made
-
-[source,shell]
-----
-$ ftp
-$ ssh
-----
+* Package everything with Docker
+* Use Docker registry
+* Push it to the PIs with Ansible
 
 == Docker
 
 [%step]
 * Everything is packaged with Docker
+* Using Maven Fabric8 Plugin
+
+== Docker Registry
+
+[%step]
+* Everything is packaged with Docker
+* Using Maven Fabric8 Plugin
+
+== Maven building with Docker
+
+[source,shell]
+----
+mvn clean install docker:build docker:push
+----
 
 == Docker Compose
 
@@ -198,6 +176,24 @@ include::{demo02dir}/docker-compose.yml[]
 
 == Ansible
 
+[%step]
+* xxx
+* Playbook
+* sshpass a bit touchy on security
+
+== Pinging all the PIs
+
+[source,shell]
+----
+ansible -i ansible/hosts -m ping all
+----
+
+== Deploying on the PIs
+
+[source,shell]
+----
+ansible-playbook ansible/deploy.yaml -i ansible/hosts
+----
 
 == Demo (PIs)
 

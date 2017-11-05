@@ -1,6 +1,6 @@
 ifndef::imagesdir[:imagesdir: images]
 
-= Handle Load
+= Handling Load
 
 [%step]
 * We have microservices all over

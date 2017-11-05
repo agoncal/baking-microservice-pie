@@ -1,6 +1,6 @@
 ifndef::imagesdir[:imagesdir: images]
 
-= Registry
+= Registring
 
 [%step]
 * We have two microservices
