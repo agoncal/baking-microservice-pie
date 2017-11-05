@@ -1,5 +1,5 @@
 ---
-- hosts: servers
+- hosts: services
   strategy: free
   gather_facts: no
   remote_user: pirate
@@ -36,11 +36,11 @@
       ports:
        - "8081:8081"
       env:
-        BOOK_API_HOST: http://pi-grom-server-02
+        BOOK_API_HOST: http://pi-grom-load-balancer
         BOOK_API_PORT: 8081
         CONSUL_HOST: http://pi-grom-database
         CONSUL_POST: 8500
       log_driver: gelf
       log_options:
         gelf-address: udp://elk:12201
-    when: inventory_hostname == "pi-grom-server-02"
+    when: inventory_hostname == "pi-grom-load-balancer"
