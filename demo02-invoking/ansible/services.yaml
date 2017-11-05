@@ -1,5 +1,5 @@
 ---
-- hosts: servers
+- hosts: services
   strategy: free
   gather_facts: no
   remote_user: pirate
@@ -27,4 +27,4 @@
       pull: true
       ports:
        - "8081:8081"
-    when: inventory_hostname == "pi-grom-server-02"
+    when: inventory_hostname == "pi-grom-load-balancer"

@@ -1,5 +1,5 @@
 ---
-- hosts: servers
+- hosts: services
   strategy: free
   gather_facts: no
   remote_user: pirate
@@ -35,4 +35,4 @@
       log_driver: gelf
       log_options:
         gelf-address: udp://elk:12201
-    when: inventory_hostname == "pi-grom-server-02"
+    when: inventory_hostname == "pi-grom-load-balancer"
