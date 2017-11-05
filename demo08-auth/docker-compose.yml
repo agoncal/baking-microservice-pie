@@ -65,7 +65,7 @@ services:
             - 8600:8600
         command: consul agent -dev -ui -client 0.0.0.0
     tag:
-        image: tomitribe/tag-dev:default
+        image: radcortez/tag-dev:default
         container_name: tag
         ports:
           - 9000:8080
