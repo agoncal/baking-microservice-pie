@@ -32,3 +32,9 @@ image::circuit-architecture.png[]
 == Demo
 
 image::circuit-architecture.png[]
+
+== What's next ?
+
+[%step]
+* Scaling the architecture
+* Adding a load-balancer

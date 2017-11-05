@@ -16,15 +16,16 @@ image::antonio.jpg[]
 
 == Listen to our story
 
+[%step]
 * This talk is about our journey...
 * ...through microservice architecture
 * We'll progressively build a MS architecture
 * Going from problem, to solution...
 * ...to problem, to solution...
 * ...to problem
-* And end-up building a (_basic_) e-commerce web site
+* And end-up building a (_basic_) distributed application
 
-== Ask questions as soon as you have them
+== Anytime
 
 image::question.jpg[]
 
@@ -43,17 +44,20 @@ image::invoking-architecture.png[]
 * Configuration
 * Discovery mechanism
 * Load balancing
+* Circuit breaker
+* Security
 
 == Hardware
 
 [%step]
 * Local machine
 * 12 Raspberry PIs
-  * 3 Load balancers
-  * 4 Server (Orange)
-  * 2 Databases (Black)
-  * 3 Load balancers
-* Allows us to plug/unplug
+** 6 Servers (Orange + Red)
+** 2 Infrastructure (Purple)
+** 4 Clients (Black)
+** 1 Router
+** 3 Switches
+** Allows us to plug/unplug
 
 == Software
 
@@ -61,13 +65,15 @@ image::invoking-architecture.png[]
 * Java / Angular (TypeScript)
 * Micro Profile
 * TomEE / Wildfly Swarm
-* NGinx
+* NGinx / ELK
 * Netflix OSS
 * Consul
+* Tribestream Access Gateway
 
 == Infrastructure
 
 [%step]
+* HypriotOS
 * Ansible
 * Docker
 * Docker compose
@@ -77,3 +83,5 @@ image::invoking-architecture.png[]
 [%step]
 * Well...
 * ...H2 in-memory
+
+== That's what we will be building during these 3 hours

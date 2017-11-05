@@ -29,3 +29,8 @@ ifndef::imagesdir[:imagesdir: images]
 
 == Demo
 
+== What's next ?
+
+[%step]
+* Stressing the architecture
+* Adding clients

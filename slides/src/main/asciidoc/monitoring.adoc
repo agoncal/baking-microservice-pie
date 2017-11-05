@@ -45,3 +45,9 @@ $ tail -f myserver.log
 == Demo
 
 image::monitoring-architecture.png[]
+
+== What's next ?
+
+[%step]
+* Fixing IP addresses
+* Adding configuration

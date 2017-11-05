@@ -34,5 +34,3 @@ image::pizzas2.jpg[]
 * Scale services independently
 * Address unpredictable loads
 * Cloud
-
-== But this comes at a cost

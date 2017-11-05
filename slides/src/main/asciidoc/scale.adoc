@@ -35,3 +35,9 @@ image::scale-architecture.png[]
 == Demo
 
 image::scale-architecture.png[]
+
+== What's next ?
+
+[%step]
+* Securing micro-services
+* Adding a security token

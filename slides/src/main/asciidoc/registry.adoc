@@ -46,3 +46,9 @@ image::registry-architecture.png[]
 == Demo
 
 image::registry-architecture.png[]
+
+== What's next ?
+
+[%step]
+* Handling failures
+* Adding a circuit breaker

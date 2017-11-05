@@ -1,5 +1,5 @@
 = Baking a Microservice Pi(e)
-Antonio Goncalves <https://twitter.com/agoncal>; Roberto Cortez <https://twitter.com/radcortez>
+Antonio Goncalves and Roberto Cortez
 2017-11-07
 :example-caption!:
 ifndef::imagesdir[:imagesdir: images]
@@ -30,9 +30,6 @@ include::microservices.adoc[leveloffset=+1]
 // Basic (demo01-basic)
 include::basic.adoc[leveloffset=+1]
 
-// Deploy (demo01-basic)
-include::deploy.adoc[leveloffset=+1]
-
 // Invoking Microservices (demo02-invoking)
 include::invoking.adoc[leveloffset=+1]
 
@@ -56,9 +53,6 @@ include::scale.adoc[leveloffset=+1]
 
 // Security
 include::security.adoc[leveloffset=+1]
-
-// Gateway
-include::gateway.adoc[leveloffset=+1]
 
 // Handle load and ruptures
 include::load.adoc[leveloffset=+1]

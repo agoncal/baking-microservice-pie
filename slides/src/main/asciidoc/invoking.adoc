@@ -77,3 +77,7 @@ include::{demo02bookapidir}/src/main/java/org/bakingpie/book/client/api/NumbersA
 
 image::invoking-architecture.png[]
 
+== What's next ?
+
+[%step]
+* Monitoring our architecture
