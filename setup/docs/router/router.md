@@ -3,8 +3,36 @@
 For this sample, we are going to use the [Ubiquiti EdgeRouter X](https://www.ubnt.com/edgemax/edgerouter-x/). 
 It's a cheap router with a lot of features in it. Any other router should work just fine, but the instructions detailed 
 here are for the EdgeRouter X.
+
+There are two ways of setting up the router: manually, or importing a config file
  
-## Setup
+## Setup : Config file
+
+### Reset to Factory Settings
+* Power on the Ubiquiti Router, place a paper clip or Pin into the hole on the back of the Router labeled Reset.
+* Hold paper clip or pin down for 10 to 15 seconds and release.
+* The Router will reboot on its own. Once the WLAN light stops blinking, the Router is reset.
+
+### Connect to the Router
+* Plug your computer into eth0 on the router.
+* Configure your computer to have the static IP and route. The Router IP is `192.168.1.1`.
+
+![Static IP](router-setup-01.png?raw=true)
+
+* Open a browser and navigate to `https://192.168.1.1`. You should get the login screen to access the Router console. 
+(You may need to trust the certificate first).
+
+* Login with Username `ubnt` and Password `ubnt`.
+
+### Upload the configuration file
+
+Go to System -> upload file : edgeos_ubnt_20171105.tar.gz
+
+This will reboot the router.
+
+Change back you Eternet cable to eth0, change to DHCP (instead of manual) and go back to the router at https://10.99.99.1
+
+## Setup : Manually
 
 ### Reset to Factory Settings
 * Power on the Ubiquiti Router, place a paper clip or Pin into the hole on the back of the Router labeled Reset.
