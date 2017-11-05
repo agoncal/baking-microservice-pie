@@ -79,6 +79,20 @@ include::{demo02bookapidir}/src/main/java/org/bakingpie/book/client/api/NumbersA
 include::{demo02bookapidir}/src/main/java/org/bakingpie/book/client/api/NumbersApi.java[tags=adocSnippet]
 ----
 
+== Docker Compose
+
+[%step]
+* All components in one file
+* Easy to run in development
+* But you don't do that in production
+
+== docker-compose.yml
+
+[source,yml]
+----
+include::{demo02dir}/docker-compose.yml[]
+----
+
 == Demo
 
 image::invoking-architecture.png[]

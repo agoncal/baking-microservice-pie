@@ -156,15 +156,17 @@ image::basic-architecture-local.png[]
 == Docker Registry
 
 [%step]
-* xx
-* xx
+* We don't use Docker Hub
+* Too slow
+* Using local Docker registry
+* Speed up deployment
 * Running on port 5000
 
 == Building Docker images with Maven
 
 [source,shell]
 ----
-mvn clean install docker:build docker:push
+$ mvn clean install docker:build docker:push
 ----
 
 == Docker registry
@@ -177,22 +179,31 @@ http://docker-registry:5000/v2/_catalog
 == Ansible
 
 [%step]
-* xxx
+* Automate tasks
+** Ping all PIs
+** Deploy docker images on all PIs
 * Playbook
-* sshpass a bit touchy on security
+** List of tasks to do
+
+== Playbook for our service
+
+[source,yaml]
+----
+include::{demo01dir}/ansible/services.yaml[]
+----
 
 == Pinging all the PIs
 
 [source,shell]
 ----
-ansible -i ansible/hosts -m ping all
+$ ansible -i ansible/hosts -m ping all
 ----
 
 == Deploying on the PIs
 
 [source,shell]
 ----
-ansible-playbook ansible/deploy.yaml -i ansible/hosts
+$ ansible-playbook ansible/deploy.yaml -i ansible/hosts
 ----
 
 == Demo (PIs)
@@ -203,22 +214,4 @@ image::basic-architecture.png[]
 
 [%step]
 * Adding more micro-services
-
-
-
-
-
-== Docker Compose
-
-[%step]
-* All components in one file
-* Easy to run in development
-* But you don't do that in production
-
-== docker-compose.yml
-
-[source,yml]
-----
-include::{demo02dir}/docker-compose.yml[]
-----
-
+* Communicating
