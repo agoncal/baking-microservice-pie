@@ -10,75 +10,35 @@ ifndef::imagesdir[:imagesdir: images]
 
 image::basic-architecture.png[]
 
-== docker-compose.yml
-
-[source,yml]
-----
-include::{demo01dir}/docker-compose.yml[]
-----
-
 == One service needs to talk to another one
 
 image::invoking-architecture.png[]
-
-== docker-compose.yml
-
-[source,yml]
-----
-include::{demo02dir}/docker-compose.yml[]
-----
 
 == We don't see anything so we add monitoring
 
 image::monitoring-architecture.png[]
 
-== docker-compose.yml
-
-[source,yml]
-----
-include::{demo03dir}/docker-compose.yml[]
-----
-
 == We need to configure different environments
 
 image::configuring-architecture.png[]
-
-== docker-compose.yml
-
-[source,yml]
-----
-include::{demo04dir}/docker-compose.yml[]
-----
 
 == To avoid hard coded IP addresses, we introduce a registry
 
 image::registry-architecture.png[]
 
-== docker-compose.yml
+== To avoid failure, we introduce a circuit breaker
 
-[source,yml]
-----
-include::{demo05dir}/docker-compose.yml[]
-----
-
-== To avoid latency, we introduce a circuit breaker
-
-image::registry-architecture.png[]
-
-== docker-compose.yml
-
-[source,yml]
-----
-include::{demo06dir}/docker-compose.yml[]
-----
+image::circuit-architecture.png[]
 
 == To scale we add more instances and need a client load-balancer
 
 image::scale-architecture.png[]
 
-== docker-compose.yml
+== We need security
 
-[source,yml]
-----
-include::{demo07dir}/docker-compose.yml[]
-----
+image::security-architecture.png[]
+
+== We need to handle load
+
+image::load-architecture.png[]
+
