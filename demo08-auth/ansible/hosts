@@ -33,3 +33,11 @@ pi-thrall-server-01
 pi-thrall-server-02
 pi-thrall-database
 pi-thrall-load-balancer
+
+[services]
+pi-grom-load-balancer
+pi-grom-server-01
+pi-grom-server-02
+pi-thrall-load-balancer
+pi-thrall-server-01
+pi-thrall-server-02
