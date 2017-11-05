@@ -1,6 +1,6 @@
 ifndef::imagesdir[:imagesdir: images]
 
-= Handle Load/Rupture
+= Handle Load
 
 [%step]
 * We have microservices all over
