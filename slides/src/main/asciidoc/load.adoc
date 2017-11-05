@@ -8,6 +8,10 @@ ifndef::imagesdir[:imagesdir: images]
 * Things (can) go wrong
 * How do they handle breaks?
 
+== Architecture
+
+image::load-architecture.png[]
+
 == Hard coded rescue alert
 
 
@@ -28,6 +32,12 @@ ifndef::imagesdir[:imagesdir: images]
 == Break with Hystrix
 
 
+== Architecture
 
-== Demo
+image::load-architecture.png[]
 
+== What's next ?
+
+[%step]
+* Much more
+* But we don't have time

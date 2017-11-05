@@ -1,0 +1,40 @@
+@startuml
+
+node "pi-client-01" as piclient #grey {
+    artifact "Angular APP" <<NGINX>> as angular #white
+}
+
+node "pi-grom-server-01" as piserver1 #orange {
+    artifact "Number API" <<Wildfly Swarm>> as numberapi #white
+}
+
+node "pi-grom-server-02" as piserver2 #orange {
+    artifact "Number API" <<Wildfly Swarm>> as numberapi2 #white
+}
+
+node "pi-thrall-server-01" as piserver3 #orange {
+    artifact "Number API" <<Wildfly Swarm>> as numberapi3 #white
+}
+
+node "pi-thrall-server-02" as piserver4 #orange {
+    artifact "Number API" <<Wildfly Swarm>> as numberapi4 #white
+}
+
+node "pi-grom-load-balancer" as piserver5 #red {
+    artifact "Book API" <<TomEE>> as bookapi #white
+}
+
+node "pi-grom-database" as piregistry #purple {
+    artifact "Consul" as consule #white
+}
+
+node "Mac" as mac {
+    artifact "ELK" as elk
+}
+
+angular -> bookapi: "     HTTP      "
+bookapi --> numberapi: "     HTTP      "
+bookapi --> numberapi2: "     HTTP      "
+bookapi --> numberapi3: "     HTTP      "
+bookapi --> numberapi4: "     HTTP      "
+@enduml

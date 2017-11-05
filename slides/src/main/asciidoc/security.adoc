@@ -7,6 +7,10 @@ ifndef::imagesdir[:imagesdir: images]
 * xxx
 * xxx
 
+== Architecture
+
+image::security-architecture.png[]
+
 == xx
 
 
@@ -28,6 +32,8 @@ ifndef::imagesdir[:imagesdir: images]
 
 
 == Demo
+
+image::security-architecture.png[]
 
 == What's next ?
 
