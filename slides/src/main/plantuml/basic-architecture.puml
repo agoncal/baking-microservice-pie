@@ -1,10 +1,10 @@
 @startuml
 
-node "Raspberry PI" as piclient {
+node "pi-client-01" as piclient #grey {
     artifact "Angular APP" <<NGINX>> as angular
 }
 
-node "pi-grom-server-01" as piserver {
+node "pi-grom-server-01" as piserver #orange {
     artifact "Number API" <<Wildfly Swarm>> as numberapi
 }
 

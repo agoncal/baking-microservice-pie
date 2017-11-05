@@ -131,21 +131,17 @@ image::basic-architecture-local.png[]
 == Deploy
 
 [%step]
-* We have Raspberry pis
+* We have Raspberry PIs
 * Running HypriotOS
 * We need to package everything with Docker
 * Use Docker registry
-* Push it to the PIs with Ansible
+* Push docker images to the PIs with Ansible
 
 == Raspberry
 
 [%step]
-* Minimal Debian-based operating systems
-* Optimized to run Docker on Raspberry PIs
-
-== HypriotOS
-
-[%step]
+* Raspberry v3
+* Use HypriotOS
 * Minimal Debian-based operating systems
 * Optimized to run Docker on Raspberry PIs
 
@@ -153,15 +149,18 @@ image::basic-architecture-local.png[]
 
 [%step]
 * Everything is packaged with Docker
+** Number API
+** Angular app
 * Using Maven Fabric8 Plugin
 
 == Docker Registry
 
 [%step]
-* Everything is packaged with Docker
-* Using Maven Fabric8 Plugin
+* xx
+* xx
+* Running on port 5000
 
-== Maven building with Docker
+== Building Docker images with Maven
 
 [source,shell]
 ----
