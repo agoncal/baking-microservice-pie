@@ -19,3 +19,14 @@
         - 8500:8500
         - 8600:8600
     when: inventory_hostname == "pi-grom-database"
+
+  - name: Tribestream Access Gateway
+    docker_container:
+      name: tag
+      image: docker-registry:5000/tomitribe/tag-dev:rpi
+      state: started
+      restart: yes
+      pull: true
+      ports:
+        - 9000:8080
+    when: inventory_hostname == "pi-thrall-database"
