@@ -18,4 +18,7 @@
         - 8300:8300
         - 8500:8500
         - 8600:8600
+      log_driver: gelf
+      log_options:
+        gelf-address: udp://elk:12201
     when: inventory_hostname == "pi-grom-database"

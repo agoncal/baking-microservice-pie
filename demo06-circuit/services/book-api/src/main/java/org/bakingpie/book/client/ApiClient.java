@@ -47,14 +47,18 @@ public class ApiClient {
         }
 
         // This instance will be invoked if there are errors of any kind.
+        // tag::adocSkip[]
         NumbersApi fallback = () -> {
             return "FALLBACK ISBN";
         };
 
+        // tag::adocSkip[]
         log.info("Feign builder on " + baseHost + basePath);
+        // end::adocSkip[]
         return HystrixFeign.builder()
                 .logger(new Slf4jLogger(NumbersApi.class))
                 .logLevel(Logger.Level.FULL)
                 .target(NumbersApi.class, baseHost + basePath, fallback);
+        // end::adocSkip[]
     }
 }

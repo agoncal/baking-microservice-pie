@@ -58,7 +58,7 @@ public class ConsulManagementService {
         config.getOptionalValue("CONSUL_PORT", Integer.class).ifPresent(port -> consulPort = port);
 
         log.info("Consul host and port " + consulHost + " " + consulPort);
-        Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build(); // connect to Consul on localhost
+        final Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build();
         agentClient = consul.agentClient();
 
         final ImmutableRegistration registration =
