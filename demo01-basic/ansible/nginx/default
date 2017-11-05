@@ -49,8 +49,8 @@ server {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
-        sub_filter 'http://localhost:8084/number-api' 'http://pi-grom-server-01:8084/number-api';
-        sub_filter_once on;
+        sub_filter 'localhost:8084' 'pi-grom-server-01:8084';
+        sub_filter_once off;
         sub_filter_types *;
 	}
 
