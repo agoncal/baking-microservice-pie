@@ -21,7 +21,6 @@ package org.bakingpie.number.rest;
 import com.orbitz.consul.AgentClient;
 import com.orbitz.consul.Consul;
 import com.orbitz.consul.model.agent.ImmutableRegistration;
-import com.orbitz.consul.model.agent.Registration;
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
 import org.slf4j.Logger;
@@ -59,11 +58,10 @@ public class ConsulManagementService {
         config.getOptionalValue("CONSUL_PORT", Integer.class).ifPresent(port -> consulPort = port);
 
         log.info("Consul host and port " + consulHost + ":" + consulPort);
-        Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build(); // connect to Consul on localhost
+        Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build();
         agentClient = consul.agentClient();
 
-        final ImmutableRegistration registration =
-            ImmutableRegistration.builder()
+        final ImmutableRegistration registration = ImmutableRegistration.builder()
                                  .id("number-api")
                                  .name(NUMBER_API_NAME)
                                  .address(numberApiHost)

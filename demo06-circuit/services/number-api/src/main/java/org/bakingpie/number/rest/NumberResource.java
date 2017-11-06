@@ -41,6 +41,7 @@ public class NumberResource {
 
     private int numberApiFakeTimeout = 0;
 
+    // tag::adocSnippet[]
     @GET
     @Path("book")
     @ApiOperation(value = "Generates a book number.", response = String.class)
@@ -49,13 +50,16 @@ public class NumberResource {
         config.getOptionalValue("NUMBER_API_FAKE_TIMEOUT", Integer.class).ifPresent(t -> numberApiFakeTimeout = t);
         log.info("Waiting for " + numberApiFakeTimeout + " seconds");
         TimeUnit.SECONDS.sleep(numberApiFakeTimeout);
+        // tag::adocSkip[]
         log.info("Generating a book number");
+        // end::adocSkip[]
         return Response.ok("BK-" + Math.random()).build();
     }
+    // end::adocSnippet[]
 
     @GET
     @Path("health")
-    @ApiOperation(value = "Checks the health of this REST endpoint", response = String.class)
+    @ApiOperation(value = "Health of this REST endpoint", response = String.class)
     public Response health() {
         log.info("Alive and Kicking !!!");
         return Response.ok().build();

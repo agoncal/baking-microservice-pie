@@ -26,7 +26,36 @@ image::circuit-architecture.png[]
 * xxx
 * xxx
 
-== xxxx
+== Number API Failing
+
+[source,java,indent=0]
+----
+include::{demo06numberapidir}/src/main/java/org/bakingpie/number/rest/NumberResource.java[tags=adocSnippet;!adocSkip]
+----
+
+== Book API Falling back
+
+[source,java]
+----
+public NumbersApi buildNumberApiClient() {
+
+    Consul consul = Consul.builder().build();
+    HealthClient healthClient = consul.healthClient();
+
+    List<ServiceHealth> nodes = healthClient.getHealthyServiceInstances("CONSUL_NUMBER_API").getResponse();
+    String baseHost = // get host from Consul
+
+    // This instance will be invoked if there are errors of any kind.
+    NumbersApi fallback = () -> {
+        return "FALLBACK ISBN";
+    };
+
+    return HystrixFeign.builder()
+            .logger(new Slf4jLogger(NumbersApi.class))
+            .logLevel(Logger.Level.FULL)
+            .target(NumbersApi.class, baseHost + basePath, fallback);
+}
+----
 
 
 == Demo
