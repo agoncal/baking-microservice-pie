@@ -3,18 +3,22 @@ ifndef::imagesdir[:imagesdir: images]
 = Security
 
 [%step]
-* xxx
-* xxx
-* xxx
+* Number API is a public API
+* Book API HTTP GETs are public
+* Book API HTTP POST / PUT / DELETE need authentication
+* We need to centralize HTTP requests
+* Filter the ones that need auth
 
 == Architecture
 
 image::security-architecture.png[]
 
-== xx
+== How do we centralize requests ?
 
+[%step]
+* xxx
 
-== xxx
+== Gateway
 
 [%step]
 * xxx

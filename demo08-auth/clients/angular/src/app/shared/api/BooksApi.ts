@@ -138,7 +138,8 @@ export class BooksApi {
                     .replace('${' + 'id' + '}', String(id));
 
         let queryParameters = new URLSearchParams();
-        this.defaultHeaders.set('Authorization', this.authService.jwt);
+        var jwt = this.authService.jwt;
+        this.defaultHeaders.set('Authorization', jwt);
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
@@ -175,8 +176,8 @@ export class BooksApi {
         const path = this.basePath + '/books';
 
         let queryParameters = new URLSearchParams();
-
-        this.defaultHeaders.set('Authorization', this.authService.jwt);
+        var jwt = this.authService.jwt;
+        this.defaultHeaders.set('Authorization', jwt);
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
           // verify required parameter 'body' is not null or undefined
           if (body === null || body === undefined) {
@@ -287,7 +288,8 @@ export class BooksApi {
         const path = this.basePath + '/books';
 
         let queryParameters = new URLSearchParams();
-        this.defaultHeaders.set('Authorization', this.authService.jwt);
+        var jwt = this.authService.jwt;
+        this.defaultHeaders.set('Authorization', jwt);
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
