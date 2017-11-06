@@ -104,7 +104,7 @@ public class ConsulManagementService {
             final DefaultClientConfigImpl clientConfig = getClientConfigWithDefaultValues("number-api");
             clientConfig.set(NFLoadBalancerClassName, "com.netflix.loadbalancer.DynamicServerListLoadBalancer");
             clientConfig.set(NFLoadBalancerRuleClassName, "com.netflix.loadbalancer.RoundRobinRule");
-            clientConfig.set(ServerListRefreshInterval, 10000);
+            clientConfig.set(ServerListRefreshInterval, 3000);
 
             final DynamicServerListLoadBalancer dynamicServerListLoadBalancer =
                     (DynamicServerListLoadBalancer) registerNamedLoadBalancerFromclientConfig("number-api", clientConfig);

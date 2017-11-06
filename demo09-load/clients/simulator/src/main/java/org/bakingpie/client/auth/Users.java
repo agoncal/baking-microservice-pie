@@ -36,12 +36,6 @@ public class Users {
         users.add(user("radcortez", "12345678"));
         users.add(user("goku", "12345678"));
         users.add(user("vegeta", "12345678"));
-        users.add(user("beerus", "12345678"));
-        users.add(user("whis", "12345678"));
-        users.add(user("gohan", "12345678"));
-        users.add(user("goten", "12345678"));
-        users.add(user("trunks", "12345678"));
-        users.add(user("piccolo", "12345678"));
     }
 
     static List<User> getUsers() {

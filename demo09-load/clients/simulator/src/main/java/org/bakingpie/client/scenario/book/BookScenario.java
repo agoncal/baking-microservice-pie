@@ -64,24 +64,6 @@ public class BookScenario extends ScenarioInvoker {
     @Override
     protected List<Endpoint> getEndpoints() {
         return Stream.of(endpoint(contextRoot + "/books", "GET"),
-                         endpoint(contextRoot + "/books", "GET"),
-                         endpoint(contextRoot + "/books", "GET"),
-                         endpoint(contextRoot + "/books", "GET"),
-                         endpoint(contextRoot + "/books", "GET"),
-                         endpoint(contextRoot + "/books", "GET"),
-                         endpoint(contextRoot + "/books", "GET"),
-                         endpoint(contextRoot + "/books", "GET"),
-                         endpoint(contextRoot + "/books", "GET"),
-                         endpoint(contextRoot + "/books", "GET"),
-                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
-                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
-                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
-                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
-                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
-                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
-                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
-                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
-                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
                          endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
                          endpointWithEntity(contextRoot + "/books", "POST", this::createBook),
                          endpointWithTemplates(contextRoot + "/books/{id}", "DELETE", this::deleteBook)
@@ -118,7 +100,7 @@ public class BookScenario extends ScenarioInvoker {
     private Client client;
 
     private Integer getRandomBook() {
-        final WebTarget webTarget = client.target(targetUrl).path("book-api/api/books");
+        final WebTarget webTarget = client.target(targetUrl).path(contextRoot + "/books");
         final List<Book> books = webTarget.request().get(new GenericType<List<Book>>() {});
         return books.isEmpty() ? 1 : books.get((int) (Math.random() * books.size())).getId();
     }
