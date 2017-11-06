@@ -29,12 +29,9 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService
       .login(this.user, this.password)
-      // .mergeMap(jwt => this.route.queryParams)
-      // .map(qp => qp['redirectTo'])
       .subscribe(redirectTo => {
         if (this.authService.isLoggedIn) {
-          let url = redirectTo ? [redirectTo] : ['/'];
-          this.router.navigate(url);
+          this.router.navigate(['/']);
         }
       });
   }

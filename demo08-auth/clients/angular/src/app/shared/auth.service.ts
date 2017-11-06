@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 export class AuthService {
 
   private _jwt: string;
-  protected basePath = 'http://localhost:9000/oauth2/token';
+  protected basePath = 'http://localhost:8081/book-api/api/auth';
 
   constructor(private http: Http) {
   }
@@ -44,7 +44,7 @@ export class AuthService {
 
     var headers: Headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    var body = `login=${login}&password=${password}&grant_type=password`;
+    var body = `username=${login}&password=${password}`;
 
     let requestOptions: RequestOptionsArgs = {
       headers: headers
@@ -56,7 +56,7 @@ export class AuthService {
         if (response.status !== 200) {
           return undefined;
         }
-        response.headers.getAll('authorization');
+        //response.headers.getAll('authorization');
 
         this.jwt = response.headers.get('authorization');
 
