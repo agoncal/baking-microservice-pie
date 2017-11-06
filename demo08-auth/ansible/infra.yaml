@@ -26,7 +26,7 @@
   - name: Tribestream Access Gateway
     docker_container:
       name: tag
-      image: docker-registry:5000/tomitribe/tag-dev:rpi
+      image: docker-registry:5000/radcortez/tag-dev:rpi
       state: started
       restart: yes
       pull: true
