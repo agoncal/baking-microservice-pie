@@ -13,10 +13,11 @@ ifndef::imagesdir[:imagesdir: images]
 
 image::security-architecture.png[]
 
-== How do we centralize requests ?
+== Gateway
 
 [%step]
-* We use a Proxy
+* Centralize requests
+* Think of it as a Proxy
 * Expose the service endpoint in the Proxy
 * Call the service through the Proxy
 * Intercepts the request
@@ -27,7 +28,7 @@ image::security-architecture.png[]
 [%step]
 * Amazon API Gateway
 * Apigee Gateway
-* Tribestream Acess Gateway
+* Tribestream Access Gateway
 
 == What is Tribestream Access Gateway
 

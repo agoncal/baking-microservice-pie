@@ -17,7 +17,8 @@ image::registry-architecture.png[]
 [%step]
 * Think of it as DNS resolution
 * A service registers with a name
-* Another services looks for it by name
+* Another service looks for it by name
+* Several instances of the same service
 
 == Several to choose from
 

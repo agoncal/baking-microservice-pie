@@ -26,9 +26,9 @@ image::scale-architecture.png[]
 
 [%step]
 * Amazon Elastic Load Balancing (ELB)
-* Netflix Ribbon
 * Apache Httpd
 * Nginx
+* Netflix Ribbon
 
 == What is Ribbon?
 

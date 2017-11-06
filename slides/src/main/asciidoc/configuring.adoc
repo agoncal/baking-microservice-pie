@@ -14,17 +14,25 @@ image::configuring-architecture.png[]
 == Code Configuration
 
 [%step]
+* Configure parts of the application
+* Business configuration
+** VAT rate
+** Currency
+* Technical configuration
+** Different environment
+** IP addresses / port numbers
+** Timeout
+
+== Several to choose from
+
+[%step]
 * Environment variable
 * Property files
 * XML, JSon, Yaml
 * Database
 * JNDI in Java EE
 * Spring Config
-
-== Several to choose from
-
-[%step]
-* xxx
+* MicroProfile Configuration
 
 == MicroProfile Configuration
 

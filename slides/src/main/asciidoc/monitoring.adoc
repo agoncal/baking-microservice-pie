@@ -12,17 +12,16 @@ ifndef::imagesdir[:imagesdir: images]
 
 image::monitoring-architecture.png[]
 
-== Tail-f on each PI
-
-[source,shell]
-----
-$ ssh pirate@pi-grom-server-01
-$ docker logs -f container_name
-----
-
 == Central Monitoring
 
 [%step]
+* Centralize logs
+* Easier to  vizualize
+* Several nodes logging to a single place
+* Allows to quickly see failures
+
+== Several to choose from
+
 * Home made log aggregation
 * Syslog
 * Fluentd

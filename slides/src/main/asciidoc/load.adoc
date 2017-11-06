@@ -4,35 +4,13 @@ ifndef::imagesdir[:imagesdir: images]
 
 [%step]
 * We have microservices all over
-* They depend on each other
+* They all depend on each other
+* We have several clients
+* We have several services
 * Things (can) go wrong
-* How do they handle breaks?
+* Things always go wrong !
 
-== Architecture
-
-image::load-architecture.png[]
-
-== Hard coded rescue alert
-
-
-== Circuit Breaker
-
-[%step]
-* xxx
-* xxx
-* xxx
-
-== Several to choose from
-
-[%step]
-* xxx
-* xxx
-* Netflix Hystrix
-
-== Break with Hystrix
-
-
-== Architecture
+== Demo
 
 image::load-architecture.png[]
 

@@ -20,12 +20,22 @@ image::basic-architecture.png[]
 == Several to choose from
 
 [%step]
-* xxx
+* Dropwizard
+* Lagom
+* Vert.x
+* Spring Boot
+* MicroProfile
 
 == What is MicroProfile?
 
 [%step]
-* xxx
+* Comes from Java EE (EE4J)
+* JAX-RS + CDI + JSON-P
+* Extensions
+** Configuration
+** Security
+** Health Check
+** Fault tolerance
 
 == Number API
 
