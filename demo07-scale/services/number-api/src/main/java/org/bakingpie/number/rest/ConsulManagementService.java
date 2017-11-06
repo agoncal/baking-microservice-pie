@@ -60,15 +60,16 @@ public class ConsulManagementService {
         Consul consul = Consul.builder().withUrl(consulHost + ":" + consulPort).build(); // connect to Consul on localhost
         agentClient = consul.agentClient();
 
-        final ImmutableRegistration registration =
-            ImmutableRegistration.builder()
-                                 .id(UUID.randomUUID().toString())
-                                 .name(NUMBER_API_NAME)
-                                 .address(numberApiHost)
-                                 .port(numberApiPort)
-                                 .check(http(numberApiHost + ":" + numberApiPort + "/number-api/api/numbers/health", 10))
-                                 .build();
+        // tag::adocSnippet[]
+        final ImmutableRegistration registration = ImmutableRegistration.builder()
+            .id(UUID.randomUUID().toString())
+            .name(NUMBER_API_NAME)
+            .address(numberApiHost)
+            .port(numberApiPort)
+            .check(http(numberApiHost + ":" + numberApiPort + "/number-api/api/numbers/health", 10))
+            .build();
         agentClient.register(registration);
+        // end::adocSnippet[]
 
         log.info(NUMBER_API_NAME + " is registered in consul on " + numberApiHost + ":" + numberApiPort);
     }

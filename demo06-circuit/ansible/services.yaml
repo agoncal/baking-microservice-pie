@@ -17,7 +17,7 @@
       ports:
        - "8084:8084"
       env:
-        NUMBER_API_HOST: http://pi-grom-server-01
+        NUMBER_API_HOST: http://{{inventory_hostname}}
         NUMBER_API_PORT: 8084
         CONSUL_HOST: http://pi-grom-database
         CONSUL_POST: 8500

@@ -99,6 +99,7 @@ public class ConsulManagementService {
         log.info(BOOK_API_NAME + " is un-registered from consul");
     }
 
+    // tag::adocSnippet[]
     private void registerLoadBalancer(final Consul consul) {
         try {
             final DefaultClientConfigImpl clientConfig = getClientConfigWithDefaultValues("number-api");
@@ -114,6 +115,7 @@ public class ConsulManagementService {
             e.printStackTrace();
         }
     }
+    // end::adocSnippet[]
 
     private static class NumberApiServers implements ServerList<Server> {
         final Consul consul;

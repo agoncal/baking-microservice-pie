@@ -46,5 +46,5 @@ image::load-architecture.png[]
 
 == But there are more
 
-image::patterns.png[]
+image::patterns.jpg[]
 

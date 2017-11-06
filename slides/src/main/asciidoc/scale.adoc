@@ -4,16 +4,13 @@ ifndef::imagesdir[:imagesdir: images]
 
 [%step]
 * We need to scale our microservices
-* Several Number Generator
+* Several Number Generators
 * Deployed on several Pis
 * Which instance to choose from?
 
 == Architecture
 
 image::scale-architecture.png[]
-
-== Pick your own
-
 
 == Client-Side Load Balancing
 
@@ -29,8 +26,32 @@ image::scale-architecture.png[]
 * Amazon Elastic Load Balancing (ELB)
 * Netflix Ribbon
 
-== Load-balance with Ribbon
+== What is Ribbon?
 
+[%step]
+* Netflix implementation of Client-Side Load Balancing
+* Integrates with Feign using `HystrixFeign`
+
+== Register several Number APIs in Consul
+
+[source,java,indent=0]
+----
+include::{demo07numberapidir}/src/main/java/org/bakingpie/number/rest/ConsulManagementService.java[tags=adocSnippet]
+----
+
+== Book API Registers the Ribbon Load-balancer
+
+[source,java,indent=0]
+----
+include::{demo07bookapidir}/src/main/java/org/bakingpie/book/rest/ConsulManagementService.java[tags=adocSnippet]
+----
+
+== Book API Load-balances with Feign
+
+[source,java]
+----
+include::{demo07bookapidir}/src/main/java/org/bakingpie/book/client/ApiClient.java[tags=adocSnippet]
+----
 
 == Demo
 

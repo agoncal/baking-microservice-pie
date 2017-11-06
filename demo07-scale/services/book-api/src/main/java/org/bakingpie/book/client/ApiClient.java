@@ -3,9 +3,7 @@ package org.bakingpie.book.client;
 import feign.Logger;
 import feign.hystrix.HystrixFeign;
 import feign.ribbon.LoadBalancingTarget;
-import feign.slf4j.Slf4jLogger;
 import org.bakingpie.book.client.api.NumbersApi;
-import org.slf4j.LoggerFactory;
 
 import javax.annotation.Generated;
 
@@ -22,9 +20,11 @@ public class ApiClient {
             return "FALLBACK ISBN";
         };
 
+        // tag::adocSnippet[]
         return HystrixFeign.builder()
-                .logger(new Logger.JavaLogger())
-                .logLevel(Logger.Level.FULL)
-                .target(LoadBalancingTarget.create(NumbersApi.class, "http://number-api" + basePath), fallback);
+            .logger(new Logger.JavaLogger())
+            .logLevel(Logger.Level.FULL)
+            .target(LoadBalancingTarget.create(NumbersApi.class, "http://number-api" + basePath), fallback);
+        // end::adocSnippet[]
     }
 }

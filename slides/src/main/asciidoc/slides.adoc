@@ -23,6 +23,8 @@ ifndef::imagesdir[:imagesdir: images]
 :demo06bookapidir: ../../../../demo06-circuit/services/book-api
 :demo06dir: ../../../../demo06-circuit
 :demo07dir: ../../../../demo07-scale
+:demo07numberapidir: ../../../../demo07-scale/services/number-api
+:demo07bookapidir: ../../../../demo07-scale/services/book-api
 :demo08dir: ../../../../demo08-auth
 :demo09dir: ../../../../demo09-load
 
