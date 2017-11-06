@@ -28,3 +28,18 @@
       volumes: /usr/local/share/nginx/default:/etc/nginx/sites-enabled/default:ro
 
     when: inventory_hostname == "pi-client-01"
+
+  - name: Deploy Simulator
+    docker_container:
+      name: simulator
+      image: docker-registry:5000/baking/simulator:rpi
+      state: started
+      restart: yes
+      pull: true
+      env:
+        BOOK_TARGET_URL: http://pi-thrall-database:9000
+        BOOK_CONTEXT_ROOT: http://pi-thrall-database:9000
+      log_driver: gelf
+      log_options:
+        gelf-address: udp://elk:12201
+    when: (inventory_hostname == "pi-client-02") or (inventory_hostname == "pi-client-03")

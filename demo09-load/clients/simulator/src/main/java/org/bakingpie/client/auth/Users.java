@@ -32,14 +32,16 @@ public class Users {
 
     private Users() {
         users = new ArrayList<>();
-        users.add(user("goku", "demo"));
-        users.add(user("vegeta", "demo"));
-        users.add(user("beerus", "demo"));
-        users.add(user("whis", "demo"));
-        users.add(user("gohan", "demo"));
-        users.add(user("goten", "demo"));
-        users.add(user("trunks", "demo"));
-        users.add(user("piccolo", "demo"));
+        users.add(user("agoncal", "12345678"));
+        users.add(user("radcortez", "12345678"));
+        users.add(user("goku", "12345678"));
+        users.add(user("vegeta", "12345678"));
+        users.add(user("beerus", "12345678"));
+        users.add(user("whis", "12345678"));
+        users.add(user("gohan", "12345678"));
+        users.add(user("goten", "12345678"));
+        users.add(user("trunks", "12345678"));
+        users.add(user("piccolo", "12345678"));
     }
 
     static List<User> getUsers() {

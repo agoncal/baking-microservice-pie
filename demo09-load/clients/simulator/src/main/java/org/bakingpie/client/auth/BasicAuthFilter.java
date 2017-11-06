@@ -21,8 +21,6 @@ import org.bakingpie.client.scenario.WeightedRandomResult;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientRequestContext;
 import javax.ws.rs.client.ClientRequestFilter;
 import javax.ws.rs.core.HttpHeaders;
@@ -34,9 +32,6 @@ import java.util.List;
 
 @ApplicationScoped
 public class BasicAuthFilter implements ClientRequestFilter {
-    @Inject
-    private Client client;
-
     private WeightedRandomResult<User> users;
 
     @PostConstruct

@@ -52,6 +52,10 @@ public class BookScenario extends ScenarioInvoker {
     @ConfigProperty(name = "BOOK_TARGET_URL", defaultValue = "http://localhost:8081")
     private String targetUrl;
 
+    @Inject
+    @ConfigProperty(name = "BOOK_CONTEXT_ROOT", defaultValue = "book-api/api")
+    private String contextRoot;
+
     @Override
     protected String getTargetUrl() {
         return targetUrl;
@@ -59,7 +63,6 @@ public class BookScenario extends ScenarioInvoker {
 
     @Override
     protected List<Endpoint> getEndpoints() {
-        final String contextRoot = "book-api/api"; // TODO - Externalize
         return Stream.of(endpoint(contextRoot + "/books", "GET"),
                          endpointWithEntity(contextRoot + "/books", "POST", this::createBook),
                          endpointWithTemplates(contextRoot + "/books/{id}", "DELETE", this::deleteBook),
