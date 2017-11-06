@@ -46,8 +46,25 @@
           </li>
           <li>
             <a class="dropdown-item" href="http://localhost:9000/tag" target="_blank">
-              <i class="fa fa-fw fa-map" aria-hidden="true"></i>
-              <span>Tribestream Access Gateway</span>
+              <i class="fa fa-fw fa-id-card" aria-hidden="true"></i>
+              <span>Gateway</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="dropdown-profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+        <ul class="dropdown-menu" aria-labelledby="dropdown-admin">
+          <li>
+            <a class="dropdown-item" [routerLink]="['/login']">
+              <i class="fa fa-fw fa-sign-in" aria-hidden="true"></i>
+              <span>Sign-in</span>
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" [routerLink]="['/logout']">
+              <i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>
+              <span>Sign-out</span>
             </a>
           </li>
         </ul>

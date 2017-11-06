@@ -23,16 +23,20 @@ import 'rxjs/add/operator/map';
 import * as models                                           from '../model/models';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
+import { AuthService } from '../auth.service';
 
 
 @Injectable()
 export class BooksApi {
 
-    protected basePath = 'http://localhost:8081/book-api/api';
+    protected basePath = 'http://localhost:9000';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 
-    constructor(protected http: Http, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
+    constructor(protected http: Http,
+                protected authService: AuthService,
+                @Optional()@Inject(BASE_PATH) basePath: string,
+                @Optional() configuration: Configuration) {
         if (basePath) {
             this.basePath = basePath;
         }
@@ -130,10 +134,14 @@ export class BooksApi {
      * @param id
      */
     public _deleteWithHttpInfo(id: number, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/books/${id}'
-                    .replace('${' + 'id' + '}', String(id));
+        const path = this.basePath + '/books/${id}'.replace('${' + 'id' + '}', String(id));
 
         let queryParameters = new URLSearchParams();
+        var jwt = this.authService.jwt;
+        if (jwt != null) {
+          this.defaultHeaders.set('Authorization', jwt);
+        }
+
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
@@ -170,6 +178,10 @@ export class BooksApi {
         const path = this.basePath + '/books';
 
         let queryParameters = new URLSearchParams();
+        var jwt = this.authService.jwt;
+        if (jwt != null) {
+          this.defaultHeaders.set('Authorization', jwt);
+        }
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
@@ -280,6 +292,10 @@ export class BooksApi {
         const path = this.basePath + '/books';
 
         let queryParameters = new URLSearchParams();
+        var jwt = this.authService.jwt;
+        if (jwt != null) {
+          this.defaultHeaders.set('Authorization', jwt);
+        }
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {

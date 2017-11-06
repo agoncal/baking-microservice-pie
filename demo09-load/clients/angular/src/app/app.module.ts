@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdministratorModule } from './administrator/administrator.module';
+import { ProfileModule } from './profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { AdministratorModule } from './administrator/administrator.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdministratorModule
+    AdministratorModule,
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]

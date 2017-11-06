@@ -1,0 +1,71 @@
+version: '2'
+services:
+#    angular-app:
+#        image: baking/angular:default
+#        container_name: angular
+#        ports:
+#            - 8080:80
+#        depends_on:
+#          - book-api
+#          - number-api
+#    book-api:
+#        image: baking/book-api:default
+#        container_name: book-api
+#        ports:
+#            - 8081:8081
+#        logging:
+#          driver: gelf
+#          options:
+#            gelf-address: udp://localhost:12201
+#        depends_on:
+#          - consul
+#          - elk
+#          - number-api
+#          - tag
+#        environment:
+#          - BOOK_API_HOST=http://book-api
+#          - BOOK_API_PORT=8081
+#          - CONSUL_HOST=http://consul
+#          - CONSUL_POST=8500
+#    number-api:
+#        image: baking/number-api:default
+#        container_name: number-api
+#        ports:
+#            - 8084:8084
+#        logging:
+#          driver: gelf
+#          options:
+#            gelf-address: udp://localhost:12201
+#        depends_on:
+#          - consul
+#          - elk
+#          - tag
+#        environment:
+#          - NUMBER_API_HOST=http://number-api
+#          - NUMBER_API_PORT=8084
+#          - CONSUL_HOST=http://consul
+#          - CONSUL_POST=8500
+#          - NUMBER_API_FAKE_TIMEOUT=0
+#    elk:
+#        image: radcortez/elk
+#        container_name: elk
+#        ports:
+#            - 5601:5601
+#            - 9200:9200
+#            - 5044:5044
+#            - 12201:12201/udp
+#        volumes:
+#          - ./infra/elk/:/etc/logstash/conf.d/
+    consul:
+        image: consul:1.0.0
+        container_name: consul
+        ports:
+            - 8300:8300
+            - 8500:8500
+            - 8600:8600
+        command: consul agent -dev -ui -client 0.0.0.0
+    tag:
+        image: radcortez/tag-dev:default
+        container_name: tag
+        ports:
+          - 9000:8080
