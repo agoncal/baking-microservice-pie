@@ -28,8 +28,27 @@ image::security-architecture.png[]
 * RAML
 * JWT
 
-== JWT
+== JSon Web Token
 
+[%step]
+* Lightweight token
+* Contains « some » data (claims)
+* Base64
+* Can be Encrypted
+* Passed in the HTTP Header
+* Sent at each request
+
+== A Token
+
+image::jwt.png[]
+
+== A Token
+
+image::jwt-color.png[]
+
+== A Token
+
+image::jwt-content.png[]
 
 == Demo
 
