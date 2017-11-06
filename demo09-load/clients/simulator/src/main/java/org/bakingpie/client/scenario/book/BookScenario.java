@@ -64,9 +64,28 @@ public class BookScenario extends ScenarioInvoker {
     @Override
     protected List<Endpoint> getEndpoints() {
         return Stream.of(endpoint(contextRoot + "/books", "GET"),
+                         endpoint(contextRoot + "/books", "GET"),
+                         endpoint(contextRoot + "/books", "GET"),
+                         endpoint(contextRoot + "/books", "GET"),
+                         endpoint(contextRoot + "/books", "GET"),
+                         endpoint(contextRoot + "/books", "GET"),
+                         endpoint(contextRoot + "/books", "GET"),
+                         endpoint(contextRoot + "/books", "GET"),
+                         endpoint(contextRoot + "/books", "GET"),
+                         endpoint(contextRoot + "/books", "GET"),
+                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
+                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
+                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
+                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
+                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
+                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
+                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
+                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
+                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
+                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook),
                          endpointWithEntity(contextRoot + "/books", "POST", this::createBook),
-                         endpointWithTemplates(contextRoot + "/books/{id}", "DELETE", this::deleteBook),
-                         endpointWithTemplates(contextRoot + "/books/{id}", "GET", this::findBook))
+                         endpointWithTemplates(contextRoot + "/books/{id}", "DELETE", this::deleteBook)
+                        )
                      .collect(collectingAndThen(toList(), Collections::unmodifiableList));
     }
 
