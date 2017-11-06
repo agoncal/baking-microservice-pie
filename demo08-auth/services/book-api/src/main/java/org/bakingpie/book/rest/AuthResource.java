@@ -39,7 +39,9 @@ public class AuthResource {
 
         if (response.getStatus() == 200) {
             final Token token = response.readEntity(Token.class);
-            return Response.ok().entity(token.access_token).build();
+            return Response.ok()
+                           .header("Authorization", "Bearer " + token.access_token)
+                           .entity(token.access_token).build();
         }
 
         return Response.status(Response.Status.BAD_REQUEST).build();
