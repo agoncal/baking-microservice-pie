@@ -16,7 +16,7 @@
     <button type="button" class="btn btn-secondary" (click)="cancel()">
       <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
     </button>
-    <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+    <button type="submit" [disabled]="editForm.form.invalid" class="btn btn-primary">
       <span class="fa fa-sign-in"></span>&nbsp;<span>Login</span>
     </button>
   </div>
