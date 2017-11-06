@@ -30,9 +30,10 @@ image::registry-architecture.png[]
 == What is Consul?
 
 [%step]
-* xxx
-* xxx
-* xxx
+* Solution to connect and configure applications
+* Distributed, highly available, and data center aware
+* Dynamic Service Discovery
+* Runtime Configuration
 
 == Register with Consul
 
@@ -57,7 +58,7 @@ include::{demo05bookapidir}/src/main/java/org/bakingpie/book/client/ApiClient.ja
 
 == Consul UI
 
-// TODO add an image of Consul UI
+image::consul.png[]
 
 == Demo
 

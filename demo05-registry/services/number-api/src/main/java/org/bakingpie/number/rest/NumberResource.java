@@ -47,7 +47,7 @@ public class NumberResource {
     // tag::adocSnippet[]
     @GET
     @Path("health")
-    @ApiOperation(value = "Checks the health of this REST endpoint", response = String.class)
+    @ApiOperation(value = "Health of this REST endpoint", response = String.class)
     public Response health() {
         log.info("Alive and Kicking !!!");
         return Response.ok().build();
