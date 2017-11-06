@@ -40,6 +40,7 @@
         BOOK_API_PORT: 8081
         CONSUL_HOST: http://pi-grom-database
         CONSUL_POST: 8500
+        OAUTH2_TOKEN_ENDPOINT: http://pi-thrall-database:9000/oauth2/token
       log_driver: gelf
       log_options:
         gelf-address: udp://elk:12201
