@@ -32,6 +32,8 @@ image::security-architecture.png[]
 * RAML
 * JWT
 
+== What is TribeStream AccessGateway
+
 == JSon Web Token
 
 [%step]

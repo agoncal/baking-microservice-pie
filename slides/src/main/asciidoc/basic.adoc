@@ -12,6 +12,21 @@ ifndef::imagesdir[:imagesdir: images]
 
 image::basic-architecture.png[]
 
+== Develop Microservices
+
+[%step]
+* xxx
+
+== Several to choose from
+
+[%step]
+* xxx
+
+== What is MicroProfile?
+
+[%step]
+* xxx
+
 == Number API
 
 [%step]

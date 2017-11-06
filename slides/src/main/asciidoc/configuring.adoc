@@ -11,7 +11,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 image::configuring-architecture.png[]
 
-== How do we configure code ?
+== Code Configuration
 
 [%step]
 * Environment variable

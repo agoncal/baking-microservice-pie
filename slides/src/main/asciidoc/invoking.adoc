@@ -14,6 +14,25 @@ ifndef::imagesdir[:imagesdir: images]
 
 image::invoking-architecture.png[]
 
+== Invoke Microservices
+
+== Several to choose from
+
+[%step]
+* By hand
+* Apache HTTP Client
+* JAX-RS Client API
+* Netflix Feign
+
+== What is Feign?
+
+[%step]
+* Feign is a Java to HTTP client
+* Inspired by Retrofit, JAXRS-2.0, and WebSocket
+* Reducing the complexity of HTTP apis calls
+* Jersey or CXF
+* Clients for REST or SOAP services
+
 == Book API
 
 [%step]
@@ -38,23 +57,6 @@ include::{demo02bookapidir}/src/main/java/org/bakingpie/book/rest/BookResource.j
 * Open source
 * Support by Tomitribe
 * Executable Jar
-
-== How do we invoke Number API ?
-
-[%step]
-* By hand
-* Apache HTTP Client
-* JAX-RS Client API
-* Netflix Feign
-
-== What is Feign?
-
-[%step]
-* Feign is a Java to HTTP client
-* Inspired by Retrofit, JAXRS-2.0, and WebSocket
-* Reducing the complexity of HTTP apis calls
-* Jersey or CXF
-* Clients for REST or SOAP services
 
 == Number API Swagger Contract
 
