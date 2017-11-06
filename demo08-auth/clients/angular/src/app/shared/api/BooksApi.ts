@@ -138,6 +138,7 @@ export class BooksApi {
                     .replace('${' + 'id' + '}', String(id));
 
         let queryParameters = new URLSearchParams();
+        this.defaultHeaders.set('Authorization', this.authService.jwt);
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
@@ -176,36 +177,35 @@ export class BooksApi {
         let queryParameters = new URLSearchParams();
 
         this.defaultHeaders.set('Authorization', this.authService.jwt);
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+          // verify required parameter 'body' is not null or undefined
+          if (body === null || body === undefined) {
+              throw new Error('Required parameter body was null or undefined when calling create.');
+          }
+          // to determine the Content-Type header
+          let consumes: string[] = [
+              'application/json'
+          ];
 
-      let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-        // verify required parameter 'body' is not null or undefined
-        if (body === null || body === undefined) {
-            throw new Error('Required parameter body was null or undefined when calling create.');
-        }
-        // to determine the Content-Type header
-        let consumes: string[] = [
-            'application/json'
-        ];
+          // to determine the Accept header
+          let produces: string[] = [
+          ];
 
-        // to determine the Accept header
-        let produces: string[] = [
-        ];
+          headers.set('Content-Type', 'application/json');
 
-        headers.set('Content-Type', 'application/json');
+          let requestOptions: RequestOptionsArgs = new RequestOptions({
+              method: RequestMethod.Post,
+              headers: headers,
+              body: body == null ? '' : JSON.stringify(body), // https://github.com/angular/angular/issues/10612
+              search: queryParameters,
+              withCredentials:this.configuration.withCredentials
+          });
+          // https://github.com/swagger-api/swagger-codegen/issues/4037
+          if (extraHttpRequestParams) {
+              requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+          }
 
-        let requestOptions: RequestOptionsArgs = new RequestOptions({
-            method: RequestMethod.Post,
-            headers: headers,
-            body: body == null ? '' : JSON.stringify(body), // https://github.com/angular/angular/issues/10612
-            search: queryParameters,
-            withCredentials:this.configuration.withCredentials
-        });
-        // https://github.com/swagger-api/swagger-codegen/issues/4037
-        if (extraHttpRequestParams) {
-            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
-        }
-
-        return this.http.request(path, requestOptions);
+          return this.http.request(path, requestOptions);
     }
 
     /**
@@ -287,6 +287,7 @@ export class BooksApi {
         const path = this.basePath + '/books';
 
         let queryParameters = new URLSearchParams();
+        this.defaultHeaders.set('Authorization', this.authService.jwt);
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         // verify required parameter 'body' is not null or undefined
         if (body === null || body === undefined) {
