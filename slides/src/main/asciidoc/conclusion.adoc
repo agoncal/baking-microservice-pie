@@ -19,7 +19,7 @@ ifndef::imagesdir[:imagesdir: images]
 * We didn't have databases
 * We didn't have a complex business logic
 * We didn't have a complex network
-* We didn't duplicate and load balance the registry (SPOF)
+* We didn't duplicate and load balance the registry
 * We didn't use asynchronous events
 * We didn't do integration testing
 * We didn't do tracing (Zipkin)
@@ -86,8 +86,4 @@ image::question.jpg[]
 * Antonio Goncalves https://twitter.com/agoncal[@agoncal]
 * Roberto Cortez https://twitter.com/radcortez[@radcortez]
 * https://github.com/agoncal/baking-microservice-pie
-
-== Bye
-
-image::commitstrip.jpg[]
 

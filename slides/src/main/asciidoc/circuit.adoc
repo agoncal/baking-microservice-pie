@@ -27,6 +27,7 @@ image::circuit-architecture.png[]
 [%step]
 * Build your own (CDI)
 * JRugged
+* MicroProfile Fault-Tolerance
 * Netflix Hystrix
 
 == What is Hystrix?

@@ -30,7 +30,7 @@ image::security-architecture.png[]
 * Apigee Gateway
 * Tribestream Access Gateway
 
-== What is Tribestream Access Gateway
+== What is Tribestream Access Gateway?
 
 [%step]
 * API Security For Microservices

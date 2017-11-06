@@ -111,3 +111,4 @@ image::invoking-architecture.png[]
 
 [%step]
 * Monitoring our architecture
+* Figure out what's wrong
