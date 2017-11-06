@@ -1,0 +1,10 @@
+def message = params['_source']['message'];
+if (message.indexOf("ScenarioInvoker") != -1) {
+  if (message.indexOf("NotFoundException") != -1) {
+    return "404";
+  } else if (message.indexOf("ServiceUnavailableException") != -1) {
+    return "503";
+  }
+  return message.substring(message.length() - 3);
+}
+return null;
