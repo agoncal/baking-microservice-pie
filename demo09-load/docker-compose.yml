@@ -46,26 +46,26 @@ services:
 #          - CONSUL_HOST=http://consul
 #          - CONSUL_POST=8500
 #          - NUMBER_API_FAKE_TIMEOUT=0
-#    elk:
-#        image: radcortez/elk
-#        container_name: elk
+    elk:
+        image: radcortez/elk
+        container_name: elk
+        ports:
+            - 5601:5601
+            - 9200:9200
+            - 5044:5044
+            - 12201:12201/udp
+        volumes:
+          - ./infra/elk/:/etc/logstash/conf.d/
+#    consul:
+#        image: consul:1.0.0
+#        container_name: consul
 #        ports:
-#            - 5601:5601
-#            - 9200:9200
-#            - 5044:5044
-#            - 12201:12201/udp
-#        volumes:
-#          - ./infra/elk/:/etc/logstash/conf.d/
-    consul:
-        image: consul:1.0.0
-        container_name: consul
-        ports:
-            - 8300:8300
-            - 8500:8500
-            - 8600:8600
-        command: consul agent -dev -ui -client 0.0.0.0
-    tag:
-        image: radcortez/tag-dev:default
-        container_name: tag
-        ports:
-          - 9000:8080
+#            - 8300:8300
+#            - 8500:8500
+#            - 8600:8600
+#        command: consul agent -dev -ui -client 0.0.0.0
+#    tag:
+#        image: radcortez/tag-dev:default
+#        container_name: tag
+#        ports:
+#          - 9000:8080
