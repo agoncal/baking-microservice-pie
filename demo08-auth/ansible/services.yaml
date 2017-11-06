@@ -24,6 +24,7 @@
       log_driver: gelf
       log_options:
         gelf-address: udp://elk:12201
+    when: (inventory_hostname == "pi-grom-server-01") or (inventory_hostname == "pi-grom-server-02") or (inventory_hostname == "pi-thrall-server-01") or (inventory_hostname == "pi-thrall-server-02")
 
   - name: Deploy Book API
     docker_container:
