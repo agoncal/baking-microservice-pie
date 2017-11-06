@@ -3,12 +3,12 @@ ifndef::imagesdir[:imagesdir: images]
 = Micro services
 
 [%step]
-* Have you heard about micro services ?
+* Have you heard about Microservices ?
 * Do you know how big is a "micro" ?
-* Who plays with micro services ?
-* Who runs micro services ?
-* Who likes micro services ?
-* Who suffers with micro services ?
+* Who plays with Microservices ?
+* Who runs Microservices ?
+* Who likes Microservices ?
+* Who suffers with Microservices ?
 
 == What do people mean by micro services ?
 
@@ -25,7 +25,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 image::pizzas2.jpg[]
 
-== So, why micro services ?
+== So, why Microservices ?
 
 [%step]
 * Deliver new features quicker

@@ -3,9 +3,9 @@ ifndef::imagesdir[:imagesdir: images]
 = Let's start simple
 
 [%step]
-* We have one Number API Micro Service
+* We have one Number API Microservice
 * We have one Angular client
-* We use 2 Pis
+* We use 2 PIs
 * How do we deploy and make this run?
 
 == Architecture
@@ -147,11 +147,12 @@ image::basic-architecture-local.png[]
 == Deploy
 
 [%step]
-* We have Raspberry PIs
+* We have a bunch of Raspberry PIs
 * Running HypriotOS
-* We need to package everything with Docker
-* Use Docker registry
-* Push docker images to the PIs with Ansible
+* We package everything with Docker
+* Use a Local Docker registry
+* Push Docker images to the PIs with Ansible
+* We could have used Docker Swarm too.
 
 == Raspberry
 
@@ -174,7 +175,7 @@ image::basic-architecture-local.png[]
 [%step]
 * We don't use Docker Hub
 * Too slow
-* Using local Docker registry
+* Use a Local Docker Registry
 * Speed up deployment
 * Running on port 5000
 
@@ -229,5 +230,5 @@ image::basic-architecture.png[]
 == What's next ?
 
 [%step]
-* Adding more micro-services
+* Adding more Microservices
 * Communicating together

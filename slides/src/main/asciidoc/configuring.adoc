@@ -5,7 +5,7 @@ ifndef::imagesdir[:imagesdir: images]
 [%step]
 * Book API has hard coded Number API address
 * We have several environments (local, docker-compose, PIs)
-* We need to configure the IP addresses
+* We need to configure the correct Hosts
 
 == Architecture
 
@@ -21,18 +21,13 @@ image::configuring-architecture.png[]
 * JNDI in Java EE
 * Spring Config
 
-== Several to choose from
-
-[%step]
-* xxx
-
 == MicroProfile Configuration
 
 [%step]
 * Config locations are called `ConfigSources`
 * Same property defined in multiple `ConfigSources`
 * Some data sources may change dynamically
-* Without the need for restarting the application
+* Without the need to restart the application
 
 == Book API invoking Number API
 
@@ -66,4 +61,4 @@ image::configuring-architecture.png[]
 
 [%step]
 * Moving our services around
-* Adding a registry
+* Adding a Registry

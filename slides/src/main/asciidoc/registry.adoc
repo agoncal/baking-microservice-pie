@@ -3,8 +3,8 @@ ifndef::imagesdir[:imagesdir: images]
 = Registring
 
 [%step]
-* We have two microservices
-* Book and Number Generator
+* We have two Microservices
+* Book API and Number API
 * Can be deployed on any PI
 * How do they look for each other?
 
@@ -68,4 +68,4 @@ image::registry-architecture.png[]
 
 [%step]
 * Handling failures
-* Adding a circuit breaker
+* Adding a Circuit Breaker

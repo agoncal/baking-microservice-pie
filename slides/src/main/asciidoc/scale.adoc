@@ -3,10 +3,10 @@ ifndef::imagesdir[:imagesdir: images]
 = Scaling
 
 [%step]
-* We need to scale our micro services
-* Several Number Generators
+* We need to scale our Microservices
+* Several Number API's
 * All registered in Consul
-* Deployed on several Pis
+* Deployed on several PIs
 * Which instance to choose from?
 
 == Architecture
@@ -27,17 +27,18 @@ image::scale-architecture.png[]
 [%step]
 * Amazon Elastic Load Balancing (ELB)
 * Netflix Ribbon
+* Apache Httpd
+* Nginx
 
 == What is Ribbon?
 
 [%step]
 * Netflix implementation of Client-Side Load Balancing
-* Load balancing
-* Fault tolerance
-* Multiple protocol (HTTP, TCP, UDP) support
+* Fault tolerant
+* Multiple protocols (HTTP, TCP, UDP) support
 * Synchronous, asynchronous and reactive model
 * Caching and batching
-* Integrates with Feign using `HystrixFeign`
+* Integrates with Feign using `Feing Ribbon`
 
 == Register several Number APIs in Consul
 
@@ -67,5 +68,5 @@ image::scale-architecture.png[]
 == What's next ?
 
 [%step]
-* Securing micro-services
-* Adding a security token
+* Securing Microservices
+* Adding a Security Token

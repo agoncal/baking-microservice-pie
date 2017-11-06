@@ -3,8 +3,8 @@ ifndef::imagesdir[:imagesdir: images]
 = Circuit Breaker
 
 [%step]
-* We have two microservices
-* Book API call Number API
+* We have two Microservices
+* Book API calls Number API
 * But Number API can fail
 * How does Book API handle this failure?
 
@@ -38,7 +38,7 @@ image::circuit-architecture.png[]
 * Is the Circuit Open?
 ** Yes: Hystrix will not execute the command and fallsback
 ** No: proceeds
-* Integrates with Feign using `HystrixFeign`
+* Integrates with Feign using `Feign Hystrix`
 
 == Number API Failing
 
@@ -75,4 +75,4 @@ image::circuit-architecture.png[]
 
 [%step]
 * Scaling the architecture
-* Adding a load-balancer
+* Adding a Load Balancer

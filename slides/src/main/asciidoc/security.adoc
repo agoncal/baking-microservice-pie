@@ -16,23 +16,28 @@ image::security-architecture.png[]
 == How do we centralize requests ?
 
 [%step]
-* xxx
-
-== Gateway
-
-[%step]
-* xxx
-* xxx
-* xxx
+* We use a Proxy
+* Expose the service endpoint in the Proxy
+* Call the service through the Proxy
+* Intercepts the request
+* Apply Authentication and Authorization
 
 == Several to choose from
 
 [%step]
-* OAuth2
-* RAML
-* JWT
+* Amazon API Gateway
+* Apigee Gateway
+* Tribestream Acess Gateway
 
-== What is TribeStream AccessGateway
+== What is Tribestream Access Gateway
+
+[%step]
+* API Security For Microservices
+* OAuth 2
+* JWT
+* Http Signatures
+* Route Microservices
+* Load Balancer
 
 == JSon Web Token
 

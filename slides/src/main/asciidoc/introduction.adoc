@@ -5,8 +5,8 @@ ifndef::imagesdir[:imagesdir: images]
 [%step]
 * Welcome to Devoxx BE
 * Hope it's not too early...
-* ...and you are ready for a 3h talk
-* Thanks for coming
+* ...and that you are ready for a 3h session
+* Thank you for joining us
 
 == Roberto Cortez
 
@@ -20,7 +20,7 @@ image::antonio.jpg[]
 
 [%step]
 * This talk is about our journey...
-* ...through microservice architecture
+* ...through a Microservices architecture
 * We'll progressively build a MS architecture
 * Going from problem, to solution...
 * ...to problem, to solution...
@@ -42,12 +42,12 @@ image::load-architecture.png[]
 == Architecture
 
 [%step]
-* Micro services
+* Microservices
 * Monitoring
 * Configuration
-* Discovery mechanism
-* Load balancing
-* Circuit breaker
+* Discovery Mechanism
+* Load Balancing
+* Circuit Breaker
 * Security
 
 == Hardware

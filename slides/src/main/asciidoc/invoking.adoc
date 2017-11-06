@@ -3,11 +3,11 @@ ifndef::imagesdir[:imagesdir: images]
 = Invoking Micro-Services
 
 [%step]
-* We have one Number API Micro Service
-* We need one Book Micro Service
+* We have one Number API Microservice
+* We need one Book API Microservice
 * Book API invokes Number API
 * We have one Angular client
-* We use 3 Pis
+* We use 3 PIs
 * How do we deploy and make this run?
 
 == Architecture
@@ -29,7 +29,7 @@ image::invoking-architecture.png[]
 [%step]
 * Feign is a Java to HTTP client
 * Inspired by Retrofit, JAXRS-2.0, and WebSocket
-* Reducing the complexity of HTTP apis calls
+* Reducing the complexity of HTTP APIs calls
 * Jersey or CXF
 * Clients for REST or SOAP services
 
@@ -53,10 +53,11 @@ include::{demo02bookapidir}/src/main/java/org/bakingpie/book/rest/BookResource.j
 == Running on TomEE
 
 [%step]
+* TomEE = Tomcat + Java EE
 * Comes from Apache
 * Open source
-* Support by Tomitribe
-* Executable Jar
+* Supported by Tomitribe
+* Executable Fat-Jar
 
 == Number API Swagger Contract
 
@@ -97,7 +98,7 @@ include::{demo02bookapidir}/src/main/java/org/bakingpie/book/rest/BookResource.j
 
 [%step]
 * Now we have
-** 2 micro services
+** 2 Microservices
 ** 1 Angular app
 * All components in one file
 * Easy to run in development

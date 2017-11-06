@@ -3,8 +3,8 @@ ifndef::imagesdir[:imagesdir: images]
 = Monitoring
 
 [%step]
-* We have several microservices
-* Running on several Pis
+* We have several Microservices
+* Running on several PIs
 * Something goes wrong
 * How do we monitor them?
 
@@ -17,7 +17,7 @@ image::monitoring-architecture.png[]
 [source,shell]
 ----
 $ ssh pirate@pi-grom-server-01
-$ tail -f myserver.log
+$ docker logs -f container_name
 ----
 
 == Central Monitoring
@@ -38,15 +38,16 @@ $ tail -f myserver.log
 * Data processing pipeline
 * Ingests data from a multitude of sources
 * From Wildfly Swarm and TomEE logs
-* Sends to Elastic Search
+* Push to Elasticsearch
 
-== Elastic Search
+== Elasticsearch
 
 [%step]
 * Search and analytics engine
 * Centrally stores the data
-* From Logstash
-* So you can search our logs
+* From Logstash or other sources
+* So you can search out logs
+* Or any other information
 
 == Kibana
 
