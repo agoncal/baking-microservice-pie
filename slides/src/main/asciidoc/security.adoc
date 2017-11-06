@@ -56,6 +56,20 @@ image::jwt-color.png[]
 
 image::jwt-content.png[]
 
+== Asking for a Token
+
+[source,js]
+----
+include::{demo08angulardir}/src/app/shared/auth.service.ts[tags=adocSnippet;!adocSkip]
+----
+
+== Passing the Token around
+
+[source,js,indent=0]
+----
+include::{demo08angulardir}/src/app/shared/api/BooksApi.ts[tags=adocSnippet;!adocSkip]
+----
+
 == Demo
 
 image::security-architecture.png[]

@@ -133,15 +133,16 @@ export class BooksApi {
      *
      * @param id
      */
+    // tag::adocSnippet[]
     public _deleteWithHttpInfo(id: number, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + '/books/${id}'
-                    .replace('${' + 'id' + '}', String(id));
+        const path = this.basePath + '/books/${id}'.replace('${' + 'id' + '}', String(id));
 
         let queryParameters = new URLSearchParams();
         var jwt = this.authService.jwt;
         if (jwt != null) {
           this.defaultHeaders.set('Authorization', jwt);
         }
+        // tag::adocSkip[]
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
@@ -155,19 +156,23 @@ export class BooksApi {
         let produces: string[] = [
         ];
 
+        // end::adocSkip[]
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Delete,
             headers: headers,
             search: queryParameters,
             withCredentials:this.configuration.withCredentials
         });
+        // tag::adocSkip[]
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
         }
+        // end::adocSkip[]
 
         return this.http.request(path, requestOptions);
     }
+    // end::adocSnippet[]
 
     /**
      * Create a Book

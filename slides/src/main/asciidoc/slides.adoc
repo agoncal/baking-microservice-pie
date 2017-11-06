@@ -26,6 +26,7 @@ ifndef::imagesdir[:imagesdir: images]
 :demo07numberapidir: ../../../../demo07-scale/services/number-api
 :demo07bookapidir: ../../../../demo07-scale/services/book-api
 :demo08dir: ../../../../demo08-auth
+:demo08angulardir: ../../../../demo08-auth/clients/angular
 :demo09dir: ../../../../demo09-load
 
 // Introduction
