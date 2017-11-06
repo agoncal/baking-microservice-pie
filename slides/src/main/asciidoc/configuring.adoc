@@ -21,6 +21,11 @@ image::configuring-architecture.png[]
 * JNDI in Java EE
 * Spring Config
 
+== Several to choose from
+
+[%step]
+* xxx
+
 == MicroProfile Configuration
 
 [%step]
