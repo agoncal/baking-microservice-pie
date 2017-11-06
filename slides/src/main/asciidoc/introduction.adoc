@@ -33,10 +33,6 @@ image::question.jpg[]
 
 == Demo
 
-image::invoking-architecture.png[]
-
-== Architecture
-
 image::load-architecture.png[]
 
 == Architecture

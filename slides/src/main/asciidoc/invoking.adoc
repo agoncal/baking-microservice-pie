@@ -99,23 +99,11 @@ include::{demo02bookapidir}/src/main/java/org/bakingpie/book/client/ApiClient.ja
 include::{demo02bookapidir}/src/main/java/org/bakingpie/book/rest/BookResource.java[tags=adocCall]
 ----
 
-== Docker Compose
+== Demo (Local)
 
-[%step]
-* Now we have
-** 2 Microservices
-** 1 Angular app
-* All components in one file
-* Easy to run in development
+image::invoking-architecture-local.png[]
 
-== docker-compose.yml
-
-[source,yml]
-----
-include::{demo02dir}/docker-compose.yml[]
-----
-
-== Demo
+== Demo (PIs)
 
 image::invoking-architecture.png[]
 

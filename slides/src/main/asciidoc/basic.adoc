@@ -12,12 +12,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 image::basic-architecture.png[]
 
-== Develop Microservices
-
-[%step]
-* xxx
-
-== Several to choose from
+== Several ways to develop Microservices
 
 [%step]
 * Dropwizard

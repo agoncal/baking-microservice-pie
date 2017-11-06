@@ -1,0 +1,13 @@
+@startuml
+
+node "Mac" as piclient {
+    artifact "Angular APP" <<Express>> as angular
+
+    artifact "Book API" <<TomEE>> as bookapi
+
+    artifact "Number API" <<Wildfly Swarm>> as numberapi
+}
+
+angular -> numberapi: "     HTTP      "
+numberapi -> bookapi: "     HTTP      "
+@enduml
