@@ -3,28 +3,42 @@ ifndef::imagesdir[:imagesdir: images]
 = Circuit Breaker
 
 [%step]
-*
-*
-*
-*
+* We have two microservices
+* Book API call Number API
+* But Number API can fail
+* How does Book API handle this failure?
 
 == Architecture
 
 image::circuit-architecture.png[]
 
-== xxx
+== Circuit Breaker
 
 [%step]
-* xxx
-* xxx
-* xxx
+* Services sometimes collaborate when handling requests
+* When invoked synchronously, there is always the possibility of being unavailable
+* (or high latency)
+* The failure of one service can potentially cascade to others
+* Client should invoke a remote service via a proxy
+* If consecutive failures, the circuit breaks
 
-== xxx
+== Several to choose from
 
 [%step]
-* xxx
-* xxx
-* xxx
+* Build your own (CDI)
+* JRugged
+* Netflix Hystrix
+
+== What is Hystrix?
+
+[%step]
+* Netflix implementation of Circuit Breaker
+* Construct a `HystrixCommand` represents the request you are making
+* Execute the `HystrixCommand`
+* Is the Circuit Open?
+** Yes: Hystrix will not execute the command and fallsback
+** No: proceeds
+* Integrates with Feign using `HystrixFeign`
 
 == Number API Failing
 
@@ -39,11 +53,7 @@ include::{demo06numberapidir}/src/main/java/org/bakingpie/number/rest/NumberReso
 ----
 public NumbersApi buildNumberApiClient() {
 
-    Consul consul = Consul.builder().build();
-    HealthClient healthClient = consul.healthClient();
-
-    List<ServiceHealth> nodes = healthClient.getHealthyServiceInstances("CONSUL_NUMBER_API").getResponse();
-    String baseHost = // get host from Consul
+    // Get host from Consul
 
     // This instance will be invoked if there are errors of any kind.
     NumbersApi fallback = () -> {
@@ -56,7 +66,6 @@ public NumbersApi buildNumberApiClient() {
             .target(NumbersApi.class, baseHost + basePath, fallback);
 }
 ----
-
 
 == Demo
 

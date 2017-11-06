@@ -42,3 +42,9 @@ image::security-architecture.png[]
 
 image::load-architecture.png[]
 
+== We used many micro-service design patterns
+
+== But there are more
+
+image::patterns.png[]
+
