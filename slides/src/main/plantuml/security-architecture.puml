@@ -28,11 +28,16 @@ node "pi-grom-database" as piregistry #purple {
     artifact "Consul" as consule #white
 }
 
+node "pi-thrall-database" as pitag #purple {
+    artifact "Gateway" as gateway #white
+}
+
 node "Mac" as mac {
     artifact "ELK" as elk
 }
 
-angular -> bookapi: "     HTTP      "
+angular -> gateway
+gateway -> bookapi
 bookapi --> numberapi: "     HTTP      "
 bookapi --> numberapi2: "     HTTP      "
 bookapi --> numberapi3: "     HTTP      "

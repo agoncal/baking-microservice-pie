@@ -31,10 +31,11 @@ image::question.jpg[]
 
 == Demo
 
+image::invoking-architecture.png[]
+
 == Architecture
 
-// TODO Final architecture
-image::invoking-architecture.png[]
+image::load-architecture.png[]
 
 == Architecture
 
