@@ -3,8 +3,9 @@ ifndef::imagesdir[:imagesdir: images]
 = Scaling
 
 [%step]
-* We need to scale our microservices
+* We need to scale our micro services
 * Several Number Generators
+* All registered in Consul
 * Deployed on several Pis
 * Which instance to choose from?
 
@@ -15,8 +16,9 @@ image::scale-architecture.png[]
 == Client-Side Load Balancing
 
 [%step]
-* The client picks from among the registered instances of a given service
-* Then choose from among the candidate instances
+* Several instances of same service registered
+* The client gets all the registered instances
+* Then choose from among these instances
 * Following certain criterias
 * Capacity, round-robin, cloud-provider availability-zone awareness, multi-tenancy
 
@@ -30,6 +32,11 @@ image::scale-architecture.png[]
 
 [%step]
 * Netflix implementation of Client-Side Load Balancing
+* Load balancing
+* Fault tolerance
+* Multiple protocol (HTTP, TCP, UDP) support
+* Synchronous, asynchronous and reactive model
+* Caching and batching
 * Integrates with Feign using `HystrixFeign`
 
 == Register several Number APIs in Consul
