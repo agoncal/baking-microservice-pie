@@ -1,0 +1,14 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="logout()" #editForm="ngForm">
+
+  <div class="modal-body">
+    <h2>Are you sure you want to logout ?</h2>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="cancel()">
+      <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+    </button>
+    <button type="submit" class="btn btn-primary">
+      <span class="fa fa-sign-out"></span>&nbsp;<span>Logout</span>
+    </button>
+  </div>
+</form>
