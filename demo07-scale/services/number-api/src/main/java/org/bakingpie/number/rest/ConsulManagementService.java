@@ -66,7 +66,7 @@ public class ConsulManagementService {
             .name(NUMBER_API_NAME)
             .address(numberApiHost)
             .port(numberApiPort)
-            .check(http(numberApiHost + ":" + numberApiPort + "/number-api/api/numbers/health", 10))
+            .check(http(numberApiHost + ":" + numberApiPort + "/number-api/api/numbers/health", 5))
             .build();
         agentClient.register(registration);
         // end::adocSnippet[]

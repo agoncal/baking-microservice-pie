@@ -67,7 +67,7 @@ public class ConsulManagementService {
                                  .name(BOOK_API_NAME)
                                  .address(bookApiHost)
                                  .port(bookApiPort)
-                                 .check(http(bookApiHost + ":" + bookApiPort + "/book-api/api/books/health", 10))
+                                 .check(http(bookApiHost + ":" + bookApiPort + "/book-api/api/books/health", 5))
                                  .build();
         agentClient.register(registration);
 

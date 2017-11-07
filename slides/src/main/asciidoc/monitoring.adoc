@@ -22,6 +22,7 @@ image::monitoring-architecture.png[]
 
 == Several to choose from
 
+[%step]
 * Home made log aggregation
 * Syslog
 * Fluentd
