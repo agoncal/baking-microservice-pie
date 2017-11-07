@@ -54,7 +54,11 @@ image::quote-ak.png[]
 == Advantages
 
 [%step]
-* Scaling
+* Deliver new features quicker
+* Smaller, more agile teams
+* Deliver business features as services
+* Scale services independently
+* Address unpredictable loads
 * Cloud
 
 == But remember
