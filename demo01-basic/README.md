@@ -45,17 +45,25 @@ The client is available at:
 ### Locally
 
 To run the `number-api` locally, you just need to run the uber jar sitting in the project target folder. This jar 
-already contains all the required dependencies. The file is generated in the Build step. From the `services/number-api` 
-folder, run:    
+already contains all the required dependencies. The file is generated in the Build step. From  
+the root folder of the service run:
 
 ```bash
 java -jar target/number-api-01-swarm.jar
+
+
+GET http://localhost:8084/number-api/api/numbers/book
+Accept: */*
+Cache-Control: no-cache
 ```
 
 For the Angular application, use the developper's model in local and run:
 
 ```bash
 ng serve
+
+
+http://localhost:4200
 ```
 
 ### Docker

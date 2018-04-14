@@ -1,7 +1,7 @@
 # Demo 02
 
 This Demo has an extra service to do CRUD operations on Books (`book-api`). It needs the service to retrieve an 
-``identification number for a product (`number-api`). It contains:
+identification number for a product (`number-api`). It contains:
 
 * Services
     * book-api (TomEE on port 8081)
@@ -43,30 +43,43 @@ The services are available at:
 * `http://localhost:8084/number-api/api/`
 
 The client is available at:
-* `http://localhost:8080`**
+* `http://localhost:8080`
 
 ### Locally
 
 To run the `number-api` and `book-api` locally, you just need to run the uber jar sitting in the project target folder. 
-These jars already contains all the required dependencies. The files are generated in the Build step. From the each of 
+These jars already contains all the required dependencies. The files are generated in the Build step. From each of 
 the root folders of the services run:
 
 To run `number-api` locally.
 
 ```bash
 java -jar target/number-api-02-swarm.jar
+
+
+GET http://localhost:8084/number-api/api/numbers/book
+Accept: */*
+Cache-Control: no-cache
 ```
 
 To run the `book-api` locally, 
 
 ```bash
 java -jar target/book-api-02.jar
+
+
+GET http://localhost:8081/book-api/api/books
+Accept: application/json
+Cache-Control: no-cache
 ```
 
 For the Angular application, use the developer's model in local and run:
 
 ```bash
 ng serve
+
+
+http://localhost:4200
 ```
 
 ### Docker
@@ -119,4 +132,3 @@ ansible-playbook -i hosts deploy.yaml -vvv
 
 The client is available at:
 * `http://pi-client-01:8080`
-``
