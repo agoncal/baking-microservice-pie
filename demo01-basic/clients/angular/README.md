@@ -8,31 +8,35 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ```
 $ ng new store --directory angular --prefix store --routing true --skip-tests true --inline-style true
+
+$ cd angular
+
+$ ng config cli.packageManager '"yarn"'
 ```
 
 ### Twitter Bootstrap
 
 Install Bootstrap dependency 
 
-* `yarn add bootstrap@4.0.0-beta`
-* `yarn add jquery@3.2.1`
-* `yarn add popper.js@1.11.0`
+* `yarn add bootstrap@4.1.0`
+* `yarn add jquery@3.3.1`
+* `yarn add popper.js@1.14.3`
 * `yarn add font-awesome@4.7.0`
-* `yarn add ng-jhipster`
-* `yarn add eureka-js-client`
 
-* In `angular-cli.json` file add :
+* In `angular.json` file add :
 ```
-"styles": [
-  "../node_modules/bootstrap/dist/css/bootstrap.css",
-  "jumbotron.css",
-  "styles.css"
-],
-"scripts": [
-  "../node_modules/jquery/dist/jquery.slim.js",
-  "../node_modules/popper.js/dist/popper.js",
-  "../node_modules/bootstrap/dist/js/bootstrap.js"
-],
+            "styles": [
+              "../node_modules/bootstrap/dist/css/bootstrap.css",
+              "jumbotron.css",
+              {
+                "input": "src/styles.css"
+              }
+            ],
+            "scripts": [
+              "../node_modules/jquery/dist/jquery.slim.js",
+              "../node_modules/popper.js/dist/popper.js",
+              "../node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
 ```
 * In `app.module.ts`
 ```
