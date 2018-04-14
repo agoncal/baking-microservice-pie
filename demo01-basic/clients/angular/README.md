@@ -4,6 +4,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Angular CLI commands
 
+Make sure you have an Angular CLI 6.x installed globally. If not, execute the following : 
+ 
+```
+$ yarn global add @angular/cli@6.0.0-rc.4
+```
+
 ### Initiliaze
 
 ```
@@ -14,14 +20,25 @@ $ cd angular
 $ ng config cli.packageManager '"yarn"'
 ```
 
+Installer Prettier
+
+```
+$ yarn add prettier --dev --exact
+
+$ touch prettier.config.js  .prettierignore
+```
+
 ### Twitter Bootstrap
 
 Install Bootstrap dependency 
 
-* `yarn add bootstrap@4.1.0`
-* `yarn add jquery@3.3.1`
-* `yarn add popper.js@1.14.3`
 * `yarn add font-awesome@4.7.0`
+* `yarn add popper.js@1.14.3`
+* `yarn add jquery@3.3.1`
+* `yarn add bootstrap@4.1.0`
+* `yarn add @ng-bootstrap/ng-bootstrap@1.1.2`
+* `yarn add swagger-ui@3.13.4`
+* `yarn add rxjs-compat@@6.0.0-beta.1` (this is used because NG Cli is still in Beta)
 
 * In `angular.json` file add :
 ```
