@@ -39,7 +39,7 @@
         <version.faker>0.15</version.faker>
         <version.guice>4.2.0</version.guice>
         <version.consul>1.1.2</version.consul>
-        <version.arquillian>1.1.10.Final</version.arquillian>
+        <version.arquillian>1.4.0.Final</version.arquillian>
         <version.shrinkwrap>2.2.6</version.shrinkwrap>
         <!-- Databases -->
         <version.h2>1.4.197</version.h2>
