@@ -4,10 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Angular CLI commands
 
-Make sure you have an Angular CLI 6.x installed globally. If not, execute the following : 
+Make sure you have an Angular CLI 6.x and Swagger-Codegen installed globally. If not, execute the following : 
  
 ```
-$ yarn global add @angular/cli@6.0.0-rc.4
+$ yarn global add @angular/cli@6.0.0-rc.6
+$ brew install swagger-codegen
 ```
 
 ### Initiliaze
@@ -17,7 +18,7 @@ $ ng new store --directory angular --prefix store --routing true --skip-tests tr
 
 $ cd angular
 
-$ ng config cli.packageManager '"yarn"'
+$ ng config cli.packageManager 'yarn'
 ```
 
 Installer Prettier
@@ -32,13 +33,13 @@ $ touch prettier.config.js  .prettierignore
 
 Install Bootstrap dependency 
 
-* `yarn add font-awesome@4.7.0`
+* `yarn add @fortawesome/fontawesome-free@5.1.0-4`
 * `yarn add popper.js@1.14.3`
 * `yarn add jquery@3.3.1`
 * `yarn add bootstrap@4.1.0`
 * `yarn add @ng-bootstrap/ng-bootstrap@1.1.2`
 * `yarn add swagger-ui@3.13.4`
-* `yarn add rxjs-compat@@6.0.0-beta.1` (this is used because NG Cli is still in Beta)
+* `yarn add rxjs-compat@6.0.0`
 
 * In `angular.json` file add :
 ```
@@ -80,7 +81,7 @@ $ ng generate component administrator/swagger --spec false --module administrato
 ### Swagger Codegen
 
 ```
-$ swagger-codegen generate -i ../../services/number-api/src/main/webapp/swagger.json -l typescript-angular2 -o src/app/shared
+$ swagger-codegen generate -i ../../services/number-api/src/main/webapp/swagger.json -l typescript-angular -o src/app/shared
 ```
 
 ## Angular CLI documentation

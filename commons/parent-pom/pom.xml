@@ -30,37 +30,39 @@
         <!-- Core Maven Plugins -->
         <version.antrun.plugin>1.8</version.antrun.plugin>
         <version.archetype.plugin>3.0.1</version.archetype.plugin>
-        <version.assembly.plugin>3.0.0</version.assembly.plugin>
+        <version.assembly.plugin>3.1.0</version.assembly.plugin>
         <version.buildhelper.plugin>3.0.0</version.buildhelper.plugin>
-        <version.clean.plugin>3.0.0</version.clean.plugin>
-        <version.compiler.plugin>3.6.2</version.compiler.plugin>
-        <version.dependency.plugin>3.0.1</version.dependency.plugin>
+        <version.clean.plugin>3.1.0</version.clean.plugin>
+        <version.compiler.plugin>3.7.0</version.compiler.plugin>
+        <version.dependency.plugin>3.1.0</version.dependency.plugin>
         <version.deploy.plugin>2.8.2</version.deploy.plugin>
         <version.exec.plugin>1.6.0</version.exec.plugin>
         <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
         <version.install.plugin>2.5.2</version.install.plugin>
         <version.invoker.plugin>3.0.1</version.invoker.plugin>
-        <version.jar.plugin>3.0.2</version.jar.plugin>
-        <version.javadoc.plugin>2.10.4</version.javadoc.plugin>
-        <version.plugin.plugin>3.5.0</version.plugin.plugin>
+        <version.jar.plugin>3.1.0</version.jar.plugin>
+        <version.javadoc.plugin>3.0.0</version.javadoc.plugin>
+        <version.plugin.plugin>3.5.1</version.plugin.plugin>
         <version.resources.plugin>3.0.2</version.resources.plugin>
-        <version.shade.plugin>3.0.0</version.shade.plugin>
-        <version.site.plugin>3.6</version.site.plugin>
+        <version.shade.plugin>3.1.1</version.shade.plugin>
+        <version.site.plugin>3.7</version.site.plugin>
         <version.source.plugin>3.0.1</version.source.plugin>
-        <version.surefire.plugin>2.20</version.surefire.plugin>
-        <version.versions.plugin>2.4</version.versions.plugin>
-        <version.war.plugin>3.1.0</version.war.plugin>
-        <version.nodejs>v8.7.0</version.nodejs>
-        <version.yarn>v1.2.1</version.yarn>
-
+        <version.surefire.plugin>2.21.0</version.surefire.plugin>
+        <version.versions.plugin>2.5</version.versions.plugin>
+        <version.war.plugin>3.2.0</version.war.plugin>
 
         <!-- External Maven Plugins -->
-        <version.wildfly.swarm>2017.10.0</version.wildfly.swarm>
-        <version.swagger.plugin>3.1.4</version.swagger.plugin>
-        <version.arquillian>1.1.12.Final</version.arquillian>
-        <version.tomee>7.0.3</version.tomee>
-        <version.docker-fabric8.plugin>0.22.1</version.docker-fabric8.plugin>
+        <version.docker-fabric8.plugin>0.25.2</version.docker-fabric8.plugin>
         <version.frontend-maven-plugin>1.6</version.frontend-maven-plugin>
+        <version.rat>0.10</version.rat>
+        <version.tomee>7.0.3</version.tomee>
+        <version.swagger.plugin>3.1.7</version.swagger.plugin>
+        <version.wildfly.swarm>2018.4.1</version.wildfly.swarm>
+
+        <!-- Versions -->
+        <version.nodejs>v9.11.1</version.nodejs>
+        <version.yarn>v1.6.0</version.yarn>
+        <version.arquillian>1.1.12.Final</version.arquillian>
 
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -156,72 +158,6 @@
                     </executions>
                 </plugin>
                 <plugin>
-                    <groupId>io.fabric8</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>${version.docker-fabric8.plugin}</version>
-                    <configuration>
-                        <verbose>true</verbose>
-                        <skip>true</skip>
-                        <registry>docker-registry:5000</registry>
-                        <pullRegistry>docker.io</pullRegistry>
-                        <images>
-                            <image>
-                                <name>baking/${project.artifactId}:rpi</name>
-                                <alias>rpi</alias>
-                                <build>
-                                    <from>maxleiko/armhf-alpine-java</from>
-                                    <ports>
-                                        <port>${listening.port}</port>
-                                    </ports>
-                                    <workdir>/usr/local/apps</workdir>
-                                    <assembly>
-                                        <name>usr/local/apps</name>
-                                        <inline>
-                                            <files>
-                                                <file>
-                                                    <source>${project.build.directory}/${executable.jar}</source>
-                                                    <destName>${project.artifactId}.jar</destName>
-                                                </file>
-                                            </files>
-                                        </inline>
-                                    </assembly>
-                                    <cmd>java -jar ${project.artifactId}.jar</cmd>
-                                </build>
-                                <run>
-                                    <skip>true</skip>
-                                </run>
-                            </image>
-                            <image>
-                                <name>baking/${project.artifactId}:default</name>
-                                <build>
-                                    <from>openjdk:8-jre</from>
-                                    <ports>
-                                        <port>${listening.port}</port>
-                                    </ports>
-                                    <workdir>/usr/local/apps</workdir>
-                                    <assembly>
-                                        <name>usr/local/apps</name>
-                                        <inline>
-                                            <files>
-                                                <file>
-                                                    <source>${project.build.directory}/${executable.jar}</source>
-                                                    <destName>${project.artifactId}.jar</destName>
-                                                </file>
-                                            </files>
-                                        </inline>
-                                    </assembly>
-                                    <cmd>java -jar ${project.artifactId}.jar</cmd>
-                                </build>
-                                <run>
-                                    <ports>
-                                        <port>${listening.port}:${listening.port}</port>
-                                    </ports>
-                                </run>
-                            </image>
-                        </images>
-                    </configuration>
-                </plugin>
-                <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
                     <version>${version.exec.plugin}</version>
@@ -289,41 +225,6 @@
                     <version>${version.plugin.plugin}</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.rat</groupId>
-                    <artifactId>apache-rat-plugin</artifactId>
-                    <version>0.10</version>
-                    <configuration>
-                        <includes>
-                            <include>src/**/*</include>
-                            <include>pom.xml</include>
-                        </includes>
-                        <excludes>
-                            <exclude>**/*/MANIFEST.MF</exclude>
-                            <exclude>.git</exclude>
-                            <exclude>.gitignore</exclude>
-                            <exclude>derby.log</exclude>
-                            <exclude>**/META-INF/services/*</exclude>
-                            <exclude>**/bootstrap-*</exclude>
-                            <exclude>**/typeahead*</exclude>
-                            <exclude>**/js/jquery-*</exclude>
-                            <exclude>**/*.json</exclude>
-                            <exclude>**/*.handlebars</exclude>
-                            <exclude>src/test/resources/**/*.txt</exclude>
-                            <exclude>**/src/main/resources/archetype-resources/**/*</exclude>
-                            <exclude>**/*.sql</exclude>
-                            <exclude>**/Dockerfile</exclude>
-                        </excludes>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <phase>validate</phase>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>${version.resources.plugin}</version>
@@ -376,6 +277,72 @@
 
                 <!-- All external Maven plugins ordered by shortname (tomee, swarm ...) -->
                 <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${version.docker-fabric8.plugin}</version>
+                    <configuration>
+                        <verbose>true</verbose>
+                        <skip>true</skip>
+                        <registry>docker-registry:5000</registry>
+                        <pullRegistry>docker.io</pullRegistry>
+                        <images>
+                            <image>
+                                <name>baking/${project.artifactId}:rpi</name>
+                                <alias>rpi</alias>
+                                <build>
+                                    <from>maxleiko/armhf-alpine-java</from>
+                                    <ports>
+                                        <port>${listening.port}</port>
+                                    </ports>
+                                    <workdir>/usr/local/apps</workdir>
+                                    <assembly>
+                                        <name>usr/local/apps</name>
+                                        <inline>
+                                            <files>
+                                                <file>
+                                                    <source>${project.build.directory}/${executable.jar}</source>
+                                                    <destName>${project.artifactId}.jar</destName>
+                                                </file>
+                                            </files>
+                                        </inline>
+                                    </assembly>
+                                    <cmd>java -jar ${project.artifactId}.jar</cmd>
+                                </build>
+                                <run>
+                                    <skip>true</skip>
+                                </run>
+                            </image>
+                            <image>
+                                <name>baking/${project.artifactId}:default</name>
+                                <build>
+                                    <from>openjdk:8-jre</from>
+                                    <ports>
+                                        <port>${listening.port}</port>
+                                    </ports>
+                                    <workdir>/usr/local/apps</workdir>
+                                    <assembly>
+                                        <name>usr/local/apps</name>
+                                        <inline>
+                                            <files>
+                                                <file>
+                                                    <source>${project.build.directory}/${executable.jar}</source>
+                                                    <destName>${project.artifactId}.jar</destName>
+                                                </file>
+                                            </files>
+                                        </inline>
+                                    </assembly>
+                                    <cmd>java -jar ${project.artifactId}.jar</cmd>
+                                </build>
+                                <run>
+                                    <ports>
+                                        <port>${listening.port}:${listening.port}</port>
+                                    </ports>
+                                </run>
+                            </image>
+                        </images>
+                    </configuration>
+                </plugin>
+                <plugin>
                     <groupId>com.github.eirslett</groupId>
                     <artifactId>frontend-maven-plugin</artifactId>
                     <version>${version.frontend-maven-plugin}</version>
@@ -408,6 +375,41 @@
                             <configuration>
                                 <arguments>run ng build --prod</arguments>
                             </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.rat</groupId>
+                    <artifactId>apache-rat-plugin</artifactId>
+                    <version>0.10</version>
+                    <configuration>
+                        <includes>
+                            <include>src/**/*</include>
+                            <include>pom.xml</include>
+                        </includes>
+                        <excludes>
+                            <exclude>**/*/MANIFEST.MF</exclude>
+                            <exclude>.git</exclude>
+                            <exclude>.gitignore</exclude>
+                            <exclude>derby.log</exclude>
+                            <exclude>**/META-INF/services/*</exclude>
+                            <exclude>**/bootstrap-*</exclude>
+                            <exclude>**/typeahead*</exclude>
+                            <exclude>**/js/jquery-*</exclude>
+                            <exclude>**/*.json</exclude>
+                            <exclude>**/*.handlebars</exclude>
+                            <exclude>src/test/resources/**/*.txt</exclude>
+                            <exclude>**/src/main/resources/archetype-resources/**/*</exclude>
+                            <exclude>**/*.sql</exclude>
+                            <exclude>**/Dockerfile</exclude>
+                        </excludes>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
                         </execution>
                     </executions>
                 </plugin>
