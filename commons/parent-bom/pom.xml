@@ -35,22 +35,23 @@
         <version.javaee>7.0</version.javaee>
         <version.slf4j>1.7.25</version.slf4j>
         <version.tomee>7.0.3</version.tomee>
-        <version.swagger>1.5.16</version.swagger>
-        <version.faker>0.13</version.faker>
-        <version.guice>4.1.0</version.guice>
-        <version.consultant>1.7.3</version.consultant>
+        <version.swagger>1.5.19</version.swagger>
+        <version.faker>0.15</version.faker>
+        <version.guice>4.2.0</version.guice>
+        <version.consul>1.1.2</version.consul>
         <version.arquillian>1.1.10.Final</version.arquillian>
         <version.shrinkwrap>2.2.6</version.shrinkwrap>
-        <version.resteasy>3.1.4.Final</version.resteasy>
-        <version.archaius>0.7.5</version.archaius>
-        <version.governator>1.17.4</version.governator>
-        <version.feign>9.4.0</version.feign>
-        <version.feign-form>2.1.0</version.feign-form>
-        <version.hystrix>1.5.12</version.hystrix>
         <!-- Databases -->
-        <version.h2>1.4.196</version.h2>
+        <version.h2>1.4.197</version.h2>
+        <!-- Netflix OSS -->
+        <version.archaius>0.7.6</version.archaius>
+        <version.governator>1.17.5</version.governator>
+        <version.feign>9.6.0</version.feign>
+        <version.feign-form>2.2.1</version.feign-form>
+        <version.hystrix>1.5.12</version.hystrix>
         <!-- Test -->
         <version.junit>4.12</version.junit>
+        <version.resteasy>3.1.4.Final</version.resteasy>
     </properties>
 
     <dependencyManagement>
@@ -98,7 +99,7 @@
             <dependency>
                 <groupId>com.orbitz.consul</groupId>
                 <artifactId>consul-client</artifactId>
-                <version>0.16.5</version>
+                <version>${version.consul}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.geronimo.config</groupId>

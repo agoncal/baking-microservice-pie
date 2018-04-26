@@ -62,7 +62,6 @@
         <!-- Versions -->
         <version.nodejs>v9.11.1</version.nodejs>
         <version.yarn>v1.6.0</version.yarn>
-        <version.arquillian>1.1.12.Final</version.arquillian>
 
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
