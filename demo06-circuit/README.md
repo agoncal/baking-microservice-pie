@@ -53,6 +53,9 @@ The client is available at:
 Kibana:
 * `http://localhost:5601/`
 
+Consul:
+* `http://localhost:8500/`
+
 ### Locally
 
 To run the `number-api` and `book-api` locally, you just need to run the uber jar sitting in the project target folder. 
