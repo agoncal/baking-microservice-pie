@@ -55,9 +55,20 @@ To run `number-api` locally.
 
 ```bash
 java -jar target/number-api-02-swarm.jar
+```
 
+You can execute the following HTTP requests
+
+```
+### Demo 01
 
 GET http://localhost:8084/number-api/api/numbers/book
+Accept: */*
+Cache-Control: no-cache
+
+### Demo 01 (Swagger)
+
+GET http://localhost:8084/number-api/swagger.json
 Accept: */*
 Cache-Control: no-cache
 ```
@@ -126,7 +137,7 @@ The Docker Images are then deployed into the PI's with [Ansible](http://ansible.
 ansible-playbook -i hosts deploy.yaml -vvv
 ```
 
-``The services are available at:
+The services are available at:
 * `http://pi-grom-server-01:8081/book-api/api/`
 * `http://pi-grom-server-01:8084/number-api/api/`
 
