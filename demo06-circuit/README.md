@@ -1,6 +1,6 @@
 # Demo 06
 
-This Demo uses applies a Circuit Breaker to the `book-api` service when callung the `number-api`, using 
+This Demo uses applies a Circuit Breaker to the `book-api` service when calling the `number-api`, using 
 [Hystrix](https://github.com/Netflix/Hystrix) to failover the `number-api` response in case of a failure.
 
 * Infrastructure
