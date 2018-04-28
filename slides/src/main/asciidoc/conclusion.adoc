@@ -77,6 +77,10 @@ image::thankyou.jpg[]
 
 image::tomitribe.png[]
 
+== Voxxed Days Microservices
+
+image::Voxxed_Days_Microservices.png[]
+
 == Q & A
 
 image::question.jpg[]

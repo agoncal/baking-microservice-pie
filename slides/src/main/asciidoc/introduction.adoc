@@ -3,7 +3,7 @@ ifndef::imagesdir[:imagesdir: images]
 = Introduction
 
 [%step]
-* Welcome to Devoxx BE
+* Welcome to Devoxx UK
 * Hope it's not too early...
 * ...and that you are ready for a 3h session
 * Thank you for joining us
