@@ -47,11 +47,9 @@ To setup the Raspberry PI Cluster you need the following tools to be
 installed:
 
 * https://www.docker.com/[Docker]
-* https://www.ansible.com/[Ansible]
-(https://valdhaus.co/writings/ansible-mac-osx/[how to install it]
+* https://www.ansible.com/[Ansible] (https://valdhaus.co/writings/ansible-mac-osx/[how to install it])
 * The Hypriot https://github.com/hypriot/flash[flash utility]
-* (optional) http://brewformulas.org/Pv[Pipe Viewer] to monitor the
-progress of data (handy when flashing SD cards)
+* (optional) http://brewformulas.org/Pv[Pipe Viewer] to monitor the progress of data (handy when flashing SD cards)
 * (optional) https://gist.github.com/arunoda/7790979[SSHPASS]
 
 == Setup the Physical Raspberry PI Cluster
@@ -72,6 +70,11 @@ https://en.wikipedia.org/wiki/Characters_of_Warcraft#Grommash_Hellscream[Grom]
 ** 1 load balancer (`pi-grom-load-balancer`)
 ** 2 servers (`pi-grom-server-01` and `pi-grom-server-02`)
 ** 1 database (`pi-grom-database`)
+
+[IMPORTANT]
+====
+It is important to electrically start the router and switches first, and a few seconds later, the Raspberry PI.
+====
 
 == What it looks like
 

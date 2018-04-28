@@ -1,45 +1,39 @@
 = Router
 
-For this sample, we are going to use the
-https://www.ubnt.com/edgemax/edgerouter-x/[Ubiquiti EdgeRouter X]. It’s
-a cheap router with a lot of features in it. Any other router should
-work just fine, but the instructions detailed here are for the
-EdgeRouter X.
+For this sample, we are going to use the https://www.ubnt.com/edgemax/edgerouter-x/[Ubiquiti EdgeRouter X].
+It’s a cheap router with a lot of features in it.
+Any other router should work just fine, but the instructions detailed here are for the EdgeRouter X.
 
-There are two ways of setting up the router: manually, or importing a
-config file
+There are two ways of setting up the router: manually, or importing a config file
 
 == Setup : Config file
 
 === Reset to Factory Settings
 
-* Power on the Ubiquiti Router, place a paper clip or Pin into the hole
-on the back of the Router labeled Reset.
+* Power on the Ubiquiti Router, place a paper clip or Pin into the hole on the back of the Router labeled Reset.
 * Hold paper clip or pin down for 10 to 15 seconds and release.
-* The Router will reboot on its own. Once the WLAN light stops blinking,
-the Router is reset.
+* The Router will reboot on its own. Once the WLAN light stops blinking, the Router is reset.
 
 === Connect to the Router
 
 * Plug your computer into eth0 on the router.
-* Configure your computer to have the static IP and route. The Router IP
-is `192.168.1.1`.
+* Configure your computer to have the static IP and route.
+The Router IP is `192.168.1.1`.
 
 image:router-setup-01.png[Static IP]
 
-* Open a browser and navigate to `https://192.168.1.1`. You should get
-the login screen to access the Router console. (You may need to trust
-the certificate first).
+* Open a browser and navigate to `https://192.168.1.1`.
+You should get the login screen to access the Router console.
+(You may need to trust the certificate first).
 * Login with Username `ubnt` and Password `ubnt`.
 
 === Upload the configuration file
 
-Go to System -> upload file : edgeos_ubnt_20171105.tar.gz
+Go to `System` (button on the lower left corner) -> `Restore Config` -> `Upload a file` and pick up `setup/src/resources/router/edgeos_ubnt_20171105.tar.gz`
 
-This will reboot the router.
+This will reboot the router (this takes a few minutes).
 
-Change back you Eternet cable to eth0, change to DHCP (instead of
-manual) and go back to the router at https://10.99.99.1
+Change back you Eternet cable from eth0 to eth4, change your Mac netword back to DHCP (instead of manual) and go back to the router at https://10.99.99.1
 
 == Setup : Manually
 
