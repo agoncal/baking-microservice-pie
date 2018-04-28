@@ -44,6 +44,7 @@ image::load-architecture.png[]
 * Discovery Mechanism
 * Load Balancing
 * Circuit Breaker
+* Gateway
 * Security
 
 == Hardware

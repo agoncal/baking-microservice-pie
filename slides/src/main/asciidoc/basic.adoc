@@ -66,13 +66,13 @@ include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberReso
 * (_because we are bad web designers_)
 * Port 8080
 * Invokes the `number-api` through HTTP
-* Thanks to the Swagger contract
+* Thanks to the Open API contract
 
-== Swagger
+== Open API
 
-image::swagger.jpg[]
+image::open-api.png[]
 
-== Swagger
+== Open API
 
 [%step]
 * Open API Specification
@@ -81,6 +81,7 @@ image::swagger.jpg[]
 * What are the parameters?
 * What are the status code?
 * Contract written in JSon (or Yaml)
+* Swagger is one implementation
 
 == Swagger Annotations
 

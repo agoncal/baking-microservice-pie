@@ -4,11 +4,11 @@ ifndef::imagesdir[:imagesdir: images]
 
 [%step]
 * Have you heard about Microservices ?
-* Do you know how big is a "micro" ?
+* Who uses with Microservices ?
 * Who plays with Microservices ?
-* Who runs Microservices ?
 * Who likes Microservices ?
 * Who suffers with Microservices ?
+* Do you know how big is a "micro" ?
 
 == What do people mean by micro services ?
 
@@ -28,9 +28,9 @@ image::pizzas2.jpg[]
 == So, why Microservices ?
 
 [%step]
+* Business focused (bounded context)
 * Deliver new features quicker
 * Smaller, more agile teams
-* Deliver business features as services
 * Scale services independently
 * Address unpredictable loads
 * Cloud
