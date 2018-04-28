@@ -1,0 +1,84 @@
+= Cluster
+
+The Raspberry PI needs several pieces of hardware and software to set it up.
+
+== Hardware
+
+The cluster for this demo uses:
+
+* 12 x
+https://www.raspberrypi.org/products/raspberry-pi-3-model-b/[Raspberry
+PIs V3]. Each datacenter is made of 4 Raspberry PIs, as well as 4
+Raspberry PIs for the clients
+* 12 x
+https://www.amazon.com/Raspberry-Clear-Protective-Heatsinks-Screwdriver/dp/B071YM8QVK/ref=sr_1_25[Raspberry
+PI protective case] in different colours, it’s better
+* 12 x SD cards (8 Mb is enough)
+* 3 x
+http://www.tp-link.com/us/products/details/cat-42_TL-SG105.html[5-Port
+Desktop Switch TL-SG105] to create a network between the 2 data centers
+and the clients.
+* 12 x
+https://www.amazon.com/iMBAPrice-Ethernet-Network-Patch-Cable/dp/B00A1UPGY4/ref=sr_1_1[6
+inch ethernet cables] to plug each Raspberry PI to the switch (different
+colours is better)
+* 1 x https://www.ubnt.com/edgemax/edgerouter-x/[Edge Router] to route
+clients between the 2 data centers
+* 3 x
+https://www.amazon.com/Cable-Matters-5-Pack-Snagless-Ethernet/dp/B00C4U030G/ref=sr_1_1[one
+foot ethernet cables] to plug each switch to the router +
+* 3 x http://www.zookki.com/category/Zookki-USB-Charger[Zookki 6 Port
+USB Charger] to electrically power the Raspberry PIs
+* 12 x
+https://www.amazon.com/Vktech-Micro-Retractable-Charger-Cable/dp/B00DQMHM14/ref=sr_1_13[Retractable
+USB to Micro cable] from the charger to the Raspberry PI
+* 2 x http://www.belkin.com/us/F5C048-2-Belkin/p/P-F5C048-2/[Power strip
+with 6 sockets]
+* https://www.amazon.com/Reusable-Fastening-Cable-Straps-Wisdompro/dp/B01M1L1YHO/ref=pd_rhf_se_p_img_2[Reusable
+fastening cable tie] because you want to tie everything so it doesn’t
+look like a mess
+* 1 x
+https://www.amazon.com/Cateck-USB3-0-4-Slot-Reader-Micro/dp/B01J5651NA[USB
+to SD Card Reader] to flash the SD cards
+
+== Software
+
+To setup the Raspberry PI Cluster you need the following tools to be
+installed:
+
+* https://www.docker.com/[Docker]
+* https://www.ansible.com/[Ansible]
+(https://valdhaus.co/writings/ansible-mac-osx/[how to install it]
+* The Hypriot https://github.com/hypriot/flash[flash utility]
+* (optional) http://brewformulas.org/Pv[Pipe Viewer] to monitor the
+progress of data (handy when flashing SD cards)
+* (optional) https://gist.github.com/arunoda/7790979[SSHPASS]
+
+== Setup the Physical Raspberry PI Cluster
+
+For this demo, the cluster is setup as follow:
+
+* Clients
+** 3 Raspberry PIs acting as clients browsing the 2 data centers
+(`pi-client-01`, `pi-client-02` and `pi-client-03`)
+** 1 Load balancer for the clients (`pi-client-load-balancer`)
+* Data center
+https://en.wikipedia.org/wiki/Characters_of_Warcraft#Thrall[Thrall]
+** 1 load balancer (`pi-thrall-load-balancer`)
+** 2 servers (`pi-thrall-server-01` and `pi-thrall-server-02`)
+** 1 database (`pi-thrall-database`)
+* Data center
+https://en.wikipedia.org/wiki/Characters_of_Warcraft#Grommash_Hellscream[Grom]
+** 1 load balancer (`pi-grom-load-balancer`)
+** 2 servers (`pi-grom-server-01` and `pi-grom-server-02`)
+** 1 database (`pi-grom-database`)
+
+== What it looks like
+
+=== Front of the cluster
+
+image:cluster-front.jpg[]
+
+=== Back of the cluster
+
+image:cluster-back.jpg[]

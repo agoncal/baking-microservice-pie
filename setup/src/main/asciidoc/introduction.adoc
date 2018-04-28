@@ -1,0 +1,6 @@
+= Introduction
+
+This document tells you how to setup the Raspberry PI Cluster which simulates 2 data centers and clients accessing
+those two data centers thanks to the router.
+
+Setting up the entire Raspberry PI Cluster is challenging. And because we always forget how to do it and struggle to put it back together, here is the setup guide for our Baking a Microservice Pi(e) talk.

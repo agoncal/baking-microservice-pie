@@ -36,6 +36,7 @@
         <module>demo07-scale</module>
         <module>demo08-auth</module>
         <module>demo09-load</module>
+        <module>setup</module>
         <module>slides</module>
     </modules>
 </project>
