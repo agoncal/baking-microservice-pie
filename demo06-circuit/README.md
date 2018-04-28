@@ -134,9 +134,23 @@ The ELK stack also runs in a Docker container. Please refer to the [documentatio
 you have any issue running the ELK stack. 
 
 The Raspberry PI's cannot run the ELK stack due to insuficient hardware resources. So for this Demo, you should run the
-Docker Compose file to start up the ELK stack and then run the Raspberry PI's services.
+Docker Compose file to start up the ELK stack and then run the Raspberry PI's services. You can run just the ELK stack 
+with:
+
+```bash
+docker-compose up elk
+```
 
 #### Kibana
 You need to setup Kibana for accessing the services logs. Go to `http://localhost:5601/` and you should create an index
 based on timestamp. The option is only available after log is sent to Logstash, so make sure you invoke something on the
 services to generate some log.
+
+There is also a pre build dashboard that you can import. In the `setup/elk` folder you can find two files, 
+`status_code.painless` and `export.json`.
+
+Go to Kibana into `Management` and then `Index Patterns` and add a `Scripted Field` named `status_code`. Set the 
+`type` and `format` to `string` and then paste the content of the `status_code.painless` file in the `script` section.
+
+To import the dashboard, go to `Management` and `Saved Objects`. Hit `Import` and pick the file `export.json`. 
+You may need to reassociate the newly created index when doing the import.
