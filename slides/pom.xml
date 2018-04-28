@@ -17,7 +17,7 @@
         <asciidoctorj.version>1.5.6</asciidoctorj.version>
         <jruby.version>1.7.26</jruby.version>
         <!-- Revealjs -->
-        <revealjs.version>3.5.0</revealjs.version>
+        <revealjs.version>3.6.0</revealjs.version>
         <asciidoctor-revealjs.version>master</asciidoctor-revealjs.version>
         <project.slides.directory>${project.build.directory}/generated-slides</project.slides.directory>
         <!-- Pdf -->
