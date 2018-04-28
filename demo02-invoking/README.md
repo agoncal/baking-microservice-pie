@@ -119,6 +119,11 @@ mvn docker:stop
 
 On the root folder you will find a `docker-compose.yml` file. This will execute all the needed Docker images.
 
+```bash
+$ docker-compose up 
+$ docker-compose down 
+```
+
 ### Raspberry PI
 
 To run on the Raspberry PI Cluster, first follow the steps in [Setup Raspberry PI Cluster](../setup/README.md). As 
