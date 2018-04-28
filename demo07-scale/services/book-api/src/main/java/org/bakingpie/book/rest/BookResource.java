@@ -141,4 +141,13 @@ public class BookResource {
         log.info("Alive and Kicking !!!");
         return Response.ok().build();
     }
+
+    @GET
+    @Path("number")
+    @ApiOperation(value = "Wraps the Number API to retrive a Book Number", response = String.class)
+    public Response number() {
+        log.info("Invoking the number-api");
+        NumbersApi numberApi = new ApiClient().buildNumberApiClient();
+        return Response.ok(numberApi.generateBookNumber()).build();
+    }
 }
