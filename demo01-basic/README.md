@@ -50,9 +50,20 @@ the root folder of the service run:
 
 ```bash
 java -jar target/number-api-01-swarm.jar
+```
 
+You can execute the following HTTP requests
+
+```
+### Demo 01
 
 GET http://localhost:8084/number-api/api/numbers/book
+Accept: */*
+Cache-Control: no-cache
+
+### Demo 01 (Swagger)
+
+GET http://localhost:8084/number-api/swagger.json
 Accept: */*
 Cache-Control: no-cache
 ```
