@@ -36,3 +36,14 @@
         LICENSE: 'accept'
         CASSANDRA_EMBEDDED: 'true'
     when: inventory_hostname == "pi-thrall-database"
+
+  - name: Tribestream Access Gateway Config
+    docker_container:
+      name: tag-config
+      image: docker-registry:5000/baking/tag-config:rpi
+      state: started
+      restart: yes
+      pull: true
+      env:
+        TAG_HOST: http://pi-thrall-database:9000
+    when: inventory_hostname == "pi-grom-database"

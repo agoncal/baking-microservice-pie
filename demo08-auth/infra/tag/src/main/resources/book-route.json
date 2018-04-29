@@ -1,0 +1,14 @@
+{
+  "name": "books",
+  "modRewrite": "RewriteCond %{REQUEST_METHOD} POST [OR]\nRewriteCond %{REQUEST_METHOD} PUT [OR]\nRewriteCond %{REQUEST_METHOD} DELETE\nRewriteRule \"^/books(.*)$\" \"http://pi-grom-load-balancer:8081/book-api/api/books$1\" [P,A]\n\nRewriteRule \"^/books(.*)$\" \"http://pi-grom-load-balancer:8081/book-api/api/books$1\" [P]",
+  "profileRequiresAll": true,
+  "profiles": [
+    {
+      "id": "books",
+      "name": "books",
+      "displayName": "books"
+    }
+  ],
+  "index": 0,
+  "roleRequiresAll": true
+}

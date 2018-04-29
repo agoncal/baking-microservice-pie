@@ -34,5 +34,6 @@
     <modules>
         <module>services</module>
         <module>clients</module>
+        <module>infra/tag</module>
     </modules>
 </project>

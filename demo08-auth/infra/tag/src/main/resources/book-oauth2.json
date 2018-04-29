@@ -1,0 +1,36 @@
+{
+  "name": "books",
+  "refreshAllowed": true,
+  "requiresClient": false,
+  "queryParamsAllowed": false,
+  "canBeDeleted": true,
+  "allowedGrants": [
+    "password",
+    "client_credentials",
+    "refresh_token"
+  ],
+  "prefix": "Bearer",
+  "defaultProfile": true,
+  "issuer": "/oauth2/token",
+  "accessTokenExpireTTL": "30 minutes",
+  "tags": [],
+  "refreshTokenExpireTTL": "30 days",
+  "header": "Authorization",
+  "externalSigning": {
+    "signingAlgorithm": "HS256",
+    "secretKeys": [
+      {
+        "expiryDate": "2118-04-05T19:59:02Z",
+        "createdDate": "2018-04-29T19:59:02Z",
+        "active": true,
+        "id": "267d4912d2077ae5",
+        "type": "HMAC",
+        "value": "931eea20da6c36751eee0f9069a83ed17e9d749544a1cfb",
+        "spec": "HMAC-SHA256",
+        "startDate": "2018-04-29T19:59:02Z"
+      }
+    ]
+  },
+  "refreshNoexpire": false,
+  "signing": null
+}
