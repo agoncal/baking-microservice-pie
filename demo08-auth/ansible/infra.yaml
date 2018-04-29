@@ -26,10 +26,13 @@
   - name: Tribestream Access Gateway
     docker_container:
       name: tag
-      image: radcortez/tag-dev:rpi
+      image: radcortez/tribestream-api-gateway-rpi
       state: started
       restart: yes
       pull: true
       ports:
         - 9000:8080
+      env:
+        LICENSE: 'accept'
+        CASSANDRA_EMBEDDED: 'true'
     when: inventory_hostname == "pi-thrall-database"
