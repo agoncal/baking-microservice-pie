@@ -11,17 +11,17 @@ ifndef::imagesdir[:imagesdir: images]
 // Introduction
 include::introduction.adoc[leveloffset=+1]
 
-// Docker-registry
+// Cluster
 include::cluster.adoc[leveloffset=+1]
+
+// Router
+include::router.adoc[leveloffset=+1]
 
 // Docker-registry
 include::docker-registry.adoc[leveloffset=+1]
 
 // Raspberry PI
 include::pi.adoc[leveloffset=+1]
-
-// Router
-include::router.adoc[leveloffset=+1]
 
 // Ansible
 include::ansible.adoc[leveloffset=+1]

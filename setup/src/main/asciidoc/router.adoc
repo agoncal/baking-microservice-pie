@@ -33,7 +33,7 @@ Go to `System` (button on the lower left corner) -> `Restore Config` -> `Upload 
 
 This will reboot the router (this takes a few minutes).
 
-Change back you Eternet cable from eth0 to eth4, change your Mac netword back to DHCP (instead of manual) and go back to the router at https://10.99.99.1
+Change back you Eternet cable from eth0 to eth4, change your Mac netword back to DHCP (instead of manual) and go back to the router at https://10.99.99.1 (Username `ubnt` and Password `ubnt`)
 
 == Setup : Manually
 
@@ -98,7 +98,7 @@ image:router-setup-03.png[Map Static IP]
 * To be able to resolve Hostnames from boxes connecting to the Router,
 we need to activate a configuration.
 * Go to Config Tree / service / dhcp-server / hostfile-update, set to
-``enable'', click on preview. (This will register the PI’s hostnames in
+`enable`, click on preview. (This will register the PI’s hostnames in
 the hosts files and they will be reachable via DNS)
 * Or you can use the following commands if you connect to the router
 directly:
@@ -242,7 +242,15 @@ yes
 If you can ping an IP address (eg. `10.99.99.39`) but not the hostname (eg. `pi-client-02`), try to reboot all your Raspberry PIs.
 ====
 
-=== Troubleshooting
+== What you should get
+
+No matter if you've setup the router manually or using the configuration file, what you should get at the end is the following.
+
+* Go to Services / LAN / Actions / View Details / Static MAC / IP Mapping.
+
+image:router-setup-05.png[Static IP Mapping]
+
+== Troubleshooting
 
 If you try to connect to the router through ssh and have the following error:
 
