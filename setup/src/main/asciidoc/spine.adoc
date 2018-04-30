@@ -3,6 +3,10 @@
 :example-caption!:
 ifndef::imagesdir[:imagesdir: images]
 :icons: font
+// TOC
+:toc:
+:toclevels: 4
+:toc-title: Contents
 
 // Introduction
 include::introduction.adoc[leveloffset=+1]
@@ -18,6 +22,9 @@ include::pi.adoc[leveloffset=+1]
 
 // Router
 include::router.adoc[leveloffset=+1]
+
+// Ansible
+include::ansible.adoc[leveloffset=+1]
 
 // Tribestream Access Gateway
 include::tag.adoc[leveloffset=+1]

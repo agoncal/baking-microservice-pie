@@ -1,0 +1,52 @@
+= Ansible
+
+Ansible allows us to send commands in batch to all the PIs: ping them all, deploy an image and so on.
+
+== Host
+
+Ansible relies on the `setup/ansible/hosts` file where the host alias are defined:
+
+```
+[clients]
+pi-client-01
+pi-client-02
+pi-client-03
+```
+
+== Ping
+
+To ping all the PIs you can enter the following command:
+
+```
+$ ansible all -m ping -i hosts
+```
+
+== Troubleshooting
+
+=== SSH
+
+If you get
+
+```
+pi-client-03 | FAILED! => {
+    "failed": true,
+    "msg": "to use the 'ssh' connection type with passwords, you must install the sshpass program"
+}
+```
+
+Make sure you install https://stackoverflow.com/questions/32255660/how-to-install-sshpass-on-mac[sshpass].
+
+=== SSH Key
+
+If you try to ping the PIs and have the following error:
+
+```
+pi-grom-server-02 | FAILED! => {
+    "msg": "Using a SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this.  Please add this host's fingerprint to your known_hosts file to manage this host."
+}
+```
+
+That's because the PI does not have a SSH key defined on the router's `~/.ssh/known_hosts` file.
+Log on into each PI with `ssh pirate@pi-thrall-load-balancer` (password `hypriot`) so the key is created.
+
+
