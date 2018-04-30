@@ -104,7 +104,7 @@ the ELK stack.
 
 ### Raspberry PI
 
-To run on the Raspberry PI Cluster, first follow the steps in [Setup Raspberry PI Cluster](../setup/README.md). As 
+To run on the Raspberry PI Cluster, first follow the steps in Setup Raspberry PI Cluster (see documentation on `setup` folder). As 
 described in the Setup, a Local Docker Registry is used to ease the deployment.
 
 Push the Local built Docker Image into the Local Docker Registry: 
