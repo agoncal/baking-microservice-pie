@@ -15,7 +15,7 @@ pi-client-03
 
 == Ping
 
-To ping all the PIs you can enter the following command:
+To ping all the PIs you can enter the following command (make sure you are under an `ansible` directory with a `hosts` file at the root):
 
 ```
 $ ansible all -m ping -i hosts
@@ -49,4 +49,18 @@ pi-grom-server-02 | FAILED! => {
 That's because the PI does not have a SSH key defined on the router's `~/.ssh/known_hosts` file.
 Log on into each PI with `ssh pirate@pi-thrall-load-balancer` (password `hypriot`) so the key is created.
 
+=== No Docker image in Docker Registry
 
+If you run a `ansible-playbook -i hosts deploy.yaml` command and get the following
+
+```
+"msg": "Error pulling docker-registry:5000/baking/angular - code: None message: Error while pulling image: Get http://docker-registry:5000/v1/repositories/baking/angular/images: dial tcp 10.99.99.10:5000: getsockopt: no route to host"
+}
+```
+
+That's because you don't have the docker images in your local Docker Registry, therefore Ansible can't pull them. Make sure to build and push the images with the following Maven commands:
+
+```
+$ mvn clean install -Dmaven.test.skip=true docker:build
+$ mvn docker:push '-Ddocker.filter=rpi'
+```
