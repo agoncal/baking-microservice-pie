@@ -39,7 +39,6 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
 import static javax.ws.rs.core.Response.Status.CREATED;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.Status.OK;
-import static org.jboss.shrinkwrap.resolver.api.maven.Maven.resolver;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -53,11 +52,9 @@ public class BookResourceTest {
     public static WebArchive webApp() {
         return ShrinkWrap.create(WebArchive.class)
                          .addPackages(true, "org.bakingpie.book")
+                         .addAsWebInfResource("META-INF/beans.xml")
                          .addAsResource("META-INF/persistence.xml")
                          .addAsResource("sql/load.sql")
-                         .addAsLibraries(resolver().loadPomFromFile("pom.xml")
-                                                   .resolve("io.swagger:swagger-jaxrs")
-                                                   .withTransitivity().asFile())
             ;
     }
 

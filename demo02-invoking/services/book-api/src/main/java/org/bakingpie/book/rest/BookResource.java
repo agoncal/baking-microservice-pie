@@ -16,8 +16,11 @@
  */
 package org.bakingpie.book.rest;
 
-import io.swagger.annotations.*;
-import org.bakingpie.book.client.ApiClient;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.bakingpie.book.client.api.NumbersApi;
 import org.bakingpie.book.domain.Book;
 import org.bakingpie.book.repository.BookRepository;
@@ -26,7 +29,14 @@ import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
@@ -35,7 +45,9 @@ import java.net.URI;
 import static java.util.Optional.ofNullable;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.Status.NOT_FOUND;
-import static javax.ws.rs.core.Response.*;
+import static javax.ws.rs.core.Response.noContent;
+import static javax.ws.rs.core.Response.ok;
+import static javax.ws.rs.core.Response.status;
 
 @ApplicationScoped
 // tag::adocSnippet[]
@@ -47,6 +59,9 @@ public class BookResource {
     private final Logger log = LoggerFactory.getLogger(BookResource.class);
 
     // end::adocSkip[]
+    @Inject
+    private NumbersApi numbersApi;
+
     @Inject
     private BookRepository bookRepository;
 
@@ -102,8 +117,7 @@ public class BookResource {
         // end::adocSkip[]
 
         // tag::adocCall[]
-        NumbersApi numberApi = new ApiClient().buildNumberApiClient();
-        String isbn = numberApi.generateBookNumber();
+        String isbn = numbersApi.generateBookNumber();
         book.setIsbn(isbn);
         // end::adocCall[]
         final Book created = bookRepository.create(book);
@@ -113,6 +127,7 @@ public class BookResource {
     // end::adocSnippet[]
 
     @PUT
+    @Path("/{id : \\d+}")
     @Consumes(APPLICATION_JSON)
     @Produces(APPLICATION_JSON)
     // tag::adocSkip[]
@@ -122,7 +137,7 @@ public class BookResource {
         @ApiResponse(code = 400, message = "Invalid input")
     })
     // end::adocSkip[]
-    public Response update(@ApiParam(value = "Book to be created", required = true) Book book) {
+    public Response update(@PathParam("id") final Long id, @ApiParam(value = "Book to be updated", required = true) Book book) {
         log.info("Updating the book " + book);
         return ok(bookRepository.update(book)).build();
     }
