@@ -72,6 +72,8 @@ services:
         environment:
           - LICENSE=accept
           - CASSANDRA_EMBEDDED=true
+          - BOOK_API_HOST=http://book-api
+          - BOOK_API_PORT=8081
     tag-config:
         image: baking/tag-config:default
         environment:
