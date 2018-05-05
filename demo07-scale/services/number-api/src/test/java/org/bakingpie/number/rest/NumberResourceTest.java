@@ -19,6 +19,7 @@ package org.bakingpie.number.rest;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wildfly.swarm.arquillian.DefaultDeployment;
@@ -35,6 +36,7 @@ import static org.junit.Assert.assertTrue;
 @RunWith(Arquillian.class)
 @RunAsClient()
 @DefaultDeployment()
+@Ignore
 public class NumberResourceTest {
 
     private WebTarget webTarget;
