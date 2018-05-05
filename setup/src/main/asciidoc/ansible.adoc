@@ -64,3 +64,10 @@ That's because you don't have the docker images in your local Docker Registry, t
 $ mvn clean install -Dmaven.test.skip=true docker:build
 $ mvn docker:push '-Ddocker.filter=rpi'
 ```
+
+You can check if the images are in the Docker Registry by going to the following URLs:
+
+```
+http://docker-registry:5000/v2/_catalog
+http://docker-registry:5000/v2/baking/number-api/tags/list
+```

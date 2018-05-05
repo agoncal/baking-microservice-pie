@@ -59,6 +59,15 @@ For the Docker Images to be uploaded to the Local Docker Registry, the Image nam
 This will be the hostname used to upload the Docker Images.
 A specific hostname is required, so that the Docker daemons running on the PI’s know how to reach the dedicated Local Docker Registry.
 
+== Check the Docker images
+
+Once you push images to the local Docker registry, you can vizualize its content by go to
+
+```
+http://docker-registry:5000/v2/_catalog
+http://docker-registry:5000/v2/baking/number-api/tags/list
+```
+
 == Troubleshooting
 
 If when pushing the Docker images to the Docker registry you get the following error :
