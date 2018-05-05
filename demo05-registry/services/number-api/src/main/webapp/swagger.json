@@ -29,6 +29,23 @@
           }
         }
       }
+    },
+    "/numbers/health" : {
+      "get" : {
+        "tags" : [ "numbers" ],
+        "summary" : "Health of this REST endpoint",
+        "description" : "",
+        "operationId" : "health",
+        "produces" : [ "text/plain" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
     }
   }
 }

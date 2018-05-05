@@ -16,7 +16,11 @@
  */
 package org.bakingpie.book.rest;
 
+import org.bakingpie.book.client.ApiClient;
+import org.bakingpie.book.client.api.NumbersApi;
+import org.bakingpie.book.client.api.NumbersApiAlternative;
 import org.bakingpie.book.domain.Book;
+import org.bakingpie.book.repository.BookRepository;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
@@ -39,7 +43,6 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
 import static javax.ws.rs.core.Response.Status.CREATED;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.Status.OK;
-import static org.jboss.shrinkwrap.resolver.api.maven.Maven.resolver;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -52,12 +55,16 @@ public class BookResourceTest {
     @Deployment
     public static WebArchive webApp() {
         return ShrinkWrap.create(WebArchive.class)
-                         .addPackages(true, "org.bakingpie.book")
+                         .addClass(Book.class)
+                         .addClass(BookRepository.class)
+                         .addClass(ApplicationConfig.class)
+                         .addClass(BookResource.class)
+                         .addClass(ApiClient.Api.class)
+                         .addClass(NumbersApi.class)
+                         .addClass(NumbersApiAlternative.class)
+                         .addAsWebInfResource("META-INF/beans.xml")
                          .addAsResource("META-INF/persistence.xml")
                          .addAsResource("sql/load.sql")
-                         .addAsLibraries(resolver().loadPomFromFile("pom.xml")
-                                                   .resolve("io.swagger:swagger-jaxrs")
-                                                   .withTransitivity().asFile())
             ;
     }
 
