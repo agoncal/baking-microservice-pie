@@ -61,32 +61,20 @@
             "description" : "Format is not JSon"
           }
         }
-      },
-      "put" : {
+      }
+    },
+    "/books/health" : {
+      "get" : {
         "tags" : [ "books" ],
-        "summary" : "Update a Book",
+        "summary" : "Checks the health of this REST endpoint",
         "description" : "",
-        "operationId" : "update",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "Book to be created",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/Book"
-          }
-        } ],
+        "operationId" : "health",
         "responses" : {
           "200" : {
-            "description" : "The book is updated",
+            "description" : "successful operation",
             "schema" : {
-              "$ref" : "#/definitions/Book"
+              "type" : "string"
             }
-          },
-          "400" : {
-            "description" : "Invalid input"
           }
         }
       }
@@ -118,6 +106,41 @@
           },
           "404" : {
             "description" : "Book not found"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "books" ],
+        "summary" : "Update a Book",
+        "description" : "",
+        "operationId" : "update",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "type" : "integer",
+          "pattern" : "\\d+",
+          "format" : "int64"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Book to be updated",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Book"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "The book is updated",
+            "schema" : {
+              "$ref" : "#/definitions/Book"
+            }
+          },
+          "400" : {
+            "description" : "Invalid input"
           }
         }
       },
