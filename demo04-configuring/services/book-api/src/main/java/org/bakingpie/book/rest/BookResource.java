@@ -47,6 +47,8 @@ public class BookResource {
     // ======================================
     // =             Injection              =
     // ======================================
+    @Inject
+    private NumbersApi numbersApi;
 
     @Inject
     private BookRepository bookRepository;
@@ -96,8 +98,7 @@ public class BookResource {
         log.info("Creating the book " + book);
 
         log.info("Invoking the number-api");
-        NumbersApi numberApi = new ApiClient().buildNumberApiClient();
-        String isbn = numberApi.generateBookNumber();
+        String isbn = numbersApi.generateBookNumber();
         book.setIsbn(isbn);
 
         log.info("Creating the book with ISBN " + book);
@@ -107,6 +108,7 @@ public class BookResource {
     }
 
     @PUT
+    @Path("/{id : \\d+}")
     @Consumes(APPLICATION_JSON)
     @Produces(APPLICATION_JSON)
     @ApiOperation(value = "Update a Book", response = Book.class)
@@ -114,7 +116,7 @@ public class BookResource {
         @ApiResponse(code = 200, message = "The book is updated"),
         @ApiResponse(code = 400, message = "Invalid input")
     })
-    public Response update(@ApiParam(value = "Book to be created", required = true) Book book) {
+    public Response update(@PathParam("id") final Long id, @ApiParam(value = "Book to be updated", required = true) Book book) {
         log.info("Updating the book " + book);
         return ok(bookRepository.update(book)).build();
     }

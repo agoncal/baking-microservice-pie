@@ -53,11 +53,9 @@ public class BookResourceTest {
     public static WebArchive webApp() {
         return ShrinkWrap.create(WebArchive.class)
                          .addPackages(true, "org.bakingpie.book")
+                         .addAsWebInfResource("META-INF/beans.xml")
                          .addAsResource("META-INF/persistence.xml")
                          .addAsResource("sql/load.sql")
-                         .addAsLibraries(resolver().loadPomFromFile("pom.xml")
-                                                   .resolve("io.swagger:swagger-jaxrs")
-                                                   .withTransitivity().asFile())
             ;
     }
 
