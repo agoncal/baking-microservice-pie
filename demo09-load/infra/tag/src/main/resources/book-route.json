@@ -1,0 +1,19 @@
+{
+  "name": "books",
+  "modRewrite": "RewriteCond %{REQUEST_METHOD} POST [OR]\nRewriteCond %{REQUEST_METHOD} PUT [OR]\nRewriteCond %{REQUEST_METHOD} DELETE\nRewriteRule \"^/books(.*)$\" \"%{ENV:BOOK_API_HOST}:%{ENV:BOOK_API_PORT}/book-api/api/books$1\" [P,A]\n\nRewriteRule \"^/books(.*)$\" \"%{ENV:BOOK_API_HOST}:%{ENV:BOOK_API_PORT}/book-api/api/books$1\" [P]",
+  "profileRequiresAll": false,
+  "profiles": [
+    {
+      "id": "books",
+      "name": "books",
+      "displayName": "books"
+    },
+    {
+      "id": "basic-auth-profile",
+      "name": "Basic Auth Profile",
+      "description": "Basic Auth Profile"
+    }
+  ],
+  "index": 0,
+  "roleRequiresAll": true
+}

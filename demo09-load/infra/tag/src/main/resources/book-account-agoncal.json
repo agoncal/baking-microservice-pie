@@ -1,0 +1,12 @@
+{
+  "username": "agoncal",
+  "email": "agoncal@book.com",
+  "displayName": "Antonio Goncalves",
+  "credentials": {
+    "password": {
+      "active": true,
+      "value": "12345678",
+      "createdDate": "2018-04-29T20:22:01Z"
+    }
+  }
+}
