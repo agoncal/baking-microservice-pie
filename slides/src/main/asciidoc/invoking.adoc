@@ -16,6 +16,7 @@ image::invoking-architecture.png[]
 
 == Invoke Microservices
 
+[%step]
 * Microservices need to talk to each other
 * Synchronously / Asynchronously
 * REST / Messaging / Reactive

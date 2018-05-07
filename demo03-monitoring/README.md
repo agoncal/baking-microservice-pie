@@ -46,7 +46,7 @@ The services are available at:
 * `http://localhost:8084/number-api/api/`
 
 The client is available at:
-* `http://localhost:8080`**
+* `http://localhost:8080`
 
 Kibana:
 * `http://localhost:5601/`

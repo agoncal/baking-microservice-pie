@@ -29,23 +29,6 @@
           }
         }
       }
-    },
-    "/numbers/health" : {
-      "get" : {
-        "tags" : [ "numbers" ],
-        "summary" : "Checks the health of this REST endpoint",
-        "description" : "",
-        "operationId" : "health",
-        "produces" : [ "text/plain" ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
     }
   }
 }

@@ -63,38 +63,6 @@
         }
       }
     },
-    "/books/health" : {
-      "get" : {
-        "tags" : [ "books" ],
-        "summary" : "Checks the health of this REST endpoint",
-        "description" : "",
-        "operationId" : "health",
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
-    "/books/number" : {
-      "get" : {
-        "tags" : [ "books" ],
-        "summary" : "Wraps the Number API to retrive a Book Number",
-        "description" : "",
-        "operationId" : "number",
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
     "/books/{id}" : {
       "get" : {
         "tags" : [ "books" ],
