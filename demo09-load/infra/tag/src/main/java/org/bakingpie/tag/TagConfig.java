@@ -43,6 +43,8 @@ public class TagConfig {
         account("radcortez");
         account("goku");
         account("vegeta");
+        api();
+        loadBalancer();
         route();
     }
 
@@ -159,6 +161,32 @@ public class TagConfig {
 
         webClient.reset()
                  .path("/account/")
+                 .header(HttpHeaders.AUTHORIZATION, generateBasicAuth())
+                 .type(MediaType.APPLICATION_JSON_TYPE)
+                 .accept(MediaType.APPLICATION_JSON_TYPE)
+                 .post(object);
+    }
+
+    private void api() throws Exception {
+        final URL resource = TagConfig.class.getClassLoader().getResource("book-api.json");
+        final JsonReader reader = Json.createReader(resource.openStream());
+        final JsonObject object = reader.readObject();
+
+        webClient.reset()
+                 .path("/http/")
+                 .header(HttpHeaders.AUTHORIZATION, generateBasicAuth())
+                 .type(MediaType.APPLICATION_JSON_TYPE)
+                 .accept(MediaType.APPLICATION_JSON_TYPE)
+                 .post(object);
+    }
+
+    private void loadBalancer() throws Exception {
+        final URL resource = TagConfig.class.getClassLoader().getResource("book-api.json");
+        final JsonReader reader = Json.createReader(resource.openStream());
+        final JsonObject object = reader.readObject();
+
+        webClient.reset()
+                 .path("/http/books")
                  .header(HttpHeaders.AUTHORIZATION, generateBasicAuth())
                  .type(MediaType.APPLICATION_JSON_TYPE)
                  .accept(MediaType.APPLICATION_JSON_TYPE)

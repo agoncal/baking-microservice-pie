@@ -1,0 +1,4 @@
+{
+  "name": "books",
+  "endpoint": "http://pi-grom-load-balancer:8081"
+}
