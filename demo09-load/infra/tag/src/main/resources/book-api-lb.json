@@ -1,22 +1,61 @@
 {
-  "endpoint": "http://pi-grom-load-balancer:8081",
+  "id": "books",
+  "name": "books",
+  "configuration": {
+    "id": "books",
+    "signature": [],
+    "name": "books",
+    "header": [],
+    "oauth2": [],
+    "basic": []
+  },
   "isLoadBalancing": true,
+  "pool": {
+    "maxThreadsCount": 256,
+    "maxRequestRetry": 3,
+    "enabledProtocols": [
+      "ALL"
+    ],
+    "sslSessionCacheSize": 0,
+    "handshakeTimeout": "10 seconds",
+    "acceptAnyCertificate": false,
+    "enabledCipherSuites": [
+      "ALL"
+    ],
+    "sslSessionCacheTimeout": "1 minute",
+    "readTimeout": "5 seconds",
+    "followRedirect": false,
+    "name": "books",
+    "connectTimeout": "5 seconds",
+    "strict302Handling": false,
+    "id": "books",
+    "maxConnectionsPerHost": 200,
+    "compressionEnforced": false,
+    "requestTimeout": "12 hours",
+    "idleConnectionInPoolTimeout": "1 minute",
+    "maxConnections": 200,
+    "maxRedirects": 5
+  },
+
   "hostGroup": {
+    "maxTries": 5,
     "hosts": [
       {
-        "weight": 1,
-        "health": -1,
+        "endpoint": "http://pi-grom-load-balancer:8081",
+        "lastSeen": "1969-12-31T23:59:59Z",
         "active": true,
-        "endpoint": "http://pi-grom-load-balancer:8081"
+        "weight": 1,
+        "health": -1
       },
       {
-        "weight": 1,
-        "health": -1,
+        "endpoint": "http://pi-thrall-load-balancer:8081",
+        "lastSeen": "1969-12-31T23:59:59Z",
         "active": true,
-        "endpoint": "http://pi-thrall-load-balancer:8081"
+        "weight": 1,
+        "health": -1
       }
     ],
-    "strategy": "ROUND_ROBIN",
-    "maxTries": 5
-  }
+    "strategy": "ROUND_ROBIN"
+  },
+  "tags": []
 }

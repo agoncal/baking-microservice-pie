@@ -139,6 +139,11 @@ public class TagConfig {
                  .path("/route/books")
                  .header(HttpHeaders.AUTHORIZATION, generateBasicAuth())
                  .delete();
+
+        webClient.reset()
+                 .path("/http/books")
+                 .header(HttpHeaders.AUTHORIZATION, generateBasicAuth())
+                 .delete();
     }
 
     private void oauth2() throws Exception {
