@@ -24,7 +24,7 @@ image::basic-architecture.png[]
 == What is MicroProfile?
 
 [%step]
-* Comes from Java EE (EE4J)
+* Comes from Java EE (Jakarta EE)
 * JAX-RS + CDI + JSON-P
 * Extensions
 ** Configuration
