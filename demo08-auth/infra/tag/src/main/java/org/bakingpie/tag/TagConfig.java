@@ -1,9 +1,14 @@
 package org.bakingpie.tag;
 
+import com.orbitz.consul.AgentClient;
+import com.orbitz.consul.Consul;
+import com.orbitz.consul.model.agent.ImmutableRegistration;
 import org.apache.cxf.feature.LoggingFeature;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
@@ -16,25 +21,54 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URL;
 import java.util.Base64;
+import java.util.Optional;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
+import static com.orbitz.consul.model.agent.Registration.RegCheck.http;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 
 @Startup
 @Singleton
 public class TagConfig {
+    private static final Logger log = LoggerFactory.getLogger(TagConfig.class);
+    private static final String TAG_NAME = "CONSUL_TAG";
+
     private WebClient webClient;
 
     @PostConstruct
     private void config() throws Exception {
         System.out.println("Setting TAG Config");
+
         final Config config = ConfigProvider.getConfig();
-        final String tagHost = config.getOptionalValue("TAG_HOST", String.class).orElse("http://localhost:8080");
+        final String tagHost = config.getOptionalValue("TAG_HOST", String.class).orElse("http://localhost");
+        final Integer tagPort = config.getOptionalValue("TAG_PORT", Integer.class).orElse(8080);
+        final String tagAddress = tagHost + ":" + tagPort;
+
+        final Optional<String> consulHost = config.getOptionalValue("CONSUL_HOST", String.class);
+        final Optional<Integer> consulPort = config.getOptionalValue("CONSUL_PORT", Integer.class);
+
+        if (consulHost.isPresent() && consulPort.isPresent()) {
+            final Consul consul = Consul.builder().withUrl(consulHost.get() + ":" + consulPort.get()).build();
+            final AgentClient agentClient = consul.agentClient();
+
+            final ImmutableRegistration registration =
+                    ImmutableRegistration.builder()
+                                         .id(UUID.randomUUID().toString())
+                                         .name(TAG_NAME)
+                                         .address(tagHost)
+                                         .port(tagPort)
+                                         .check(http(tagAddress + "/tag/login", 5))
+                                         .build();
+            agentClient.register(registration);
+
+            log.info(TAG_NAME + " is registered in consul on " + tagHost + ":" + tagPort);
+        }
 
         final LoggingFeature loggingFeature = new LoggingFeature();
         loggingFeature.setPrettyLogging(true);
-        webClient = WebClient.create(tagHost + "/tag/api", emptyList(), singletonList(loggingFeature), null);
+        webClient = WebClient.create(tagAddress + "/tag/api", emptyList(), singletonList(loggingFeature), null);
 
         waitForTag(0);
         clean();

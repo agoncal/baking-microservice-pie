@@ -120,6 +120,16 @@
 
     <!-- Other Dependencies -->
     <dependency>
+      <groupId>com.orbitz.consul</groupId>
+      <artifactId>consul-client</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jdk14</artifactId>
+    </dependency>
+
+    <dependency>
       <groupId>org.apache.geronimo.config</groupId>
       <artifactId>geronimo-config-impl</artifactId>
     </dependency>

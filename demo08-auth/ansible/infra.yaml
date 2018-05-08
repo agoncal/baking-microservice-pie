@@ -29,6 +29,7 @@
       image: tomitribe/tribestream-api-gateway-rpi
       state: started
       restart: yes
+      recreate: yes
       pull: true
       ports:
         - 9000:8080
@@ -47,5 +48,8 @@
       restart: yes
       pull: true
       env:
-        TAG_HOST: http://pi-thrall-database:9000
+        TAG_HOST: http://pi-thrall-database
+        TAG_PORT: 9000
+        CONSUL_HOST: http://pi-grom-database
+        CONSUL_PORT: 8500
     when: inventory_hostname == "pi-grom-database"
