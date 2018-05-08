@@ -1,8 +1,6 @@
 {
   "endpoint": "http://pi-grom-load-balancer:8081",
   "isLoadBalancing": true,
-  "name": "books",
-  "id": "books",
   "hostGroup": {
     "hosts": [
       {

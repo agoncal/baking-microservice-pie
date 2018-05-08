@@ -181,7 +181,7 @@ public class TagConfig {
     }
 
     private void loadBalancer() throws Exception {
-        final URL resource = TagConfig.class.getClassLoader().getResource("book-api.json");
+        final URL resource = TagConfig.class.getClassLoader().getResource("book-api-lb.json");
         final JsonReader reader = Json.createReader(resource.openStream());
         final JsonObject object = reader.readObject();
 
