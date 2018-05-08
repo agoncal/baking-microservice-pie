@@ -79,21 +79,28 @@ include::{demo02numberapidir}/src/main/webapp/swagger.json[]
 $ swagger-codegen generate -i swagger.json -l java --library feign
 ----
 
-== The Generated Java Code
+== The Generated Java Interface
 
 [source,java]
 ----
 include::{demo02bookapidir}/src/main/java/org/bakingpie/book/client/api/NumbersApi.java[tags=adocSnippet]
 ----
 
-== The Generated Java Code
+== The Generated Java Feign Client
 
 [source,java]
 ----
 include::{demo02bookapidir}/src/main/java/org/bakingpie/book/client/ApiClient.java[tags=adocSnippet;!adocSkip]
 ----
 
-== Invoking the Number API with Feign
+== Producing the Feign Client
+
+[source,java]
+----
+include::{demo02bookapidir}/src/main/java/org/bakingpie/book/client/api/NumbersApiProducer.java[tags=adocSnippet]
+----
+
+== Invoking the Number API with Feign Client
 
 [source,java,indent=0]
 ----
