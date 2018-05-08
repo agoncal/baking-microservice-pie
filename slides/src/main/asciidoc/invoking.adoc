@@ -97,7 +97,7 @@ include::{demo02bookapidir}/src/main/java/org/bakingpie/book/client/ApiClient.ja
 
 [source,java,indent=0]
 ----
-include::{demo02bookapidir}/src/main/java/org/bakingpie/book/rest/BookResource.java[tags=adocCall]
+include::{demo02bookapidir}/src/main/java/org/bakingpie/book/rest/BookResource.java[tags=adocCall;adocInject;!adocSkip]
 ----
 
 == Demo (Local)

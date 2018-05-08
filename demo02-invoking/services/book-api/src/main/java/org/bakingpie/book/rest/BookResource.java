@@ -51,6 +51,7 @@ import static javax.ws.rs.core.Response.status;
 
 @ApplicationScoped
 // tag::adocSnippet[]
+// tag::adocInject[]
 @Path("books")
 @Api(value = "books", description = "Operations for Books.")
 public class BookResource {
@@ -61,6 +62,7 @@ public class BookResource {
     // end::adocSkip[]
     @Inject
     private NumbersApi numbersApi;
+    // end::adocInject[]
 
     @Inject
     private BookRepository bookRepository;
@@ -109,6 +111,7 @@ public class BookResource {
     })
     // end::adocSkip[]
     // tag::adocSnippet[]
+    // tag::adocCall[]
     public Response create(@ApiParam(value = "Book to be created", required = true) Book book, @Context UriInfo uriInfo) {
         // tag::adocSkip[]
         log.info("Creating the book " + book);
@@ -116,7 +119,6 @@ public class BookResource {
         log.info("Invoking the number-api");
         // end::adocSkip[]
 
-        // tag::adocCall[]
         String isbn = numbersApi.generateBookNumber();
         book.setIsbn(isbn);
         // end::adocCall[]
