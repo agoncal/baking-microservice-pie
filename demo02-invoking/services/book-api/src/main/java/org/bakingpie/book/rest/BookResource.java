@@ -62,8 +62,8 @@ public class BookResource {
     // end::adocSkip[]
     @Inject
     private NumbersApi numbersApi;
-    // end::adocInject[]
 
+    // end::adocInject[]
     @Inject
     private BookRepository bookRepository;
 
