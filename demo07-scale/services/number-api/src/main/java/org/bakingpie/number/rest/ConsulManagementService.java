@@ -61,13 +61,14 @@ public class ConsulManagementService {
         agentClient = consul.agentClient();
 
         // tag::adocSnippet[]
-        final ImmutableRegistration registration = ImmutableRegistration.builder()
-            .id(UUID.randomUUID().toString())
-            .name(NUMBER_API_NAME)
-            .address(numberApiHost)
-            .port(numberApiPort)
-            .check(http(numberApiHost + ":" + numberApiPort + "/number-api/api/numbers/health", 5))
-            .build();
+        final ImmutableRegistration registration =
+            ImmutableRegistration.builder()
+                                 .id(UUID.randomUUID().toString())
+                                 .name(NUMBER_API_NAME)
+                                 .address(numberApiHost)
+                                 .port(numberApiPort)
+                                 .check(http(numberApiHost + ":" + numberApiPort + "/number-api/api/numbers/health", 5))
+                                 .build();
         agentClient.register(registration);
         // end::adocSnippet[]
 

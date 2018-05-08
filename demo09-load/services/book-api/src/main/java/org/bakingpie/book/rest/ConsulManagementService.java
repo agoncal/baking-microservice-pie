@@ -39,6 +39,7 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import java.net.URI;
 import java.util.List;
+import java.util.UUID;
 
 import static com.netflix.client.ClientFactory.registerNamedLoadBalancerFromclientConfig;
 import static com.netflix.client.config.CommonClientConfigKey.NFLoadBalancerClassName;
@@ -79,7 +80,7 @@ public class ConsulManagementService {
 
         final ImmutableRegistration registration =
             ImmutableRegistration.builder()
-                                 .id("book-api")
+                                 .id(UUID.randomUUID().toString())
                                  .name(BOOK_API_NAME)
                                  .address(bookApiHost)
                                  .port(bookApiPort)
