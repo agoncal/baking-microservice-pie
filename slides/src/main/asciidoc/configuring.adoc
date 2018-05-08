@@ -49,7 +49,7 @@ image::configuring-architecture.png[]
 include::{demo04bookapidir}/src/main/java/org/bakingpie/book/client/ApiClient.java[tags=adocSnippet]
 ----
 
-== Docker-compose
+== Docker-compose Env Variable
 
 [source,yaml]
 ----

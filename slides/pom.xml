@@ -139,6 +139,7 @@
                                 <sourcedir>${basedir}/..</sourcedir>
                                 <revealjs_theme>beige</revealjs_theme>
                                 <revealjs_transition>slide</revealjs_transition>
+                                <revealjs_slideNumber>true</revealjs_slideNumber>
                                 <project-version>${project.version}</project-version>
                             </attributes>
                         </configuration>
