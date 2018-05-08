@@ -31,6 +31,7 @@ image::basic-architecture.png[]
 ** Security
 ** Health Check
 ** Fault tolerance
+** Metrics
 
 == Number API
 
