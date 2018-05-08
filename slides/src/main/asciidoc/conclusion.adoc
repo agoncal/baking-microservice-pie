@@ -37,10 +37,6 @@ image::quote-cb2.png[]
 
 == What do the others think?
 
-image::quote-jb.png[]
-
-== What do the others think?
-
 image::quote-pb.png[]
 
 == What do the others think?
@@ -71,7 +67,7 @@ image::quote-ak.png[]
 
 == Thank you
 
-image::thankyou.jpg[]
+image::thankyou.jpg[height=575]
 
 == Thanks for the Pis !
 
@@ -83,7 +79,7 @@ image::Voxxed_Days_Microservices.png[]
 
 == Q & A
 
-image::question.jpg[]
+image::question.jpg[height=575]
 
 == Keeping in touch
 

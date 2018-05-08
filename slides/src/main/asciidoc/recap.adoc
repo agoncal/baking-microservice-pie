@@ -16,19 +16,19 @@ image::invoking-architecture.png[]
 
 == We don't see anything so we add monitoring
 
-image::monitoring-architecture.png[]
+image::monitoring-architecture.png[height=575]
 
 == We need to configure different environments
 
-image::configuring-architecture.png[]
+image::configuring-architecture.png[height=575]
 
 == To avoid hard coded IP addresses, we introduce a registry
 
-image::registry-architecture.png[]
+image::registry-architecture.png[height=575]
 
 == To avoid failure, we introduce a circuit breaker
 
-image::circuit-architecture.png[]
+image::circuit-architecture.png[height=575]
 
 == To scale we add more instances and need a client load-balancer
 
