@@ -10,7 +10,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 == Architecture
 
-image::monitoring-architecture.png[]
+image::monitoring-architecture.png[height=575]
 
 == Central Monitoring
 
@@ -79,7 +79,7 @@ include::{demo03dir}/docker-compose.yml[]
 
 == Demo
 
-image::monitoring-architecture.png[]
+image::monitoring-architecture.png[height=575]
 
 == What's next ?
 

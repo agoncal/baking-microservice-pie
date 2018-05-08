@@ -127,6 +127,7 @@ public class ConsulManagementService {
 
         @Override
         public List<Server> getInitialListOfServers() {
+            // tag::adocListOfServers[]
             final HealthClient healthClient = consul.healthClient();
             final List<ServiceHealth> nodes =
                 healthClient.getHealthyServiceInstances("CONSUL_NUMBER_API").getResponse();
@@ -135,6 +136,7 @@ public class ConsulManagementService {
                                                   URI.create(serviceHealth.getService().getAddress()).getHost(),
                                                   serviceHealth.getService().getPort()))
                                               .collect(toList());
+            // end::adocListOfServers[]
             log.info("Updating Load Balancers servers: " + servers.stream().map(Server::getId).collect(joining(",")));
             return servers;
         }

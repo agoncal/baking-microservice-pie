@@ -54,9 +54,12 @@ include::{demo07numberapidir}/src/main/java/org/bakingpie/number/rest/ConsulMana
 include::{demo07bookapidir}/src/main/java/org/bakingpie/book/rest/ConsulManagementService.java[tags=adocSnippet]
 ----
 
-== Book API Registers the Ribbon Load-balancer /!\ TODO /!\
+== Book API Gets The Registered Instances
 
-// TODO getInitialListOfservers
+[source,java,indent=0]
+----
+include::{demo07bookapidir}/src/main/java/org/bakingpie/book/rest/ConsulManagementService.java[tags=adocListOfServers]
+----
 
 == Book API Load-balances with Feign
 

@@ -10,7 +10,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 == Architecture
 
-image::circuit-architecture.png[]
+image::circuit-architecture.png[height=575]
 
 == Circuit Breaker
 
@@ -70,7 +70,7 @@ public NumbersApi buildNumberApiClient() {
 
 == Demo
 
-image::circuit-architecture.png[]
+image::circuit-architecture.png[height=575]
 
 == What's next ?
 

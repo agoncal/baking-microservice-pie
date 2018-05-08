@@ -9,7 +9,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 == Architecture
 
-image::configuring-architecture.png[]
+image::configuring-architecture.png[height=575]
 
 == Code Configuration
 
@@ -68,7 +68,7 @@ docker_container:
 
 == Demo
 
-image::configuring-architecture.png[]
+image::configuring-architecture.png[height=575]
 
 == What's next ?
 

@@ -10,7 +10,7 @@ ifndef::imagesdir[:imagesdir: images]
 
 == Architecture
 
-image::registry-architecture.png[]
+image::registry-architecture.png[height=575]
 
 == Service registration and discovery
 
@@ -63,7 +63,7 @@ image::consul.png[]
 
 == Demo
 
-image::registry-architecture.png[]
+image::registry-architecture.png[height=575]
 
 == What's next ?
 
