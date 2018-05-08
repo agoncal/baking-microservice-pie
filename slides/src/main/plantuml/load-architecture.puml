@@ -1,11 +1,11 @@
 @startuml
 
 node "pi-client-02" as piclient2 #grey {
-    artifact "Load APP" as load2 #white
+    artifact "Simulator APP" as load2 #white
 }
 
 node "pi-client-03" as piclient3 #grey {
-    artifact "Load APP" as load3 #white
+    artifact "Simulator APP" as load3 #white
 }
 
 node "pi-client-01" as piclient #grey {
