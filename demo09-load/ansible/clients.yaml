@@ -42,7 +42,7 @@
         SIMULATOR_HOST: http://{{inventory_hostname}}
         SIMULATOR_PORT: 9180
         CONSUL_HOST: http://pi-grom-database
-        CONSUL_POST: 8500
+        CONSUL_PORT: 8500
       ports:
        - "9180:9180"
       log_driver: gelf
