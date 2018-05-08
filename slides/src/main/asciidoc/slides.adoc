@@ -4,6 +4,7 @@ Antonio Goncalves and Roberto Cortez
 :example-caption!:
 ifndef::imagesdir[:imagesdir: images]
 :icons: font
+:linkattrs:
 // User defined directory
 :commonscorsdir: ../../../../commons/commons-cors
 :demo01dir: ../../../../demo01-basic

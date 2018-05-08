@@ -57,6 +57,7 @@ include::{demo01numberapidir}/src/main/java/org/bakingpie/number/rest/NumberReso
 * Modular
 * Small fractions
 * Executable Jar
+* Now known as Thorntail
 
 == Angular app
 
@@ -194,10 +195,7 @@ $ mvn clean install docker:build docker:push
 
 == Docker registry
 
-[source,shell]
-----
-http://docker-registry:5000/v2/_catalog
-----
+http://docker-registry:5000/v2/_catalog[http://docker-registry:5000/v2/_catalog, window="_blank"]
 
 == Ansible
 
