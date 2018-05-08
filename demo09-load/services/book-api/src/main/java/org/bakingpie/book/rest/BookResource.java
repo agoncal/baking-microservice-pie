@@ -155,4 +155,12 @@ public class BookResource {
         log.info("Alive and Kicking !!!");
         return Response.ok().build();
     }
+
+    @GET
+    @Path("number")
+    @ApiOperation(value = "Wraps the Number API to retrive a Book Number", response = String.class)
+    public Response number() {
+        log.info("Invoking the number-api");
+        return Response.ok(numbersApi.generateBookNumber()).build();
+    }
 }
