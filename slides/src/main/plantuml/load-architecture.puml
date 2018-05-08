@@ -8,10 +8,6 @@ node "pi-client-03" as piclient3 #grey {
     artifact "Load APP" as load3 #white
 }
 
-node "pi-client-04" as piclient4 #grey {
-    artifact "Load APP" as load4 #white
-}
-
 node "pi-client-01" as piclient #grey {
     artifact "Angular APP" <<NGINX>> as angular #white
 }
@@ -54,7 +50,6 @@ node "Mac" as mac {
 
 piclient2 --> gateway
 piclient3 --> gateway
-piclient4 --> gateway
 angular -> gateway
 gateway --> bookapi
 gateway --> bookapi2

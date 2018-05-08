@@ -49,6 +49,8 @@
     </dependencyManagement>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.tomee.maven</groupId>
@@ -70,11 +72,16 @@
     </build>
 
     <dependencies>
+        <!-- Java EE Dependencies -->
         <dependency>
             <groupId>org.apache.tomee</groupId>
             <artifactId>javaee-api</artifactId>
         </dependency>
-
+        <!-- Other Dependencies -->
+        <dependency>
+            <groupId>com.orbitz.consul</groupId>
+            <artifactId>consul-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
