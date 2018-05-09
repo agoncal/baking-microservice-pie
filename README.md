@@ -6,6 +6,10 @@ The idea of the talk and the code, is to slowly build an entire microservice arc
 
 Its genesis comes from the [Tomitribe](http://www.tomitribe.com/) talk: [Microprofile JCache](https://github.com/tomitribe/microprofile-jcache)
 
+## Slides
+
+To get the slides of this presentation, just generate them by doing a `mvn clean process-resources` under the `slides` directory. The slides will then be generated under `setup/target/generated-docs/slides.html`.
+
 ## Use cases
 
 ### Anonymous user
