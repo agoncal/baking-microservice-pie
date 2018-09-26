@@ -16,7 +16,7 @@ The Local Docker Registry runs like any other Docker Image:
 
 [source,bash]
 ----
-docker run -d -p 5000:5000 --restart=always --name docker-registry registry:2 --insecure-registry
+docker run -d -p 5000:5000 --restart=always --name docker-registry registry:2
 ----
 
 == Ping
