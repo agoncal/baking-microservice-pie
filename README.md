@@ -23,6 +23,8 @@ To get the slides of this presentation, just generate them by doing a `mvn clean
 
 ## Setup
 
-Instructions to set up the environments and run the demos can be found here:
+Instructions to set up the environments and run the demos can be found [here](setup/src/main/asciidoc/spine.adoc).
 
-[Setup](setup/src/main/asciidoc/spine.adoc)
+## Video
+
+You can watch us perform the demos and the presentation [here](https://youtu.be/iH4i2q-HSvI).
